@@ -83,3 +83,10 @@ def test_motion_inks_reveal_blocks():
     m = re.search(r"querySelectorAll\('([^']*)'\)", js)
     assert m and ".reveal" in m.group(1), \
         "motion.js must ink .reveal blocks (chapter numerals, headings), not just .fig/[data-ink]"
+
+def test_lineage_and_legal(tmp_path):
+    B.render(tmp_path)
+    l = io.open(tmp_path / "lineage" / "index.html", encoding="utf-8").read()
+    assert "published as Groundwork" in l
+    g = io.open(tmp_path / "legal" / "index.html", encoding="utf-8").read()
+    assert "<h1>" in g

@@ -216,6 +216,11 @@ def run(gw, out):
         if slug == "platform": inner = _add_platform_note(inner)
         inner = _fix_headings(inner)
         if slug in ("platform", "console"): inner = _apply_prose_fixes(inner)
+        if slug == "lineage":
+            era = ('<p class="prov">Provenance. From August 2026 to September 2026 this program was published as Groundwork, '
+                   'arranged as six standing orders producing fifteen documents. The AI Playbook keeps every document and every '
+                   'drawing, arranged as four stages and ten sections. The old order pages redirect here, section by section.</p>')
+            inner = re.sub(r"(</header>)", r"\1" + era, inner, count=1) if "</header>" in inner else era + inner
         _write(out / "content" / "pages" / (slug + ".html"), inner)
         counts["pages"] += 1
     return counts
