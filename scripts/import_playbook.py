@@ -132,8 +132,12 @@ def _canonical_plate(fig_html):
     num_m = re.search(r"Fig\.\s*(\d+)", fig_html)
     num = num_m.group(1).zfill(2) if num_m else None
 
-    label_m = re.search(r'<span class="plate-label">.*?</span>', fig_html, re.S)
-    label = label_m.group(0) if label_m else ""
+    # Site convention is uppercase "PLATE NN . INK" (the four redrawn plates already say
+    # "PLATE 00 . TERRA"); the source's imported labels arrive lowercase ("Plate 01 . olive"),
+    # so uppercase only the label span's own text here -- the caption text right after is
+    # untouched.
+    label_m = re.search(r'(<span class="plate-label">)(.*?)(</span>)', fig_html, re.S)
+    label = (label_m.group(1) + label_m.group(2).upper() + label_m.group(3)) if label_m else ""
 
     svg_m = re.search(r"<svg\b[^>]*>.*?</svg>", fig_html, re.S)
     svg = svg_m.group(0) if svg_m else ""

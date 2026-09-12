@@ -30,7 +30,8 @@ def _assert_canonical_plates(text, where):
     class="fig plate" figure per <figure> found, no leftover source markup (svg still
     carrying class="fig", the old class="figure" wrapper, the div.plate wrapper, or the
     "btn replay" button class), and every figure carries a figcaption/fignum and a Replay
-    button in the new class="replay" form."""
+    button in the new class="replay" form. The site convention is an uppercase
+    "PLATE NN . INK" label -- every plate-label span's text must equal its own upper() form."""
     fig_opens = re.findall(r"<figure\b[^>]*>", text)
     assert len(fig_opens) == text.count('class="fig plate"'), where
     assert not re.search(r'<svg[^>]*class="[^"]*\bfig\b', text), where
@@ -40,6 +41,8 @@ def _assert_canonical_plates(text, where):
     for fig in FIG_BLOCK_RE.findall(text):
         assert "<figcaption" in fig and 'class="fignum"' in fig, where
         assert '<button class="replay"' in fig, where
+    for m in re.finditer(r'<span class="plate-label">(.*?)</span>', text, re.S):
+        assert m.group(1) == m.group(1).upper(), (where, m.group(1))
 
 
 def test_plates_and_embedded_figures_are_canonical(tmp_path):
@@ -50,3 +53,23 @@ def test_plates_and_embedded_figures_are_canonical(tmp_path):
         _assert_canonical_plates(io.open(p, encoding="utf-8").read(), str(p))
     for p in sorted((tmp_path / "content" / "front").glob("ch-*.html")):
         _assert_canonical_plates(io.open(p, encoding="utf-8").read(), str(p))
+
+
+def test_import_never_overwrites_redraw_owned_plates(tmp_path):
+    """00, 02, 14, and 15 belong to scripts/redraw_plates.py; the importer must skip writing
+    them no matter what's already on disk, since the real build always runs the import before
+    the redraw. Pre-seed sentinel content for two of them (fig-00, fig-14) and confirm both
+    survive untouched, while an unowned number (fig-01) still gets written for real."""
+    plates_dir = tmp_path / "content" / "plates"
+    plates_dir.mkdir(parents=True)
+    sentinel_00 = "SENTINEL-FIG-00-OWNED-BY-REDRAW"
+    sentinel_14 = "SENTINEL-FIG-14-OWNED-BY-REDRAW"
+    io.open(plates_dir / "fig-00.html", "w", encoding="utf-8").write(sentinel_00)
+    io.open(plates_dir / "fig-14.html", "w", encoding="utf-8").write(sentinel_14)
+
+    I.run(ROOT / "import" / "playbook-v2", tmp_path)
+
+    assert io.open(plates_dir / "fig-00.html", encoding="utf-8").read() == sentinel_00
+    assert io.open(plates_dir / "fig-14.html", encoding="utf-8").read() == sentinel_14
+    fig01 = io.open(plates_dir / "fig-01.html", encoding="utf-8").read()
+    assert sentinel_00 not in fig01 and sentinel_14 not in fig01 and 'class="fig plate"' in fig01
