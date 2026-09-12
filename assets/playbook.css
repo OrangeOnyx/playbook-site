@@ -17,3 +17,10 @@ html[data-lane="business"] .lanes .lane-business{order:-1}
 .imprint{border-top:1px solid var(--rule);margin:4rem auto 2rem;max-width:72rem;padding:1rem 1.25rem;font-size:.9rem;color:var(--ink-soft)}
 .fig .s.mus{stroke:var(--mustard-deep)} .fig .t.mus{fill:var(--mustard-deep)}
 .fig .s.oli{stroke:var(--olive-deep)} .fig .t.oli{fill:var(--olive-deep)}
+/* ---- radar quiz (readiness radar and any future self-scored fieldset) ---- */
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+.btn.ghost:hover{background:var(--paper-deep)}
+fieldset.q{border:1px solid var(--rule);padding:.7rem .9rem;margin:0 0 .7rem}
+fieldset.q legend{font-size:.92rem;padding:0 .4rem;color:var(--ink)}
+.opts{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.3rem;font-family:'Courier Prime',monospace;font-size:.85rem;color:var(--ink-soft)}
+.opts label{display:inline-flex;align-items:center;gap:.3rem;cursor:pointer}

@@ -48,3 +48,8 @@ def test_section_pages(tmp_path):
     k = io.open(tmp_path / "1-starter" / "1-1-know-me" / "index.html", encoding="utf-8").read()
     assert 'href="/1-starter/1-2-learn-my-work/"' in k
     assert "<h3>Document 01: Identity Charter</h3>" in k
+
+def test_radar(tmp_path):
+    B.render(tmp_path)
+    s = io.open(tmp_path / "radar" / "index.html", encoding="utf-8").read()
+    assert s.count('<fieldset class="q"') == 18 and 'id="radar-svg"' in s and "radar.js" in s

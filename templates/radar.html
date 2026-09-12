@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block ladder %}{% endblock %}
+{% block main %}
+{% set dims = [
+ ("Context", ["AI receives your role, audience, and priorities without re-explaining", "Negative constraints (never do) are written down", "A fresh session behaves recognizably like working with you"]),
+ ("Truth", ["Key sources have owners, dates, and status", "Conflicts between sources have a resolution rule", "You can tell when AI uses a stale source, and correct it"]),
+ ("Memory", ["Decisions are recorded with reasons and sources", "Superseded facts are preserved as history, not silently overwritten", "A fresh session can recover current project state"]),
+ ("Workflow", ["At least one recurring workflow has a written procedure", "Acceptance criteria exist for its output", "Review effort for AI output is known and bounded"]),
+ ("Governance", ["Permitted, approval-required, and prohibited actions are explicit", "Boundaries are enforced by real permissions or a human gate", "A stop or revoke procedure exists and has been tried"]),
+ ("Operations", ["Real uses are logged with outcomes", "Review dates exist and are kept", "Baseline versus current effort is measured"]) ] %}
+<header class="page pagehead"><span class="kicker">READINESS RADAR · TEN MINUTES · SCORED AGAIN AT EVERY GATE</span><h1>Where you are, on six axes.</h1>
+<p class="lede">Score each indicator 0 (absent) to 4 (operating reliably under test). Your first save is your baseline; every later save draws over it. Self-report until interview evidence confirms it. A mirror, not a rank.</p></header>
+<div class="grid2">
+<form id="radar-form">
+{% for name, inds in dims %}{% set dk = loop.index0 %}<h2>{{ name }}</h2>
+{% for ind in inds %}{% set ik = loop.index0 %}<fieldset class="q" data-dim="{{ dk }}"><legend>{{ ind }}</legend>
+<div class="opts">{% for v in range(5) %}<label><input type="radio" name="d{{ dk }}-{{ ik }}" value="{{ v }}"{% if v == 0 %} checked{% endif %}> {{ v }}</label>{% endfor %}</div></fieldset>{% endfor %}{% endfor %}
+<p><button type="button" class="btn" id="radar-save">Save this score</button> <button type="button" class="btn ghost" id="radar-reset">Reset baseline</button></p>
+</form>
+<figure class="fig plate ink" id="radar-plate"><span class="plate-label">PLATE R · TERRA</span>
+<svg id="radar-svg" viewBox="0 0 400 400" role="img" aria-label="Six-axis readiness radar with baseline and latest scores"></svg>
+<figcaption><span class="fignum">Fig. R</span><span id="radar-caption">No score saved yet.</span></figcaption></figure>
+</div>
+<p id="radar-constraint" class="prov"></p>
+<script src="/assets/radar.js" defer></script>
+{% endblock %}
