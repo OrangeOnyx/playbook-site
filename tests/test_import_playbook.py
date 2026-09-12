@@ -73,3 +73,31 @@ def test_import_never_overwrites_redraw_owned_plates(tmp_path):
     assert io.open(plates_dir / "fig-14.html", encoding="utf-8").read() == sentinel_14
     fig01 = io.open(plates_dir / "fig-01.html", encoding="utf-8").read()
     assert sentinel_00 not in fig01 and sentinel_14 not in fig01 and 'class="fig plate"' in fig01
+
+
+def test_run_clears_the_files_it_owns_and_spares_the_redrawn_plates(tmp_path):
+    stale = []
+    for rel in ("content/cards/s99.html", "content/front/ch-99.html",
+                "content/plates/fig-99.html", "content/plates/fig-c-3.html"):
+        p = tmp_path / rel
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text("<p>stale</p>", encoding="utf-8")
+        stale.append(p)
+    keep = []
+    for num in sorted(I.OWNED_BY_REDRAW):
+        p = tmp_path / "content" / "plates" / ("fig-%s.html" % num)
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text("<p>redrawn</p>", encoding="utf-8")
+        keep.append(p)
+    for rel in ("content/articles/identity.html", "content/docs/doc-01.html",
+                "content/front/gw-faq.html", "content/pages/lineage.html",
+                "content/examples/personal-ai-os.html", "content/generated/curriculum/read/index.html"):
+        p = tmp_path / rel
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text("<p>not mine</p>", encoding="utf-8")
+        keep.append(p)
+    I.run(ROOT / "import" / "playbook-v2", tmp_path)
+    for p in stale:
+        assert not p.exists(), p
+    for p in keep:
+        assert p.exists() and "stale" not in p.read_text(encoding="utf-8"), p

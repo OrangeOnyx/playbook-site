@@ -255,7 +255,32 @@ def import_css(src, out):
     return len(out_css)
 
 
+PLATE_NUM_RE = re.compile(r"^fig-(\d+)$")
+
+
+def _owned(out):
+    """Everything this importer writes, and nothing else. content/articles, docs, pages and
+    front/gw-* belong to import_groundwork.py; the four redrawn plates belong to
+    scripts/redraw_plates.py; content/examples and content/generated belong to no importer."""
+    c = out / "content"
+    files = sorted(c.glob("cards/*.html")) + sorted(c.glob("front/ch-*.html"))
+    for f in sorted(c.glob("plates/*.html")):
+        m = PLATE_NUM_RE.match(f.stem)
+        if m and m.group(1) in OWNED_BY_REDRAW:
+            continue
+        files.append(f)
+    return files
+
+
+def _clear_owned(out):
+    for f in _owned(out):
+        f.unlink()
+
+
 def run(src, out):
+    # Clear first, so a figure or a card the source no longer carries cannot survive a
+    # rerun as a file nothing regenerates.
+    _clear_owned(out)
     return {"cards": import_cards(src, out), "plates": import_plates(src, out),
             "chapters": import_chapters(src, out), "css_bytes": import_css(src, out)}
 
