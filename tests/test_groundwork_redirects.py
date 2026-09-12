@@ -20,11 +20,41 @@ def test_last_rule_is_the_catch_all():
     assert cfg["redirects"][-1]["source"] == "/(.*)"
 
 
-def test_every_rule_is_permanent():
+def test_rules_are_permanent_by_default():
     sp = S.load()
     cfg = GR.build(sp)
     for r in cfg["redirects"]:
         assert r["permanent"] is True
+
+
+def test_permanent_false_makes_every_rule_temporary():
+    # Step 1 of the retirement publishes 307s, which nothing caches permanently, so the
+    # flip can be walked and undone before it is promoted to 308.
+    sp = S.load()
+    cfg = GR.build(sp, permanent=False)
+    assert cfg["redirects"]
+    for r in cfg["redirects"]:
+        assert r["permanent"] is False
+
+
+def test_permanent_flag_parses_true_false_and_defaults_to_true():
+    assert GR.parse_args([]).permanent == "true"
+    assert GR.parse_args(["--permanent", "false"]).permanent == "false"
+    assert GR.parse_args(["--permanent", "true"]).permanent == "true"
+    with pytest.raises(SystemExit):
+        GR.parse_args(["--permanent", "maybe"])
+
+
+def test_check_rules_lists_every_literal_pair_and_no_catch_all():
+    sp = S.load()
+    rules = GR.build(sp)["redirects"]
+    checks = GR.check_rules(rules)
+    assert checks, "expected at least one literal rule"
+    assert len(checks) == len([r for r in rules if "(.*)" not in r["source"]])
+    for c in checks:
+        assert set(c) == {"source", "destination"}
+        assert "(.*)" not in c["source"] and "$1" not in c["destination"]
+        assert c["destination"].startswith(sp["domain"])
 
 
 def test_raises_when_a_catch_all_precedes_a_literal():
