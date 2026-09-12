@@ -99,3 +99,42 @@ def test_page_kickers_carry_no_old_numbering(tmp_path):
         for m in kicker.finditer(text):
             if bad.search(m.group(1)): hits.append((str(f), m.group(1)))
     assert not hits, hits
+
+
+class _FakeGit:
+    """Stand-in for the subprocess calls _assert_commit makes, so the guard can be driven
+    without a throwaway clone: the pin is an ancestor, HEAD matches the pin, and the
+    working tree is dirty in the guarded paths only when `dirty` says so."""
+    class CalledProcessError(Exception):
+        pass
+
+    def __init__(self, dirty):
+        self.dirty = dirty
+
+    def run(self, cmd, **kw):
+        class R: pass
+        r = R()
+        r.returncode = 1 if ("--quiet" in cmd and self.dirty) else 0
+        r.stderr = ""
+        return r
+
+    def check_output(self, cmd, **kw):
+        return "guide/identity.html\n" if "--name-only" in cmd else ""
+
+
+def test_assert_commit_accepts_a_clean_guarded_tree(monkeypatch):
+    monkeypatch.setattr(G, "subprocess", _FakeGit(dirty=False))
+    G._assert_commit(ROOT.parent / "groundwork-site")   # no raise
+
+
+def test_assert_commit_rejects_uncommitted_guarded_changes(monkeypatch):
+    monkeypatch.setattr(G, "subprocess", _FakeGit(dirty=True))
+    with pytest.raises(SystemExit) as e:
+        G._assert_commit(ROOT.parent / "groundwork-site")
+    assert "uncommitted changes" in str(e.value) and "guide/identity.html" in str(e.value)
+
+
+def test_assert_commit_ignores_dirt_outside_the_guarded_paths():
+    # The live sibling clone carries an unrelated dirty file (print/build-field-guide.ps1);
+    # the guard must not care.
+    G._assert_commit(ROOT.parent / "groundwork-site")

@@ -52,6 +52,20 @@ def _assert_commit(gw):
             "groundwork-site: source paths (%s) changed between %s and HEAD:\n%s"
             % (", ".join(GUARDED_PATHS), PINNED, diff)
         )
+    # HEAD is not the whole story: an uncommitted edit inside a guarded path would be
+    # imported here and then be unreproducible from any commit. Work outside the guarded
+    # paths (deploy tooling, print scripts, config) is none of this import's business.
+    if subprocess.run(
+        ["git", "-C", str(gw), "diff", "--quiet", "HEAD", "--"] + GUARDED_PATHS,
+        capture_output=True, text=True,
+    ).returncode != 0:
+        names = subprocess.check_output(
+            ["git", "-C", str(gw), "diff", "--name-only", "HEAD", "--"] + GUARDED_PATHS, text=True,
+        ).strip()
+        raise SystemExit(
+            "groundwork-site: uncommitted changes in the guarded source paths (%s):\n%s"
+            % (", ".join(GUARDED_PATHS), names)
+        )
 
 def _main_inner(html):
     m = re.search(r"<main[^>]*>(.*?)</main>", html, re.S)
