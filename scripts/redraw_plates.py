@@ -73,7 +73,7 @@ def fork(sp):
         b.append(C(x, 130, 4, i, "oli")); i += 1
         b.append(T(x, 45, "%d %s" % (st["number"], st["name"].upper()), i, "middle", "", 8)); i += 1
     b.append(T(400, 175, "ONE CHOICE AT INTAKE · TWO LANES · THE SAME FOUR STATIONS", i, "middle", "lt", 7))
-    return plate("10", "TERRA", "0 0 800 190", "".join(b), "The fork: one workflow chosen at Intake, two lanes through the same four stages")
+    return plate("14", "TERRA", "0 0 800 190", "".join(b), "The fork: one workflow chosen at Intake, two lanes through the same four stages")
 
 def track(sp):
     b, i = [], 0
@@ -87,11 +87,11 @@ def track(sp):
         b.append(S_("M%d 150v-8h-6v8M%d 150v-14h-6v14" % (x, x + 10), "mus", i, 1)); i += 1
         b.append(T(x, 35, "%d %s" % (st["number"], st["name"].upper()), i, "middle", "", 8)); i += 1
         b.append(T(x, 178, "%d.1  %d.2  ...  DEEPER" % (st["number"], st["number"]), i, "middle", "lt", 7)); i += 1
-    return plate("11", "MUSTARD", "0 0 800 190", "".join(b), "The parallel track: the Curriculum stops at the same four stations and goes deeper at each")
+    return plate("15", "MUSTARD", "0 0 800 190", "".join(b), "The parallel track: the Curriculum stops at the same four stations and goes deeper at each")
 
 def run(out):
     sp = S.load(); d = Path(out) / "content" / "plates"; d.mkdir(parents=True, exist_ok=True)
-    for num, html in (("02", ladder(sp)), ("00", cover(sp)), ("10", fork(sp)), ("11", track(sp))):
+    for num, html in (("02", ladder(sp)), ("00", cover(sp)), ("14", fork(sp)), ("15", track(sp))):
         io.open(d / ("fig-%s.html" % num), "w", encoding="utf-8", newline="\n").write(html)
 
 if __name__ == "__main__":
