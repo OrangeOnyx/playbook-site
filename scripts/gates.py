@@ -7,6 +7,7 @@ IDENTITY = re.compile(r"orange ocean|disbar", re.I)
 HEADLINE = re.compile(r"\b(Interview|Order|Layer|Phase|Level)\s+\d+\b|\bLayers?\b|\bPhases?\b")
 HEADLINE_TAGS = re.compile(r"<(h1|h2|h3|title|figcaption)[^>]*>(.*?)</\1>", re.S | re.I)
 NAV_LINKS = re.compile(r"<nav[^>]*>(.*?)</nav>", re.S | re.I)
+CONTENTS_LINKS = re.compile(r'<ol class="contents"[^>]*>(.*?)</ol>', re.S | re.I)
 ALLOW_COPY = ("curriculum/read/",)
 ALLOW_NUMBERING = ("lineage/", "curriculum/read/")
 
@@ -26,6 +27,9 @@ def check_text(html, path):
         for nav in NAV_LINKS.findall(html):
             for a in re.findall(r"<a[^>]*>(.*?)</a>", nav, re.S):
                 if HEADLINE.search(_strip(a)): out.append("%s: numbering in nav: %r" % (p, _strip(a).strip()))
+        for block in CONTENTS_LINKS.findall(html):
+            for a in re.findall(r"<a[^>]*>(.*?)</a>", block, re.S):
+                if HEADLINE.search(_strip(a)): out.append("%s: numbering in contents: %r" % (p, _strip(a).strip()))
         if HEADLINE.search(p.replace("-", " ")): out.append("%s: numbering in path" % p)
     return out
 

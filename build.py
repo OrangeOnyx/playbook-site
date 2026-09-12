@@ -4,16 +4,36 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from scripts import spine as S
+from scripts.build_reader import LEVEL_TO_STAGE
 
 ROOT = Path(__file__).resolve().parent
 env = Environment(loader=FileSystemLoader(str(ROOT / "templates")), autoescape=select_autoescape([]), trim_blocks=True, lstrip_blocks=True)
 
 READER_PREFIXES = {1: ("l1-",), 2: ("l2-",), 3: ("l3-", "l4-"), 4: ("l5-",)}
 READER_GROUP_ORDER = ["overview", "start-here", "individual", "company", "shared", "repos", "eli10"]
+READER_LEVEL_WORD = re.compile(r"\bLevel (\d+)\b")
+READER_MODULE_FOLDER = re.compile(r"^l\d+-(?:individual|company)-(.+)$")
 
 def partial(name):
     p = ROOT / "content" / name
     return io.open(p, encoding="utf-8").read() if p.exists() else ""
+
+def _reader_title(raw_title, stem):
+    """Sanitize a title pulled from a generated reader page before it is surfaced on a
+    non-allowlisted stage page: the reader's own <title> text is the repo's verbatim
+    voice (fine inside curriculum/read/, which is copy-gate allowlisted), but a bare
+    "README" heading or a literal "Level N" reference reads as a leak once it is quoted
+    on curriculum/<stage>/, so both are rewritten here."""
+    title = raw_title.strip()
+    if title == "README":
+        m = READER_MODULE_FOLDER.match(stem)
+        if m:
+            title = m.group(1).replace("-", " ").title()
+    title = title.replace("—", "-").replace("–", "-")  # this listing sits outside the reader's copy-gate allowlist
+    def _stage_label(m):
+        return "Stage %d" % LEVEL_TO_STAGE.get(int(m.group(1)), int(m.group(1)))
+    title = READER_LEVEL_WORD.sub(_stage_label, title)
+    return title
 
 def reader_modules(stage_number):
     """Scan the generated reader pages for the given stage's modules: [(title, href), ...]."""
@@ -33,7 +53,7 @@ def reader_modules(stage_number):
         html = io.open(f, encoding="utf-8").read()
         m = re.search(r"<title>(.*?)</title>", html, re.S)
         title = m.group(1).split(" | ")[0].strip() if m else f.stem
-        title = title.replace("—", "-").replace("–", "-")  # this listing sits outside the reader's copy-gate allowlist
+        title = _reader_title(title, f.stem)
         out.append((title, "/curriculum/read/" + f.name))
     return out
 

@@ -34,6 +34,11 @@ STAGE_SLUG = {s["number"]: s["slug"] for s in _sp["stages"]}
 LEVEL_DIRS = ["level-1-essentials", "level-2-intermediate", "level-3-advanced",
               "level-4-professional", "level-5-frontier"]
 LEVELS = [(lv, STAGE_OF[lv], STAGE_NAME[STAGE_OF[lv]]) for lv in LEVEL_DIRS]
+# Position (1..5, matches the l{n}- filename prefixes) -> stage number. The one place
+# this mapping is computed; build.py's reader_modules() imports it rather than
+# recomputing, so a "Level N" reference in surfaced copy always resolves to the same
+# stage as the page it names actually belongs to.
+LEVEL_TO_STAGE = {i: stage_num for i, (_, stage_num, _) in enumerate(LEVELS, start=1)}
 
 GH = "https://github.com/OrangeOnyx/groundwork-curriculum"
 BOOK = GH + "/releases/latest/download/Groundwork-Curriculum.pdf"
