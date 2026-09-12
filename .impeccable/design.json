@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-26T12:00:00-05:00",
+  "title": "Design System: Groundwork",
+  "extensions": {
+    "cypressCommandAuthority": {
+      "date": "2026-09-07",
+      "implementationApproval": "APPROVED",
+      "scope": "Existing token and component values remain historical Groundwork design; they do not govern new Cypress Command work.",
+      "productSpec": "../docs/cypress-command/ai-operating-standard-v1.md",
+      "integrationDecision": "../docs/cypress-command/site-integration-decision.md",
+      "brandEvidence": "../docs/cypress-command/evidence/brand-and-proof-audit.md",
+      "brand": "Approved Cypress Command 04C v1.0.1",
+      "siteProjectId": "appgprj_6a9f4af5fe788191a54c3543ce48fd9a",
+      "siteSource": "C:/Users/adam/Documents/Codex/2026-09-07/sites-plugin-sites-openai-bundled-create/work/cypress-command/",
+      "verificationStatus": "This authority pointer does not establish completed QA or deployment."
+    },
+    "colorMeta": {
+      "paper":        { "role": "neutral",   "displayName": "Paper",            "canonical": "#F4EFE2", "tonalRamp": ["oklch(15% 0.02 95)", "oklch(26% 0.02 95)", "oklch(38% 0.02 95)", "oklch(49% 0.02 95)", "oklch(61% 0.02 95)", "oklch(72% 0.02 95)", "oklch(84% 0.02 95)", "oklch(95% 0.02 95)"] },
+      "paper-deep":   { "role": "neutral",   "displayName": "Deep Paper",       "canonical": "#EAE2CD", "tonalRamp": ["oklch(15% 0.03 95)", "oklch(26% 0.03 95)", "oklch(38% 0.03 95)", "oklch(49% 0.03 95)", "oklch(61% 0.03 95)", "oklch(72% 0.03 95)", "oklch(84% 0.03 95)", "oklch(95% 0.03 95)"] },
+      "ink":          { "role": "neutral",   "displayName": "Ink",              "canonical": "#1E1B16", "tonalRamp": ["oklch(15% 0.01 80)", "oklch(26% 0.01 80)", "oklch(38% 0.01 80)", "oklch(49% 0.01 80)", "oklch(61% 0.01 80)", "oklch(72% 0.01 80)", "oklch(84% 0.01 80)", "oklch(95% 0.01 80)"] },
+      "ink-soft":     { "role": "neutral",   "displayName": "Soft Ink",         "canonical": "#5C554A", "tonalRamp": ["oklch(15% 0.02 80)", "oklch(26% 0.02 80)", "oklch(38% 0.02 80)", "oklch(49% 0.02 80)", "oklch(61% 0.02 80)", "oklch(72% 0.02 80)", "oklch(84% 0.02 80)", "oklch(95% 0.02 80)"] },
+      "rule":         { "role": "neutral",   "displayName": "Rule",             "canonical": "#C9BFA8", "tonalRamp": ["oklch(15% 0.04 95)", "oklch(26% 0.04 95)", "oklch(38% 0.04 95)", "oklch(49% 0.04 95)", "oklch(61% 0.04 95)", "oklch(72% 0.04 95)", "oklch(84% 0.04 95)", "oklch(95% 0.04 95)"] },
+      "terra":        { "role": "primary",   "displayName": "Terracotta",       "canonical": "#C7681D", "tonalRamp": ["oklch(15% 0.13 55)", "oklch(26% 0.13 55)", "oklch(38% 0.13 55)", "oklch(49% 0.13 55)", "oklch(61% 0.13 55)", "oklch(72% 0.13 55)", "oklch(84% 0.13 55)", "oklch(95% 0.13 55)"] },
+      "terra-deep":   { "role": "primary",   "displayName": "Deep Terracotta",  "canonical": "#A44E12", "tonalRamp": ["oklch(15% 0.12 50)", "oklch(26% 0.12 50)", "oklch(38% 0.12 50)", "oklch(49% 0.12 50)", "oklch(61% 0.12 50)", "oklch(72% 0.12 50)", "oklch(84% 0.12 50)", "oklch(95% 0.12 50)"] },
+      "mustard":      { "role": "secondary", "displayName": "Mustard",          "canonical": "#D9A419", "tonalRamp": ["oklch(15% 0.14 85)", "oklch(26% 0.14 85)", "oklch(38% 0.14 85)", "oklch(49% 0.14 85)", "oklch(61% 0.14 85)", "oklch(72% 0.14 85)", "oklch(84% 0.14 85)", "oklch(95% 0.14 85)"] },
+      "mustard-deep": { "role": "secondary", "displayName": "Deep Mustard",     "canonical": "#8F6D0C", "tonalRamp": ["oklch(15% 0.11 95)", "oklch(26% 0.11 95)", "oklch(38% 0.11 95)", "oklch(49% 0.11 95)", "oklch(61% 0.11 95)", "oklch(72% 0.11 95)", "oklch(84% 0.11 95)", "oklch(95% 0.11 95)"] },
+      "olive":        { "role": "tertiary",  "displayName": "Olive",            "canonical": "#5A6B4A", "tonalRamp": ["oklch(15% 0.05 135)", "oklch(26% 0.05 135)", "oklch(38% 0.05 135)", "oklch(49% 0.05 135)", "oklch(61% 0.05 135)", "oklch(72% 0.05 135)", "oklch(84% 0.05 135)", "oklch(95% 0.05 135)"] },
+      "olive-deep":   { "role": "tertiary",  "displayName": "Deep Olive",       "canonical": "#49573C", "tonalRamp": ["oklch(15% 0.05 140)", "oklch(26% 0.05 140)", "oklch(38% 0.05 140)", "oklch(49% 0.05 140)", "oklch(61% 0.05 140)", "oklch(72% 0.05 140)", "oklch(84% 0.05 140)", "oklch(95% 0.05 140)"] },
+      "oxblood":      { "role": "semantic",  "displayName": "Oxblood",          "canonical": "#8A2F1F", "tonalRamp": ["oklch(15% 0.11 30)", "oklch(26% 0.11 30)", "oklch(38% 0.11 30)", "oklch(49% 0.11 30)", "oklch(61% 0.11 30)", "oklch(72% 0.11 30)", "oklch(84% 0.11 30)", "oklch(95% 0.11 30)"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",     "purpose": "Cover headline only; Archivo 900 uppercase, max-width 13ch." },
+      "headline": { "displayName": "Headline",    "purpose": "Section h2; Archivo 900 uppercase. Secondary sections step down to clamp(1.3rem,2.3vw,1.75rem) in soft ink." },
+      "title":    { "displayName": "Title",       "purpose": "h3 / layer names; Archivo 700." },
+      "body":     { "displayName": "Body",        "purpose": "All prose at Archivo 500; ledes in soft ink; 52-64ch measures." },
+      "label":    { "displayName": "Label",       "purpose": "Folio, running heads, contents strip, table headers, SVG tags; Archivo 700 tracked caps (0.14-0.24em)." },
+      "numeral":  { "displayName": "Act Numeral", "purpose": "Besley 900 spot-color act numerals; also 2.6rem in layer chips, 1.1rem in argument rows." },
+      "aside":    { "displayName": "Aside",       "purpose": "Besley italic: cover sub, promises, pull quotes, signatures. The human voice; never headings or UI." },
+      "file":     { "displayName": "File",        "purpose": "Courier Prime, quarantined to the fifteen document file names and the Operator prompt." },
+      "headline-quiet":        { "displayName": "Quiet Headline",         "purpose": "Stepped-down section h2 for secondary sections (Curriculum, Compare, FAQ), set in soft ink." },
+      "statement":             { "displayName": "Statement",              "purpose": "Argument-row declaratives: Archivo 700 short lines with Besley italic smalls beneath." },
+      "rule-headline":         { "displayName": "Rule Headline",          "purpose": "The centered one-rule headline (Do not automate chaos)." },
+      "entry-title":           { "displayName": "Entry Title",            "purpose": "FAQ questions and ledger entry titles; Besley 600." },
+      "signature":             { "displayName": "Signature",              "purpose": "The letter signature line; Besley italic with an Archivo 700 name." },
+      "promise":               { "displayName": "Promise",                "purpose": "Layer and act promise lines; Besley italic with Archivo 700 lead-ins." },
+      "lede-compact":          { "displayName": "Compact Lede",           "purpose": "Guide-page ledes and compact italic intros; Besley italic." },
+      "body-compact":          { "displayName": "Compact Body",           "purpose": "Secondary prose at 0.97rem: ledger responses, layer prose, FAQ answers." },
+      "body-small":            { "displayName": "Small Body",             "purpose": "Tertiary prose at 0.95rem, e.g. compare-table cells." },
+      "button":                { "displayName": "Button Label",           "purpose": "Button faces: Archivo 700 uppercase, ls .04em." },
+      "footnote":              { "displayName": "Footnote",               "purpose": "Footnotes and alt-action lines at 0.9rem." },
+      "small":                 { "displayName": "Small",                  "purpose": "Small utility text at 0.85rem: nav links, mono prompt scale." },
+      "brand":                 { "displayName": "Brand Wordmark",         "purpose": "GROUNDWORK wordmark: Archivo 900 tracked 0.22-0.24em." },
+      "note":                  { "displayName": "Note",                   "purpose": "Fine annotations at 0.8rem, e.g. the hold hint." },
+      "strip":                 { "displayName": "Strip Label",            "purpose": "Contents strip and caption-row labels at 0.78rem tracked caps." },
+      "brand-compact":         { "displayName": "Compact Wordmark",       "purpose": "Wordmark at mobile scale (0.76rem)." },
+      "folio":                 { "displayName": "Folio",                  "purpose": "Folio-line labels: 0.72rem, ls 0.22em, uppercase." },
+      "table-head":            { "displayName": "Table Head",             "purpose": "Table headers: 0.68rem, ls 0.18em, uppercase, soft ink." },
+      "tag":                   { "displayName": "Tag",                    "purpose": "Act caps and tag chips: 0.62-0.64rem tracked caps." },
+      "phase-cap":             { "displayName": "Phase Cap",              "purpose": "Phase caption inside layer chips: 0.58rem tracked caps." },
+      "layer-numeral":         { "displayName": "Layer Numeral",          "purpose": "Besley 900 numeral inside layer chips (2.6rem)." },
+      "layer-numeral-compact": { "displayName": "Compact Layer Numeral",  "purpose": "Layer-chip numeral at mobile scale (2rem)." },
+      "act-numeral-compact":   { "displayName": "Compact Act Numeral",    "purpose": "Act numeral at mobile scale (3.6rem)." },
+      "diagram":               { "displayName": "Diagram",                "purpose": "SVG diagram base text: 13px Archivo." },
+      "diagram-sub":           { "displayName": "Diagram Sub",            "purpose": "SVG diagram secondary text: 12px, soft ink." },
+      "diagram-tag":           { "displayName": "Diagram Tag",            "purpose": "SVG diagram bold tags: 11.5px Archivo 700." },
+      "diagram-ladder":        { "displayName": "Diagram Ladder",         "purpose": "Authority-ladder diagram text: 13.5px." },
+      "diagram-journey-sub":   { "displayName": "Diagram Journey Sub",    "purpose": "Journey diagram secondary text: 15.5px." },
+      "diagram-journey":       { "displayName": "Diagram Journey",        "purpose": "Journey diagram primary text: 17px." }
+    },
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(.23,1,.32,1)", "purpose": "The only easing in use: registration settles, hovers (0.18s), reveals (0.6s)." },
+      { "name": "register", "value": "@keyframes register { from { transform: translate(var(--rx), var(--ry)); opacity: .55 } to { transform: translate(0,0); opacity: 1 } }", "purpose": "The one physics: plates settle into print register. Cover mark runs it at 0.9s staggered 0.1-0.62s." },
+      { "name": "reveal-stagger", "value": "16px rise + fade, 0.6s ease-out, 0.08s per part, IntersectionObserver threshold 0.16, delays cleared after 1.1s settle", "purpose": "Below-fold section entrances. Reduced motion pins final states; hidden tab pauses all animation." }
+    ],
+    "breakpoints": [
+      { "name": "cover-collapse", "value": "860px" },
+      { "name": "nav-collapse", "value": "720px" },
+      { "name": "tables-and-diagrams", "value": "680px" },
+      { "name": "act-collapse", "value": "640px" },
+      { "name": "layer-collapse", "value": "560px" },
+      { "name": "nav-tight", "value": "480px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ink slab, uppercase Archivo; hover refills terra-deep, active presses into the paper.",
+      "html": "<button class=\"ds-btn\">Book your AI Readiness Audit</button>",
+      "css": ".ds-btn { display: inline-block; background: var(--ink, #1E1B16); color: var(--paper, #F4EFE2); font-family: Archivo, Arial, 'Helvetica Neue', sans-serif; font-weight: 700; font-size: .92rem; letter-spacing: .04em; text-transform: uppercase; text-decoration: none; padding: .9em 1.7em; border: 2px solid var(--ink, #1E1B16); border-radius: 0; cursor: pointer; transition: background .18s cubic-bezier(.23,1,.32,1), border-color .18s cubic-bezier(.23,1,.32,1), transform .18s cubic-bezier(.23,1,.32,1); } .ds-btn:hover { background: var(--terra-deep, #A44E12); border-color: var(--terra-deep, #A44E12); color: var(--paper, #F4EFE2); } .ds-btn:focus-visible { outline: 2px solid var(--ink, #1E1B16); outline-offset: 3px; } .ds-btn:active { transform: translate(1px, 1px); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Transparent with 2px ink border; hover fills deep paper.",
+      "html": "<button class=\"ds-btn-ghost\">Take the 5-minute scorecard</button>",
+      "css": ".ds-btn-ghost { display: inline-block; background: transparent; color: var(--ink, #1E1B16); font-family: Archivo, Arial, 'Helvetica Neue', sans-serif; font-weight: 700; font-size: .92rem; letter-spacing: .04em; text-transform: uppercase; padding: .9em 1.7em; border: 2px solid var(--ink, #1E1B16); border-radius: 0; cursor: pointer; transition: background .18s cubic-bezier(.23,1,.32,1); } .ds-btn-ghost:hover { background: var(--paper-deep, #EAE2CD); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--ink, #1E1B16); outline-offset: 3px; } .ds-btn-ghost:active { transform: translate(1px, 1px); }"
+    },
+    {
+      "name": "Nav CTA",
+      "kind": "nav",
+      "refersTo": "nav-cta",
+      "description": "The masthead's one filled link: terra-deep chip, hover to ink.",
+      "html": "<a class=\"ds-nav-cta\" href=\"#\">Book the Audit</a>",
+      "css": ".ds-nav-cta { display: inline-block; color: var(--paper, #F4EFE2); background: var(--terra-deep, #A44E12); padding: .55em 1.1em; font-family: Archivo, Arial, 'Helvetica Neue', sans-serif; font-weight: 700; font-size: .85rem; letter-spacing: .03em; text-decoration: none; white-space: nowrap; border-radius: 0; transition: background .18s cubic-bezier(.23,1,.32,1); } .ds-nav-cta:hover { background: var(--ink, #1E1B16); } .ds-nav-cta:focus-visible { outline: 2px solid var(--ink, #1E1B16); outline-offset: 3px; }"
+    },
+    {
+      "name": "Running Head",
+      "kind": "custom",
+      "description": "The section-opening device: tracked-caps label set right into a 1px ink top rule.",
+      "html": "<div class=\"ds-runhead\"><span>Act 02 &middot; The method</span></div>",
+      "css": ".ds-runhead { display: flex; justify-content: flex-end; border-top: 1px solid var(--ink, #1E1B16); padding-top: .5rem; min-width: 260px; } .ds-runhead span { font-family: Archivo, Arial, 'Helvetica Neue', sans-serif; font-weight: 700; font-size: .7rem; letter-spacing: .24em; text-transform: uppercase; color: var(--ink-soft, #5C554A); }"
+    },
+    {
+      "name": "Act Lockup",
+      "kind": "custom",
+      "description": "Besley 900 spot-color numeral with caption beside the heading, italic promise, and terra-deep xref.",
+      "html": "<div class=\"ds-act\"><div><span class=\"ds-act-numeral\">02</span><span class=\"ds-act-cap\">The method</span></div><div><h2 class=\"ds-act-h\">Six layers, built in order.</h2><p class=\"ds-act-promise\"><b>What you get here:</b> the build order, and why skipping one means automating chaos.</p><a class=\"ds-act-xref\" href=\"#\">NEXT ACT: THE PROOF &#8594;</a></div></div>",
+      "css": ".ds-act { display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start; font-family: Archivo, Arial, 'Helvetica Neue', sans-serif; } .ds-act-numeral { display: block; font-family: Besley, Georgia, serif; font-weight: 900; font-size: 5rem; line-height: .82; color: var(--terra, #C7681D); user-select: none; } .ds-act-cap { display: block; font-weight: 700; font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-soft, #5C554A); margin-top: .7rem; } .ds-act-h { font-weight: 900; font-size: 1.8rem; line-height: 1.06; letter-spacing: -.005em; text-transform: uppercase; color: var(--ink, #1E1B16); margin: 0; } .ds-act-promise { font-family: Besley, Georgia, serif; font-style: italic; color: var(--ink-soft, #5C554A); font-size: 1.02rem; margin: 1rem 0 0; } .ds-act-promise b { color: var(--ink, #1E1B16); font-style: normal; font-family: Archivo, Arial, sans-serif; font-weight: 700; } .ds-act-xref { display: inline-block; margin-top: 1.1rem; font-weight: 700; font-size: .7rem; letter-spacing: .16em; color: var(--terra-deep, #A44E12); text-decoration: none; } .ds-act-xref:hover { text-decoration: underline; }"
+    },
+    {
+      "name": "Layer Number Chip",
+      "kind": "chip",
+      "refersTo": "layer-chip",
+      "description": "Spot-color block numeral opening each layer row; olive-deep for Phase 3.",
+      "html": "<div class=\"ds-lnum\"><span class=\"ds-lnum-phase\">Phase 1</span>03</div> <div class=\"ds-lnum ds-lnum-ph3\"><span class=\"ds-lnum-phase\">Phase 3</span>05</div>",
+      "css": ".ds-lnum { display: inline-block; font-family: Besley, Georgia, serif; font-weight: 900; font-size: 2.6rem; line-height: 1; color: var(--paper, #F4EFE2); background: var(--terra-deep, #A44E12); min-width: 4.6rem; text-align: center; padding: .55rem 0 .4rem; border-radius: 0; } .ds-lnum-ph3 { background: var(--olive-deep, #49573C); } .ds-lnum-phase { display: block; font-family: Archivo, Arial, 'Helvetica Neue', sans-serif; font-weight: 700; font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; padding-bottom: .35rem; }"
+    },
+    {
+      "name": "Operator Prompt",
+      "kind": "card",
+      "refersTo": "prompt-block",
+      "description": "The one long-form Courier surface: deep-paper block, 1px ink border, pre-wrap.",
+      "html": "<pre class=\"ds-prompt\">You are now the Operator for this organization.\n\nLoad the files in this package in order. Do not\ninvent policy. Do not expand your authority.</pre>",
+      "css": ".ds-prompt { background: var(--paper-deep, #EAE2CD); border: 1px solid var(--ink, #1E1B16); border-radius: 0; padding: 1.5rem 1.7rem; font-family: 'Courier Prime', 'Courier New', ui-monospace, monospace; font-size: .85rem; line-height: 1.6; color: var(--ink, #1E1B16); white-space: pre-wrap; margin: 0; }"
+    },
+    {
+      "name": "FAQ Ledger Row",
+      "kind": "custom",
+      "description": "Ruled details/summary row: Besley question, terra-deep plus that rotates 45 degrees on open.",
+      "html": "<div class=\"ds-faq\"><details><summary>Why is this free? What's the catch?</summary><p>No catch. Adam built this for himself first and runs his own businesses on it.</p></details><details><summary>Where does my data go?</summary><p>Into folders on your machine. The vault is plain text files you own.</p></details></div>",
+      "css": ".ds-faq { border-top: 2px solid var(--ink, #1E1B16); min-width: 300px; } .ds-faq details { border-bottom: 1px solid var(--rule, #C9BFA8); } .ds-faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 1.25rem 0; font-family: Besley, Georgia, serif; font-weight: 600; font-size: 1.15rem; color: var(--ink, #1E1B16); transition: color .2s cubic-bezier(.23,1,.32,1); } .ds-faq summary:hover { color: var(--terra-deep, #A44E12); } .ds-faq summary::-webkit-details-marker { display: none; } .ds-faq summary::after { content: \"+\"; font-family: Archivo, Arial, sans-serif; font-weight: 700; color: var(--terra-deep, #A44E12); transition: transform .3s cubic-bezier(.23,1,.32,1); } .ds-faq details[open] summary::after { transform: rotate(45deg); } .ds-faq details p { color: var(--ink-soft, #5C554A); padding: 0 0 1.4rem; margin: 0; max-width: 62ch; font-family: Archivo, Arial, sans-serif; font-size: .97rem; line-height: 1.62; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Annual Report",
+    "overview": "Groundwork is set as a 1950s-60s American corporate identity-program annual report: warm cream uncoated paper, near-black ink, and three earth-tone spot colors (terracotta, mustard, olive) committed at field scale rather than sprinkled as accents. The page reads as a printed document with acts, folios, running heads, ruled schedules, and exhibits; the whole category's dark glowing-tech hero is deliberately refused. Material is flat ink on paper: no shadows, no gradients, no blur, no rounded corners. The page is a single-appearance world with the browser itself themed into it (selection, scrollbar, caret, focus ring). The world covers the whole site: the homepage carries it in inline styles, and the rewritten assets/guide.css (same token set and alias-bridge technique) carries it across the 13 guide pages, legal.html, 404.html, and the Field Guide print shell/PDF. The previous indigo/starlight world no longer exists anywhere on the site. Site-wide brand rasters (favicon.ico, apple-touch-icon.png, the 1200x630 assets/og-card.png) ship with embedded provenance metadata.",
+    "keyCharacteristics": [
+      "Warm cream paper ground with near-black warm ink; flat print material throughout.",
+      "Spot color at section scale: an olive letter, a terra-deep audit band, terra-deep layer chips.",
+      "Three typographic voices: Archivo grotesque (display and body), Besley slab (numerals and italic asides), Courier Prime (document file names and the Operator prompt only).",
+      "Print devices as structure: masthead double rule, folio line, running heads, act numeral lockups, ruled ledgers and schedule tables.",
+      "One physics: print registration — elements settle into place from offset positions."
+    ],
+    "rules": [
+      { "name": "The Contrast Floor Rule", "body": "Text-carrying color fields are terra-deep, olive, olive-deep, and ink — always with paper text, all >=5:1. Interactive controls use only ink or terra-deep fills. Bright terra and mustard never carry text; they exist for large marks and decorative fills. (Sole standing exception in the build: the ::selection highlight is terra with paper text — a transient browser surface, not a license for terra text fields.)", "section": "colors" },
+      { "name": "The Oxblood Quarantine Rule", "body": "Oxblood marks the system's hard prohibitions and nothing else: \"untrusted / Level 4\" in the Authority ladder, and \"Never Automate / Zone 3\" in the governance drawing. One semantic family — what the system must never treat as safe — always dashed or flagged, never decorative. (Amended 2026-08-26 to record the Zone 3 use carried over from the owner-approved Visual Wave.)", "section": "colors" },
+      { "name": "The Spot-Field Rule", "body": "Spot color commits at section scale (the olive letter, the terra-deep audit band) or at device scale (chips, squares, numerals). It is not used for tinted backgrounds behind ordinary prose.", "section": "colors" },
+      { "name": "The Alias Bridge Rule", "body": ":root retains legacy alias custom properties (--canvas, --panel, --accent, --accent-hover, --accent-muted, --text-primary, --text-secondary, --btn-ink) mapped onto the new tokens so inline SVG var() references inherit the world. Keep these aliases when porting pages that carry inline SVG; write new CSS against the new token names.", "section": "colors" },
+      { "name": "The Courier Quarantine Rule", "body": "Courier Prime appears in exactly two places: the fifteen document file names in the schedule table, and the Operator prompt block. Nothing else — labels, tags, and numbers that look technical are Archivo 700 caps.", "section": "typography" },
+      { "name": "The Besley Voice Rule", "body": "Besley carries numerals (900 upright) and the human register (italic asides, promises, pull quotes, signatures). It never sets headings, UI labels, or body prose.", "section": "typography" },
+      { "name": "The Flat Ink Rule", "body": "Nothing floats. If an element needs separation, it gets a rule, a --paper-deep fill with a 1px ink border, or a spot-color field — never a shadow, glow, or gradient.", "section": "elevation" },
+      { "name": "The Printed Edge Rule", "body": "Corners are square because print is square. A circle is never decoration; it is either the Operator or a plotted point.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do open every section with the running head device: a 1px ink top rule with a right-aligned tracked-caps label (paper-on-spot fields switch both to paper).",
+      "Do draw structure with the three-weight rule system: 2px ink to open, 1px ink to contain, 1px --rule (#C9BFA8) to divide rows; drop the rule on the last row.",
+      "Do keep paper text on terra-deep, olive, olive-deep, or ink fields only — the AA floor the build ships (~5:1 minimum).",
+      "Do keep the legacy alias custom properties in :root on any page carrying inline SVG var() references; write new styles against the new token names.",
+      "Do use the one physics for every entrance: settle-into-register (offset to 0, --ease-out), staggered under ~0.1s per part, with reduced-motion pinning final states.",
+      "Do give buttons and nav links 44px minimum touch targets on coarse pointers.",
+      "Do cap prose measures (52-64ch) and let hairline-ruled whitespace, not boxes, do the separating."
+    ],
+    "donts": [
+      "Don't use shadows, gradients, glows, blur, or dark backgrounds — the material is flat ink on paper, single appearance, no dark mode.",
+      "Don't round a corner. Radius is 0 everywhere; circles are reserved for the Operator disc and plotted marks.",
+      "Don't set text on bright terra (#C7681D) or mustard (#D9A419) fields; they are large-mark and decorative-fill colors (the selection highlight is the lone shipped exception).",
+      "Don't use Courier Prime outside the fifteen file names and the Operator prompt; technical-looking labels are Archivo 700 tracked caps.",
+      "Don't use oxblood outside its prohibition semantics: untrusted/Level 4 and Never Automate/Zone 3.",
+      "Don't introduce new accent hues, pure black, or pure white; the palette is the twelve tokens above."
+    ]
+  }
+}
