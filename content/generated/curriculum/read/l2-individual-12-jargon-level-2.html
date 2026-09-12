@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Level 2 Glossary | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="2 Intermediate · Individual Track: Level 2 Glossary. Compiled verbatim from the Groundwork Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/l2-individual-12-jargon-level-2.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/" aria-current="page">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / Level 2 Glossary</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">2 INTERMEDIATE · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">Level 2 Glossary</h1></div></div>
+<p class="rnote">This page compiles 1 file from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-2-intermediate/individual/12-jargon-level-2">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/12-jargon-level-2/README.md</span></p>
+<h1>Level 2 Glossary</h1>
+<p><strong>LoRA / QLoRA / PEFT:</strong> Parameter-efficient ways to adapt a model by training small added components; QLoRA combines this with low-bit quantization. <strong>DPO:</strong> preference-based tuning that teaches a model which response is preferred. <strong>Quantization / quantization-aware training:</strong> using lower-precision weights, with training designed to preserve quality. <strong>KV cache:</strong> stored attention state that speeds continued generation. <strong>Speculative decoding:</strong> a fast small model proposes tokens that a larger model verifies.</p>
+<p><strong>Tool use / function calling / tool-form-filling:</strong> a model emits validated structured arguments for software actions. <strong>Structured outputs / JSON mode:</strong> force responses into a schema; JSON mode alone does not guarantee semantic correctness. <strong>Temperature / top_p:</strong> sampling controls; lower values are more repeatable. <strong>Streaming / batching:</strong> return tokens incrementally / process many inputs together. <strong>Log probabilities:</strong> model confidence signals for generated tokens, requiring calibration.</p>
+<p><strong>Embedding drift:</strong> retrieval changes as document or embedding distributions change. <strong>Rerank:</strong> reorder retrieved passages using a stronger relevance model. <strong>HyDE:</strong> create a hypothetical answer/document to improve retrieval. <strong>RAG-Fusion:</strong> issue several query variants and merge their results. <strong>Agent memory:</strong> persisted, scoped state an agent may reuse; never an unbounded transcript. <strong>Semantic router:</strong> route requests by meaning and confidence.</p>
+<p><strong>ReAct / CoT / ToT / agent loop:</strong> act-observe reasoning / intermediate reasoning / branching search / the control cycle around tools. <strong>MCP / ACP:</strong> Model Context Protocol / agent communication protocol. <strong>Guardrails:</strong> constraints on input, output, tools, and policy. <strong>LLM gateway:</strong> central layer for model access, routing, spend, and logs. <strong>Canary / shadow deploy / feature flag:</strong> safe test input / run without serving result / runtime on-off control.</p>
+<p><strong>Prompt template / prompt registry:</strong> reusable parameterized instruction / governed store of versions. <strong>Input cost, output cost, cost per token:</strong> billing for tokens sent, generated, and unit pricing. <strong>Cache read/write / context caching:</strong> reuse stored prompt computation, usually for stable context. <strong>Extended thinking / reasoning tokens:</strong> provider-controlled extra deliberation tokens; evaluate outcomes, not the story.</p>
+<p><strong>Agent trace / span / telemetry / OpenTelemetry:</strong> record of a run / timed operation / emitted operational data / common tracing standard. <strong>Eval harness / offline eval / online eval / human eval:</strong> runner / curated pre-release test / production measurement / reviewer scoring. <strong>LLM-as-judge / pairwise ranking / Elo / calibration:</strong> model grader / compare two outputs / relative rating / align confidence with reality. <strong>MTEB / RAGAS:</strong> embedding benchmark / RAG evaluation toolkit. <strong>Faithfulness / groundedness:</strong> claims supported by context / answer tied to approved sources. <strong>Hallucination taxonomy:</strong> named classes of unsupported output.</p>
+<p><strong>Prompt injection / jailbreak / red team / blue team / purple team:</strong> untrusted instruction attack / bypass attempt / attack testers / defenders / joint security practice. <strong>Distillation:</strong> train a smaller model to imitate a stronger one. <strong>Fine-tuning:</strong> train model weights for a recurring task. <strong>Tool use is permissioned software, not autonomy.</strong></p>
+</article>
+
+  <div class="pnav">
+    <a href="l2-individual-11-data-pipelines.html">← Data Pipelines: The Work Before AI Looks Smart</a>
+    <a href="l2-individual-13-combine-two-agents.html">Combine Two Agents: Lease Portfolio Diligence →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

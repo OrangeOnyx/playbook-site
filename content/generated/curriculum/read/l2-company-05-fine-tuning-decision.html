@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fine-Tuning Decision | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="2 Intermediate · Company Track: Fine-Tuning Decision. Compiled verbatim from the Groundwork Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/l2-company-05-fine-tuning-decision.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/" aria-current="page">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / Fine-Tuning Decision</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">2 INTERMEDIATE · COMPANY TRACK</span><h1 style="margin:.1rem 0 0">Fine-Tuning Decision</h1></div></div>
+<p class="rnote">This page compiles 4 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-2-intermediate/company/05-fine-tuning-decision">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>level-2-intermediate/company/05-fine-tuning-decision/README.md</span></p>
+<h1>Fine-Tuning Decision</h1>
+<p>Fine-tuning changes model behavior through training. It is not the default fix for weak retrieval, vague policy, bad tool design, or missing evals. For most Belle Realty and Deal Leverage workflows, prompt discipline, structured outputs, RAG, and routing produce more value with less operational burden.</p>
+<p>Fine-tune only when a stable, high-volume task has a large, lawful, high-quality labeled dataset; prompting has plateaued; and the gain is measurable on a locked eval set. You then own dataset provenance, privacy, training version, safety regressions, deployment, and rollback.</p>
+<p>Use the decision guide, dataset prep rules, and tuned-model evaluation before approving a training run. A smaller tuned model can be a strong cost move, but only after you prove it preserves the behavior that matters.</p>
+<h2>Operating standard</h2>
+<p>Make this practice operational, not aspirational. Assign one directly responsible owner and name the decision they can make without another meeting. Put the key measure, threshold, and review cadence in the owning team’s regular operating rhythm. A change to model, prompt, data scope, retrieval index, tool permission, or policy should be recorded with its expected impact and a rollback path. Preserve enough trace information to explain an individual bad outcome without exposing more tenant or deal data than necessary. Review a small sample of real runs with the people doing the work; dashboards reveal trends, but operators reveal missing context. When the rule is violated, capture the incident, contain impact, add an eval or control, and update this document if the standard itself was unclear. The point is repeatable judgment under real workload, not a one-time compliance exercise.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>level-2-intermediate/company/05-fine-tuning-decision/dataset-preparation.md</span></p>
+<h1>Dataset Preparation</h1>
+<p>Training data is the product. Start with a written task schema, inclusion/exclusion rules, label guide, and quality bar. Remove secrets, unnecessary personal data, protected characteristics, and unauthorized tenant content. Keep provenance for every example: source, consent/legal basis, annotator, transformations, and version.</p>
+<p>Deduplicate near-identical examples, balance common and rare risk cases, and split by source entity or time to prevent leakage. For lease work, do not place versions of the same template in both train and test. Include abstentions, escalation examples, malformed inputs, and adversarial messages—not only perfect completions.</p>
+<p>Use double annotation and adjudication for high-impact labels. Validate JSON targets automatically. Version the dataset immutably and document known limitations. If labelers cannot agree on the desired answer, the model will not solve the ambiguity; fix the policy first.</p>
+<h2>Operating standard</h2>
+<p>Make this practice operational, not aspirational. Assign one directly responsible owner and name the decision they can make without another meeting. Put the key measure, threshold, and review cadence in the owning team’s regular operating rhythm. A change to model, prompt, data scope, retrieval index, tool permission, or policy should be recorded with its expected impact and a rollback path. Preserve enough trace information to explain an individual bad outcome without exposing more tenant or deal data than necessary. Review a small sample of real runs with the people doing the work; dashboards reveal trends, but operators reveal missing context. When the rule is violated, capture the incident, contain impact, add an eval or control, and update this document if the standard itself was unclear. The point is repeatable judgment under real workload, not a one-time compliance exercise.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>level-2-intermediate/company/05-fine-tuning-decision/evaluation-of-tuned-models.md</span></p>
+<h1>Evaluate Tuned Models</h1>
+<p>Compare a tuned model against the current baseline on a locked, task-representative set. Report quality by critical slice, schema validity, citation/groundedness where applicable, safety behavior, latency, cost, and calibration. Do not accept a single average score or vendor training metric.</p>
+<p>Test distribution shift: new property templates, scans, slang, incomplete records, prompts that ask for prohibited actions, and inputs outside the training taxonomy. Verify that the tuned model abstains or routes correctly instead of forcing a familiar-looking answer. Test for memorization and data leakage with canaries and held-out entities.</p>
+<p>Launch in shadow mode, log disagreements with the baseline and staff, and keep an immediate fallback. Re-evaluate after policy changes and periodically as inputs drift. Fine-tuning is successful only if it improves the actual workflow enough to pay for ongoing data and governance work.</p>
+<h2>Operating standard</h2>
+<p>Make this practice operational, not aspirational. Assign one directly responsible owner and name the decision they can make without another meeting. Put the key measure, threshold, and review cadence in the owning team’s regular operating rhythm. A change to model, prompt, data scope, retrieval index, tool permission, or policy should be recorded with its expected impact and a rollback path. Preserve enough trace information to explain an individual bad outcome without exposing more tenant or deal data than necessary. Review a small sample of real runs with the people doing the work; dashboards reveal trends, but operators reveal missing context. When the rule is violated, capture the incident, contain impact, add an eval or control, and update this document if the standard itself was unclear. The point is repeatable judgment under real workload, not a one-time compliance exercise.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>level-2-intermediate/company/05-fine-tuning-decision/when-to-fine-tune.md</span></p>
+<h1>When to Fine-Tune</h1>
+<p>Fine-tune when the task is narrow, repeated, and stable: classify a well-defined OTB message taxonomy, extract a consistent internal document format, or produce a tightly controlled output style. Do not fine-tune to memorize current leases, replace retrieval, solve live factual questions, or bypass human approval.</p>
+<p>Before training, prove a baseline using prompt, few-shot examples, retrieval, and a capable model. Identify the persistent error slice and estimate volume. If a prompt/routing change fixes it, do that. If a model repeatedly misses domain conventions despite clear examples and the workflow has thousands of runs, training may be justified.</p>
+<p>Require data rights, privacy review, a locked eval set, a rollback route, and a cost model that includes labeling and maintenance. Fine-tuned models can encode stale policy or sensitive patterns. The decision should be an evidence-backed product investment, not an attempt to make a model “know the business.”</p>
+<h2>Operating standard</h2>
+<p>Make this practice operational, not aspirational. Assign one directly responsible owner and name the decision they can make without another meeting. Put the key measure, threshold, and review cadence in the owning team’s regular operating rhythm. A change to model, prompt, data scope, retrieval index, tool permission, or policy should be recorded with its expected impact and a rollback path. Preserve enough trace information to explain an individual bad outcome without exposing more tenant or deal data than necessary. Review a small sample of real runs with the people doing the work; dashboards reveal trends, but operators reveal missing context. When the rule is violated, capture the incident, contain impact, add an eval or control, and update this document if the standard itself was unclear. The point is repeatable judgment under real workload, not a one-time compliance exercise.</p>
+</article>
+
+  <div class="pnav">
+    <a href="l2-company-04-eval-program.html">← Organization-Level Evaluation Program</a>
+    <a href="l2-company-06-cost-management.html">Company Cost Management →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

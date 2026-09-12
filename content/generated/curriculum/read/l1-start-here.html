@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start here | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="1 Starter: Start here. Compiled verbatim from the Groundwork Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/l1-start-here.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/" aria-current="page">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / Start here</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="14" y1="36" x2="14" y2="8" stroke="#1E1B16" stroke-width="1.6"/><polygon points="14,8 32,13 14,18" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER</span><h1 style="margin:.1rem 0 0">Start here</h1></div></div>
+<p class="rnote">This page compiles 3 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-1-essentials/00-start-here">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="14" y1="36" x2="14" y2="8" stroke="#1E1B16" stroke-width="1.6"/><polygon points="14,8 32,13 14,18" fill="#A44E12"/></svg><span>level-1-essentials/00-start-here/README.md</span></p>
+<h1>AI Essentials Kit</h1>
+<p>A complete, opinionated system for taking a novice from zero to power-user across every major AI platform — and giving a company the governance, tooling, and rollout playbook to do the same at scale.</p>
+<p>Built by Adam Abdalla · v1.0 · August 2026</p>
+<hr />
+<h2>What's in the box</h2>
+<pre><code>ai-kit/
+├── 00-start-here/            ← you are here
+├── individual/               ← the personal track (build in order 01→09)
+├── company/                  ← the org track (build in order 01→10)
+└── shared/                   ← glossary, eval templates, checklists both tracks reuse
+</code></pre>
+<h2>How to use this kit</h2>
+<h3>If you're an individual</h3>
+<ol>
+<li>Read <code>individual/01-foundation/README.md</code></li>
+<li>Work sequentially through folders 01 → 09</li>
+<li>Each folder has a <code>README.md</code> that tells you exactly what to do</li>
+<li>Total time to complete the starter path: <strong>~10 hours over 30 days</strong></li>
+</ol>
+<h3>If you're a company</h3>
+<ol>
+<li>Read <code>company/01-governance/README.md</code> <strong>first</strong> — governance before tools, always</li>
+<li>Work sequentially through folders 01 → 10</li>
+<li>Governance (01) and Accounts (02) are done by IT/Legal/Security</li>
+<li>Department copilots (05) are built by department leads with the AI champion</li>
+<li>Total time to a full rollout: <strong>~90 days</strong> (see <code>10-rollout-playbook/</code>)</li>
+</ol>
+<h3>If you want the jargon first</h3>
+<p>Skip to <code>shared/glossary/master-glossary.md</code> — it's the canonical 200-term reference.</p>
+<hr />
+<h2>The philosophy</h2>
+<p>Six rules this kit is built on:</p>
+<ol>
+<li><strong>Governance before tools.</strong> A team with policy but no AI beats a team with AI but no policy.</li>
+<li><strong>One prompt, three homes.</strong> Every good prompt lives as a Custom GPT, a Claude Project, and a Perplexity Space.</li>
+<li><strong>Evals or it didn't happen.</strong> No model change ships without running the eval set.</li>
+<li><strong>Route by strength, not by loyalty.</strong> Use the right model for the job — the cheat sheet in <code>individual/05-model-routing/</code> tells you which.</li>
+<li><strong>Memory is a feature, not a magic trick.</strong> Curate what each model remembers; review monthly.</li>
+<li><strong>Jargon is leverage.</strong> Fluency in the terms is 30% of the skill gap.</li>
+</ol>
+<hr />
+<h2>Version and update cadence</h2>
+<ul>
+<li>v1.0 — August 2026 — initial release</li>
+<li>Review release notes weekly (see <code>individual/09-rituals/weekly-monthly-rituals.md</code>)</li>
+<li>Rebuild the eval set every quarter</li>
+<li>Rotate API keys every 90 days</li>
+</ul>
+<hr />
+<h2>Quick index</h2>
+<table>
+<thead>
+<tr>
+<th>I want to…</th>
+<th>Go to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Set up my personal AI stack</td>
+<td><code>individual/01-foundation/</code></td>
+</tr>
+<tr>
+<td>Write my master system prompt</td>
+<td><code>individual/03-system-prompts/</code></td>
+</tr>
+<tr>
+<td>Grab the 20 starter prompts</td>
+<td><code>individual/04-prompt-library/</code></td>
+</tr>
+<tr>
+<td>Know which model to use when</td>
+<td><code>individual/05-model-routing/</code></td>
+</tr>
+<tr>
+<td>Learn the jargon</td>
+<td><code>shared/glossary/master-glossary.md</code></td>
+</tr>
+<tr>
+<td>Write the company AI policy</td>
+<td><code>company/01-governance/acceptable-use-policy.md</code></td>
+</tr>
+<tr>
+<td>Build a department copilot</td>
+<td><code>company/05-department-copilots/</code></td>
+</tr>
+<tr>
+<td>Roll it out in 90 days</td>
+<td><code>company/10-rollout-playbook/</code></td>
+</tr>
+<tr>
+<td>Set up evals</td>
+<td><code>shared/eval-templates/</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>What to do next</h2>
+<p>Open <code>individual/01-foundation/README.md</code> or <code>company/01-governance/README.md</code>. Do not skip ahead. The order matters.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="14" y1="36" x2="14" y2="8" stroke="#1E1B16" stroke-width="1.6"/><polygon points="14,8 32,13 14,18" fill="#A44E12"/></svg><span>level-1-essentials/00-start-here/30-day-starter-sequence.md</span></p>
+<h1>30-Day Starter Sequence</h1>
+<p>Same shape for individual and company — company items in [brackets].</p>
+<h2>Week 1 — Foundation</h2>
+<p><strong>Day 1</strong> — Gather foundation inputs (<code>individual/01-foundation/foundation-inputs-checklist.md</code>). [Company: publish AUP.]
+<strong>Day 2</strong> — Create accounts in priority order. [Company: sign DPAs, enable SSO.]
+<strong>Day 3</strong> — Write Master System Prompt. [Company: write Company System Prompt.]
+<strong>Day 4</strong> — Write Personal Style Guide. [Company: publish brand voice + disclaimer library.]
+<strong>Day 5</strong> — Build first Custom GPT with system prompt + 3 knowledge files.
+<strong>Day 6</strong> — Port same prompt + files to a Claude Project.
+<strong>Day 7</strong> — Port same prompt + files to a Perplexity Space.</p>
+<h2>Week 2 — Library and Routing</h2>
+<p><strong>Day 8</strong> — Copy in the 20 starter prompts. Pick your 5 most-used.
+<strong>Day 9</strong> — Rewrite those 5 in your voice.
+<strong>Day 10</strong> — Set memory in each model (ChatGPT, Claude, Perplexity, Gemini).
+<strong>Day 11</strong> — Learn model routing (<code>individual/05-model-routing/</code>). Print the cheat sheet.
+<strong>Day 12</strong> — Install local tools: Cursor or Claude Code, Raycast, ffmpeg, a clipboard manager.
+<strong>Day 13</strong> — First automation: one scheduled task or one Zapier scenario.
+<strong>Day 14</strong> — Weekly review: what worked, what didn't, prune 3 things.</p>
+<h2>Week 3 — Automation and RAG</h2>
+<p><strong>Day 15</strong> — Second automation. [Company: pilot department picks 3 workflows.]
+<strong>Day 16</strong> — Build first eval set (5 good, 5 bad artifacts per workflow).
+<strong>Day 17</strong> — Upload knowledge base to your Claude Project + Perplexity Space.
+<strong>Day 18</strong> — Test RAG: ask 10 questions, score answers against ground truth.
+<strong>Day 19</strong> — Third automation. [Company: instrument logging via LLM gateway.]
+<strong>Day 20</strong> — Try one model you don't normally use for a real task.
+<strong>Day 21</strong> — Weekly review.</p>
+<h2>Week 4 — Fluency and Ritualize</h2>
+<p><strong>Day 22</strong> — Jargon cluster 1: Model mechanics (see <code>shared/glossary/</code>).
+<strong>Day 23</strong> — Jargon cluster 2: Reasoning + Retrieval.
+<strong>Day 24</strong> — Jargon cluster 3: Agents + MCP.
+<strong>Day 25</strong> — Jargon cluster 4: Training + Multimodal.
+<strong>Day 26</strong> — Jargon cluster 5: Evaluation + Deployment + Governance.
+<strong>Day 27</strong> — Add 5 new prompts to your library based on real usage.
+<strong>Day 28</strong> — Rotate API keys, review spend.
+<strong>Day 29</strong> — Re-read your Master System Prompt. Update it.
+<strong>Day 30</strong> — Monthly review. Schedule next 30 days.</p>
+<h2>What "done" looks like at Day 30</h2>
+<ul>
+<li>All primary accounts active with SSO or password manager entries</li>
+<li>Master System Prompt + Style Guide living in a canonical location</li>
+<li>20+ prompt library, deployed as GPT + Claude Project + Perplexity Space</li>
+<li>3 automations running</li>
+<li>Eval set with 5×5 artifacts for at least 2 workflows</li>
+<li>Model routing cheat sheet memorized (or printed above your monitor)</li>
+<li>Glossary read, notes taken</li>
+<li>Weekly and monthly rituals scheduled on your calendar</li>
+</ul>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="14" y1="36" x2="14" y2="8" stroke="#1E1B16" stroke-width="1.6"/><polygon points="14,8 32,13 14,18" fill="#A44E12"/></svg><span>level-1-essentials/00-start-here/INDEX.md</span></p>
+<h1>Full File Index</h1>
+<h2>00 — Start Here</h2>
+<ul>
+<li><code>README.md</code> — this kit's philosophy and how to use it</li>
+<li><code>INDEX.md</code> — this file</li>
+<li><code>30-day-starter-sequence.md</code> — the 30-day plan for either track</li>
+</ul>
+<h2>Individual Track</h2>
+<h3>01 — Foundation</h3>
+<ul>
+<li><code>README.md</code> — what to gather before touching a model</li>
+<li><code>foundation-inputs-checklist.md</code> — the exact files to collect</li>
+<li><code>privacy-line-worksheet.md</code> — decide what you'll never paste into a model</li>
+</ul>
+<h3>02 — Accounts</h3>
+<ul>
+<li><code>README.md</code> — which accounts to create and in what order</li>
+<li><code>accounts-order.md</code> — the priority list with cost estimates</li>
+<li><code>api-keys-setup.md</code> — OpenAI, Anthropic, Google, Perplexity, Groq, OpenRouter</li>
+<li><code>password-manager-template.md</code> — how to store keys safely</li>
+</ul>
+<h3>03 — System Prompts</h3>
+<ul>
+<li><code>README.md</code> — what a system prompt does and why yours matters</li>
+<li><code>master-system-prompt.md</code> — the paste-anywhere personal system prompt</li>
+<li><code>personal-style-guide.md</code> — your voice, formatting, banned words</li>
+<li><code>about-me-block.md</code> — reusable identity block</li>
+</ul>
+<h3>04 — Prompt Library</h3>
+<ul>
+<li><code>README.md</code> — how to use and extend the library</li>
+<li>20 individual <code>.md</code> files, one per prompt (see folder)</li>
+</ul>
+<h3>05 — Model Routing</h3>
+<ul>
+<li><code>README.md</code> — how to decide which model to use</li>
+<li><code>model-routing-cheat-sheet.md</code> — one-page cheat sheet</li>
+<li><code>provider-strengths-matrix.md</code> — the deep table</li>
+</ul>
+<h3>06 — Memory Hygiene</h3>
+<ul>
+<li><code>README.md</code> — why memory hygiene matters</li>
+<li><code>memory-audit-template.md</code> — monthly review template</li>
+<li><code>what-to-tell-each-model.md</code> — the initial memory setup script</li>
+</ul>
+<h3>07 — Automation</h3>
+<ul>
+<li><code>README.md</code> — automation starter</li>
+<li><code>first-three-automations.md</code> — the exact three to build first</li>
+<li><code>local-tools-setup.md</code> — Cursor, Claude Code, Raycast, ffmpeg</li>
+</ul>
+<h3>08 — Jargon Glossary</h3>
+<ul>
+<li>Points to <code>shared/glossary/master-glossary.md</code></li>
+<li><code>learning-path.md</code> — cluster-based learning order</li>
+</ul>
+<h3>09 — Rituals</h3>
+<ul>
+<li><code>weekly-monthly-rituals.md</code> — the recurring rhythm</li>
+</ul>
+<h2>Company Track</h2>
+<h3>01 — Governance</h3>
+<ul>
+<li><code>README.md</code> — governance-first philosophy</li>
+<li><code>acceptable-use-policy.md</code> — the one-page AUP</li>
+<li><code>data-classification-matrix.md</code> — which data class goes to which tool</li>
+<li><code>vendor-dpa-checklist.md</code> — DPAs to sign with each vendor</li>
+<li><code>incident-response-addendum.md</code> — what to do when PII leaks</li>
+<li><code>steering-committee-charter.md</code> — who sits on it, what they decide</li>
+<li><code>zero-retention-configuration.md</code> — how to enable no-training on every provider</li>
+</ul>
+<h3>02 — Accounts &amp; Procurement</h3>
+<ul>
+<li><code>platform-account-order.md</code> — enterprise plans, in order</li>
+<li><code>llm-gateway-selection.md</code> — Portkey vs LiteLLM vs OpenRouter</li>
+<li><code>vector-db-selection.md</code> — Pinecone vs Weaviate vs pgvector</li>
+<li><code>budget-and-billing-model.md</code> — how to attribute cost per team</li>
+</ul>
+<h3>03 — Company System Prompts</h3>
+<ul>
+<li><code>company-system-prompt.md</code> — brand voice, banned claims, escalation rules</li>
+<li><code>legal-disclaimer-library.md</code> — reusable disclaimer blocks</li>
+</ul>
+<h3>04 — Prompt Library</h3>
+<ul>
+<li>15 role-tagged prompts (see folder)</li>
+</ul>
+<h3>05 — Department Copilots</h3>
+<ul>
+<li>One folder per department (sales, support, legal, finance, engineering, marketing, hr, exec, operations)</li>
+<li>Each contains: <code>system-prompt.md</code>, <code>starter-prompts.md</code>, <code>knowledge-base-manifest.md</code></li>
+</ul>
+<h3>06 — RAG Knowledge Base</h3>
+<ul>
+<li><code>knowledge-base-structure.md</code> — how to organize docs for RAG</li>
+<li><code>chunking-strategy.md</code></li>
+<li><code>permissions-model.md</code></li>
+</ul>
+<h3>07 — Agents &amp; MCP</h3>
+<ul>
+<li><code>mcp-server-inventory.md</code> — which MCP servers to build first</li>
+<li><code>agent-workflow-designs.md</code> — the three starter agents</li>
+</ul>
+<h3>08 — Observability &amp; Evals</h3>
+<ul>
+<li><code>logging-and-redaction.md</code></li>
+<li><code>eval-framework.md</code></li>
+<li><code>model-bake-off-protocol.md</code></li>
+</ul>
+<h3>09 — Training</h3>
+<ul>
+<li><code>onboarding-curriculum.md</code> — 90-minute new-hire session</li>
+<li><code>department-deep-dives.md</code> — 2-hour role-specific sessions</li>
+<li><code>quarterly-refresh.md</code></li>
+</ul>
+<h3>10 — Rollout Playbook</h3>
+<ul>
+<li><code>30-60-90-plan.md</code></li>
+<li><code>pilot-selection-criteria.md</code></li>
+<li><code>expansion-decision-framework.md</code></li>
+</ul>
+<h2>Shared</h2>
+<h3>Glossary</h3>
+<ul>
+<li><code>master-glossary.md</code> — 200-term canonical reference organized by cluster</li>
+</ul>
+<h3>Eval Templates</h3>
+<ul>
+<li><code>eval-set-template.md</code></li>
+<li><code>regression-test-protocol.md</code></li>
+<li><code>scoring-rubric.md</code></li>
+</ul>
+<h3>Checklists</h3>
+<ul>
+<li><code>daily-power-user-checklist.md</code></li>
+<li><code>weekly-review-checklist.md</code></li>
+<li><code>quarterly-audit-checklist.md</code></li>
+</ul>
+<h3>Templates</h3>
+<ul>
+<li><code>custom-gpt-brief.md</code></li>
+<li><code>claude-project-brief.md</code></li>
+<li><code>perplexity-space-brief.md</code></li>
+<li><code>agent-brief-template.md</code></li>
+</ul>
+</article>
+
+  <div class="pnav">
+    <a href="l1-overview.html">← 1 Starter at a glance</a>
+    <a href="l1-individual-01-foundation.html">01 — Foundation →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

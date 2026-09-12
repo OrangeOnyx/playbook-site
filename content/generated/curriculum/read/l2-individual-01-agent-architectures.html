@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Architectures | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="2 Intermediate · Individual Track: Agent Architectures. Compiled verbatim from the Groundwork Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/l2-individual-01-agent-architectures.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/" aria-current="page">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / Agent Architectures</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">2 INTERMEDIATE · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">Agent Architectures</h1></div></div>
+<p class="rnote">This page compiles 4 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-2-intermediate/individual/01-agent-architectures">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/01-agent-architectures/README.md</span></p>
+<h1>Agent Architectures</h1>
+<p>An agent is not a chatbot with a tool list. It is a controlled loop: observe state, choose an action, use a tool, inspect the result, and stop under explicit rules. Level 2 starts by choosing that loop deliberately. The wrong architecture creates expensive, flaky behavior that no prompt rewrite will fix.</p>
+<p>Use the smallest loop that can complete the job. A lease clause extractor is mostly a structured extraction workflow with narrow tools; it does not need autonomous planning. A Deal Leverage diligence assistant may need a plan because a data room contains uneven documents and missing evidence. Tenant triage needs a router first, then deterministic policy checks, then a drafting model. Treat architecture as risk allocation: where can the model decide, where must software decide, and where must Adam approve?</p>
+<p>Every agent in this program has five boundaries: an input contract, an allowed tool set, a state model, stop conditions, and an audit trace. Put business rules in code or query constraints; reserve the model for ambiguity, language, and prioritization. A good agent can explain which documents it read, which tools it called, what it believes, and why it escalated.</p>
+<p>Read the pattern notes, then use the decision guide before building. Your default should be a router plus one narrow worker, not a committee of agents talking to each other.</p>
+<h2>In this module</h2>
+<ul>
+<li><a href="l2-individual-01-agent-architectures.html"><code>agent-patterns.md</code></a> — the loops (router, planner, ReAct, worker)</li>
+<li><a href="l2-individual-01-agent-architectures.html"><code>when-to-use-what.md</code></a> — pattern selection guide</li>
+<li><a href="l2-individual-01-agent-architectures.html"><code>agents-are-folders.md</code></a> — the runtime-agnostic view: an agent is a folder, the model is interchangeable (credit: Jake Van Clief &amp; David McDermott's ICM paper)</li>
+</ul>
+<p><strong>Build standard:</strong> typed inputs and outputs, idempotent tools, explicit retries, a small eval set before production, and a kill path for every side effect.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/01-agent-architectures/agent-patterns.md</span></p>
+<h1>Four Agent Patterns That Matter</h1>
+<h2>ReAct: reason, act, observe</h2>
+<p>ReAct alternates a short decision with a tool call and an observation. It fits tasks where the next action depends on evidence: locate the current lease, retrieve a clause, compare it to a property rule, then request clarification if the dates conflict. Keep the action vocabulary tiny. The model should choose <code>search_leases</code>, <code>get_clause</code>, <code>create_review_task</code>, or <code>stop</code>, not arbitrary SQL. Log each turn as a trace. Cap turns at 4–8; more turns usually mean the tool contract is weak.</p>
+<h2>Plan–Execute</h2>
+<p>The planner produces a bounded checklist, and workers execute each item without rewriting the plan on every turn. Use it for Deal Leverage diligence: inventory documents, extract borrower terms, verify insurance, score missing items, draft the checklist. Persist the plan so a failed document can be retried independently. Plans are useful when completeness matters more than conversational agility. Validate the plan schema before execution and allow only approved task types.</p>
+<h2>Reflection</h2>
+<p>A worker drafts an answer; a critic checks it against requirements; a repair pass fixes concrete defects. Reflection works for high-value writing and structured extraction where an answer can be inspected. For example, require the critic to identify unsupported lease fields, impossible dates, and missing citations. Do not ask it “is this good?” Give it a rubric and source IDs. One review pass is usually enough; endless self-review burns tokens and can amplify an initial mistake.</p>
+<h2>Router</h2>
+<p>A router classifies the request and sends it to a specialized path. OTB tenant communication should route maintenance emergencies, payment questions, lease requests, complaints, and general inquiries differently. Use deterministic rules for obvious signals (fire, gas, lockout) before an LLM router. The router returns a label, confidence, and reason—not prose. Low-confidence or high-risk labels go to a human queue.</p>
+<p>These patterns compose, but composition is not maturity. Start with one pattern, measure it, then add complexity only when an eval exposes a real gap.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/01-agent-architectures/agents-are-folders.md</span></p>
+<h1>Agents are folders</h1>
+<blockquote>
+<p>Credit: this framing comes from <strong>Jake Van Clief</strong> and <strong>David McDermott</strong>, whose 2026 paper <a href="https://arxiv.org/abs/2603.16021">Interpretable Context Methodology (ICM): Folder Structure as Agentic Architecture</a> formalizes what a lot of practitioners had converged on independently. Van Clief's video series and Substack (<a href="https://substack.com/@jakevanclief">Clief Notes</a>) walk through it in accessible terms. The community has largely picked this up as <strong>"agents are folders"</strong> — a compressed slogan for a real idea.</p>
+</blockquote>
+<p>An AI agent is not a running process. It's a folder of markdown files that a model reads when you point it at them. The model is interchangeable. The folder is the asset.</p>
+<p>Everything else — frameworks, orchestration code, agent SDKs, multi-agent choreography — is optional plumbing built on top of that primitive.</p>
+<h2>Why this framing matters</h2>
+<p>If you believe "an agent is a running LangChain graph," then:
+- You lock yourself into one framework
+- You have to redeploy to change behavior
+- The agent dies when the process dies
+- Non-programmers can't touch it
+- Version control means Git-diffing Python
+- Handoff between agents means serializing state through code</p>
+<p>If you believe "an agent is a folder," then:
+- The agent is a plain-text asset in Git
+- Behavior changes are pull requests against markdown
+- The runtime (Claude, GPT, Gemini, Grok, a local model) is interchangeable — pick per task
+- Non-programmers can read, review, and propose changes
+- Handoff between agents is: this folder's output directory is that folder's input directory
+- The whole thing is portable, forkable, and inspectable</p>
+<p>The 4 repos in this program are structured this way on purpose. Each has a small amount of TypeScript that hosts a tool surface, and the actual <strong>agent</strong> — the identity, the rules, the workflow — lives in markdown inside the repo.</p>
+<h2>The same agent, four ways</h2>
+<p>Here's a maintenance-triage agent expressed in four different runtimes. Same folder, same content, different host.</p>
+<h3>1. As a Claude Skill (this program's repo)</h3>
+<pre><code>support-triage-agent/
+├── skills/
+│   └── triage/
+│       ├── SKILL.md         ← frontmatter + instructions
+│       ├── priority-rules.md
+│       └── examples/
+│           ├── p1.md
+│           ├── p2.md
+│           └── p3.md
+├── src/
+│   └── tools.ts             ← draft_response, search_kb (no send)
+└── README.md
+</code></pre>
+<p><strong><code>skills/triage/SKILL.md</code>:</strong></p>
+<pre><code class="language-markdown">---
+name: triage
+description: Classify support tickets and draft responses. Use when a new ticket arrives.
+---
+
+You are a support triage agent for a property-management company.
+
+## Priority rules
+See `priority-rules.md`. P1 always includes: no heat, no water, gas leak, fire, security.
+
+## Workflow
+1. Read the incoming ticket
+2. Classify priority (P1/P2/P3) using `priority-rules.md`
+3. Draft a response using tone from `examples/`
+4. Call `draft_response({ticket_id, priority, message})`
+5. Never call a send tool — you don't have one
+
+## Non-goals
+- Never contact a tenant directly
+- Never promise repair timelines you can't verify
+</code></pre>
+<p>The Claude Skills runtime loads <code>SKILL.md</code> on demand. <code>priority-rules.md</code> and <code>examples/</code> are pulled in when referenced.</p>
+<h3>2. As a Claude Code subagent</h3>
+<pre><code>your-project/
+├── .claude/
+│   ├── CLAUDE.md              ← project-wide identity
+│   ├── agents/
+│   │   └── triage.md          ← the agent
+│   └── commands/
+│       └── triage-inbox.md    ← slash command that invokes it
+├── docs/priority-rules.md
+└── src/
+</code></pre>
+<p><strong><code>.claude/agents/triage.md</code>:</strong></p>
+<pre><code class="language-markdown">---
+name: triage
+description: Support-ticket triage. Auto-invoke when I ask about tickets.
+tools: [Read, Grep, Write]
+model: claude-sonnet-4
+---
+
+You are a support triage agent...
+
+(same body as the Claude Skill above — the content moves, the frontmatter changes)
+</code></pre>
+<p>Claude Code discovers the file via the <code>.claude/agents/</code> convention. Same content, wrapped in Claude-Code-specific frontmatter.</p>
+<h3>3. As an OpenAI Assistant</h3>
+<pre><code>support-triage-agent/
+├── agent-config/
+│   ├── system-prompt.md       ← same content, without frontmatter
+│   ├── tools.json             ← OpenAI function schemas
+│   └── deploy.ts              ← creates or updates the Assistant
+└── src/
+    └── tools.ts               ← same tool implementations
+</code></pre>
+<p><strong><code>agent-config/deploy.ts</code>:</strong></p>
+<pre><code class="language-typescript">import OpenAI from 'openai';
+import { readFile } from 'node:fs/promises';
+
+const client = new OpenAI();
+const instructions = await readFile('./agent-config/system-prompt.md', 'utf8');
+const tools = JSON.parse(await readFile('./agent-config/tools.json', 'utf8'));
+
+await client.beta.assistants.create({
+  name: 'triage',
+  instructions,
+  tools,
+  model: 'gpt-4o-2024-11',
+});
+</code></pre>
+<p>Same markdown, different runtime, wrapped in an SDK call. The <code>system-prompt.md</code> is the agent. <code>deploy.ts</code> is deployment plumbing you write once.</p>
+<h3>4. As a Perplexity Computer custom skill</h3>
+<pre><code>~/perplexity-skills/triage/
+├── SKILL.md
+├── priority-rules.md
+└── examples/
+</code></pre>
+<p><strong><code>SKILL.md</code>:</strong></p>
+<pre><code class="language-markdown">---
+name: triage
+description: Support triage for property-management tickets. Use when asked to triage a support inbox or classify a ticket.
+---
+
+You are a support triage agent...
+
+(same body again)
+</code></pre>
+<p>Uploaded via <code>save_custom_skill</code>. Same content once more.</p>
+<h2>What actually changes between the four?</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Claude Skills</th>
+<th>Claude Code</th>
+<th>OpenAI Assistant</th>
+<th>Perplexity Skill</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Body of the instructions</strong></td>
+<td>Identical</td>
+<td>Identical</td>
+<td>Identical</td>
+<td>Identical</td>
+</tr>
+<tr>
+<td><strong>Frontmatter format</strong></td>
+<td><code>name</code> + <code>description</code></td>
+<td><code>name</code> + <code>description</code> + <code>tools</code> + <code>model</code></td>
+<td>none — sent as JSON to API</td>
+<td><code>name</code> + <code>description</code></td>
+</tr>
+<tr>
+<td><strong>How the runtime finds it</strong></td>
+<td>User invokes via slash / natural language</td>
+<td>Auto-invoked from <code>.claude/agents/</code></td>
+<td>Fetched from OpenAI dashboard</td>
+<td>Auto-invoked when description matches</td>
+</tr>
+<tr>
+<td><strong>Where tools are defined</strong></td>
+<td>Host codebase (MCP or in-repo)</td>
+<td><code>tools:</code> list references built-ins</td>
+<td><code>tools.json</code></td>
+<td>Host codebase or connectors</td>
+</tr>
+<tr>
+<td><strong>How you edit it</strong></td>
+<td>Edit markdown, restart</td>
+<td>Edit markdown, next turn</td>
+<td>Edit markdown, redeploy</td>
+<td>Edit markdown, upload</td>
+</tr>
+</tbody>
+</table>
+<p>Everything that matters is the same. The persistent asset — the thing that captures the agent's actual behavior — is the markdown body. Everything else is runtime tax.</p>
+<h2>Consequences</h2>
+<p><strong>1. Don't overinvest in one runtime.</strong> If your agent is a folder, migrating from Assistants API to Claude Skills to Perplexity is a ~30-minute exercise per agent. If your agent is a LangGraph, migration is a rewrite.</p>
+<p><strong>2. Version control your agents in Git, not in a vendor dashboard.</strong> The dashboard is a cache. Git is the source of truth. If the vendor deletes your agent tomorrow, you clone your repo and redeploy.</p>
+<p><strong>3. Design for composition, not for cleverness.</strong> The most interesting agents in this program are the ones that hand off structured data to each other (see <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-2-intermediate/individual/13-combine-two-agents">module 13 — combine two agents</a>). That composition works because each agent is a folder with an input contract and an output contract, not because there's a fancy multi-agent framework wiring them together.</p>
+<p><strong>4. Read a stranger's agent by reading their folder.</strong> No debugger, no dashboard, no framework knowledge required. <code>cd</code> in, <code>cat</code> the markdown, understand the agent. This is a form of literacy the whole industry underweights.</p>
+<h2>Where this framing gets tested</h2>
+<p>Van Clief and McDermott's paper explicitly notes that ICM is <strong>best for sequential workflows where a human reviews between stages</strong>. When you need parallel agents coordinating in real time with shared mutable state, filesystem-as-orchestrator gets awkward and you probably do want a framework.</p>
+<p>But most real-world agent workflows — the ones this program teaches — are sequential with human review. That's the sweet spot. Ninety percent of the professional AI systems being deployed today are shaped like: input → agent stage 1 → human review → agent stage 2 → human review → output. For that shape, the folder IS the framework.</p>
+<h2>Read more</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2603.16021">ICM paper — Van Clief &amp; McDermott, 2026</a></li>
+<li><a href="https://substack.com/@jakevanclief">Clief Notes on Substack</a></li>
+<li><a href="https://blog.imfsoftware.com/llm-wiki/docs/sources/icm-folder-structure/">ICM Folder Structure — LLM Wiki</a></li>
+<li><a href="https://ap0110.org/wiki/interpretable-context-methodology/">Interpretable Context Methodology — AP0110 Wiki</a></li>
+<li>Related in this program: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-2-intermediate/individual/13-combine-two-agents"><code>../13-combine-two-agents</code></a> (composition through folders)</li>
+<li>Related in this program: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/shared/starter-packs">starter-packs</a> (folder templates for 8 platforms)</li>
+</ul>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/01-agent-architectures/when-to-use-what.md</span></p>
+<h1>When to Use Which Architecture</h1>
+<p>Choose from the failure mode, not from what looks impressive in a demo.</p>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Default architecture</th>
+<th>Why</th>
+<th>Do not use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Extract named lease fields from known documents</td>
+<td>Deterministic pipeline plus Reflection</td>
+<td>Schema and citations are inspectable</td>
+<td>Open-ended ReAct</td>
+</tr>
+<tr>
+<td>Answer a lease question with document evidence</td>
+<td>ReAct with retrieval</td>
+<td>Each result determines the next lookup</td>
+<td>Multi-agent debate</td>
+</tr>
+<tr>
+<td>Build a diligence checklist from an uneven data room</td>
+<td>Plan–Execute</td>
+<td>Completeness and resumability matter</td>
+<td>A single massive prompt</td>
+</tr>
+<tr>
+<td>Triage incoming tenant messages</td>
+<td>Router plus policy rules</td>
+<td>Classification and escalation are the real job</td>
+<td>An autonomous agent with write access</td>
+</tr>
+<tr>
+<td>Produce a human-reviewed owner update</td>
+<td>Draft plus Reflection</td>
+<td>Tone and completeness benefit from a critic</td>
+<td>Tool-heavy agent loop</td>
+</tr>
+</tbody>
+</table>
+<p>Use a workflow, not an agent, when the path is known: nightly lease ingestion, embedding generation, invoice reminders, and scheduled reindexing should be queues and functions. The model can classify or extract inside the workflow, but it should not invent the sequence.</p>
+<p>Use ReAct when the agent must discover which evidence is relevant. Make every tool narrow and read-only by default. If a tool can change property, money, tenant records, or a deal stage, make it return a proposal first. A separate approval action carries the side effect.</p>
+<p>Use Plan–Execute when work has a finite checklist and can survive partial completion. Require each task to declare its inputs, expected artifact, and dependency. Do not let execution create new task classes.</p>
+<p>Use Reflection only when the review can reference a concrete rubric. “Review yourself” is theater. “Flag every claim lacking a lease page citation; validate currency and date formats; return <code>pass</code> or a repair list” is useful.</p>
+<p>The operating rule: deterministic software owns policy; models own interpretation; humans own irreversible judgment.</p>
+</article>
+
+  <div class="pnav">
+    <a href="l2-overview.html">← 2 Intermediate at a glance</a>
+    <a href="l2-individual-02-build-first-agent.html">Build Your First Agent: Lease Clause Extractor →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

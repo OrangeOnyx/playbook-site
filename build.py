@@ -1,5 +1,5 @@
 """Render dist/ from spine.json + content/ + templates/. python build.py [out_dir]"""
-import io, shutil, sys, datetime
+import io, re, shutil, sys, datetime
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -8,9 +8,34 @@ from scripts import spine as S
 ROOT = Path(__file__).resolve().parent
 env = Environment(loader=FileSystemLoader(str(ROOT / "templates")), autoescape=select_autoescape([]), trim_blocks=True, lstrip_blocks=True)
 
+READER_PREFIXES = {1: ("l1-",), 2: ("l2-",), 3: ("l3-", "l4-"), 4: ("l5-",)}
+READER_GROUP_ORDER = ["overview", "start-here", "individual", "company", "shared", "repos", "eli10"]
+
 def partial(name):
     p = ROOT / "content" / name
     return io.open(p, encoding="utf-8").read() if p.exists() else ""
+
+def reader_modules(stage_number):
+    """Scan the generated reader pages for the given stage's modules: [(title, href), ...]."""
+    prefixes = READER_PREFIXES.get(stage_number, ())
+    d = ROOT / "content" / "generated" / "curriculum" / "read"
+    if not prefixes or not d.exists():
+        return []
+    files = [f for f in d.glob("*.html") if f.name.startswith(prefixes)]
+    def group_rank(name):
+        for i, g in enumerate(READER_GROUP_ORDER):
+            if g in name:
+                return i
+        return len(READER_GROUP_ORDER)
+    files.sort(key=lambda f: (next(p for p in prefixes if f.name.startswith(p)), group_rank(f.name), f.name))
+    out = []
+    for f in files:
+        html = io.open(f, encoding="utf-8").read()
+        m = re.search(r"<title>(.*?)</title>", html, re.S)
+        title = m.group(1).split(" | ")[0].strip() if m else f.stem
+        title = title.replace("—", "-").replace("–", "-")  # this listing sits outside the reader's copy-gate allowlist
+        out.append((title, "/curriculum/read/" + f.name))
+    return out
 
 def pages(spine):
     secs = S.sections(spine)
@@ -33,7 +58,8 @@ def pages(spine):
     add("examples/cypress-command-platform/index.html", "example.html", "/examples/cypress-command-platform/", "Cypress Command Platform", body=partial("pages/platform.html"), lane="business")
     add("examples/operator-console/index.html", "example.html", "/examples/operator-console/", "Operator console", body=partial("pages/console.html"), lane="business")
     for cs in spine["stages"]:
-        add("curriculum/%s/index.html" % cs["slug"], "curriculum-stage.html", "/curriculum/%s/" % cs["slug"], "Curriculum %d %s" % (cs["number"], cs["name"]), stage=cs)
+        add("curriculum/%s/index.html" % cs["slug"], "curriculum-stage.html", "/curriculum/%s/" % cs["slug"], "Curriculum %d %s" % (cs["number"], cs["name"]), stage=cs,
+            modules=reader_modules(cs["number"]))
     add("curriculum/index.html", "curriculum.html", "/curriculum/", "Curriculum")
     add("start/index.html", "start.html", "/start/", "Start")
     add("legal/index.html", "legal.html", "/legal/", "Disclaimer and privacy", body=partial("pages/legal.html"))

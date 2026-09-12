@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>07 — Agents & MCP | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="1 Starter · Company Track: 07 — Agents & MCP. Compiled verbatim from the Groundwork Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/l1-company-07-agents-mcp.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/" aria-current="page">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 07 — Agents & MCP</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · COMPANY TRACK</span><h1 style="margin:.1rem 0 0">07 — Agents & MCP</h1></div></div>
+<p class="rnote">This page compiles 3 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-1-essentials/company/07-agents-mcp">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>level-1-essentials/company/07-agents-mcp/README.md</span></p>
+<h1>07 — Agents &amp; MCP</h1>
+<p>Model Context Protocol (MCP) servers and the first agentic workflows.</p>
+<h2>Files</h2>
+<ul>
+<li><code>mcp-server-inventory.md</code> — the priority list of MCP servers to build</li>
+<li><code>agent-workflow-designs.md</code> — the three starter agents (Inbox Triage, Meeting-to-CRM, Weekly Report)</li>
+</ul>
+<h2>Rules</h2>
+<ol>
+<li>Least privilege — read before write</li>
+<li>HITL before autonomous — earn autonomy through eval history</li>
+<li>Every agent has an eval set (25 cases minimum)</li>
+<li>Every agent has a kill switch</li>
+<li>Staged rollout — beta, pilot, department, org</li>
+</ol>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>level-1-essentials/company/07-agents-mcp/agent-workflow-designs.md</span></p>
+<h1>The Three Starter Agent Workflows</h1>
+<p>The first three agents to deploy. Each is high-ROI, bounded, and safe to start with HITL.</p>
+<h2>Agent 1 — Inbox Triage Agent</h2>
+<h3>What it does</h3>
+<p>Every 2 hours during working hours, scans each employee's inbox and:
+- Classifies new emails (Reply-today, Reply-this-week, FYI, Newsletter, Trash)
+- Drafts responses for the Reply-today items (using the email-reply-drafter prompt)
+- Files newsletters and archives obvious noise
+- Posts a summary to Slack DM: "3 replies ready, 8 FYIs, 22 archived"</p>
+<h3>Autonomy level</h3>
+<p><strong>Suggest + partial execute.</strong> Drafts saved, obvious trash archived, but nothing sent.</p>
+<h3>Tools required</h3>
+<ul>
+<li>MCP-03 Email (read, draft, archive — not send)</li>
+<li>Slack DM to owner</li>
+</ul>
+<h3>Guardrails</h3>
+<ul>
+<li>Never send email</li>
+<li>Never delete permanently (only archive)</li>
+<li>Never touch flagged / starred / VIP emails without asking</li>
+</ul>
+<h3>Eval set</h3>
+<p>5 good + 5 hard test cases per employee's inbox during pilot.</p>
+<h3>Rollout</h3>
+<ul>
+<li>Week 1: internal beta with the AI Champion</li>
+<li>Week 2: expand to Steering Committee</li>
+<li>Week 3: pilot with a full department</li>
+<li>Week 4: broader rollout with per-user opt-in</li>
+</ul>
+<h2>Agent 2 — Meeting-Notes-to-CRM Agent</h2>
+<h3>What it does</h3>
+<p>After every sales call (detected via calendar + transcription integration):
+- Retrieves the transcript from Otter / Fireflies / Gong
+- Extracts structured fields: attendees, deal stage, next step, close date, budget signals, competitors mentioned
+- Proposes CRM updates for the AE to approve
+- Drafts a follow-up email</p>
+<h3>Autonomy level</h3>
+<p><strong>Suggest.</strong> All CRM updates and emails are drafts requiring AE approval.</p>
+<h3>Tools required</h3>
+<ul>
+<li>Transcription platform integration (Otter, Fireflies, Gong)</li>
+<li>MCP-04 CRM (read + propose)</li>
+<li>MCP-03 Email (draft only)</li>
+</ul>
+<h3>Guardrails</h3>
+<ul>
+<li>Never modify CRM records without AE approval</li>
+<li>Never send emails</li>
+<li>Store the transcript reference for audit</li>
+</ul>
+<h3>Eval set</h3>
+<p>20 real recorded calls with known ground truth of what should be extracted.</p>
+<h3>Rollout</h3>
+<ul>
+<li>Week 1: 3-AE beta</li>
+<li>Week 2: full sales team pilot</li>
+<li>Week 3: measure adoption + accuracy</li>
+<li>Week 4: refine based on feedback, promote to standard workflow</li>
+</ul>
+<h2>Agent 3 — Weekly Report Generator</h2>
+<h3>What it does</h3>
+<p>Every Friday at 3pm, generates a personalized weekly report for each employee:
+- Pulls from Calendar, Slack messages sent, tickets/issues closed, docs edited
+- Runs the weekly-review prompt (<code>individual/04-prompt-library/19-weekly-review.md</code>)
+- Sends the report to the employee's DM
+- Optionally rolls up to team dashboards</p>
+<h3>Autonomy level</h3>
+<p><strong>Full auto.</strong> Report is generated and delivered without human intervention. But it's read-only — no external actions.</p>
+<h3>Tools required</h3>
+<ul>
+<li>MCP-02 Calendar (read)</li>
+<li>Slack (read own messages, DM output)</li>
+<li>Ticketing (read closed tickets)</li>
+<li>Docs (read edit history)</li>
+</ul>
+<h3>Guardrails</h3>
+<ul>
+<li>Report only to the individual, never shared publicly</li>
+<li>No PII of others in reports</li>
+<li>Employees can opt out anytime</li>
+</ul>
+<h3>Eval set</h3>
+<p>5 employees × 3 weeks of manual weekly reports vs generated. Compare.</p>
+<h3>Rollout</h3>
+<ul>
+<li>Week 1: opt-in beta with 10 employees</li>
+<li>Week 2: iterate on report format based on feedback</li>
+<li>Week 3: broad opt-in launch</li>
+</ul>
+<h2>Common pattern</h2>
+<p>Notice the shape:</p>
+<ol>
+<li><strong>Bounded scope</strong> — one job, well-defined</li>
+<li><strong>HITL by default</strong> — earn autonomy</li>
+<li><strong>Read before write</strong> — start read-only, add write behind approval</li>
+<li><strong>Eval set before ship</strong> — 5+5 minimum, ground truth from real data</li>
+<li><strong>Staged rollout</strong> — beta → pilot → department → org</li>
+<li><strong>Kill switch</strong> — every agent can be paused per-user or globally</li>
+</ol>
+<h2>Anti-patterns</h2>
+<p><strong>Don't build first:</strong>
+- Anything that sends external communications autonomously
+- Anything that modifies shared systems (CRM records, financials) without HITL
+- Anything with a false-positive cost the organization can't tolerate
+- "Agent that does everything" — narrow beats broad</p>
+<h2>Progression: what to build next</h2>
+<p>After the first three are stable (usually month 3–4):</p>
+<ul>
+<li>Meeting scheduler agent (proposes times, employees confirm)</li>
+<li>Contract clause extractor</li>
+<li>Support-ticket first-draft agent (draft only; agent sends)</li>
+<li>Weekly team update aggregator (opt-in per team)</li>
+<li>Newsletter and press monitor</li>
+<li>Executive briefing preparation</li>
+</ul>
+<p>Each new agent goes through the same lifecycle: brief → build → eval → beta → pilot → rollout.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>level-1-essentials/company/07-agents-mcp/mcp-server-inventory.md</span></p>
+<h1>MCP Server Inventory</h1>
+<p>Model Context Protocol (MCP) servers expose your internal tools to AI assistants under least-privilege scopes. This inventory is what you build first.</p>
+<h2>Priority tier 1 — Universal</h2>
+<h3>MCP-01 — Company Knowledge Base</h3>
+<ul>
+<li><strong>Exposes:</strong> Search + fetch across the KB</li>
+<li><strong>Reads:</strong> all approved KB docs, permission-filtered</li>
+<li><strong>Writes:</strong> none (read-only)</li>
+<li><strong>Auth:</strong> SSO passthrough</li>
+</ul>
+<h3>MCP-02 — Calendar</h3>
+<ul>
+<li><strong>Exposes:</strong> Read calendars, propose events, no auto-create</li>
+<li><strong>Reads:</strong> calendars the user has access to</li>
+<li><strong>Writes:</strong> draft events only (HITL to confirm)</li>
+<li><strong>Auth:</strong> OAuth per user</li>
+</ul>
+<h3>MCP-03 — Email (read/draft only)</h3>
+<ul>
+<li><strong>Exposes:</strong> Search, read, draft (never send)</li>
+<li><strong>Reads:</strong> the user's inbox</li>
+<li><strong>Writes:</strong> drafts only</li>
+<li><strong>Auth:</strong> OAuth per user</li>
+</ul>
+<h2>Priority tier 2 — Business systems</h2>
+<h3>MCP-04 — CRM</h3>
+<ul>
+<li><strong>Exposes:</strong> Read records, propose updates</li>
+<li><strong>Reads:</strong> contacts, accounts, opportunities per user's CRM permissions</li>
+<li><strong>Writes:</strong> propose only; user confirms in CRM UI</li>
+<li><strong>Auth:</strong> per-user OAuth</li>
+</ul>
+<h3>MCP-05 — Ticketing (Jira / Linear / GitHub Issues)</h3>
+<ul>
+<li><strong>Exposes:</strong> Search tickets, read, comment, propose new tickets</li>
+<li><strong>Writes:</strong> comments and drafts only; new tickets require HITL</li>
+<li><strong>Auth:</strong> per-user</li>
+</ul>
+<h3>MCP-06 — Data Warehouse (read-only)</h3>
+<ul>
+<li><strong>Exposes:</strong> Read from approved views (not raw tables)</li>
+<li><strong>Writes:</strong> none</li>
+<li><strong>Auth:</strong> service account with view-only role, user identity forwarded for auditing</li>
+</ul>
+<h3>MCP-07 — Documents (Drive / Notion / SharePoint)</h3>
+<ul>
+<li><strong>Exposes:</strong> Search, read, create in scratch folders</li>
+<li><strong>Reads:</strong> per user's ACL</li>
+<li><strong>Writes:</strong> only in user's personal or scratch spaces</li>
+<li><strong>Auth:</strong> per-user</li>
+</ul>
+<h2>Priority tier 3 — Advanced</h2>
+<h3>MCP-08 — Support tickets (Zendesk / Intercom)</h3>
+<ul>
+<li><strong>Exposes:</strong> Read tickets, draft replies, comment</li>
+<li><strong>Writes:</strong> drafts only</li>
+<li><strong>Auth:</strong> per-agent</li>
+</ul>
+<h3>MCP-09 — Code (GitHub / GitLab)</h3>
+<ul>
+<li><strong>Exposes:</strong> Read repos, comment on PRs, propose PR text</li>
+<li><strong>Writes:</strong> comments and drafts only; commits require the developer</li>
+<li><strong>Auth:</strong> per-user token, scoped to their repos</li>
+</ul>
+<h3>MCP-10 — Billing / Finance systems</h3>
+<ul>
+<li><strong>Exposes:</strong> Read-only aggregates</li>
+<li><strong>Writes:</strong> none</li>
+<li><strong>Auth:</strong> admin only</li>
+</ul>
+<h3>MCP-11 — HRIS</h3>
+<ul>
+<li><strong>Exposes:</strong> Org chart, role, tenure (non-sensitive)</li>
+<li><strong>Writes:</strong> none</li>
+<li><strong>Auth:</strong> admin only for sensitive fields</li>
+</ul>
+<h2>Server design principles</h2>
+<ol>
+<li><strong>Least privilege by default</strong> — read before write, drafts before send</li>
+<li><strong>Explicit tool descriptions</strong> — the LLM must understand exactly what a tool does</li>
+<li><strong>Structured inputs/outputs</strong> — JSON schema for every tool</li>
+<li><strong>Idempotent where possible</strong> — tools that repeat safely reduce risk</li>
+<li><strong>Deterministic error handling</strong> — clear error messages route back through the agent</li>
+<li><strong>Audit logging</strong> — every tool call logged with actor, args, outcome</li>
+<li><strong>Rate limits per user</strong> — protect from runaway agents</li>
+</ol>
+<h2>Deployment topology</h2>
+<ul>
+<li>MCP servers run in your VPC / secure network, not on user devices</li>
+<li>User's AI client (Claude Desktop, Cursor, etc.) authenticates and proxies through your identity provider</li>
+<li>Each server exposes only its scoped tools</li>
+<li>Central MCP gateway (optional) aggregates access and adds observability</li>
+</ul>
+<h2>Discovery</h2>
+<ul>
+<li>Every MCP server publishes a public description of its tools (for developer awareness)</li>
+<li>The AI Steering Committee maintains a registry</li>
+<li>New MCP servers require Steering Committee approval</li>
+</ul>
+<h2>Testing</h2>
+<p>Before deploying an MCP server:
+- [ ] Tool descriptions accurate
+- [ ] Auth model reviewed by Security
+- [ ] Rate limits tested
+- [ ] Audit log entries verified
+- [ ] Adversarial-input testing (prompt injection via tool responses)
+- [ ] Downstream permissions honored
+- [ ] Rollback / kill switch confirmed</p>
+</article>
+
+  <div class="pnav">
+    <a href="l1-company-06-rag-knowledge-base.html">← 06 — RAG Knowledge Base</a>
+    <a href="l1-company-08-observability-evals.html">08 — Observability & Evals →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build Your First Agent: Lease Clause Extractor | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="2 Intermediate · Individual Track: Build Your First Agent: Lease Clause Extractor. Compiled verbatim from the Groundwork Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/l2-individual-02-build-first-agent.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/" aria-current="page">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / Build Your First Agent: Lease Clause Extractor</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">2 INTERMEDIATE · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">Build Your First Agent: Lease Clause Extractor</h1></div></div>
+<p class="rnote">This page compiles 2 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-2-intermediate/individual/02-build-first-agent">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/02-build-first-agent/README.md</span></p>
+<h1>Build Your First Agent: Lease Clause Extractor</h1>
+<blockquote>
+<p><strong>Live code:</strong> <a href="https://github.com/OrangeOnyx/lease-abstractor"><code>OrangeOnyx/lease-abstractor</code></a> — clone, run locally, then follow the walkthrough. See the <a href="l2-repos.html">repos overview</a> for how the four Level 2 repos fit together.</p>
+</blockquote>
+<p>Build something narrow enough to trust: an agent that turns a Belle Realty lease PDF into cited, typed clause records. The output is not a summary. It is a machine-usable object such as <code>late_fee</code>, <code>pet_policy</code>, <code>notice_period</code>, <code>renewal</code>, and <code>maintenance_responsibility</code>, each with source page, exact quote, confidence, and review status.</p>
+<p>This is a better first agent than a general lease assistant because it forces the real engineering decisions: document ingestion, tool boundaries, schema validation, incomplete scans, contradictory language, evaluation, and cost. It also creates durable assets. The extracted clauses feed tenant triage, lease search, portfolio reporting, and future RAG.</p>
+<p>The walkthrough uses a simple architecture: deterministic PDF/OCR ingestion; a clause locator with page chunks; an LLM extractor constrained by JSON Schema; a verifier pass that checks every field against quoted evidence; and a human review queue for low confidence or missing evidence. Do not give the model database write access. Let it return a proposed record; your application validates and persists it.</p>
+<p>Success is measured at the field level, not by whether the output “sounds right.” Start with 30 representative leases: clean digital PDFs, scans, old templates, addenda, and ugly edge cases. If the agent cannot cite a clause, it did not extract it.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/02-build-first-agent/lease-clause-extractor-walkthrough.md</span></p>
+<h1>Belle Realty Lease Clause Extractor: Real Build Walkthrough</h1>
+<h2>Job and boundary</h2>
+<p>Input is a lease PDF and <code>lease_id</code>. Output is one JSON object per target clause: <code>{clause_type, value, normalized_value, quote, page, confidence, evidence_chunk_id, status}</code>. Target fields: rent, term dates, late fee, grace period, deposit, pets, smoking, notice, renewal, utilities, maintenance, subletting, and HOA restrictions. The agent proposes; the app writes only validated proposals.</p>
+<h2>Architecture</h2>
+<ol>
+<li>Ingest the file and retain page text plus page images for scans.</li>
+<li>Split by page, headings, and numbered sections; preserve <code>lease_id</code>, page, and character offsets.</li>
+<li><code>find_clause(query, lease_id)</code> returns at most six cited chunks. <code>get_page(page)</code> returns the full page when a boundary crosses chunks.</li>
+<li>The extractor selects evidence and emits strict JSON. A verifier receives the candidate and the cited text only, then returns <code>verified</code>, <code>repair</code>, or <code>needs_human</code>.</li>
+<li>A validator rejects malformed dates, money without currency, unsupported quotes, duplicate clause types, and confidence over 0.95 without an exact quote.</li>
+</ol>
+<h2>Tool definitions</h2>
+<p><code>find_clause</code> is read-only, filters by the supplied lease, and cannot search other tenants. <code>get_page</code> accepts a page number. <code>create_review_task</code> stores evidence and a reason but cannot mark a lease final. The model never calls raw SQL, storage, email, or a write endpoint.</p>
+<h2>Error handling</h2>
+<p>Treat OCR confidence under 0.88, absent page citations, conflicting addenda, handwritten edits, and multi-column corruption as review conditions. Retry transient tool failures once with an idempotency key. Never retry a semantic failure blindly; save the trace and route it to the eval corpus. If an addendum supersedes a base lease, return both citations and <code>status: conflict</code> until a reviewer resolves precedence.</p>
+<h2>Eval set and score</h2>
+<p>Create 30 leases with a gold record per clause. Score exact normalized value, correct source page, quote support, and correct abstention. Weight money, dates, pet policy, and notice periods highest. Ship only when critical-field precision is at least 98%, citation support is 100%, and every unsupported answer abstains.</p>
+<h2>Cost</h2>
+<p>Process once, store outputs, and re-run only changed files. Use a cheap model to locate likely clauses and a stronger one only for ambiguous extraction or verification. Track cost per lease, per successful clause, and per human-review avoidance. A $0.15 extraction that prevents a 10-minute manual read is good; a $0.15 extraction that silently changes a notice period is not.</p>
+</article>
+
+  <div class="pnav">
+    <a href="l2-individual-01-agent-architectures.html">← Agent Architectures</a>
+    <a href="l2-individual-03-build-second-agent.html">Build Your Second Agent: Tenant Triage →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

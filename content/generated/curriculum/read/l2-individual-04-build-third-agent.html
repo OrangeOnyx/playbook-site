@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build Your Third Agent: Diligence Checklist | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="2 Intermediate · Individual Track: Build Your Third Agent: Diligence Checklist. Compiled verbatim from the Groundwork Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/l2-individual-04-build-third-agent.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/" aria-current="page">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / Build Your Third Agent: Diligence Checklist</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">2 INTERMEDIATE · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">Build Your Third Agent: Diligence Checklist</h1></div></div>
+<p class="rnote">This page compiles 2 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-2-intermediate/individual/04-build-third-agent">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/04-build-third-agent/README.md</span></p>
+<h1>Build Your Third Agent: Diligence Checklist</h1>
+<blockquote>
+<p><strong>Live code:</strong> <a href="https://github.com/OrangeOnyx/diligence-agent"><code>OrangeOnyx/diligence-agent</code></a> — clone, run locally, then follow the walkthrough. See the <a href="l2-repos.html">repos overview</a> for how the four Level 2 repos fit together.</p>
+</blockquote>
+<p>Deal Leverage needs an agent that creates a defensible diligence view from a messy data room. This is not a chat-with-PDFs feature. It is a controlled evidence workflow that inventories documents, maps them to a checklist, extracts required facts, scores completeness, and makes uncertainty obvious.</p>
+<p>A buyer should be able to open a checklist line—“trailing 12-month operating statement,” “title commitment,” “insurance certificate,” “environmental report,” “tenant estoppel”—and see the exact file, page, finding, date, and reason for its score. The agent cannot say a deal is safe or approve a transaction. It can organize evidence and surface exceptions faster than a human opening every folder.</p>
+<p>Use Plan–Execute. The plan is the checklist taxonomy and required evidence, not model-generated improvisation. Workers identify document type, extract relevant facts, compare them to the criteria, and return a score with citations. Missing evidence remains missing; do not reward a confident guess.</p>
+<p>The walkthrough is deliberately opinionated: a smaller explicit checklist beats a magical “analyze this data room” prompt. You earn autonomy only after the evidence path is reliable.</p>
+<p>Before adding complexity, run this design through a small representative eval and inspect the trace with the operator who will own failures. Make the boundary, escalation, and rollback visible in the product. That discipline will expose more useful work than another round of prompt cleverness.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/04-build-third-agent/diligence-checklist-agent-walkthrough.md</span></p>
+<h1>Deal Leverage Diligence Checklist Agent</h1>
+<h2>Define the product</h2>
+<p>The input is <code>deal_id</code> plus a data-room manifest. The output is a versioned checklist: each row has <code>criterion</code>, <code>required_evidence</code>, <code>status</code>, <code>score</code>, <code>finding</code>, <code>source_file</code>, <code>pages</code>, <code>quote</code>, <code>confidence</code>, and <code>review_required</code>. Start with 25–40 criteria across financials, property condition, legal/title, leases, insurance, tax, debt, and operations. Make criteria deal-type specific; multifamily and land should not share the same checklist.</p>
+<h2>Execution plan</h2>
+<p>First inventory files with deterministic metadata: filename, path, size, date, type, checksum, OCR status. A classifier labels each file type with confidence. For every checklist row, retrieve only likely documents, then call an extractor constrained to that row’s schema. A scorer compares the extracted evidence to explicit rules: <code>complete</code>, <code>partial</code>, <code>missing</code>, <code>conflicting</code>, or <code>not_applicable</code>. For example, an insurance item is complete only if the certificate identifies coverage, limits, expiration, and named insured; an old certificate is not “partial complete.”</p>
+<h2>Evidence and scoring</h2>
+<p>Use a 0–100 deal score only as a rollup, never as a substitute for rows. Weight blockers explicitly and cap the total score when a required legal or financial document is missing. Every positive finding needs a quote and page. Every negative finding names what was expected and what was found. Conflicting documents create a review item rather than averaging their claims.</p>
+<h2>Human review and eval</h2>
+<p>Require review for all blockers, scores below 70, low-confidence classification, scanned tables, and any conclusion involving title, environmental, legal, or underwriting judgment. Build gold cases from closed deals and known bad rooms. Score document classification, row status accuracy, citation precision, blocker recall, and false-complete rate. The most important metric is not average accuracy; it is how often the agent incorrectly marks a material item complete.</p>
+<h2>Operational behavior</h2>
+<p>Persist each step so new documents update only affected rows. Show a trace per row. Do not ask the agent to “re-read everything” after an upload. That is expensive, slow, and impossible to audit.</p>
+</article>
+
+  <div class="pnav">
+    <a href="l2-individual-03-build-second-agent.html">← Build Your Second Agent: Tenant Triage</a>
+    <a href="l2-individual-05-mcp-server.html">MCP Server: Give Agents Safe Access to Real Data →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

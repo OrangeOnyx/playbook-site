@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Governance | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="2 Intermediate · Company Track: Agent Governance. Compiled verbatim from the Groundwork Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/l2-company-02-agent-governance.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/" aria-current="page">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / Agent Governance</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">2 INTERMEDIATE · COMPANY TRACK</span><h1 style="margin:.1rem 0 0">Agent Governance</h1></div></div>
+<p class="rnote">This page compiles 5 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-2-intermediate/company/02-agent-governance">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>level-2-intermediate/company/02-agent-governance/README.md</span></p>
+<h1>Agent Governance</h1>
+<p>Governance is how you decide which agents may exist, what they may do, and how they are stopped. It is not a committee that reviews every prompt change. Apply more control as impact rises: a document lookup assistant needs evidence and access controls; an agent proposing changes to financial or personnel systems needs formal approval, audit, and a kill switch.</p>
+<p>Every agent has an owner, user, purpose, risk tier, data classification, tool list, eval gates, cost budget, launch status, and retirement plan. Record these in a registry. If nobody owns an agent, it should not be running.</p>
+<p>The three supporting documents define a lightweight review board, a lifecycle, and an incident-ready kill switch. The principle is fast experimentation inside firm boundaries.</p>
+<h2>Related: the individual analogue</h2>
+<p>The org-wide approval matrix in this module is the multi-team version of the same three-zone framework Groundwork teaches individuals in Layer 3 (Governance): Auto-Execute / Draft &amp; Wait / Never Automate. If a person on your team hasn't run Groundwork, they'll benefit from doing so — their personal approval rules feed straight into how they'll behave under your org governance. See <a href="orientation.html">GROUNDWORK-AND-FLUENCY.md</a> and <a href="l2-company-02-agent-governance.html">approval-flows.md</a> in this module.</p>
+<h2>Operating standard</h2>
+<p>Make this practice operational, not aspirational. Assign one directly responsible owner and name the decision they can make without another meeting. Put the key measure, threshold, and review cadence in the owning team's regular operating rhythm. A change to model, prompt, data scope, retrieval index, tool permission, or policy should be recorded with its expected impact and a rollback path. Preserve enough trace information to explain an individual bad outcome without exposing more customer or internal data than necessary. Review a small sample of real runs with the people doing the work; dashboards reveal trends, but operators reveal missing context. When the rule is violated, capture the incident, contain impact, add an eval or control, and update this document if the standard itself was unclear. The point is repeatable judgment under real workload, not a one-time compliance exercise.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>level-2-intermediate/company/02-agent-governance/agent-lifecycle.md</span></p>
+<h1>Agent Lifecycle</h1>
+<ol>
+<li><strong>Brief:</strong> define user, decision, non-goals, data, tools, risk, and success metric. 2. <strong>Prototype:</strong> use synthetic or sandboxed data; no external side effects. 3. <strong>Offline evaluation:</strong> establish correctness, safety, retrieval, latency, and cost baselines. 4. <strong>Review:</strong> approve data/tool scope and rollout plan. 5. <strong>Shadow:</strong> run against live inputs without acting; compare with staff outcomes. 6. <strong>Limited launch:</strong> feature flag, narrow users, required human review. 7. <strong>Operate:</strong> monitor, sample outputs, refresh evals, track drift and costs. 8. <strong>Retire:</strong> revoke tools, archive traces under retention policy, and remove stale indexes.</li>
+</ol>
+<p>Define exit criteria at every stage. A shadow agent moves forward only if it meets slice-level metrics, not an average score. An operational agent re-enters review after a material incident, model migration, policy change, or expansion of permissions.</p>
+<p>Lifecycle state belongs in the agent registry and visible UI. Users should know whether they are seeing an experimental draft, a human-approved recommendation, or an automated action.</p>
+<h2>Operating standard</h2>
+<p>Make this practice operational, not aspirational. Assign one directly responsible owner and name the decision they can make without another meeting. Put the key measure, threshold, and review cadence in the owning team’s regular operating rhythm. A change to model, prompt, data scope, retrieval index, tool permission, or policy should be recorded with its expected impact and a rollback path. Preserve enough trace information to explain an individual bad outcome without exposing more tenant or deal data than necessary. Review a small sample of real runs with the people doing the work; dashboards reveal trends, but operators reveal missing context. When the rule is violated, capture the incident, contain impact, add an eval or control, and update this document if the standard itself was unclear. The point is repeatable judgment under real workload, not a one-time compliance exercise.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>level-2-intermediate/company/02-agent-governance/agent-review-board.md</span></p>
+<h1>Agent Review Board</h1>
+<p>Use a small review board for medium- and high-risk agents: product owner, technical owner, security/privacy reviewer, and operations representative. Review the agent brief, intended users, data scope, tools, write proposals, human gates, eval evidence, cost ceiling, and rollback plan. Low-risk internal drafts can use an asynchronous checklist; do not turn every experiment into a meeting.</p>
+<p>Classify risk by impact and reversibility. Any agent touching tenant records, money, legal terms, fair-housing matters, external communication, or cross-team knowledge needs a documented decision. Require a demo against adversarial cases, not only happy paths. Approval expires when core data scope, side effects, model family, or tool permissions materially change.</p>
+<p>The board should reject vague products: “an assistant for operations” has no testable boundary. It should also provide an approved pattern library so teams can move faster next time. Governance earns trust by making safe deployment quicker than inventing controls from scratch.</p>
+<h2>Operating standard</h2>
+<p>Make this practice operational, not aspirational. Assign one directly responsible owner and name the decision they can make without another meeting. Put the key measure, threshold, and review cadence in the owning team’s regular operating rhythm. A change to model, prompt, data scope, retrieval index, tool permission, or policy should be recorded with its expected impact and a rollback path. Preserve enough trace information to explain an individual bad outcome without exposing more tenant or deal data than necessary. Review a small sample of real runs with the people doing the work; dashboards reveal trends, but operators reveal missing context. When the rule is violated, capture the incident, contain impact, add an eval or control, and update this document if the standard itself was unclear. The point is repeatable judgment under real workload, not a one-time compliance exercise.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>level-2-intermediate/company/02-agent-governance/approval-flows.md</span></p>
+<h1>Approval flows: the three-tier framework, operationalized for teams</h1>
+<p><strong>Read this if:</strong> You are about to let an agent send email, edit a database, spend money, or make any change that a customer, employee, or regulator will see. You need a rule set your team can actually apply under pressure.</p>
+<p><strong>You do not need to have read anything else in this program to use this doc.</strong> It stands alone.</p>
+<h2>The one idea</h2>
+<p>Every agent action falls into exactly one of three categories. The categories are not descriptive — they are prescriptive. The category decides whether a human is in the loop.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Rule</th>
+<th>Human in loop?</th>
+<th>Typical latency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Auto-Execute</strong></td>
+<td>Low-risk, reversible, internal-only, cheap to correct</td>
+<td>No</td>
+<td>Seconds</td>
+</tr>
+<tr>
+<td><strong>2. Draft and Wait</strong></td>
+<td>Anything that reaches another person or leaves your systems</td>
+<td>Yes, before send</td>
+<td>Minutes to hours</td>
+</tr>
+<tr>
+<td><strong>3. Never Automate</strong></td>
+<td>Money, legal commitments, personnel decisions, sensitive comms</td>
+<td>Yes, and the human takes the action, not the agent</td>
+<td>As long as it takes</td>
+</tr>
+</tbody>
+</table>
+<p>If you are unsure which category, the answer is Category 2. Demoting an agent from Category 1 after a bad send costs more than promoting it from Category 2 after it earns trust.</p>
+<h2>The four escalation rules</h2>
+<p>The categories cover the known cases. These four rules cover everything else:</p>
+<ol>
+<li><strong>If the agent is uncertain about classification, default to Category 2.</strong></li>
+<li><strong>If the agent encounters information marked private or restricted, stop and ask.</strong></li>
+<li><strong>If the task involves money, legal, or personnel, Category 3. No exceptions.</strong></li>
+<li><strong>If the output will be seen outside the organization, Category 2 at minimum.</strong></li>
+</ol>
+<p>Print these four rules on the wall next to whoever runs the AI program. They do more work than any policy document you could write.</p>
+<h2>Where the rules live in code</h2>
+<p>Your agents should treat these categories as first-class configuration, not hidden behavior. In the reference companion repos (<code>belle-mcp-server</code>, <code>lease-abstractor</code>, <code>support-triage-agent</code>, <code>diligence-agent</code>), every write-capable tool has an <code>auto_send: false</code> flag that defaults off. That is Category 2 by construction. To move a tool to Category 1, an owner has to change the flag deliberately, sign off, and add a monitoring gate.</p>
+<p>Recommended pattern for any agent you build:</p>
+<pre><code class="language-yaml"># agent-manifest.yaml
+name: support-triage
+owner: cx-team@example.com
+category: 2  # Draft and Wait
+tools:
+  - name: draft_reply
+    category: 2
+    auto_send: false
+  - name: tag_conversation
+    category: 1  # Auto-Execute — internal, reversible
+    auto_send: true
+  - name: issue_refund
+    category: 3  # Never Automate
+    auto_send: false
+    human_action_required: true
+</code></pre>
+<p>The manifest is the contract. If it says Category 3, no code path in the agent may take that action, even with approval. Approval means a human uses their own credentials to act.</p>
+<h2>The seed rule list (start here)</h2>
+<p>Copy this into your first agent registry. It's short on purpose.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File incoming documents into folders</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Tag support tickets by topic</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Update internal status logs</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Generate a meeting summary</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Draft an email response to a customer</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Draft a marketing post</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Reply to a Slack message on someone's behalf</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Update a CRM record with a customer-facing note</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Send a payment</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Sign a contract</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Terminate an employee's access</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Post publicly on the company account</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Extend as your team encounters new cases. Every added row goes to the review board (see <a href="l2-company-02-agent-governance.html">agent-review-board.md</a>) before it ships.</p>
+<h2>Who owns each category</h2>
+<ul>
+<li><strong>Category 1:</strong> The team that owns the underlying process. If Finance owns invoicing, Finance owns any Category 1 agent that touches invoicing.</li>
+<li><strong>Category 2:</strong> The person who would have done the task themselves. If a support rep would draft the reply, the support rep is the reviewer.</li>
+<li><strong>Category 3:</strong> The named human with legal authority to act. This is not an inbox. It is a person with credentials.</li>
+</ul>
+<h2>Promotion path</h2>
+<p>An agent tool can be promoted from Category 2 to Category 1 only after:</p>
+<ol>
+<li><strong>Volume:</strong> at least 200 draft-and-approved outputs across at least 30 days</li>
+<li><strong>Approval rate:</strong> ≥ 95% of drafts approved without material edit</li>
+<li><strong>Zero incidents:</strong> no false-positive send, no data leak, no policy violation</li>
+<li><strong>Reviewer sign-off:</strong> the human who has been reviewing signs off in writing</li>
+<li><strong>Owner sign-off:</strong> the process owner signs off in writing</li>
+<li><strong>Rollback path:</strong> flipping the <code>auto_send</code> flag back to <code>false</code> requires no code change</li>
+</ol>
+<p>Anything short of all six leaves the tool in Category 2. Ambiguity does not promote.</p>
+<h2>Common failure modes</h2>
+<ul>
+<li><strong>The "harmless" auto-send trap.</strong> Someone argues that a draft with a footer of "sent by AI" is safe to auto-send. It is not. Customers do not read the footer. They read the message.</li>
+<li><strong>The blanket exception.</strong> A team says "everything we do is Category 1, we're moving fast." Six weeks later a bulk email goes to the wrong list. The blanket is what failed, not the specific message.</li>
+<li><strong>The Category 3 sneak-around.</strong> An agent "prepares" a wire transfer file that a human "just clicks send" on. If the click is the only human step, the human is not really in the loop. Category 3 means the human takes the action from scratch, with their own credentials, using the same tools they'd use without the agent.</li>
+</ul>
+<h2>What this doc replaces</h2>
+<ul>
+<li>Vague "AI usage policies" that don't tell anyone what to do</li>
+<li>Committee approval for every prompt change</li>
+<li>Ad-hoc Slack decisions that vary by who's on shift</li>
+</ul>
+<p>If you already have a policy document, keep it, but put this three-tier table on page 1.</p>
+<h2>Related</h2>
+<ul>
+<li><a href="l2-company-02-agent-governance.html">agent-lifecycle.md</a> — what happens between build and retirement</li>
+<li><a href="l2-company-02-agent-governance.html">agent-review-board.md</a> — who decides category assignments</li>
+<li><a href="l2-company-02-agent-governance.html">kill-switch-playbook.md</a> — how to stop an agent that broke its category rules</li>
+<li><a href="l2-company-06-cost-management.html">../06-cost-management/README.md</a> — budget rules that intersect with approval rules</li>
+<li><a href="orientation.html">GROUNDWORK-AND-FLUENCY.md</a> — the individual analogue of this framework</li>
+</ul>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>level-2-intermediate/company/02-agent-governance/kill-switch-playbook.md</span></p>
+<h1>Kill-Switch Playbook</h1>
+<p>Provide three controls: global AI disable, per-agent disable, and per-tool/write disable. They must be server-side, fast, auditable, and tested. A disabled agent returns a clear fallback experience; it must not quietly call a different unreviewed model.</p>
+<p>Trigger the switch for suspected data exposure, unsafe external action, emergency-routing regression, unauthorized tool activity, runaway spend, provider compromise, or material policy violation. First contain: disable writes and external sends, preserve traces, notify the agent owner and operations lead, and assess affected organizations. Do not erase logs during an incident.</p>
+<p>Then investigate scope, revoke credentials if needed, communicate factually, fix the root cause, add regression cases, and require re-approval before re-enable. Run a quarterly drill. A kill switch that has never been exercised is only a diagram.</p>
+<h2>Operating standard</h2>
+<p>Make this practice operational, not aspirational. Assign one directly responsible owner and name the decision they can make without another meeting. Put the key measure, threshold, and review cadence in the owning team’s regular operating rhythm. A change to model, prompt, data scope, retrieval index, tool permission, or policy should be recorded with its expected impact and a rollback path. Preserve enough trace information to explain an individual bad outcome without exposing more tenant or deal data than necessary. Review a small sample of real runs with the people doing the work; dashboards reveal trends, but operators reveal missing context. When the rule is violated, capture the incident, contain impact, add an eval or control, and update this document if the standard itself was unclear. The point is repeatable judgment under real workload, not a one-time compliance exercise.</p>
+</article>
+
+  <div class="pnav">
+    <a href="l2-company-01-platform-engineering.html">← Platform Engineering for AI</a>
+    <a href="l2-company-03-rag-at-scale.html">RAG at Scale →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

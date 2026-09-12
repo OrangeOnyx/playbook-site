@@ -4,4 +4,5 @@
 <p class="lede">{{ stage.promise }} This is the builder's track for that stage.</p></header>
 <p class="prov">Repository folders in this stage: {{ spine.curriculum[stage.number|string].levels|join(", ") }}.</p>
 <p><a href="/curriculum/read/">Open the reader</a></p>
+<ol class="contents">{% for t, h in modules %}<li><a href="{{ h }}">{{ t }}</a></li>{% endfor %}</ol>
 {% endblock %}
