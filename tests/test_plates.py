@@ -17,3 +17,14 @@ def test_redraw_writes_four_plates(tmp_path):
     assert "Level" not in ladder and "Interview" not in ladder
     cover = io.open(tmp_path / "content" / "plates" / "fig-00.html", encoding="utf-8").read()
     assert cover.count("<circle") >= 10
+
+def test_track_waypoints_carry_the_lane_inks(tmp_path):
+    # fig-15's waypoint dots must read the same as fig-14's: accent for the personal
+    # lane (y=60), olive for the business lane (y=100), never the default ink.
+    R.run(tmp_path)
+    track = io.open(tmp_path / "content" / "plates" / "fig-15.html", encoding="utf-8").read()
+    stages = len(R.S.load()["stages"])
+    acc = [c for c in track.split("<circle")[1:] if 'class="s acc"' in c and 'cy="60.0"' in c]
+    oli = [c for c in track.split("<circle")[1:] if 'class="s oli"' in c and 'cy="100.0"' in c]
+    assert len(acc) == stages and len(oli) == stages, (len(acc), len(oli))
+    assert '<circle class="s "' not in track, "no waypoint may fall back to the default ink"
