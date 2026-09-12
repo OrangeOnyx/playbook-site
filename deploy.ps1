@@ -11,7 +11,7 @@ python -m pytest -q; if ($LASTEXITCODE -ne 0) { throw "Tests failed." }
 Write-Host "== Deploy =="
 if ($Preview) { npx vercel deploy dist --yes } else { npx vercel deploy dist --prod --yes }
 if ($LASTEXITCODE -ne 0) { throw "Vercel deploy failed (a failed Vercel step usually passes on rerun)." }
-if ($Preview) { Write-Host "Preview deployed (protected URL; check it in the Vercel dashboard)."; exit 0 }
+if ($Preview) { Write-Host "Preview deployed (protected URL; check it in the Vercel dashboard)."; return }
 Write-Host "== Live verification =="
 $pages = @("", "1-starter/", "1-starter/1-1-know-me/", "4-frontier-operator/4-2-improve-and-survive/", "radar/", "templates/", "plates/", "start/", "sitemap.xml")
 $fail = $false
