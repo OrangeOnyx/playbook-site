@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block main %}
+<header class="page pagehead"><span class="kicker">STAGE {{ stage.number }} OF 4 · {{ stage.weeks|upper }}</span>
+<h1>{{ stage.number }} {{ stage.name }}.</h1><p class="lede">{{ stage.promise }}</p></header>
+<section>
+<h2>What you build, in order.</h2>
+<ol class="sections">
+{% for x in stage_sections %}<li><a href="{{ x.path }}"><b>{{ x.id }} {{ x.title }}</b></a><p class="quiet">{{ x.artifacts|join("; ") }}.</p></li>{% endfor %}
+</ol>
+<p><b>Gate:</b> {{ stage.gate }}</p>
+</section>
+<section>
+<h2>Both lanes.</h2>
+<div class="lanes">
+<div class="lane lane-personal"><h4>Personal</h4>{% for x in stage_sections %}<p><b>{{ x.id }}</b> {{ x.lanes.personal }}</p>{% endfor %}</div>
+<div class="lane lane-business"><h4>Professional</h4>{% for x in stage_sections %}<p><b>{{ x.id }}</b> {{ x.lanes.business }}</p>{% endfor %}</div>
+</div>
+</section>
+{% if stage.number == 1 %}
+<section><h2>The interview engine, and the evidence log.</h2>{{ partial("front/ch-5.html") }}{{ partial("cards/s14.html") }}</section>
+{% endif %}
+{% if stage.number == 4 %}<section>{{ partial("plates/fig-07.html") }}{{ partial("plates/fig-08.html") }}</section>{% endif %}
+<p class="prov">Source: The AI Playbook v2.0 level table; delivery sequence as printed there, numbered here.</p>
+<nav class="pager">{% if stage.number > 1 %}<a href="/{{ spine.stages[stage.number-2].slug }}/">Previous stage</a>{% endif %}{% if stage.number < 4 %}<a href="/{{ spine.stages[stage.number].slug }}/">Next stage</a>{% endif %}</nav>
+{% endblock %}

@@ -27,3 +27,11 @@ def test_cover(tmp_path):
         assert anchor in s, anchor
     assert s.count('class="lane-pick"') == 2
     assert "Ten interviews" not in s.split("<h1>")[0]
+
+def test_stage_hubs(tmp_path):
+    B.render(tmp_path)
+    s = io.open(tmp_path / "1-starter" / "index.html", encoding="utf-8").read()
+    assert "<h1>1 Starter.</h1>" in s
+    for sid in ("1.0", "1.1", "1.2"): assert sid in s
+    assert "Gate:" in s and 'class="lanes"' in s
+    assert 'data-card="s14"' in s   # the evidence log lives on Stage 1
