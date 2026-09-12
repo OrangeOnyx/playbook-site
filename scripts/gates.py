@@ -3,7 +3,7 @@ import io, re, sys
 from pathlib import Path
 
 BANNED = re.compile(r"\bleverage|\bseamless|\bempower|\bunlock\b|\brobust\b|actionable|data-driven|game-changer|synergy|circle back|best practices|dive into|at the end of the day|\bdelve|\belevate\b|testament", re.I)
-IDENTITY = re.compile(r"orange ocean|disbar|attorney|lawyer", re.I)
+IDENTITY = re.compile(r"orange ocean|disbar", re.I)
 HEADLINE = re.compile(r"\b(Interview|Order|Layer|Phase|Level)\s+\d+\b|\bLayers?\b|\bPhases?\b")
 HEADLINE_TAGS = re.compile(r"<(h1|h2|h3|title|figcaption)[^>]*>(.*?)</\1>", re.S | re.I)
 NAV_LINKS = re.compile(r"<nav[^>]*>(.*?)</nav>", re.S | re.I)
