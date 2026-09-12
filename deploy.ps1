@@ -1,8 +1,18 @@
-# The AI Playbook one-command ship: build -> gates -> tests -> deploy dist -> live verify.
+# The AI Playbook one-command ship: clean tree -> build -> gates -> tests -> deploy dist -> live verify.
 # Run from the playbook-site repo: .\deploy.ps1   (add -Preview for a preview deploy)
 param([switch]$Preview)
 $ErrorActionPreference = "Stop"
 Set-Location $PSScriptRoot
+Write-Host "== Working tree =="
+# What ships must be what is committed: a dirty tree means dist was rendered from
+# content no one can check out again.
+$dirty = git status --porcelain
+if ($LASTEXITCODE -ne 0) { throw "git status failed." }
+if ($dirty) {
+  $dirty | ForEach-Object { Write-Host "  $_" }
+  throw "Working tree is dirty. Commit or stash before deploying."
+}
+Write-Host "clean"
 Write-Host "== Build =="
 python build.py; if ($LASTEXITCODE -ne 0) { throw "Build failed." }
 Write-Host "== Gates =="
