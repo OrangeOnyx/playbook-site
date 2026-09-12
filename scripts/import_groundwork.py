@@ -1,4 +1,13 @@
-"""Import Groundwork (sibling clone, pinned commit) into content partials. Idempotent."""
+"""Import Groundwork (sibling clone, pinned commit) into content partials. Idempotent.
+
+PINNED guards the SOURCE CONTENT this import was built against, not the exact
+HEAD of the sibling clone. groundwork-site may move ahead with commits that
+don't touch the paths this import reads (guide/, index.html, legal.html,
+assets/) -- deploy tooling, config, etc. -- without invalidating the pin.
+_assert_commit checks that (1) PINNED is still an ancestor of HEAD and (2)
+none of the guarded paths differ between PINNED and HEAD. Only a commit that
+actually changes the imported source trips the gate.
+"""
 import io, posixpath, re, subprocess, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -16,10 +25,33 @@ def _write(p, s):
     p.parent.mkdir(parents=True, exist_ok=True)
     io.open(p, "w", encoding="utf-8", newline="\n").write(s)
 
+GUARDED_PATHS = ["guide", "index.html", "legal.html", "assets"]
+
 def _assert_commit(gw):
-    head = subprocess.check_output(["git", "-C", str(gw), "rev-parse", "--short", "HEAD"], text=True).strip()
-    if not head.startswith(PINNED):
-        raise SystemExit("groundwork-site is at %s, expected %s" % (head, PINNED))
+    """Guard the source paths the import reads, not the exact HEAD.
+
+    PINNED must be an ancestor of HEAD (the clone hasn't been rewound or
+    detached onto an unrelated line of history), and none of GUARDED_PATHS
+    may differ between PINNED and HEAD (no imported content has drifted out
+    from under this script since it was written against PINNED)."""
+    try:
+        subprocess.run(
+            ["git", "-C", str(gw), "merge-base", "--is-ancestor", PINNED, "HEAD"],
+            check=True, capture_output=True, text=True,
+        )
+    except subprocess.CalledProcessError as e:
+        raise SystemExit(
+            "groundwork-site: pinned commit %s is not an ancestor of HEAD (%s)" % (PINNED, e.stderr.strip())
+        )
+    diff = subprocess.check_output(
+        ["git", "-C", str(gw), "diff", "--stat", PINNED, "HEAD", "--"] + GUARDED_PATHS,
+        text=True,
+    ).strip()
+    if diff:
+        raise SystemExit(
+            "groundwork-site: source paths (%s) changed between %s and HEAD:\n%s"
+            % (", ".join(GUARDED_PATHS), PINNED, diff)
+        )
 
 def _main_inner(html):
     m = re.search(r"<main[^>]*>(.*?)</main>", html, re.S)

@@ -1,7 +1,19 @@
-import sys, pathlib, io, re
+import sys, pathlib, io, re, pytest
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts import import_groundwork as G
+
+def test_assert_commit_passes_on_real_clone():
+    # PINNED must still be an ancestor of the sibling clone's HEAD, and the
+    # guarded source paths (guide/, index.html, legal.html, assets/) must be
+    # unchanged since PINNED, even if groundwork-site's HEAD has moved on
+    # with commits that only touch deploy tooling or config.
+    G._assert_commit(ROOT.parent / "groundwork-site")
+
+def test_assert_commit_rejects_bogus_pin(monkeypatch):
+    monkeypatch.setattr(G, "PINNED", "0000000")
+    with pytest.raises(SystemExit):
+        G._assert_commit(ROOT.parent / "groundwork-site")
 
 def test_groundwork_import(tmp_path):
     r = G.run(ROOT.parent / "groundwork-site", tmp_path)
