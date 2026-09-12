@@ -50,22 +50,18 @@
 
   rm.addEventListener('change', function (e) { if (e.matches) pin(); });
 
-  /* a plate replays when clicked (per-plate replay, the PR's own follow-up) */
+  /* a plate replays when clicked (per-plate replay, the PR's own follow-up).
+     Two triggers reset and re-add .ink on the figure: the plate's ".replay" button, or a click on its <svg>;
+     a non-plate .fig (heading glyphs, etc.) keeps the old behavior and replays on any click within it. */
   document.querySelectorAll('.fig').forEach(function (f) {
-    f.addEventListener('click', function () {
+    f.addEventListener('click', function (e) {
       if (rm.matches) return;
-      f.classList.remove('ink');
-      void f.getBoundingClientRect();
-      f.classList.add('ink');
+      var fig = e.target.closest('figure.fig.plate') || e.target.closest('.fig');
+      if (!fig) return;
+      if (fig.classList.contains('plate') && !e.target.closest('.replay') && !e.target.closest('svg')) return;
+      fig.classList.remove('ink');
+      void fig.getBoundingClientRect();
+      fig.classList.add('ink');
     });
-  });
-
-  /* plate replay: click a plate's replay button, or its svg, to redraw it */
-  document.addEventListener('click', function (e) {
-    var t = e.target.closest('.replay, figure.fig.plate svg'); if (!t) return;
-    var fig = t.closest('figure.fig.plate'); if (!fig) return;
-    fig.classList.remove('ink');
-    void fig.getBoundingClientRect();
-    requestAnimationFrame(function () { requestAnimationFrame(function () { fig.classList.add('ink'); }); });
   });
 })();
