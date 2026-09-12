@@ -1,0 +1,64 @@
+
+  
+  
+  
+
+  <h2><span class="fig ico" data-w2 aria-hidden="true"><svg viewBox="0 0 40 40"><path class="s" pathLength="1" style="--i:0" d="M20 8v24M8 34h24"/><path class="s lt" pathLength="1" style="--i:1" d="M6 16h28"/><path class="s" pathLength="1" style="--i:2" d="M6 16l-4 8h8zM34 16l-4 8h8z"/><text class="t acc" style="--i:3" x="8" y="14" text-anchor="middle">?</text><text class="t acc" style="--i:3" x="32" y="14" text-anchor="middle">!</text></svg></span>Why this layer exists</h2>
+  <p>Most AI systems treat every input as equal. A forwarded email, a signed lease, a half-finished draft, and a market rumor all land in the context window with the same weight. That is why systems hallucinate policy: nothing told them what outranks what.</p>
+  <p>This order installs the missing hierarchy. You classify what you know by authority, gather the small set of files the system must always load, and write down what you are optimizing for right now, and what you are explicitly not doing. The payoff is an AI that cites your files, at the right level of trust, instead of the internet's guesses.</p>
+  <div class="callout">
+    <p><strong>The test:</strong> can the system tell doctrine from a draft? Ask it. If it cannot name the authority level of the document it just quoted, this layer is not done.</p>
+  </div>
+
+  <h2><span class="fig ico" data-w2 aria-hidden="true"><svg viewBox="0 0 40 40"><path class="s" pathLength="1" style="--i:0" d="M8 5h18l6 6v24H8z"/><path class="s lt" pathLength="1" style="--i:1" d="M26 5v6h6"/><path class="s" pathLength="1" style="--i:2;stroke-width:2.8" d="M12 15h14"/><path class="s" pathLength="1" style="--i:3" d="M12 20h14"/><path class="s lt" pathLength="1" style="--i:4" d="M12 25h14"/><path class="d" style="--i:5" d="M12 30h14" fill="none" stroke="var(--oxblood)" stroke-width="1.2" stroke-dasharray="3 3" stroke-linecap="round"/></svg></span>Authority Classification: Levels 0&ndash;4</h2>
+  <p class="quiet" style="opacity:.8">Graded source trust is an eighty-year-old intelligence discipline. <a href="/lineage/">Read where this idea comes from.</a></p>
+  <p>This is the sharpest tool in Groundwork. Every piece of information gets a level, and Level 0 outranks everything: the lower the number, the higher the authority. The Operator must cite the level when making material recommendations.</p>
+  <figure class="fig plate" data-w2 aria-hidden="true"><svg viewBox="0 0 480 158"><rect class="bg" x=".5" y=".5" width="479" height="157"/><path class="s acc" pathLength="1" style="--i:0" d="M60 122V30M54 38l6-8 6 8"/><text class="t acc" style="--i:1" x="60" y="140" text-anchor="middle">AUTHORITY</text><path class="s thick" pathLength="1" style="--i:2" d="M150 34 h180"/><text class="t acc" style="--i:2" x="140" y="37" text-anchor="end">LEVEL 0</text><text class="t" style="--i:2" x="340" y="37" text-anchor="start">CORE DOCTRINE &middot; OBEYED WITHOUT ASKING</text><path class="s" pathLength="1" style="--i:3;stroke-width:2.2" d="M150 56 h180"/><text class="t" style="--i:3" x="140" y="59" text-anchor="end">LEVEL 1</text><text class="t" style="--i:3" x="340" y="59" text-anchor="start">INSTITUTIONAL STANDARDS</text><path class="s" pathLength="1" style="--i:4" d="M150 78 h180"/><text class="t" style="--i:4" x="140" y="81" text-anchor="end">LEVEL 2</text><text class="t" style="--i:4" x="340" y="81" text-anchor="start">VALIDATED KNOWLEDGE &middot; THE WORKING LIBRARY</text><path class="s lt" pathLength="1" style="--i:5" d="M150 100 h180"/><text class="t" style="--i:5" x="140" y="103" text-anchor="end">LEVEL 3</text><text class="t" style="--i:5" x="340" y="103" text-anchor="start">WORKING MATERIAL &middot; NEVER QUOTED AS FINAL</text><path class="d" style="--i:6" d="M150 122 h180" fill="none" stroke="var(--oxblood)" stroke-width="1.2" stroke-dasharray="3 3" stroke-linecap="round"/><text class="t ox" style="--i:6" x="140" y="125" text-anchor="end">LEVEL 4</text><text class="t ox" style="--i:6" x="340" y="125" text-anchor="start">UNTRUSTED / RAW &middot; NEVER TRUTH</text><text class="pl" x="10" y="150">Fig. 1 &middot; Five levels. The lower the number, the higher the authority, and the heavier the line.</text></svg></figure>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>Level</th><th>Name</th><th>What it is</th><th>Examples</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>0</strong></td><td>Core Doctrine</td><td>Non-negotiable. Overrides everything.</td><td>Identity Charter, Decision Principles, legal mandates, operating agreements</td></tr>
+        <tr><td><strong>1</strong></td><td>Institutional Standards</td><td>Approved ways of working.</td><td>Brand Voice, internal policies, approval thresholds, communication standards</td></tr>
+        <tr><td><strong>2</strong></td><td>Validated Knowledge</td><td>Reviewed and accepted.</td><td>Executed contracts, cleaned data, completed reports, third-party verified information</td></tr>
+        <tr><td><strong>3</strong></td><td>Working Material</td><td>Useful but not authoritative.</td><td>Drafts, preliminary analysis, internal notes, external proposals</td></tr>
+        <tr><td><strong>4</strong></td><td>Untrusted / Raw</td><td>Requires caution.</td><td>Forwarded emails, unverified quotes, market chatter, personal notes</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <h2><span class="fig ico" data-w2 aria-hidden="true"><svg viewBox="0 0 40 40"><path class="s" pathLength="1" style="--i:0" d="M6 6h16l6 6v10"/><path class="s" pathLength="1" style="--i:1" d="M6 6v28h12"/><path class="s lt" pathLength="1" style="--i:2" d="M10 16h12M10 21h10"/><circle class="s acc" pathLength="1" style="--i:3" cx="26" cy="27" r="6"/><path class="s acc" pathLength="1" style="--i:4" d="M30.5 31.5l5 5"/></svg></span>Vault hygiene: making files findable</h2>
+  <p>Classification only works on files the system can actually read and find. Three habits cover most of it:</p>
+  <ul>
+    <li><strong>Name files so the name answers questions.</strong> <code>2026-08-01_Lease_AcmeCorp_Executed.pdf</code> tells an AI the date, type, party, and status. <code>scan_003.pdf</code> tells it nothing.</li>
+    <li><strong>Keep text as text.</strong> Markdown beats PDF, and OCR'd PDF beats an image. If a document only exists on paper, it is invisible to your system.</li>
+    <li><strong>One home per document.</strong> Duplicates with different edits are an authority conflict you created yourself.</li>
+  </ul>
+
+  <div class="card">
+    <h3><span class="fig ico" data-w2 aria-hidden="true"><svg viewBox="0 0 40 40"><path class="s" pathLength="1" style="--i:0" d="M8 5h24v30H8z"/><path class="s lt" pathLength="1" style="--i:1" d="M12 12h4v4h-4zM12 19h4v4h-4zM12 26h4v4h-4z"/><path class="s lt" pathLength="1" style="--i:2" d="M19 14h9M19 21h9M19 28h6"/><path class="s acc" pathLength="1" style="--i:3" d="M9 25l7 7 17-21"/></svg></span>You are done with Order 2 when</h3>
+    <ul class="check">
+      <li>All four documents exist and the vault folder structure is real, not planned</li>
+      <li>The always-load list is short enough to read in under two minutes</li>
+      <li>Documents you actually use in decisions carry an authority level</li>
+      <li>Strategic Priorities is dated within the current cycle and lists explicit non-priorities</li>
+      <li>You can ask &ldquo;what authority level is this claim based on?&rdquo; and get a correct answer</li>
+    </ul>
+  </div>
+
+  <p>Next: the system knows who you are and what to trust. Now it needs rules for what it may <em>do</em>. That is <a href="/3-expert/3-1-know-your-limits/">Order 3, Know your limits</a>: the three zones and the escalation rules that decide when it acts, when it drafts, and when it stops.</p>
+
+  <div class="pnav">
+    <a href="/1-starter/1-1-know-me/">&larr; Order 1: Know me</a>
+    <a href="/3-expert/3-1-know-your-limits/">Order 3: Know your limits &rarr;</a>
+  </div>

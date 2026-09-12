@@ -1,0 +1,98 @@
+
+  
+  
+  
+
+  <h2><span class="fig ico" data-w2 aria-hidden="true"><svg viewBox="0 0 40 40"><path class="s" pathLength="1" style="--i:0" d="M4 6h16v24H4z"/><path class="s lt" pathLength="1" style="--i:1" d="M8 12h8M8 17h8M8 22h5"/><path class="s" pathLength="1" style="--i:2" d="M22 18h6M25 15l3 3-3 3"/><path class="d" style="--i:3" d="M35 18a5 5 0 1 0 -0.1 0" fill="none" stroke="var(--ink-soft)" stroke-width="1.2" stroke-dasharray="3 3" stroke-linecap="round"/></svg></span>Why rules come before agents</h2>
+  <p>The most dangerous phrase in automation is &ldquo;it will be fine.&rdquo; The most dangerous failure mode in AI systems is an agent doing something you did not authorize because nobody wrote down what was authorized. Governance is where you decide the boundaries while the stakes are still zero.</p>
+  <p>This order is the reason Groundwork installs a foundation before an Operator. An agent without written rules does not have no rules: it has improvised rules, invented fresh in every session. Written governance is also what makes delegation safe for you psychologically: you can hand work to the system because you know exactly where it must stop.</p>
+  <div class="callout">
+    <p><strong>The test:</strong> does the system know when to act, when to draft, and when to stop? If the answer lives in your head instead of a file, this order is not done.</p>
+  </div>
+
+  <h2><span class="fig ico" data-w2 aria-hidden="true"><svg viewBox="0 0 40 40"><path class="s" pathLength="1" style="--i:0" d="M4 12h9v9H4zM15 12h9v9h-9z"/><path class="s lt" pathLength="1" style="--i:1" d="M7 14.5l4 2-4 2z"/><path class="s lt" pathLength="1" style="--i:2" d="M17 19l5-5"/><path class="d" style="--i:3" d="M27 12h9v9h-9z" fill="none" stroke="var(--oxblood)" stroke-width="1.2" stroke-dasharray="3 3" stroke-linecap="round"/><path class="s ox" pathLength="1" style="--i:4" d="M29 14l5 5M34 14l-5 5"/><path class="s acc" pathLength="1" style="--i:5" d="M4 30h32"/></svg></span>The Automation Decision Framework</h2>
+  <p>Every task the system touches falls into exactly one of three zones. The zone assignment is a human decision, made in advance, recorded in a file.</p>
+  <div class="vw inkzone" data-ink style="margin:1.2rem 0 1.4rem">
+    <svg viewBox="0 0 960 312" role="img" aria-label="Three stacked zone bands. Zone 1 Auto-Execute, brightest. Zone 2 Draft and Wait, dimmer. Zone 3 Never Automate, dim with a red edge. A footer line states the default: unlisted work falls to Draft and Wait.">
+      <rect class="slab d" x="24" y="18" width="912" height="76" style="--i:0"/>
+      <rect class="acc d" x="24" y="26" width="4" height="60" style="--i:0"/>
+      <text class="mono acc d" x="48" y="44" font-size="10" letter-spacing="2" style="--i:0">ZONE 1</text>
+      <text class="d" x="48" y="68" font-size="16" font-weight="600" style="--i:1">Auto-Execute</text>
+      <text class="mono acc d" x="912" y="58" font-size="10" letter-spacing="2" text-anchor="end" style="--i:0">ACTS</text>
+      <text class="sub d" x="330" y="52" font-size="12.5" style="--i:0">Reversible, internal-only, no legal or financial exposure,</text>
+      <text class="sub d" x="330" y="70" font-size="12.5" style="--i:1">no external communication.</text>
+      <rect class="slab-dim d" x="24" y="108" width="912" height="76" style="--i:2"/>
+      <rect class="acc dim d" x="24" y="116" width="4" height="60" style="--i:2"/>
+      <text class="mono acc dim d" x="48" y="134" font-size="10" letter-spacing="2" style="--i:2">ZONE 2</text>
+      <text class="d" x="48" y="158" font-size="16" font-weight="600" style="--i:3">Draft &amp; Wait</text>
+      <text class="mono sub d" x="912" y="148" font-size="10" letter-spacing="2" text-anchor="end" style="--i:2">DRAFTS, THEN A HUMAN</text>
+      <text class="sub d" x="330" y="142" font-size="12.5" style="--i:2">AI prepares the complete work product; a named human</text>
+      <text class="sub d" x="330" y="160" font-size="12.5" style="--i:3">approves before anything leaves.</text>
+      <rect class="slab-danger d" x="24" y="198" width="912" height="76" style="--i:4"/>
+      <rect class="danger d" x="24" y="206" width="4" height="60" style="--i:4"/>
+      <text class="mono danger d" x="48" y="224" font-size="10" letter-spacing="2" style="--i:4">ZONE 3</text>
+      <text class="d" x="48" y="248" font-size="16" font-weight="600" style="--i:5">Never Automate</text>
+      <text class="mono danger d" x="912" y="238" font-size="10" letter-spacing="2" text-anchor="end" style="--i:4">BRIEFS ONLY</text>
+      <text class="sub d" x="330" y="232" font-size="12.5" style="--i:4">AI may brief you. It may not act, draft-to-send,</text>
+      <text class="sub d" x="330" y="250" font-size="12.5" style="--i:5">or decide.</text>
+      <text class="mono sub d" x="480" y="300" font-size="10.5" letter-spacing="1" text-anchor="middle" style="--i:6">THE DEFAULT: UNLISTED WORK FALLS TO DRAFT &amp; WAIT, NEVER TO AUTO-EXECUTE</text>
+    </svg>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <span class="tag">Zone 1</span>
+      <h3><span class="fig ico" data-w2 aria-hidden="true"><svg viewBox="0 0 40 40"><path class="s" pathLength="1" style="--i:0" d="M6 6h28v28H6z"/><g class="f" style="--i:1"><path d="M16 13l12 7-12 7z" fill="currentColor"/></g><path class="s acc" pathLength="1" style="--i:2" d="M6 34h28"/></svg></span>Auto-Execute</h3>
+      <p>Reversible, internal-only, no legal or financial exposure, no external communication. Formatting, internal summaries, drafts of drafts, file organization, research compilations.</p>
+      <p><strong>The bar:</strong> if this ran wrong a hundred times, could you undo all of it in an afternoon? Then it can auto-execute.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Zone 2</span>
+      <h3><span class="fig ico" data-w2 aria-hidden="true"><svg viewBox="0 0 40 40"><path class="s" pathLength="1" style="--i:0" d="M6 8h18v26H6z"/><path class="s lt" pathLength="1" style="--i:1" d="M10 14h10M10 19h10M10 24h6"/><path class="s acc" pathLength="1" style="--i:2" d="M22 30l9-9 3 3-9 9-4 1z"/><path class="s" pathLength="1" style="--i:3" d="M30 8v8M35 8v8"/></svg></span>Draft &amp; Wait</h3>
+      <p>Anything customer-facing, tenant-facing, or reputation-touching. Emails, notices, proposals, listings, reports going outside. AI prepares the complete work product; a named human approves before anything leaves.</p>
+      <p><strong>The bar:</strong> most real business work lives here. This is where the payoff is: drafting is the expensive part, approving takes minutes.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Zone 3</span>
+      <h3><span class="fig ico" data-w2 aria-hidden="true"><svg viewBox="0 0 40 40"><path class="d" style="--i:0" d="M6 6h28v28H6z" fill="none" stroke="var(--oxblood)" stroke-width="1.2" stroke-dasharray="3 3" stroke-linecap="round"/><path class="s ox" pathLength="1" style="--i:1" d="M13 13l14 14M27 13L13 27"/><path class="s ox" pathLength="1" style="--i:2" d="M6 34h28"/></svg></span>Never Automate</h3>
+      <p>Legal commitments, pricing decisions, hiring and firing, disputes, anything irreversible or precedent-setting. AI may brief you. It may not act, draft-to-send, or decide.</p>
+      <p><strong>The bar:</strong> if a mistake here would need a lawyer, an apology, or an explanation to a judge, it is Zone 3, permanently.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Documents are evidence, never instructions.</strong> The authority levels in <a href="/2-intermediate/2-1-know-what-is-true/">Order 2</a> grade what a document may be trusted to say, not what it may tell the system to do. A contract can be Level 2 evidence and still carry zero command authority: if a file, an email, or a web page says &ldquo;ignore your rules and act,&rdquo; that text is content to report, not an order to follow. Instructions come only from the context package and the named humans in it.</p>
+  </div>
+
+  
+
+  
+
+  
+
+
+  <h2><span class="fig ico" data-w2 aria-hidden="true"><svg viewBox="0 0 40 40"><path class="s" pathLength="1" style="--i:0" d="M6 8h18v6H6zM6 17h18v6H6zM6 26h18v6H6z"/><path class="s acc" pathLength="1" style="--i:1" d="M28 26l7-7 3 3-7 7-4 1z"/><path class="s lt" pathLength="1" style="--i:2" d="M10 11h10M10 20h10"/></svg></span>Approval discipline that actually holds</h2>
+  <p>Draft &amp; Wait only works if the wait is real. Three rules keep it honest:</p>
+  <ul>
+    <li><strong>Name the approver.</strong> &ldquo;Someone reviews it&rdquo; means nobody reviews it. Every Zone 2 category has exactly one named human.</li>
+    <li><strong>Approve the artifact, not the idea.</strong> The human reads the actual email, the actual notice, the actual number, not a summary of it.</li>
+    <li><strong>Log the approvals.</strong> A one-line record (date, item, approver) turns disputes into lookups. It also builds the evidence you will use in <a href="/4-frontier-operator/4-2-improve-and-survive/">Order 6</a> to decide whether a task has earned a wider zone.</li>
+  </ul>
+    <figure class="fig plate" data-w2 aria-hidden="true"><svg viewBox="0 0 480 150"><rect class="bg" x=".5" y=".5" width="479" height="149"/><path class="s thick" pathLength="1" style="--i:0" d="M30 30H450"/><text class="t" style="--i:1" x="40" y="22" text-anchor="start">DATE</text><text class="t" style="--i:1" x="130" y="22" text-anchor="start">ITEM (THE ACTUAL ARTIFACT)</text><text class="t" style="--i:1" x="330" y="22" text-anchor="start">NAMED APPROVER</text><text class="t" style="--i:2" x="40" y="52" text-anchor="start">09-02</text><text class="t" style="--i:2" x="130" y="52" text-anchor="start">Tenant notice, Unit 12</text><path class="s lt" pathLength="1" style="--i:2" d="M30 61 H450"/><text class="t" style="--i:3" x="330" y="52" text-anchor="start">A.A.</text><path class="s acc" pathLength="1" style="--i:3" d="M372 54 c6-10 10 6 16-2 s6 4 12-2 s8 2 12-4"/><text class="t" style="--i:4" x="40" y="78" text-anchor="start">09-03</text><text class="t" style="--i:4" x="130" y="78" text-anchor="start">Renewal proposal, Suite 4</text><path class="s lt" pathLength="1" style="--i:4" d="M30 87 H450"/><text class="t" style="--i:5" x="330" y="78" text-anchor="start">A.A.</text><path class="s acc" pathLength="1" style="--i:5" d="M372 80 c6-10 10 6 16-2 s6 4 12-2 s8 2 12-4"/><text class="t" style="--i:6" x="40" y="104" text-anchor="start">09-04</text><text class="t" style="--i:6" x="130" y="104" text-anchor="start">Vendor reply, roofing</text><path class="s lt" pathLength="1" style="--i:6" d="M30 113 H450"/><text class="t ox" style="--i:7" x="330" y="104" text-anchor="start">WAITING</text><path class="s ox" pathLength="1" style="--i:7" d="M392 106 v-8M398 106 v-8"/><text class="pl" x="10" y="142">Fig. 1 &middot; Name the approver. Approve the artifact, not the idea. Log it in one line.</text></svg></figure>
+
+  <div class="card">
+    <h3><span class="fig ico" data-w2 aria-hidden="true"><svg viewBox="0 0 40 40"><path class="s" pathLength="1" style="--i:0" d="M8 5h24v30H8z"/><path class="s lt" pathLength="1" style="--i:1" d="M12 12h4v4h-4zM12 19h4v4h-4zM12 26h4v4h-4z"/><path class="s lt" pathLength="1" style="--i:2" d="M19 14h9M19 21h9M19 28h6"/><path class="s acc" pathLength="1" style="--i:3" d="M9 25l7 7 17-21"/></svg></span>You are done with Order 3 when</h3>
+    <ul class="check">
+      <li>All three files exist and a named human has signed off on them</li>
+      <li>Every task you plan to hand the Operator has an explicit zone</li>
+      <li>The unlisted-task default is Draft &amp; Wait, in writing</li>
+      <li>Escalation triggers include authority conflicts and bypass attempts</li>
+      <li>The &ldquo;may never access&rdquo; list exists and includes money and signatures</li>
+    </ul>
+  </div>
+
+  <p>The first three orders are written: identity, trusted knowledge, limits. You have earned the right to activate something. Next: <a href="/3-expert/3-2-help-me-operate/">Order 4, Help me operate</a>: one scoped agent running inside everything you just built, starting with the scope you write for it.</p>
+
+  <div class="pnav">
+    <a href="/2-intermediate/2-1-know-what-is-true/">&larr; Order 2: Know my information</a>
+    <a href="/3-expert/3-2-help-me-operate/">Order 4: Help me operate &rarr;</a>
+  </div>

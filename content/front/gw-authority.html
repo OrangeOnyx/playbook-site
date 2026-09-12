@@ -1,0 +1,55 @@
+
+    <div class="wrap">
+      <div class="runhead part"><span>Authority Classification</span></div>
+      <h2 class="part" id="h-authority">Not every document is equal. Your AI should know which is which.</h2>
+      <p class="lede part" style="margin-top:1.1rem">Most AI failures are trust failures: the system treats a rumor and a contract as the same weight. Groundwork tags every document Level 0 through Level 4, so the system knows what to obey, what to check, and what to ignore.</p>
+      <div class="vw ladder part inkzone" data-ink style="max-width:760px;margin-top:1.8rem">
+        <svg viewBox="0 0 720 330" role="img" aria-label="Vertical ladder of five authority levels from Level 0 Core Doctrine, which the AI obeys, down to Level 4 Untrusted, which is never quoted as truth. Stroke weight descends with trust.">
+          <defs>
+            <marker id="mL" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" class="mk"/>
+            </marker>
+          </defs>
+          <line class="arrowline s" pathLength="1" style="--i:0;--dur:1.4s" x1="96" y1="56" x2="96" y2="284" marker-end="url(#mL)"/>
+          <text class="sub d" style="--i:1" x="82" y="52" text-anchor="end" font-size="10.5">the AI obeys</text>
+          <text class="sub d" style="--i:8.5" x="82" y="292" text-anchor="end" font-size="10.5">the AI ignores</text>
+          <g class="d" style="--i:1">
+            <rect x="130" y="40" width="520" height="42" fill="var(--paper-deep)" stroke="var(--ink)" stroke-width="2.4"/>
+            <text class="mono acc" x="148" y="59" font-size="10">L0</text>
+            <text x="178" y="60" font-size="12.5" font-weight="600">Core Doctrine</text>
+            <text class="sub" x="178" y="75" font-size="9.5">Charter, principles, non-negotiables.</text>
+            <text class="mono" x="634" y="65" text-anchor="end" font-size="9.5" fill="var(--ink)">OBEYED</text>
+          </g>
+          <g class="d" style="--i:2.5">
+            <rect x="130" y="96" width="520" height="42" fill="var(--paper-deep)" stroke="var(--terra-deep)" stroke-width="1.6"/>
+            <text class="mono acc" x="148" y="115" font-size="10">L1</text>
+            <text x="178" y="116" font-size="12.5" font-weight="600">Institutional Standards</text>
+            <text class="sub" x="178" y="131" font-size="9.5">Internal policies, approval thresholds, communication standards.</text>
+            <text class="mono sub" x="634" y="121" text-anchor="end" font-size="9.5">TRUSTED</text>
+          </g>
+          <g class="d" style="--i:4">
+            <rect x="130" y="152" width="520" height="42" fill="var(--paper-deep)" stroke="var(--rule)" stroke-width="1.4"/>
+            <text class="mono acc" x="148" y="171" font-size="10">L2</text>
+            <text x="178" y="172" font-size="12.5" font-weight="600">Validated Knowledge</text>
+            <text class="sub" x="178" y="187" font-size="9.5">Executed contracts, cleaned data, completed reports.</text>
+            <text class="mono sub" x="634" y="177" text-anchor="end" font-size="9.5">USED</text>
+          </g>
+          <g class="d" style="--i:5.5">
+            <rect x="130" y="208" width="520" height="42" fill="var(--paper-deep)" stroke="var(--rule)" stroke-width="1" opacity="0.85"/>
+            <text class="mono acc" x="148" y="227" font-size="10" opacity="0.85">L3</text>
+            <text x="178" y="228" font-size="12.5" font-weight="600" opacity="0.9">Working Material</text>
+            <text class="sub" x="178" y="243" font-size="9.5">Drafts, notes, transcripts. Useful, not yet doctrine.</text>
+            <text class="mono sub" x="634" y="233" text-anchor="end" font-size="9.5">NEVER FINAL</text>
+          </g>
+          <g class="d" style="--i:7">
+            <rect x="130" y="264" width="520" height="42" fill="none" stroke="var(--oxblood)" stroke-width="1.2" stroke-dasharray="5 4"/>
+            <text class="mono" x="148" y="283" font-size="10" fill="var(--oxblood)">L4</text>
+            <text x="178" y="284" font-size="12.5" font-weight="600" fill="var(--oxblood)">Untrusted / Raw</text>
+            <text x="178" y="299" font-size="9.5" fill="var(--oxblood)" opacity="0.85">External clippings, unverified. Available for context.</text>
+            <text class="mono" x="634" y="289" text-anchor="end" font-size="9.5" fill="var(--oxblood)">NEVER QUOTED</text>
+          </g>
+        </svg>
+      </div>
+      <p class="part" style="margin-top:1.5rem"><a class="lmore" href="/lineage/">Where this idea comes from: eighty years of graded trust</a></p>
+    </div>
+  
