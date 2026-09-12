@@ -53,3 +53,10 @@ def test_radar(tmp_path):
     B.render(tmp_path)
     s = io.open(tmp_path / "radar" / "index.html", encoding="utf-8").read()
     assert s.count('<fieldset class="q"') == 18 and 'id="radar-svg"' in s and "radar.js" in s
+
+def test_templates_index(tmp_path):
+    B.render(tmp_path)
+    s = io.open(tmp_path / "templates" / "index.html", encoding="utf-8").read()
+    assert s.count("<h3>Document ") == 15
+    for x in B.S.sections(B.S.load()):
+        if x["docs"]: assert ("<h2>" + x["id"] + " " + x["title"]) in s
