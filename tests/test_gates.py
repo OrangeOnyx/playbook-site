@@ -29,3 +29,15 @@ def test_link_check(tmp_path):
     (tmp_path / "a" / "index.html").write_text('<a href="/b/">b</a><a href="../c.html">c</a>', encoding="utf-8")
     errs = G.check_links(tmp_path)
     assert len(errs) == 2
+
+def test_numbering_gate_covers_the_full_heading_ladder_and_plate_labels():
+    # h4-h6 carry real sub-headings inside the document cards and the example pages,
+    # and a plate's drawn label strip reads as a headline too.
+    f = G.check_text("<h4>Order 4: Help me operate</h4>", "y.html")
+    assert any("numbering in <h4>" in e for e in f), f
+    for tag in ("h5", "h6"):
+        assert [e for e in G.check_text("<%s>Level 2 ladder</%s>" % (tag, tag), "y.html") if "numbering" in e], tag
+    p = G.check_text('<span class="plate-label">Plate 02 . olive . Layer 1</span>', "y.html")
+    assert any("plate-label" in e for e in p), p
+    ok = '<h4>3.2 Help me operate</h4><span class="plate-label">PLATE 02 . OLIVE</span>'
+    assert not [e for e in G.check_text(ok, "z.html") if "numbering" in e]
