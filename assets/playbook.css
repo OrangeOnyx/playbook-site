@@ -38,3 +38,6 @@ figcaption .fignum{font-family:var(--slab);font-weight:900;font-size:13px;color:
 .article{border-top:1px solid var(--rule);margin-top:2.5rem;padding-top:1rem}
 .article h2:first-child{margin-top:0}
 .docs .card{margin:1rem 0}
+/* ---- example pages: lane ribbon (personal vs professional) ---- */
+.lane-ribbon{display:flex;gap:1rem;justify-content:space-between;border-top:3px solid var(--terra);border-bottom:1px solid var(--rule);padding:.5rem 0;margin-bottom:1.5rem;font-size:.85rem}
+.lane-ribbon[data-lane-page="business"]{border-top-color:var(--olive)}

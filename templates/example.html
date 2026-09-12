@@ -1,3 +1,8 @@
 {% extends "base.html" %}
 {% block ladder %}{% endblock %}
-{% block main %}{{ body }}{% endblock %}
+{% block main %}
+<div class="lane-ribbon" data-lane-page="{{ lane }}"><span class="mono">{{ "PERSONAL LANE · WHAT ONE PERSON CAN RUN" if lane == "personal" else "PROFESSIONAL LANE · WHAT A BUSINESS CAN RUN" }}</span>
+<span class="quiet">Exhibits on this page are {{ "Adam's own setup, described; nothing here is a testimonial." if lane == "personal" else "demonstration data, photographed; captions say what each shows and when it was captured." }}</span></div>
+{{ body }}
+<nav class="pager"><a href="/examples/personal-ai-os/">Personal AI OS</a><a href="/examples/cypress-command-platform/">Cypress Command Platform</a><a href="/examples/operator-console/">Operator console</a></nav>
+{% endblock %}

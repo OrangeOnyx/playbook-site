@@ -141,8 +141,53 @@ def _apply_rename(inner):
 def _add_platform_note(inner):
     note = ('<p class="prov">Cypress Command Platform was formerly Atlas, renamed in September 2026. '
             'The screenshots on this page were captured before the rename and still show the old name in frame; '
-            'they run on a demonstration dataset.</p>')
+            'they run on a demonstration dataset. The live platform answers at '
+            '<a href="https://otb.cypresscommand.com">otb.cypresscommand.com</a>, gated to the owner and the operator.</p>')
     return re.sub(r"(<h1>.*?</h1>)", r"\1" + note, inner, count=1, flags=re.S)
+
+# Controller ruling (Task 18): HEADING_FIXES above only ever touched headings,
+# figcaptions, and kickers, per its own docstring. The body PROSE of the two
+# example-page partials (platform.html, console.html) still said "Order N" /
+# "the six standing orders" in running text and in the drawn SVG labels, which
+# a visitor reads just as readily as a heading. PROSE_FIXES rewrites that old
+# numbering wherever it survives in those two files specifically; articles and
+# docs keep their original interview-number references on purpose. Order
+# matters here too: run the multi-word idioms and the plural/uppercase forms
+# before the generic singular word-boundary patterns they would otherwise
+# overlap or get shadowed by.
+PROSE_FIXES = [
+    (re.compile(r"\bOrders 2 \+ 3\b"), "Sections 2.1 + 3.1"),
+    (re.compile(r"\bORDER 1\b"), "SECTION 1.1"),
+    (re.compile(r"\bORDER 2\b"), "SECTION 2.1"),
+    (re.compile(r"\bORDER 3\b"), "SECTION 3.1"),
+    (re.compile(r"\bORDER 4\b"), "SECTION 3.2"),
+    (re.compile(r"\bORDER 5\b"), "SECTION 2.2"),
+    (re.compile(r"\bORDER 6\b"), "SECTION 4.2"),
+    (re.compile(r"\bOrder One\b"), "section 1.1"),
+    (re.compile(r"\bOrder 1\b"), "section 1.1"),
+    (re.compile(r"\bOrder Two\b"), "section 2.1"),
+    (re.compile(r"\bOrder 2\b"), "section 2.1"),
+    (re.compile(r"\bOrder Three\b"), "section 3.1"),
+    (re.compile(r"\bOrder 3\b"), "section 3.1"),
+    (re.compile(r"\bOrder Four\b"), "section 3.2"),
+    (re.compile(r"\bOrder 4\b"), "section 3.2"),
+    (re.compile(r"\bOrder Five\b"), "section 2.2"),
+    (re.compile(r"\bOrder 5\b"), "section 2.2"),
+    (re.compile(r"\bOrder Six\b"), "section 4.2"),
+    (re.compile(r"\bOrder 6\b"), "section 4.2"),
+    (re.compile(r"\bsix standing orders\b", re.I), "the stages"),
+    (re.compile(r"\bstanding orders\b", re.I), "sections"),
+    (re.compile(r"\bstanding order\b", re.I), "section"),
+    (re.compile(r"\bfifteen documents\b", re.I), "the templates"),
+    (re.compile(r"\bLayer \d+\b"), "section"),
+    (re.compile(r"\bPhase \d+\b"), "stage"),
+]
+
+def _apply_prose_fixes(inner):
+    """Apply PROSE_FIXES to a whole partial's body text. Only ever called for
+    the platform and console partials (see run())."""
+    for pat, rep in PROSE_FIXES: inner = pat.sub(rep, inner)
+    return inner
 
 def run(gw, out):
     _assert_commit(gw)
@@ -170,6 +215,7 @@ def run(gw, out):
         inner = _apply_rename(inner)
         if slug == "platform": inner = _add_platform_note(inner)
         inner = _fix_headings(inner)
+        if slug in ("platform", "console"): inner = _apply_prose_fixes(inner)
         _write(out / "content" / "pages" / (slug + ".html"), inner)
         counts["pages"] += 1
     return counts

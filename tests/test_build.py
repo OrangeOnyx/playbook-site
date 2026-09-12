@@ -69,6 +69,15 @@ def test_no_duplicate_fig_ids(tmp_path):
         dupes = {i for i in ids if ids.count(i) > 1}
         assert not dupes, f"{f.relative_to(tmp_path)} has duplicate figure ids: {dupes}"
 
+def test_examples(tmp_path):
+    B.render(tmp_path)
+    p = io.open(tmp_path / "examples" / "personal-ai-os" / "index.html", encoding="utf-8").read()
+    assert "Monday" in p and "Friday" in p and 'data-lane-page="personal"' in p
+    b = io.open(tmp_path / "examples" / "cypress-command-platform" / "index.html", encoding="utf-8").read()
+    assert "formerly Atlas" in b and "otb.cypresscommand.com" in b and "Orange Ocean" not in b
+    c = io.open(tmp_path / "examples" / "operator-console" / "index.html", encoding="utf-8").read()
+    assert "demonstration" in c.lower() and len(set(re.findall(r'console-od\d[^"]*\.png', c))) == 5
+
 def test_motion_inks_reveal_blocks():
     js = io.open(ROOT / "assets" / "motion.js", encoding="utf-8").read()
     m = re.search(r"querySelectorAll\('([^']*)'\)", js)
