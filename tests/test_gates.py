@@ -41,3 +41,18 @@ def test_numbering_gate_covers_the_full_heading_ladder_and_plate_labels():
     assert any("plate-label" in e for e in p), p
     ok = '<h4>3.2 Help me operate</h4><span class="plate-label">PLATE 02 . OLIVE</span>'
     assert not [e for e in G.check_text(ok, "z.html") if "numbering" in e]
+
+def test_fresh_gate_passes_on_this_repo():
+    assert G.check_fresh(ROOT) == []
+
+def test_fresh_gate_names_the_stale_artifact_and_how_to_regenerate(tmp_path, monkeypatch):
+    stale = {"spine.json": 200, "assets/The-AI-Playbook-Field-Guide.pdf": 100,
+             "content/generated/curriculum/read/index.html": 300}
+    monkeypatch.setattr(G, "_last_commit_ts", lambda root, rel: stale.get(rel))
+    errs = G.check_fresh(tmp_path)
+    assert len(errs) == 1
+    assert "The-AI-Playbook-Field-Guide.pdf" in errs[0] and "scripts/build_field_guide.py" in errs[0]
+
+def test_fresh_gate_is_silent_without_git_history(tmp_path, monkeypatch):
+    monkeypatch.setattr(G, "_last_commit_ts", lambda root, rel: None)
+    assert G.check_fresh(tmp_path) == []

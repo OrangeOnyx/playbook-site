@@ -1,6 +1,8 @@
-"""Copy gates, numbering gate, link check. Run: python scripts/gates.py dist"""
-import io, re, sys
+"""Copy gates, numbering gate, link check, staleness gate. Run: python scripts/gates.py dist"""
+import io, re, subprocess, sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
 
 BANNED = re.compile(r"\bleverage|\bseamless|\bempower|\bunlock\b|\brobust\b|actionable|data-driven|game-changer|synergy|circle back|best practices|dive into|at the end of the day|\bdelve|\belevate\b|testament", re.I)
 IDENTITY = re.compile(r"orange ocean|disbar", re.I)
@@ -60,11 +62,47 @@ def check_links(dist):
             if not t.exists(): errs.append("%s -> %s" % (f.relative_to(dist), href))
     return errs
 
-def run(dist):
+# Artifacts generated FROM spine.json but committed as files of their own: if the spine
+# moves and they do not, the site ships a book and a reader that disagree with the site.
+# Each entry is (path relative to the repo root, the command that regenerates it).
+FRESH_ARTIFACTS = [
+    ("assets/The-AI-Playbook-Field-Guide.pdf", "python scripts/build_field_guide.py"),
+    ("content/generated/curriculum/read/index.html", "python scripts/build_reader.py"),
+]
+
+
+def _last_commit_ts(root, rel):
+    """Unix time of the last commit that touched rel, or None (no history for it)."""
+    p = subprocess.run(["git", "-C", str(root), "log", "-1", "--format=%ct", "--", rel],
+                       capture_output=True, text=True)
+    if p.returncode != 0:
+        return None
+    out = p.stdout.strip()
+    return int(out) if out else None
+
+
+def check_fresh(root):
+    """Fail when spine.json was committed after an artifact generated from it."""
+    root = Path(root)
+    spine_ts = _last_commit_ts(root, "spine.json")
+    if spine_ts is None:
+        return []          # no git history here (a tmp copy, a tarball): nothing to compare
+    errs = []
+    for rel, how in FRESH_ARTIFACTS:
+        ts = _last_commit_ts(root, rel)
+        if ts is None:
+            errs.append("stale artifact: %s has never been committed; regenerate with `%s` and commit it" % (rel, how))
+        elif spine_ts > ts:
+            errs.append("stale artifact: spine.json was committed after %s; regenerate with `%s` and commit it" % (rel, how))
+    return errs
+
+
+def run(dist, root=ROOT):
     dist = Path(dist); errs = []
     for f in dist.rglob("*.html"):
         errs += check_text(io.open(f, encoding="utf-8").read(), str(f.relative_to(dist)))
     errs += ["broken link " + e for e in check_links(dist)]
+    errs += check_fresh(root)
     if errs:
         print("GATE FAILURES (%d):" % len(errs)); [print("  ", e) for e in errs]; return 1
     print("gates clean: %d pages" % len(list(dist.rglob("*.html")))); return 0
