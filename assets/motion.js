@@ -1,10 +1,11 @@
 /* Groundwork article motion layer (Sept 2, 2026). The homepage's figure system, shared by every article.
-   Plates and drawings (.fig, [data-ink]) ink themselves in as they arrive; prose blocks settle into register.
-   Reduced motion pins every final state; without this script the pages are simply complete and still. */
+   Plates, drawings, and reveal blocks (.fig, [data-ink], .reveal) ink themselves in as they arrive; prose
+   blocks settle into register. Reduced motion pins every final state; without this script the pages are
+   simply complete and still. */
 (function () {
   'use strict';
   var rm = matchMedia('(prefers-reduced-motion: reduce)');
-  var inks = Array.prototype.slice.call(document.querySelectorAll('.fig, [data-ink]'));
+  var inks = Array.prototype.slice.call(document.querySelectorAll('.fig, [data-ink], .reveal'));
   var parts = [];
 
   function pin() {

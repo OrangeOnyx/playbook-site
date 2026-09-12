@@ -68,3 +68,9 @@ def test_no_duplicate_fig_ids(tmp_path):
         ids = re.findall(r'id="(fig-\d+)"', s)
         dupes = {i for i in ids if ids.count(i) > 1}
         assert not dupes, f"{f.relative_to(tmp_path)} has duplicate figure ids: {dupes}"
+
+def test_motion_inks_reveal_blocks():
+    js = io.open(ROOT / "assets" / "motion.js", encoding="utf-8").read()
+    m = re.search(r"querySelectorAll\('([^']*)'\)", js)
+    assert m and ".reveal" in m.group(1), \
+        "motion.js must ink .reveal blocks (chapter numerals, headings), not just .fig/[data-ink]"
