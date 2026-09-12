@@ -85,10 +85,12 @@ RENAME = [
 # (Order N, Layer N, Phase N). The spine renumbers those onto the ten sections
 # (see spine.json: guide/identity.html -> 1.1, knowledge -> 2.1, remember -> 2.2,
 # limits -> 3.1, operator -> 3.2, improve -> 4.2). HEADING_FIXES rewrites that old
-# language wherever it survives inside a heading or figcaption of an imported
-# partial, so the copy gate (scripts/gates.py, banned old numbering in <h1>-<h3>/
-# <figcaption>/nav) stays clean. Never rewrite prose outside heading tags here;
-# body copy keeps the original interview-number references on purpose.
+# language wherever it survives inside a heading, figcaption, or page kicker of
+# an imported partial, so the copy gate (scripts/gates.py, banned old numbering
+# in <h1>-<h3>/<figcaption>/nav) stays clean. Page kickers (<span class="kicker">,
+# the example templates' own headline kickers) are kept, they just may not carry
+# old numbering. Never rewrite prose outside these tags here; body copy keeps
+# the original interview-number references on purpose.
 HEADING_FIXES = [
     (re.compile(r"\bOrder One\b"), "Section 1.1"),
     (re.compile(r"\bOrder 1\b"), "Section 1.1"),
@@ -110,13 +112,19 @@ HEADING_FIXES = [
     (re.compile(r"\bPhases\b"), "stages"),
     (re.compile(r"\bPhase\b"), "stage"),
 ]
-HEADING_TAG = re.compile(r"<(h1|h2|h3|figcaption)([^>]*)>(.*?)</\1>", re.S | re.I)
+HEADING_TAG = re.compile(
+    r'<(h1|h2|h3|figcaption)([^>]*)>(.*?)</\1>'
+    r'|<(span)( class="kicker"[^>]*)>(.*?)</\4>',
+    re.S | re.I)
 
 def _fix_headings(inner):
-    """Apply HEADING_FIXES, but only to text inside <h1>-<h3> and <figcaption>
-    tags, never to surrounding body copy."""
+    """Apply HEADING_FIXES, but only to text inside <h1>-<h3>, <figcaption>, and
+    <span class="kicker"> tags, never to surrounding body copy."""
     def sub(m):
-        tag, attrs, body = m.group(1), m.group(2), m.group(3)
+        if m.group(1):
+            tag, attrs, body = m.group(1), m.group(2), m.group(3)
+        else:
+            tag, attrs, body = m.group(4), m.group(5), m.group(6)
         for pat, rep in HEADING_FIXES:
             body = pat.sub(rep, body)
         return "<%s%s>%s</%s>" % (tag, attrs, body, tag)

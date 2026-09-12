@@ -36,3 +36,17 @@ def test_atlas_rename_scope(tmp_path):
             text = allowed.sub("", text)
         bad = word.findall(text)
         assert not bad, (str(f), bad)
+
+def test_page_kickers_carry_no_old_numbering(tmp_path):
+    # Page kickers (<span class="kicker">, the example templates' own headline
+    # kickers) are kept as-is, they just may not carry old "six standing
+    # orders" numbering (Order N, Layer N, Phase N, "standing orders").
+    G.run(ROOT.parent / "groundwork-site", tmp_path)
+    kicker = re.compile(r'<span class="kicker">(.*?)</span>', re.S | re.I)
+    bad = re.compile(r"\b(Order|Layer|Phase)\s+\d+\b|\bstanding orders\b", re.I)
+    hits = []
+    for f in (tmp_path / "content").rglob("*.html"):
+        text = io.open(f, encoding="utf-8").read()
+        for m in kicker.finditer(text):
+            if bad.search(m.group(1)): hits.append((str(f), m.group(1)))
+    assert not hits, hits
