@@ -158,9 +158,13 @@ def _normalize_embedded_figures(html):
 
 # Plates the redraw script owns (scripts/redraw_plates.py). The controller ruled that import
 # must never overwrite these numbers on disk; the redraw runs after the import so the final
-# fig-00.html and fig-02.html on disk are always the redrawn ones. They still count toward
+# fig-00.html, fig-02.html, fig-14.html, and fig-15.html on disk are always the redrawn ones.
+# 14 and 15 (the fork and the parallel track) were originally drawn as fig-10/fig-11, which
+# collided with the source's own pre-existing Fig. 10 and Fig. 11 (capture pipeline, bounded
+# operator loop) -- the controller ruled the two new plates be renumbered 14/15 instead, past
+# the source's own highest figure number (13), so they never collide. They still count toward
 # "seen" for dedup purposes -- only the write is skipped.
-OWNED_BY_REDRAW = {"00", "02"}
+OWNED_BY_REDRAW = {"00", "02", "14", "15"}
 
 
 def import_plates(src, out):
