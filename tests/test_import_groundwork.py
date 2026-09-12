@@ -14,3 +14,25 @@ def test_groundwork_import(tmp_path):
     plat = io.open(tmp_path / "content" / "pages" / "platform.html", encoding="utf-8").read()
     assert "Cypress Command Platform" in plat and "orangeoceanatlas" not in plat
     assert "formerly Atlas" in plat
+
+def test_no_relative_asset_paths_survive(tmp_path):
+    G.run(ROOT.parent / "groundwork-site", tmp_path)
+    files = list((tmp_path / "content").rglob("*.html"))
+    assert files
+    for f in files:
+        text = io.open(f, encoding="utf-8").read()
+        assert 'src="../' not in text, f
+        assert 'src="assets/' not in text, f
+    console = io.open(tmp_path / "content" / "pages" / "console.html", encoding="utf-8").read()
+    assert 'src="/assets/console/console-od3-command-brief.png"' in console
+
+def test_atlas_rename_scope(tmp_path):
+    G.run(ROOT.parent / "groundwork-site", tmp_path)
+    word = re.compile(r"\bAtlas\b|\bATLAS\b")
+    allowed = re.compile(r"formerly Atlas|called Atlas until")
+    for f in (tmp_path / "content").rglob("*.html"):
+        text = io.open(f, encoding="utf-8").read()
+        if f.parent.name == "pages" and f.name == "platform.html":
+            text = allowed.sub("", text)
+        bad = word.findall(text)
+        assert not bad, (str(f), bad)

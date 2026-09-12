@@ -32,28 +32,64 @@ def _strip_chrome(inner, strip_header=True):
         inner = re.sub(r'<header class="page pagehead">.*?</header>', "", inner, count=1, flags=re.S)
     return inner
 
+def _resolve_url(url, base_dir, table):
+    """Resolve one relative URL (from an href/src/srcset/poster) against base_dir,
+    through the spine's redirect table. Returns None for URLs that must pass through
+    untouched (absolute http(s)/mailto/fragment/data URLs)."""
+    if url.startswith(("http", "mailto", "#", "data:")): return None
+    path, frag = (url.split("#", 1) + [""])[:2]
+    joined = (Path(base_dir) / path).as_posix()
+    norm = "/" + posixpath.normpath(joined).lstrip("/")
+    dest = table.get(norm)
+    if dest is None and norm.startswith("/assets/"): dest = norm
+    if dest is None: dest = norm
+    if frag and "#" not in dest: dest = dest + "#" + frag
+    return dest
+
 def _rewrite_links(inner, base_dir, spine):
+    """Rewrite every href, src, poster, and srcset (each candidate) through the
+    spine's redirect table so no page-relative or guide-relative reference survives.
+    Anything under /assets/ maps to /assets/ unchanged (root-relative)."""
     table = {r["source"]: r["destination"] for r in spine["redirects"] if "(" not in r["source"]}
-    def sub(m):
-        href = m.group(1)
-        if href.startswith(("http", "mailto", "#", "data:")): return m.group(0)
-        path, frag = (href.split("#", 1) + [""])[:2]
-        joined = (Path(base_dir) / path).as_posix()
-        norm = "/" + posixpath.normpath(joined).lstrip("/")
-        dest = table.get(norm)
-        if dest is None and norm.startswith("/assets/"): dest = norm
-        if dest is None: dest = norm
-        return 'href="%s%s"' % (dest, ("#" + frag) if frag and "#" not in dest else "")
-    return re.sub(r'href="([^"]+)"', sub, inner)
+
+    def sub_attr(m):
+        attr, url = m.group(1), m.group(2)
+        dest = _resolve_url(url, base_dir, table)
+        if dest is None: return m.group(0)
+        return '%s="%s"' % (attr, dest)
+    inner = re.sub(r'\b(href|src|poster)="([^"]+)"', sub_attr, inner)
+
+    def sub_srcset(m):
+        candidates = []
+        for candidate in m.group(1).split(","):
+            candidate = candidate.strip()
+            if not candidate: continue
+            bits = candidate.split(None, 1)
+            url = bits[0]
+            descriptor = bits[1] if len(bits) > 1 else ""
+            dest = _resolve_url(url, base_dir, table)
+            if dest is None: dest = url
+            candidates.append(dest + ((" " + descriptor) if descriptor else ""))
+        return 'srcset="%s"' % ", ".join(candidates)
+    inner = re.sub(r'srcset="([^"]+)"', sub_srcset, inner)
+    return inner
 
 RENAME = [
     (r"https?://orangeoceanatlas\.com[^\"\s<]*", "https://otb.cypresscommand.com"),
     (r"The Atlas story\.", "The Cypress Command Platform story."),
+    (r"\bATLAS\b", "PLATFORM"),
     (r"\bAtlas\b", "Cypress Command Platform"),
 ]
 
-def _rename_platform(inner):
+def _apply_rename(inner):
+    """Apply the Platform rename rules to any imported partial. Deliberately case-
+    sensitive per exact token (Atlas / ATLAS), never a blanket case-insensitive match:
+    asset paths and filenames use lowercase 'atlas' (e.g. assets/atlas/atlas-d1-*.png)
+    and must not be touched."""
     for pat, rep in RENAME: inner = re.sub(pat, rep, inner)
+    return inner
+
+def _add_platform_note(inner):
     note = ('<p class="prov">Cypress Command Platform was formerly Atlas, renamed in September 2026. '
             'The screenshots on this page were captured before the rename and still show the old name in frame; '
             'they run on a demonstration dataset.</p>')
@@ -66,20 +102,24 @@ def run(gw, out):
     for slug, rel in ORDER_PAGES.items():
         inner = _strip_chrome(_main_inner(_read(gw / rel)))
         for m in DOC_CARD.finditer(inner):
-            _write(out / "content" / "docs" / ("doc-%s.html" % m.group(2).zfill(2)), _rewrite_links(m.group(0), "guide", spine))
+            doc = _apply_rename(_rewrite_links(m.group(0), "guide", spine))
+            _write(out / "content" / "docs" / ("doc-%s.html" % m.group(2).zfill(2)), doc)
             counts["docs"] += 1
         inner = DOC_CARD.sub("", inner)
-        _write(out / "content" / "articles" / (slug + ".html"), _rewrite_links(inner, "guide", spine))
+        inner = _apply_rename(_rewrite_links(inner, "guide", spine))
+        _write(out / "content" / "articles" / (slug + ".html"), inner)
         counts["articles"] += 1
     home = _read(gw / "index.html")
     for slug, sid in FRONT.items():
         m = re.search(r'<section[^>]*id="%s"[^>]*>(.*?)</section>' % sid, home, re.S)
-        _write(out / "content" / "front" / ("gw-%s.html" % slug), _rewrite_links(m.group(1), ".", spine))
+        front = _apply_rename(_rewrite_links(m.group(1), ".", spine))
+        _write(out / "content" / "front" / ("gw-%s.html" % slug), front)
         counts["front"] += 1
     for slug, rel in PAGES.items():
         inner = _strip_chrome(_main_inner(_read(gw / rel)), strip_header=False)
         inner = _rewrite_links(inner, str(Path(rel).parent), spine)
-        if slug == "platform": inner = _rename_platform(inner)
+        inner = _apply_rename(inner)
+        if slug == "platform": inner = _add_platform_note(inner)
         _write(out / "content" / "pages" / (slug + ".html"), inner)
         counts["pages"] += 1
     return counts
