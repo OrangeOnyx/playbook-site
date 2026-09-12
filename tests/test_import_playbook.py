@@ -18,7 +18,7 @@ def test_import_writes_cards_plates_chapters(tmp_path):
         assert "data-anim" not in t and 'class="fig' in t
     chapters = sorted(p.name for p in (tmp_path / "content" / "front").glob("ch-*.html"))
     assert len(chapters) == 9
-    css = io.open(tmp_path / "assets" / "playbook.css", encoding="utf-8").read()
+    css = io.open(tmp_path / "assets" / "playbook-import.css", encoding="utf-8").read()
     assert ".plate" in css and ".is-in" not in css and len(css) < 90000
 
 
