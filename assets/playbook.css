@@ -34,3 +34,7 @@ fieldset.q legend{font-size:.92rem;padding:0 .4rem;color:var(--ink)}
    figcaption is ever wrapped in .caption, so it never matched; retarget it
    at the real markup (figcaption > .fignum) ---- */
 figcaption .fignum{font-family:var(--slab);font-weight:900;font-size:13px;color:var(--ink);white-space:nowrap}
+/* ---- article register: the imported chapter beneath a section's cards ---- */
+.article{border-top:1px solid var(--rule);margin-top:2.5rem;padding-top:1rem}
+.article h2:first-child{margin-top:0}
+.docs .card{margin:1rem 0}
