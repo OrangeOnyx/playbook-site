@@ -59,4 +59,13 @@
       f.classList.add('ink');
     });
   });
+
+  /* plate replay: click a plate's replay button, or its svg, to redraw it */
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('.replay, figure.fig.plate svg'); if (!t) return;
+    var fig = t.closest('figure.fig.plate'); if (!fig) return;
+    fig.classList.remove('ink');
+    void fig.getBoundingClientRect();
+    requestAnimationFrame(function () { requestAnimationFrame(function () { fig.classList.add('ink'); }); });
+  });
 })();

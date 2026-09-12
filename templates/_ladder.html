@@ -1,0 +1,15 @@
+{% set cur = stage.number if stage else 0 %}
+<nav class="vw journeystrip ladder inkzone" data-ink aria-label="The four stages">
+<svg viewBox="0 0 720 72" role="img" aria-label="Four stages: Starter, Intermediate, Expert, Frontier Operator.{% if stage %} You are at stage {{ stage.number }}, {{ stage.name }}{% if section %}, section {{ section.id }} {{ section.title }}{% endif %}.{% endif %}">
+  {% for st in spine.stages %}{% set x = 90 + (loop.index0 * 180) %}{% set y = 50 - (loop.index0 * 10) %}
+  <a class="d" style="--i:{{ loop.index }}" href="/{{ st.slug }}/">
+    <path class="s mus" pathLength="1" style="--i:{{ loop.index }}" d="M{{ x - 70 }} {{ y }}H{{ x + 70 }}" stroke-width="2"/>
+    {% if st.number == cur %}<circle class="star-halo mus" cx="{{ x }}" cy="{{ y }}" r="8.5"/>{% endif %}
+    <circle class="star mus" cx="{{ x }}" cy="{{ y }}" r="4"/>
+    <text class="mono {% if st.number == cur %}acc{% else %}sub{% endif %}" x="{{ x }}" y="{{ y + 18 }}" text-anchor="middle" font-size="9" letter-spacing="1">{{ st.number }} {{ st.name|upper }}</text>
+  </a>
+  {% if not loop.last %}<path class="s lock" pathLength="1" style="--i:{{ loop.index + 4 }}" d="M{{ x + 76 }} {{ y - 2 }}h8v6h-8zM{{ x + 78 }} {{ y - 2 }}v-3a2 2 0 0 1 4 0v3" stroke-width="1"/>{% endif %}
+  {% endfor %}
+  {% if section %}<text class="mono acc" x="{{ 90 + ((section.stage - 1) * 180) }}" y="{{ 50 - ((section.stage - 1) * 10) - 12 }}" text-anchor="middle" font-size="9" letter-spacing="1">{{ section.id }}</text>{% endif %}
+</svg>
+</nav>

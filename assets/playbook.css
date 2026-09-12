@@ -174,3 +174,21 @@ footer.site b{color:var(--ink)}
   .chapter{display:block}
   a{color:inherit;text-decoration:none}
 }
+/* ---- ladder strip (four rungs) ---- */
+.ladder .s.mus{stroke:var(--mustard-deep)}
+.ladder .star.mus{fill:var(--mustard-deep)}
+.ladder .star-halo.mus{stroke:var(--mustard-deep);fill:none}
+.ladder .lock{stroke:var(--ink-soft)}
+/* ---- two lanes ---- */
+.lanes{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0;border-top:1px solid var(--rule);padding-top:1rem}
+.lanes .lane{border-left:3px solid var(--terra);padding-left:.8rem}
+.lanes .lane-business{border-left-color:var(--olive)}
+.lanes .lane h4{margin:0 0 .3rem;font-family:'Courier Prime',monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+html[data-lane="business"] .lanes .lane-business{order:-1}
+.lane-pick{font-family:'Courier Prime',monospace;letter-spacing:.06em;border:1px solid var(--rule);background:transparent;color:var(--ink);padding:.5rem .9rem;cursor:pointer}
+.lane-pick[aria-pressed="true"]{border-color:var(--terra);background:var(--paper-deep)}
+@media (max-width:640px){.lanes{grid-template-columns:1fr}}
+.prov{font-family:'Courier Prime',monospace;font-size:.8rem;color:var(--ink-soft);letter-spacing:.03em}
+.imprint{border-top:1px solid var(--rule);margin:4rem auto 2rem;max-width:72rem;padding:1rem 1.25rem;font-size:.9rem;color:var(--ink-soft)}
+.fig .s.mus{stroke:var(--mustard-deep)} .fig .t.mus{fill:var(--mustard-deep)}
+.fig .s.oli{stroke:var(--olive-deep)} .fig .t.oli{fill:var(--olive-deep)}

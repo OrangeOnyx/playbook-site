@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }} | The AI Playbook</title>
+<meta name="description" content="{% block description %}The AI Playbook: four stages that install an AI operating system into your life and work, one interviewed capability at a time.{% endblock %}">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="{{ spine.domain }}{{ path }}">
+<meta property="og:title" content="{{ title }} | The AI Playbook">
+<meta property="og:image" content="{{ spine.domain }}/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="The AI Playbook">
+  <a class="brand" href="/" aria-label="The AI Playbook home"><b>THE AI PLAYBOOK</b></a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Menu" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    {% for st in spine.stages %}<a href="/{{ st.slug }}/"{% if stage and stage.number == st.number %} aria-current="page"{% endif %}>{{ st.number }} {{ st.name }}</a>{% endfor %}
+    <a href="/radar/">Radar</a>
+    <a href="/examples/personal-ai-os/">Examples</a>
+    <a href="/templates/">Templates</a>
+    <a href="/curriculum/">Curriculum</a>
+    <a class="keep" href="/start/">Start</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+{% block crumb %}{% if stage %}<span class="crumb"><a href="/">The AI Playbook</a> / <a href="/{{ stage.slug }}/">{{ stage.number }} {{ stage.name }}</a>{% if section %} / {{ section.id }}{% endif %}</span>{% endif %}{% endblock %}
+{% block ladder %}{% include "_ladder.html" %}{% endblock %}
+{% block main %}{% endblock %}
+</main>
+<footer class="imprint">
+  <p>The AI Playbook · by Cypress Command · {{ year }} · Free, complete, ungated. Plain files you own; the agent is rented.</p>
+  <p><a href="/legal/">Disclaimer and privacy</a> · <a href="/lineage/">Lineage</a> · <a href="/plates/">Plates</a></p>
+</footer>
+<script src="/assets/motion.js" defer></script>
+<script src="/assets/lane.js" defer></script>
+</body>
+</html>
