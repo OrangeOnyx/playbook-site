@@ -138,3 +138,25 @@ def test_assert_commit_ignores_dirt_outside_the_guarded_paths():
     # The live sibling clone carries an unrelated dirty file (print/build-field-guide.ps1);
     # the guard must not care.
     G._assert_commit(ROOT.parent / "groundwork-site")
+
+
+def test_run_clears_the_files_it_owns_and_leaves_the_rest(tmp_path):
+    stale = []
+    for rel in ("content/articles/gone.html", "content/docs/doc-99.html",
+                "content/front/gw-gone.html", "content/pages/gone.html"):
+        p = tmp_path / rel
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text("<p>stale</p>", encoding="utf-8")
+        stale.append(p)
+    keep = []
+    for rel in ("content/front/ch-1.html", "content/cards/s1.html", "content/plates/fig-00.html",
+                "content/examples/personal-ai-os.html", "content/generated/curriculum/read/index.html"):
+        p = tmp_path / rel
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text("<p>not mine</p>", encoding="utf-8")
+        keep.append(p)
+    G.run(ROOT.parent / "groundwork-site", tmp_path)
+    for p in stale:
+        assert not p.exists(), p
+    for p in keep:
+        assert p.read_text(encoding="utf-8") == "<p>not mine</p>", p

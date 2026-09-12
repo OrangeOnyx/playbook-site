@@ -273,8 +273,25 @@ def _apply_prose_fixes(inner):
     for pat, rep in PROSE_FIXES: inner = pat.sub(rep, inner)
     return SENTENCE_START_SECTION.sub(lambda m: m.group(1) + m.group(2) + "Section" + m.group(3), inner)
 
+# Everything this importer writes, and nothing else. Rerunning it must leave no file
+# behind that the current Groundwork source no longer produces (a renamed order page, a
+# dropped document card), so these are cleared first. content/cards, content/front/ch-*
+# and content/plates belong to import_playbook.py; content/examples and content/generated
+# belong to no importer at all.
+def _owned(out):
+    c = out / "content"
+    return (sorted(c.glob("articles/*.html")) + sorted(c.glob("docs/*.html"))
+            + sorted(c.glob("front/gw-*.html")) + sorted(c.glob("pages/*.html")))
+
+
+def _clear_owned(out):
+    for f in _owned(out):
+        f.unlink()
+
+
 def run(gw, out):
     _assert_commit(gw)
+    _clear_owned(out)
     spine = S.load()
     counts = {"articles": 0, "docs": 0, "front": 0, "pages": 0}
     for slug, rel in ORDER_PAGES.items():
