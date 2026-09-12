@@ -24,3 +24,7 @@ fieldset.q{border:1px solid var(--rule);padding:.7rem .9rem;margin:0 0 .7rem}
 fieldset.q legend{font-size:.92rem;padding:0 .4rem;color:var(--ink)}
 .opts{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.3rem;font-family:'Courier Prime',monospace;font-size:.85rem;color:var(--ink-soft)}
 .opts label{display:inline-flex;align-items:center;gap:.3rem;cursor:pointer}
+/* ---- interview card panels: the imported .panel/.tabs rule is for a tabbed
+   widget that no template uses; every card renders its panels statically, so
+   force them visible instead of the imported display:none ---- */
+.card-body .panel{display:block}
