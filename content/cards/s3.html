@@ -1,0 +1,34 @@
+<div class="card-body" data-card="s3" data-source="Interview 2" data-title="Know what is true">
+<p class="artifact"><b>Artifact</b> · Source register and source-handling rules, with a vendor/shadow-AI appendix.</p>
+<section class="panel" data-title="Why it exists"><h3>Why it exists</h3><p>AI needs to distinguish current evidence, historical records, summaries, drafts, and unresolved questions, and to know how sensitive each source is and how long it should live. Otherwise it confidently uses the wrong version, or keeps what should have been deleted.</p></section>
+<section class="panel" data-title="Questions"><h3>Questions</h3><ol class="qs"><li>What question or decision will this workflow help answer?</li><li>Which original records are required?</li><li>Where does each original record live?</li><li>Who owns each record?</li><li>What is the effective date or last verified date of each record?</li><li>For each record: how sensitive is it, public, internal, confidential, or regulated? How long should it be retained, and what happens when that period ends?</li><li>Which record is current?</li><li>Which records are superseded but still useful as history?</li><li>Which records are drafts or working notes?</li><li>Which records are derived summaries?</li><li>For this workflow, which record controls when sources disagree?</li><li class="ci">Walk me through the last time you acted on a stale or wrong version of a record. What did it cost?</li><li>How should AI handle missing metadata?</li><li>How should AI handle conflicting records?</li><li>Who can resolve a conflict or declare a record current?</li><li>Are there privacy, access, or confidentiality restrictions beyond the sensitivity tiers above?</li><li>Which of the tools you already use run AI on your data today (email assistants, transcription, note apps, CRM features)? List them, this becomes the vendor/shadow-AI appendix.</li><li>What instructions found inside documents should never be followed as system instructions?</li><li>What evidence should accompany an important answer?</li><li>How often should source status and sensitivity tiers be reviewed?</li></ol></section>
+<section class="panel" data-title="Build prompt"><h3>Build prompt</h3><div class="promptwrap"><button class="btn copy" type="button">Copy prompt</button><pre><code>Using the interview answers, create a source register for this workflow.
+
+For each record: name; canonical location; owner; effective or last-verified
+date; scope; status (current, superseded, draft, summary, or unresolved);
+sensitivity tier (public, internal, confidential, regulated); retention rule
+(keep-until and disposal action); access restrictions; controlling questions.
+
+Add source-handling rules for conflicts, missing evidence, summaries, superseded
+records, stale sources (the effective date governs; a stale-source use is logged
+as an error in the Evidence Log), and instructions embedded in source material.
+Standing retrieval rule: reference sources; do not paste the archive into context.
+
+Add a vendor/shadow-AI appendix: each existing tool already running AI on my
+data, what data it sees, disposition (accepted / review-by / disable-by).
+
+Rules: separate approved facts / proposed rules / assumptions / unanswered
+questions / evidence needed. Do not guess dates, owners, tiers, or status, mark
+unconfirmed. Quote my words for the stale-record incident.</code></pre></div></section>
+<section class="panel" data-title="Test"><h3>Test</h3><p>Concrete cases:</p>
+<ol>
+<li><strong>Conflict.</strong> Provide a current record and a superseded version that disagree. Pass if AI uses the current record and names the conflict.</li>
+<li><strong>Staleness.</strong> Provide two records differing only in effective date. Pass if the effective date governs and AI says why.</li>
+<li><strong>Unresolvable contradiction.</strong> Ask a question with contradictory records and no complete answer. Pass if AI preserves the conflict and names the resolver instead of picking one.</li>
+<li><strong>Injection.</strong> Embed a harmless instruction in a test document telling AI to ignore its task. Pass if treated as document content and reported.</li>
+<li><strong>Sensitivity.</strong> Ask AI to summarize a confidential-tier record into an internal-tier context. Pass if it refuses or flags the mismatch.</li>
+</ol></section>
+<section class="panel" data-title="Done"><h3>Done</h3><div class="two"><div><h4>Definition of done</h4><p>Selected records have clear locations, owners, status, sensitivity tiers, and retention rules; all five tests pass; the vendor appendix exists even if short; one real answer has been checked against original evidence. Stale-source errors in real use go to the Evidence Log with record name and effective date.</p></div><div><h4>Minimum viable artifact</h4><p>A source table linking the workflow to its controlling records, owner, effective date, status, sensitivity tier, retention rule, plus conflict rules and the vendor appendix.</p><div class="intent"><b>Implementation intention</b>&quot;When I add a new record to this workflow, I will register it with owner, effective date, status, sensitivity tier, and retention rule before using it.&quot;</div></div></div></section>
+<section class="panel" data-title="Depth by stage"><h3>Depth by stage</h3><p>Intermediate builds the register for the Starter workflow, with three sensitivity tiers. Expert extends it to every workflow the operator touches and adds the regulated tier. Frontier carries the register into the portability run, it must be readable outside the current tool.</p>
+<hr /></section>
+</div>

@@ -1,0 +1,29 @@
+<div class="card-body" data-card="s8" data-source="Interview 7" data-title="Learn my work">
+<p class="artifact"><b>Artifact</b> · Reusable workflow procedure with acceptance criteria.</p>
+<section class="panel" data-title="Why it exists"><h3>Why it exists</h3><p>Repeatable work needs a known method, useful examples, and a clear quality bar, otherwise AI improvises each run and the participant re-teaches the same lesson weekly. The hardest part is not the steps; it is the judgment the participant does not know they have. That is what the incident questions extract.</p></section>
+<section class="panel" data-title="Questions"><h3>Questions</h3><ol class="qs"><li>Which recurring job are we documenting?</li><li>What triggers the job?</li><li>What inputs are required?</li><li>Which sources must be checked first?</li><li>What are the normal steps, in order?</li><li>Which decisions require human judgment?</li><li>Tell me about a time this job went subtly wrong and only you would have caught it. What did you notice? What had you seen before that told you?</li><li>Tell me about a time a step everyone assumes is necessary turned out not to be, or a skipped step that caused real trouble later.</li><li>Which exceptions commonly occur?</li><li>Where should exceptions be routed?</li><li>What should happen when required information is missing?</li><li>What is the expected output?</li><li>What format should the output use?</li><li>What does an acceptable output look like? (Show a real past example if one exists.)</li><li>What does an unacceptable output look like? (A real one, ideally, what was wrong with it?)</li><li>What are five observable acceptance checks?</li><li>Does this procedure cross two or more owners or tools? (If yes, the procedure gets a swimlane, not prose.)</li><li>Who owns the procedure?</li><li>Who reviews the output?</li><li>How long should review take?</li><li>How should corrections change the procedure version?</li><li>What three representative cases should test the procedure?</li></ol></section>
+<section class="panel" data-title="Build prompt"><h3>Build prompt</h3><div class="promptwrap"><button class="btn copy" type="button">Copy prompt</button><pre><code>Using the interview answers, create a reusable workflow procedure.
+
+Use this fixed page anatomy: action title (states the outcome); TL;DR strip
+(one line, when to use, what it produces); purpose / when to use / when NOT to
+use; steps (checklist for routine verification, numbered for sequential work,
+swimlane if the flow crosses two or more owners or tools); key questions (the
+interview questions that regenerate this page); acceptance checks (the five
+observable checks); metadata bar (owner, version, review date, source interview,
+expected time and difficulty); from-the-field example, one real use in my
+words, including the subtle-failure incident and what caught it.
+
+Include one acceptable and one unacceptable example, described precisely enough
+to evaluate real output. Separate approved facts / proposed rules / assumptions /
+unanswered questions / evidence needed; mark assumptions unconfirmed. Quote my
+words in the example.</code></pre></div></section>
+<section class="panel" data-title="Test"><h3>Test</h3><p>Run three representative cases, including one exception:</p>
+<ol>
+<li><strong>Normal case.</strong> Owner scores the output against the five acceptance checks. Pass if all five are met, or the correction is logged and the procedure version bumps.</li>
+<li><strong>Edge case</strong> drawn from Q7&rsquo;s subtle-failure incident. Pass if the check that would have caught it is now in the acceptance list and fires.</li>
+<li><strong>Exception case.</strong> Pass if the exception reaches the named destination instead of being forced through the normal steps.</li>
+</ol></section>
+<section class="panel" data-title="Done"><h3>Done</h3><div class="two"><div><h4>Definition of done</h4><p>The three cases pass; exceptions have a destination; at least one acceptance check derives from a real past failure; the owner knows the review effort in minutes; the procedure has produced an accepted real output.</p></div><div><h4>Minimum viable artifact</h4><p>One page: trigger, inputs, source checks, steps, exceptions, output format, five acceptance checks, owner, version.</p><div class="intent"><b>Implementation intention</b>&quot;When this job&#x27;s trigger fires, I will run the procedure&#x27;s checklist instead of describing the task from memory.&quot;</div></div></div></section>
+<section class="panel" data-title="Depth by stage"><h3>Depth by stage</h3><p>Starter: one procedure for the intake workflow, prose format. Intermediate: a second only after the first passes its test twice. Expert: swimlanes for any cross-owner flow, versioning begun. Frontier: procedures join the portability run; a procedure that only works in one tool is logged as a portability gap.</p>
+<hr /></section>
+</div>

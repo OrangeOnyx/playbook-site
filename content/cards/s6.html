@@ -1,0 +1,36 @@
+<div class="card-body" data-card="s6" data-source="Interview 5" data-title="Know what needs doing">
+<p class="artifact"><b>Artifact</b> · Commitment-tracking rules integrated with the existing task system.</p>
+<section class="panel" data-title="Why it exists"><h3>Why it exists</h3><p>Captured information becomes useful work only when commitments have owners, next actions, dates or explicit uncertainty, and review status. This interview also draws the commitment/suggestion line, the cheapest way an AI-assisted system creates damage is quietly promoting someone&rsquo;s &ldquo;we should probably&rdquo; into your obligation list.</p></section>
+<section class="panel" data-title="Questions"><h3>Questions</h3><ol class="qs"><li>Which existing task system will remain the source of truth?</li><li>Why is that the system people will actually check?</li><li class="ci">Walk me through the last commitment that fell through the cracks. Where was it recorded, if anywhere? Who noticed, and when?</li><li>What fields should each accepted commitment have?</li><li>How should explicit commitments differ from suggestions?</li><li>Who confirms ownership?</li><li>What happens when no owner is clear?</li><li>How should due dates, review dates, and uncertain dates be represented?</li><li>How does the task system relate to the existing calendar?</li><li>How should dependencies be recorded?</li><li>How should changed deadlines be reconciled with the source?</li><li>How should duplicate requests be matched to existing tasks?</li><li>What evidence confirms completion?</li><li>How should completed work be closed without losing history?</li><li>Who reviews urgent commitments?</li><li>When are open loops reviewed? (This feeds the weekly review in Protocol Module B, name the day and time.)</li><li>What should happen to suggestions that are not accepted?</li><li>Which task updates may AI propose?</li><li>Which task updates require human confirmation?</li><li>What is the maximum number of newly systematized commitment behaviors you will take on this review period? (Cap: two. More than two new habits at once is how systems die.)</li></ol></section>
+<section class="panel" data-title="Build prompt"><h3>Build prompt</h3><div class="promptwrap"><button class="btn copy" type="button">Copy prompt</button><pre><code>Using the interview answers, create commitment-tracking rules for this workflow.
+
+Include:
+- Source-of-truth task system
+- Required fields per commitment: owner, next action, source, status,
+  due-or-review date (or explicit uncertainty), dependency
+- Explicit commitment versus suggestion rule; ownership confirmation
+- Due date and uncertainty handling; calendar relationship; dependencies
+- Source reconciliation rule; duplicate rule; completion evidence rule
+- Open-loops review cadence (day and time, feeding the weekly review)
+- AI proposal versus human confirmation boundary
+- The two-new-behaviors cap for this period
+
+For every accepted commitment created in this interview, write an implementation
+intention line, &quot;When [cue], I will [next action]&quot;, and rehearse each once
+with me before the session ends.
+
+Do not create a competing task system if an existing one works. Separate
+approved facts / proposed rules / assumptions / unanswered questions / evidence
+needed; mark assumptions unconfirmed.</code></pre></div></section>
+<section class="panel" data-title="Test"><h3>Test</h3><p>Process five concrete inputs:</p>
+<ol>
+<li><strong>Explicit commitment</strong> (&ldquo;I will send the revised quote by Thursday&rdquo;), pass if it becomes a task with owner, next action, date, source.</li>
+<li><strong>Suggestion</strong> (&ldquo;we should probably revisit the pricing page someday&rdquo;), pass if it remains a suggestion and creates no obligation.</li>
+<li><strong>Duplicate request</strong>, pass if it matches the existing task without creating a second.</li>
+<li><strong>Changed deadline</strong>, pass if the task updates and reconciles against its source (the original request, not memory).</li>
+<li><strong>Completed item</strong>, pass if it closes with evidence, no longer appears open, and history survives.</li>
+</ol></section>
+<section class="panel" data-title="Done"><h3>Done</h3><div class="two"><div><h4>Definition of done</h4><p>The five cases pass; accepted obligations reconcile to sources; open loops have a named review slot on the calendar; at most two new commitment behaviors are active this period; one real commitment has moved forward through the task system.</p></div><div><h4>Minimum viable artifact</h4><p>One trusted task system with fields for owner, next action, source, status, due-or-review date, and dependency, plus the suggestion boundary and the open-loops review slot.</p><div class="intent"><b>Implementation intention</b>&quot;When the weekly review begins, I will walk every open loop in the task system before planning anything new.&quot;</div></div></div></section>
+<section class="panel" data-title="Depth by stage"><h3>Depth by stage</h3><p>Intermediate installs the rules and the weekly open-loops review. Expert adds the current-quarter priorities page that commitments link to. Frontier re-checks, in the portability run, that the task system, not the AI tool, remains the source of truth.</p>
+<hr /></section>
+</div>

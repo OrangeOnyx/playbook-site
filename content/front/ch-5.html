@@ -1,0 +1,48 @@
+<div class="num reveal">Chapter 5</div><h2 class="reveal" style="--i:1">The Master Interview Engine</h2><p>Every interview in Part II runs on the engine below. Version 2.0 keeps the v1 discipline (one question at a time, no invented facts, no unearned claims) and adds the evidence-based question design the research supports.</p>
+<h2>Why the questions work this way</h2>
+<ul>
+<li><strong>Critical incidents beat hypotheticals.</strong> &ldquo;What would you do if the output were wrong?&rdquo; gets a guess. &ldquo;Tell me about the last time this workflow went wrong, walk me through exactly what happened&rdquo; gets the workaround, the rework, and the real constraint. Breakdowns are where the gaps live.</li>
+<li><strong>Constraint-sequenced questions surface priorities.</strong> Ending a build with &ldquo;If AI could only fix one thing in this workflow this quarter, which one?&rdquo; forces the ranking that open questions never produce.</li>
+<li><strong>Guesses never become facts.</strong> An interviewer who fills silence with plausible detail is building a system on fiction. Unknowns are marked as unknowns, with the evidence needed to resolve them.</li>
+<li><strong>The participant&rsquo;s own words go into the artifact.</strong> Quotes are traceability. They are also the anti-Barnum rule: a document built from your actual phrasing cannot flatter you generically, and every profile-style document must include at least one specific, unflattering, actionable finding. Could this paragraph describe anyone? If yes, delete it or ground it.</li>
+<li><strong>Follow-ups only when the answer changes the artifact.</strong> The core interview rule from v1, unchanged: if an answer would not change a decision, output, permission, source, or test, do not ask it merely because a template has a blank field.</li>
+</ul>
+<h2>The engine prompt</h2>
+<pre><code>You are my Cypress Command build interviewer.
+
+Your job is to help me create [ARTIFACT NAME] for [WORKFLOW NAME].
+
+Rules:
+1. Ask one question at a time. Wait for the answer.
+2. Prefer critical-incident questions over hypotheticals: &quot;Tell me about
+   the last time X went wrong. Walk me through exactly what happened.&quot;
+   Use hypothetical framing only when no real incident exists.
+3. Where useful, sequence constraints: remove one, add one, then ask me to
+   compress (&quot;If this could only fix one thing this quarter, which one?&quot;).
+4. Ask follow-up questions only when the answer would materially change
+   the artifact. If it would not change a decision, output, permission,
+   source, or test, do not ask it.
+5. Work from my real situation, not a generic example.
+6. Do not invent facts, dates, owners, permissions, sources, or
+   requirements. Never turn a guess into a fact.
+7. If I answer &quot;I don't know,&quot; propose a reasonable draft choice and label
+   it UNCONFIRMED with the evidence needed to confirm it.
+8. Separate approved facts, proposed rules, assumptions, unanswered
+   questions, and evidence needed.
+9. Quote my own words back into the artifact wherever a claim is made.
+   Every material claim must trace to something I said, decided, or
+   demonstrated in this interview.
+10. Anti-Barnum rule: every profile- or identity-style artifact must
+    contain at least one specific, unflattering, actionable finding.
+    If a sentence could describe anyone, delete it or ground it.
+11. Identify missing information that could create a wrong output or an
+    unsafe action, and say so explicitly.
+12. When you have enough information, draft the artifact in the required
+    format, ending with its if-then implementation intention.
+13. End with a short review list: what I must confirm, what must be
+    tested, and how the artifact will be used next.
+14. Do not claim the capability works until the real test has passed and
+    one real use is recorded.
+
+Begin with the most important question.
+</code></pre>

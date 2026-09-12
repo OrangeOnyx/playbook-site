@@ -1,0 +1,202 @@
+<div class="num reveal">Chapter 4</div><h2 class="reveal" style="--i:1">The Document System</h2><h2>The vault is the asset</h2>
+<p>The program&rsquo;s central material promise: <strong>the vault is the asset; the agent is rented.</strong></p>
+<p>Everything the interviews produce lives as plain markdown files that you own, in a folder you control, backed by private version control (git or equivalent), readable by any AI tool. Claude, ChatGPT, Gemini, Obsidian, a future tool that doesn&rsquo;t exist yet, the files do not care. Printed copies are renderings of the vault, never the source of truth. If every AI vendor disappeared tomorrow, you would still hold your entire operating system in a format humans have read for decades.</p>
+<p>This is the anti-lock-in design, stated inside the front cover of the printed set:</p>
+<blockquote>
+<p><em>Everything in this binder exists as plain markdown files you own, version-controlled, readable by any AI tool. The vault is the asset; the agent is rented.</em></p>
+</blockquote><figure class="figure" id="fig-document_system_map"><div class="plate olive scroll"><span class="plate-label">Plate 03 · olive</span><button class="btn replay" type="button" aria-label="Replay the drawing">Replay</button><svg class="fig" viewBox="0 0 1080 500" role="img" aria-labelledby="docmap-title docmap-desc"><title id="docmap-title">The document system map</title><desc id="docmap-desc">The vault holds a working tier of markdown files and a canonical tier of fifteen one-pagers; any AI tool reads it, and print renders it.</desc><defs><marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="var(--ink)"/></marker></defs><rect style="--i:0" class="stroke" pathLength="1" x="40" y="60" width="640" height="400" fill="var(--paper-deep)" stroke="var(--ink)" stroke-width="1.25"/><text style="--i:1" x="56" y="46" class="t-eyebrow fill">THE VAULT · PLAIN MARKDOWN YOU OWN · VERSION-CONTROLLED</text><rect style="--i:2" class="stroke" pathLength="1" x="64" y="92" width="250" height="344" fill="var(--paper-deep)" stroke="var(--ink)" stroke-width="1.25"/><text style="--i:3" x="80" y="118" class="t-label t-strong fill">Working tier</text><text style="--i:3" x="80" y="136" class="t-eyebrow fill">SOURCE OF TRUTH</text><text style="--i:4" x="80" y="164" class="t-mono fill">SOUL.md</text><text style="--i:5" x="80" y="184" class="t-mono fill">USER.md</text><text style="--i:6" x="80" y="204" class="t-mono fill">AGENTS.md</text><text style="--i:7" x="80" y="224" class="t-mono fill">MEMORY.md</text><text style="--i:8" x="80" y="244" class="t-mono fill">SOURCES.md</text><text style="--i:9" x="80" y="264" class="t-mono fill">TASKS.md</text><text style="--i:10" x="80" y="284" class="t-mono fill">SECURITY.md</text><text style="--i:11" x="80" y="304" class="t-mono fill">HEARTBEAT.md</text><text style="--i:12" x="80" y="324" class="t-mono fill">memory/YYYY-MM-DD.md</text><text style="--i:13" x="80" y="344" class="t-mono fill">procedures/&lt;name&gt;.md</text><text style="--i:14" x="80" y="364" class="t-mono fill">operators/&lt;name&gt;.md</text><text style="--i:15" x="80" y="384" class="t-mono fill">LOG.md</text><text style="--i:16" x="80" y="420" class="t-small fill">+ appendices · logs · versions</text><rect style="--i:17" class="stroke" pathLength="1" x="346" y="92" width="310" height="344" fill="currentColor" fill-opacity="0.14" stroke="currentColor" stroke-width="1.6"/><text style="--i:18" x="362" y="118" class="t-label t-strong fill">Canonical tier</text><text style="--i:18" x="362" y="136" class="t-eyebrow fill">15 ONE-PAGERS</text><rect style="--i:19" class="stroke" pathLength="1" x="362" y="156" width="44" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><line style="--i:19" class="fill" x1="370" y1="170" x2="398" y2="170" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:19" class="fill" x1="370" y1="179" x2="392" y2="179" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:19" class="fill" x1="370" y1="188" x2="386" y2="188" stroke="var(--rule)" stroke-width="1.5"/><rect style="--i:20" class="stroke" pathLength="1" x="418" y="156" width="44" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><line style="--i:20" class="fill" x1="426" y1="170" x2="454" y2="170" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:20" class="fill" x1="426" y1="179" x2="448" y2="179" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:20" class="fill" x1="426" y1="188" x2="442" y2="188" stroke="var(--rule)" stroke-width="1.5"/><rect style="--i:21" class="stroke" pathLength="1" x="474" y="156" width="44" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><line style="--i:21" class="fill" x1="482" y1="170" x2="510" y2="170" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:21" class="fill" x1="482" y1="179" x2="504" y2="179" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:21" class="fill" x1="482" y1="188" x2="498" y2="188" stroke="var(--rule)" stroke-width="1.5"/><rect style="--i:22" class="stroke" pathLength="1" x="530" y="156" width="44" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><line style="--i:22" class="fill" x1="538" y1="170" x2="566" y2="170" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:22" class="fill" x1="538" y1="179" x2="560" y2="179" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:22" class="fill" x1="538" y1="188" x2="554" y2="188" stroke="var(--rule)" stroke-width="1.5"/><rect style="--i:23" class="stroke" pathLength="1" x="586" y="156" width="44" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><line style="--i:23" class="fill" x1="594" y1="170" x2="622" y2="170" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:23" class="fill" x1="594" y1="179" x2="616" y2="179" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:23" class="fill" x1="594" y1="188" x2="610" y2="188" stroke="var(--rule)" stroke-width="1.5"/><rect style="--i:24" class="stroke" pathLength="1" x="362" y="230" width="44" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><line style="--i:24" class="fill" x1="370" y1="244" x2="398" y2="244" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:24" class="fill" x1="370" y1="253" x2="392" y2="253" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:24" class="fill" x1="370" y1="262" x2="386" y2="262" stroke="var(--rule)" stroke-width="1.5"/><rect style="--i:25" class="stroke" pathLength="1" x="418" y="230" width="44" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><line style="--i:25" class="fill" x1="426" y1="244" x2="454" y2="244" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:25" class="fill" x1="426" y1="253" x2="448" y2="253" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:25" class="fill" x1="426" y1="262" x2="442" y2="262" stroke="var(--rule)" stroke-width="1.5"/><rect style="--i:26" class="stroke" pathLength="1" x="474" y="230" width="44" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><line style="--i:26" class="fill" x1="482" y1="244" x2="510" y2="244" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:26" class="fill" x1="482" y1="253" x2="504" y2="253" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:26" class="fill" x1="482" y1="262" x2="498" y2="262" stroke="var(--rule)" stroke-width="1.5"/><rect style="--i:27" class="stroke" pathLength="1" x="530" y="230" width="44" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><line style="--i:27" class="fill" x1="538" y1="244" x2="566" y2="244" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:27" class="fill" x1="538" y1="253" x2="560" y2="253" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:27" class="fill" x1="538" y1="262" x2="554" y2="262" stroke="var(--rule)" stroke-width="1.5"/><rect style="--i:28" class="stroke" pathLength="1" x="586" y="230" width="44" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><line style="--i:28" class="fill" x1="594" y1="244" x2="622" y2="244" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:28" class="fill" x1="594" y1="253" x2="616" y2="253" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:28" class="fill" x1="594" y1="262" x2="610" y2="262" stroke="var(--rule)" stroke-width="1.5"/><rect style="--i:29" class="stroke" pathLength="1" x="362" y="304" width="44" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><line style="--i:29" class="fill" x1="370" y1="318" x2="398" y2="318" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:29" class="fill" x1="370" y1="327" x2="392" y2="327" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:29" class="fill" x1="370" y1="336" x2="386" y2="336" stroke="var(--rule)" stroke-width="1.5"/><rect style="--i:30" class="stroke" pathLength="1" x="418" y="304" width="44" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><line style="--i:30" class="fill" x1="426" y1="318" x2="454" y2="318" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:30" class="fill" x1="426" y1="327" x2="448" y2="327" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:30" class="fill" x1="426" y1="336" x2="442" y2="336" stroke="var(--rule)" stroke-width="1.5"/><rect style="--i:31" class="stroke" pathLength="1" x="474" y="304" width="44" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><line style="--i:31" class="fill" x1="482" y1="318" x2="510" y2="318" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:31" class="fill" x1="482" y1="327" x2="504" y2="327" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:31" class="fill" x1="482" y1="336" x2="498" y2="336" stroke="var(--rule)" stroke-width="1.5"/><rect style="--i:32" class="stroke" pathLength="1" x="530" y="304" width="44" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><line style="--i:32" class="fill" x1="538" y1="318" x2="566" y2="318" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:32" class="fill" x1="538" y1="327" x2="560" y2="327" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:32" class="fill" x1="538" y1="336" x2="554" y2="336" stroke="var(--rule)" stroke-width="1.5"/><rect style="--i:33" class="stroke" pathLength="1" x="586" y="304" width="44" height="58" fill="var(--paper)" stroke="var(--ink)" stroke-width="1"/><line style="--i:33" class="fill" x1="594" y1="318" x2="622" y2="318" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:33" class="fill" x1="594" y1="327" x2="616" y2="327" stroke="var(--rule)" stroke-width="1.5"/><line style="--i:33" class="fill" x1="594" y1="336" x2="610" y2="336" stroke="var(--rule)" stroke-width="1.5"/><text style="--i:34" x="362" y="398" class="t-mono fill">owner · review date · version</text><text style="--i:35" x="362" y="416" class="t-mono fill">source interview · one page each</text><line style="--i:36" class="stroke" pathLength="1" x1="314" y1="264" x2="344" y2="264" stroke="var(--ink)" stroke-width="1.25" marker-end="url(#arr)"/><path style="--i:37" class="stroke" pathLength="1" d="M 680 200 L 760 200" fill="none" stroke="var(--ink)" stroke-width="1.25" marker-end="url(#arr)"/><rect style="--i:38" class="stroke" pathLength="1" x="762" y="150" width="278" height="100" fill="var(--paper-deep)" stroke="var(--ink)" stroke-width="1.25"/><text style="--i:39" x="778" y="178" class="t-label t-strong fill">Any AI tool</text><text style="--i:39" x="778" y="198" class="t-small fill">Claude, ChatGPT, Gemini, or the next one</text><text style="--i:39" x="778" y="220" class="t-small fill">reads the files · rented, replaceable</text><path style="--i:40" class="stroke" pathLength="1" d="M 680 340 L 760 340" fill="none" stroke="var(--ink)" stroke-width="1.25" marker-end="url(#arr)"/><rect style="--i:41" class="stroke" pathLength="1" x="762" y="290" width="278" height="100" fill="var(--paper-deep)" stroke="var(--ink)" stroke-width="1.25"/><text style="--i:42" x="778" y="318" class="t-label t-strong fill">The bound field guide</text><text style="--i:42" x="778" y="338" class="t-eyebrow fill">PRINT · 15 PAGES · WRITE-IN SPACE</text><text style="--i:42" x="778" y="360" class="t-small fill">a rendering of the vault, never the source</text><text style="--i:43" x="1040" y="46" class="t-eyebrow fill" text-anchor="end">THE VAULT IS THE ASSET; THE AGENT IS RENTED</text></svg></div><figcaption class="caption"><span class="fignum">Fig. 03</span><span>The document system map, working tier, canonical tier, and the two exits</span></figcaption></figure><h2>The complete checklist, what a graduate holds</h2>
+<p>A Frontier Operator graduate holds <strong>24 documents: 15 canonical one-pagers, 8 supporting records, and 1 graduation set.</strong> (Starter and Intermediate graduates hold the relevant subset, see the level table.)</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Document</th>
+<th>Source</th>
+<th>Canonical 1-pager?</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Readiness radar + binding constraint</td>
+<td>Intake (Module 0)</td>
+<td>Yes</td>
+<td><code>RADAR.md</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Workflow brief</td>
+<td>Workflow Intake</td>
+<td>Yes</td>
+<td><code>workflows/&lt;name&gt;.brief.md</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>&ldquo;How I operate&rdquo;, personal context: voice, values, priorities, constraints, friction points</td>
+<td>Interview 1</td>
+<td>Yes</td>
+<td><code>USER.md</code> + <code>SOUL.md</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Workflow context brief (inherits #3; &ldquo;Never do&rdquo; block on top)</td>
+<td>Interview 1</td>
+<td>Yes (≤1 page + appendix)</td>
+<td><code>CONTEXT.md</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Source register + handling rules (sensitivity tier + retention per record)</td>
+<td>Interview 2</td>
+<td>Yes (table)</td>
+<td><code>SOURCES.md</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Vendor / shadow-AI appendix</td>
+<td>Interview 2</td>
+<td>No, supporting</td>
+<td><code>VENDORS.md</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Decision record (source-linked, statused)</td>
+<td>Interview 3</td>
+<td>Yes</td>
+<td><code>DECISIONS.md</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Durable memory (curated, ≤200 lines) + daily logs</td>
+<td>Interview 3</td>
+<td>Yes</td>
+<td><code>MEMORY.md</code> + <code>memory/YYYY-MM-DD.md</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Memory hygiene rules</td>
+<td>Interview 3 + Foundation Protocol</td>
+<td>No, supporting (half page)</td>
+<td>section of <code>AGENTS.md</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Capture &amp; review protocol (two routes, &lt;30-second rule)</td>
+<td>Interview 4</td>
+<td>Yes</td>
+<td><code>CAPTURE.md</code></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Boot/shutdown session protocol</td>
+<td>Session Protocol module</td>
+<td>Yes</td>
+<td><code>AGENTS.md</code> boot section / <code>HEARTBEAT.md</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Commitment / task rules (with if-then intention lines)</td>
+<td>Interview 5</td>
+<td>Yes</td>
+<td><code>TASKS.md</code></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Current-quarter priorities page</td>
+<td>Interview 5 (Intermediate+)</td>
+<td>Yes</td>
+<td><code>QUARTER.md</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Action matrix + approval rules (three zones, enforcement column)</td>
+<td>Interview 6</td>
+<td>Yes</td>
+<td><code>AGENTS.md</code> authority section</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Security baseline: credential inventory, sensitivity rules, incident plan</td>
+<td>Security Baseline module</td>
+<td>Yes</td>
+<td><code>SECURITY.md</code></td>
+</tr>
+<tr>
+<td>16</td>
+<td>Workflow procedure (SOP) with acceptance criteria, two-tier format</td>
+<td>Interview 7</td>
+<td>Yes</td>
+<td><code>procedures/&lt;name&gt;.md</code></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Bounded operator brief + run log</td>
+<td>Interview 8</td>
+<td>Yes (brief)</td>
+<td><code>operators/&lt;name&gt;.md</code></td>
+</tr>
+<tr>
+<td>18</td>
+<td>Automation decision map (incl. documented &ldquo;remain assisted&rdquo; decisions)</td>
+<td>Interview 9</td>
+<td>Yes</td>
+<td><code>automations/&lt;name&gt;.md</code></td>
+</tr>
+<tr>
+<td>19</td>
+<td>Agent registry, one line per live operator/automation</td>
+<td>Interview 9+</td>
+<td>Yes</td>
+<td>section of <code>AGENTS.md</code></td>
+</tr>
+<tr>
+<td>20</td>
+<td>Operating review + recovery/continuity plan (30/90/180/365 dates)</td>
+<td>Interview 10</td>
+<td>Yes</td>
+<td><code>REVIEW.md</code> + <code>RECOVERY.md</code></td>
+</tr>
+<tr>
+<td>21</td>
+<td>Reinforcement runway schedule + booster cards</td>
+<td>Reinforcement Runway module</td>
+<td>Yes</td>
+<td><code>RUNWAY.md</code></td>
+</tr>
+<tr>
+<td>22</td>
+<td>Evidence log</td>
+<td>Continuous</td>
+<td>No, supporting</td>
+<td><code>LOG.md</code></td>
+</tr>
+<tr>
+<td>23</td>
+<td>Executive status report (to payer)</td>
+<td>Graduation + every review</td>
+<td>Yes</td>
+<td><code>STATUS.md</code></td>
+</tr>
+<tr>
+<td>24</td>
+<td>Graduation set: completion map + bound print + certificate</td>
+<td>Graduation</td>
+<td>N/A, artifact</td>
+<td>print</td>
+</tr>
+</tbody>
+</table></div>
+<h2>The one-page rule</h2>
+<p>Every canonical document fits on one page. Every canonical page carries four items in its metadata bar: <strong>owner, review date, version, and source interview.</strong> Where relevant, it also carries a &ldquo;Never do&rdquo; block at the top, stated negative constraints outperform implied ones.</p>
+<p>The rule is not aesthetic. Documents that don&rsquo;t fit on a page don&rsquo;t get run. Depth is allowed, appendices, logs, full registers, but it lives <em>behind</em> the canonical page, in the working tier of the vault. The canonical set is what gets printed, reviewed, and shown. The 15 canonical pages are the operating surface; everything else is storage.</p>
+<p>A standing diagnostic keeps the system honest: for each document, ask <strong>&ldquo;What decision or output did this serve in the last 30 days?&rdquo;</strong> A document with no answer gets archived, not maintained. The system&rsquo;s greatest enemy is its own complexity, and the budgets are how we fight it: canonical pages ≤ 1 page; auto-loaded instruction files ≤ 200 lines; newly systematized habits ≤ 2 per review period.</p>
+<h2>File naming and portability</h2>
+<p>We recommend the converged plain-markdown naming convention, <code>SOUL.md</code>, <code>USER.md</code>, <code>AGENTS.md</code>, <code>MEMORY.md</code>, <code>SOURCES.md</code>, <code>TASKS.md</code>, <code>SECURITY.md</code>, <code>HEARTBEAT.md</code>, plus <code>memory/YYYY-MM-DD.md</code> daily logs, with Cypress Command&rsquo;s friendly titles inside each document.</p>
+<p>Rationale: <strong>instant legibility</strong> (these names are becoming the shared vocabulary of the personal-AI ecosystem, any modern tool recognizes them on sight); <strong>portability</strong> (the names are what assistants already look for, which makes the second-model portability test nearly trivial); and <strong>zero lock-in</strong> (plain markdown in standard locations survives every tool switch, price change, and vendor failure).</p>
+<p><strong>When to deviate:</strong> if the file names intimidate a non-technical participant, treat them as plumbing, keep the friendly title (&ldquo;How I operate&rdquo;) as the document&rsquo;s visible heading and let the file name stay boring underneath. Do not deviate on structure: merging canonical pages into one mega-file, or moving canonical content into a proprietary tool&rsquo;s database, is how vaults quietly become hostages.</p>
+<h2>Where documents live</h2>
+<ul>
+<li><strong>Working tier (the vault):</strong> the full markdown tree, appendices, logs, versions, daily memory, digital, version-controlled, portable. Source of truth.</li>
+<li><strong>Canonical tier (the field guide):</strong> the 15 one-pagers, printed and bound, with write-in space. The physical graduation set; the object on the desk. Print is a rendering of the vault, re-renderable at any review.</li>
+</ul>

@@ -1,0 +1,31 @@
+<div class="card-body" data-card="s1" data-source="Intake" data-title="Master Workflow Intake">
+<section class="panel" data-title="Why it exists"><h3>Why it exists</h3><p>The intake chooses the first real workflow and records the &ldquo;before.&rdquo; Every later claim of improvement, at the day-30 review, at graduation, at day 180, is measured against the baseline captured here. An intake without numbers is a story; an intake with numbers is the first instrument of the measurement spine (Part I).</p></section>
+<section class="panel" data-title="Questions"><h3>Questions</h3><ol class="qs"><li>What recurring workflow should we build first?</li><li>In one sentence, what useful outcome should it produce?</li><li>How often does this work happen: daily, weekly, monthly, or irregularly?</li><li>Who uses or depends on the output?</li><li class="ci">Walk me through how the work happens today, step by step.</li><li class="ci">Describe the last time this workflow produced a bad outcome, late, wrong, reworked, or sent to the wrong person. Walk me through exactly what happened, in order. What did it cost?</li><li class="ci">Describe the last time you redid or corrected this work after thinking it was done. What triggered the rework?</li><li>Which tools, folders, inboxes, calendars, or applications are involved?</li><li>Which accounts, logins, API keys, or integrations would the AI need to touch to help with this workflow? (List only; this feeds the Security Baseline module, do not paste credentials.)</li><li>Which records contain the information needed to do the work well?</li><li>What is the most frustrating, slow, or error-prone part?</li><li>What kind of rework happens most often?</li><li>What is the risk if the output is late, wrong, incomplete, or sent prematurely?</li><li>Does the workflow involve confidential, regulated, financial, legal, medical, employment, or security-sensitive information?</li><li>Who owns the workflow and who should review AI-assisted output?</li><li>Who is paying for this program, if anyone other than you? What proof will they need to see that it worked?</li><li>What existing task or calendar system should remain the source of truth?</li><li>What would make the result obviously acceptable?</li><li>What would make the result unacceptable?</li><li class="ci">Baseline effort, from the last three runs if possible: How many minutes does one run take, start to finish? How many minutes of review and cleanup does it take afterward? In the last month, how many runs needed rework, and why?</li><li>When will we use the finished capability on real work?</li><li>If AI could only fix one thing in this workflow this quarter, which one?</li><li>Which days this month are protected for the day-3 and day-7 reinforcement touchpoints? (Calendar them now, per the reinforcement runway protocol in Part I.)</li></ol></section>
+<section class="panel" data-title="Build prompt"><h3>Build prompt</h3><div class="promptwrap"><button class="btn copy" type="button">Copy prompt</button><pre><code>Using the interview answers, draft a one-page workflow brief.
+
+Include:
+- Workflow name, useful outcome, cadence, users
+- Current process (as described, step by step)
+- Critical incident: the last bad outcome, in my own words, and what it cost
+- Tools and accounts touched (names only, no credentials)
+- Relevant records; pain and rework; risk level; sensitive information
+- Owner, reviewer, payer and the proof they need
+- Task/calendar source of truth
+- Acceptable result; unacceptable result
+- Baseline effort: minutes per run, review minutes per run, runs per month, rework rate with cause
+- First real use date; the one thing to fix this quarter; day-3/day-7 touchpoint dates
+
+Rules: separate approved facts / proposed rules / assumptions / unanswered
+questions / evidence needed; never invent facts, dates, owners, or numbers.
+Quote my words for the critical incident and unacceptable result; mark
+assumptions unconfirmed. One page; detail to an appendix.</code></pre></div></section>
+<section class="panel" data-title="Test"><h3>Test</h3><p>Concrete cases:</p>
+<ol>
+<li><strong>Baseline check.</strong> The brief carries numbers for minutes per run, review minutes, and rework rate from the participant&rsquo;s answers, not AI estimates. Unanswerable fields read &ldquo;unconfirmed, measure first three runs,&rdquo; with a measurement date.</li>
+<li><strong>Incident check.</strong> The critical incident is a dated, specific past event in the participant&rsquo;s words. A generic sentence (&ldquo;sometimes things go wrong&rdquo;) fails.</li>
+<li><strong>Fresh-session check.</strong> In a new conversation, paste only the brief and ask AI to summarize the workflow&rsquo;s goal, risks, and boundaries. Pass if all three match without invention.</li>
+</ol></section>
+<section class="panel" data-title="Done"><h3>Done</h3><div class="two"><div><h4>Definition of done</h4><p>The owner can name one real upcoming use with a date; wrong-output risks are explicit; baseline effort is numeric or has a measurement plan; the payer question is answered or marked &ldquo;self-funded&rdquo;; day-3/day-7 touchpoints are on a calendar.</p></div><div><h4>Minimum viable artifact</h4><p>One page: workflow name, outcome, cadence, owner, reviewer, tools, records, pain, risk, sensitive-information flag, acceptable/unacceptable result, baseline effort (minutes per run, review minutes, rework rate), first real use date, and the one quarterly fix.</p><div class="intent"><b>Implementation intention</b>&quot;When the [first real use date] session begins, I will open this brief before asking the AI for anything.&quot;</div></div></div></section>
+<section class="panel" data-title="Depth by stage"><h3>Depth by stage</h3><p>Starter runs the intake as written. Expert re-baselines before the bounded-operator trial. Frontier re-scores the workflow against the intake baseline as part of the measurement spine; the before/after comparison feeds the graduation evidence.</p>
+<hr /></section>
+</div>

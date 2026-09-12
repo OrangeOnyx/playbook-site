@@ -1,0 +1,34 @@
+<div class="card-body" data-card="s2" data-source="Interview 1" data-title="Know me">
+<p class="artifact"><b>Artifact</b> · A person-level &ldquo;How I operate&rdquo; one-pager, plus a workflow context brief that inherits from it.</p>
+<section class="panel" data-title="Why it exists"><h3>Why it exists</h3><p>Useful AI help depends on knowing what matters, who the work is for, which constraints apply, and what is out of scope. This is also the highest-flattery-risk artifact in the program, a polished profile that could describe anyone teaches the AI to be generically agreeable, so the anti-Barnum rule is enforced hardest here.</p></section>
+<section class="panel" data-title="Questions"><h3>Questions</h3><ol class="qs"><li>What is your role in this workflow?</li><li>What are you ultimately trying to make happen?</li><li>Who is the intended audience or beneficiary?</li><li>What does that audience care about most?</li><li>What tone should the output have: formal, direct, warm, concise, technical, persuasive, or something else?</li><li>What are the three most important priorities for this workflow?</li><li>Which priorities should AI actively protect when ranking options or drafting output?</li><li>You said [priority from Q6]. What made that important? What does protecting it get you? (Ladder two or three levels: each answer gets &ldquo;and what does that get you?&rdquo;, never the word &ldquo;why.&rdquo;)</li><li>What time, budget, staffing, technical, or policy constraints apply?</li><li>What is currently out of scope or not a priority?</li><li>What decision principles should guide recommendations?</li><li class="ci">Describe a real decision you made in the last quarter that shows one of those principles in action. What did you give up?</li><li>What trade-offs are you willing to make?</li><li>What trade-offs are you not willing to make?</li><li class="ci">Describe the last time you adopted a system, tool, or process and it failed to stick. What happened? What does that tell us about how this one should be built?</li><li>Which facts should AI never assume?</li><li>Which information is AI allowed to use for this workflow?</li><li>Which information is prohibited or unnecessary?</li><li>What actions may AI prepare or perform?</li><li>What actions require your approval?</li><li>What actions should never happen? (Name at least three, with a real example of each if one exists.)</li><li>Who owns this brief?</li><li>When should it be reviewed?</li></ol></section>
+<section class="panel" data-title="Build prompt"><h3>Build prompt</h3><div class="promptwrap"><button class="btn copy" type="button">Copy prompt</button><pre><code>Using the interview answers, draft two artifacts:
+
+A. &quot;How I operate&quot; one-pager (person-level): role and objective; voice and
+communication preferences; three ranked priorities with the laddered reasons in
+my words; decision principles, each tied to the real decision I described;
+constraints; friction points and at least one specific, unflattering finding
+(e.g., the system I abandoned, in my words). One-page limit.
+
+B. Workflow context brief (inherits from A): NEVER DO block at the very top
+(the never-actions, verbatim); audience and what they care about;
+workflow-specific priorities and non-priorities; permitted / prohibited
+information; permitted actions / approval requirements; owner and review date.
+One-page limit; detail to an appendix.
+
+Rules: separate approved facts / proposed rules / assumptions / unanswered
+questions / evidence needed. Do not add facts I did not provide. Quote my own
+words for every material claim, if a sentence could describe anyone, delete it
+or ground it in a quote. Mark assumptions unconfirmed.</code></pre></div></section>
+<section class="panel" data-title="Test"><h3>Test</h3><p>All in a fresh session with only the briefs loaded:</p>
+<ol>
+<li><strong>Prioritization.</strong> Give three competing tasks. Pass if the ranking uses the stated priorities and names the trade-off in the brief&rsquo;s terms.</li>
+<li><strong>Drafting.</strong> Request a short output for the intended audience. Pass if tone matches and no prohibited information appears.</li>
+<li><strong>Boundary.</strong> Make one request from the NEVER DO block and one out-of-scope request. Pass if both are declined with reference to the brief.</li>
+<li><strong>Barnum check (human review).</strong> The participant marks any one-pager sentence that could describe a stranger. Any unmarked generic sentence fails; the unflattering finding must be present.</li>
+<li><strong>Optional: second-tool check.</strong> Paste the one-pager into a different AI tool and repeat case 2. Pass if the output is materially the same.</li>
+</ol></section>
+<section class="panel" data-title="Done"><h3>Done</h3><div class="two"><div><h4>Definition of done</h4><p>Both briefs have an owner and review date, pass the fresh-session and Barnum checks, and the context brief has been used for one real task. The &ldquo;How I operate&rdquo; page is the artifact the participant holds at the end of week one, printed, if they want it.</p></div><div><h4>Minimum viable artifact</h4><p>Two pages: the &ldquo;How I operate&rdquo; one-pager and a one-page workflow context brief with the NEVER DO block on top, priorities, constraints, permitted/prohibited information, owner, and review date.</p><div class="intent"><b>Implementation intention</b>&quot;When I start any AI session about [workflow], I will paste the context brief first.&quot;</div></div></div></section>
+<section class="panel" data-title="Depth by stage"><h3>Depth by stage</h3><p>Single depth at Starter, no appendix. Intermediate re-confirms the brief after Interview 2. Expert adds an appendix; the canonical page stays one page. Frontier carries the one-pager into the Interview 10-full portability run.</p>
+<hr /></section>
+</div>

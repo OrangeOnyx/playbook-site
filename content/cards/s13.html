@@ -1,0 +1,31 @@
+<div class="card-body" data-card="s13" data-source="Module B" data-title="Session Protocol &amp; Memory Setup">
+<p class="artifact"><b>Artifact</b> · Boot sequence, shutdown sequence, weekly review appointment, and memory promotion rules, the ritual layer that makes capture and memory get used. (The boot sequence and memory hygiene are defined as foundation protocols in Part I; this module configures them for the participant&rsquo;s actual week.)</p>
+<section class="panel" data-title="Why it exists"><h3>Why it exists</h3><p>Interview 4 builds the capture queue; Interview 3 builds memory. Neither has a consumer until someone reads the queue and writes the log, every session, on a schedule. This module installs that ritual; without it, the Intermediate level produces a well-organized pile.</p></section>
+<section class="panel" data-title="Questions"><h3>Questions</h3><ol class="qs"><li>When do AI work sessions actually start in your week? (Days and rough times, from the last two weeks, not the ideal week.)</li><li>At session start, what must be read before any task begins? (Standard set: context brief, today&rsquo;s and yesterday&rsquo;s daily log, the capture queue, open loops due for review. Cut or reorder to fit, but name the list.)</li><li class="ci">Walk me through the last time a session started cold and you re-explained context you had already given. What did it cost in minutes?</li><li>At session end, what must be written? (Standard set: session summary to the daily log, decisions made, new open loops, corrections to any artifact. Confirm or amend.)</li><li>How long should boot and shutdown each take? (Budget: boot under two minutes, shutdown under three. More than that and the ritual will be skipped.)</li><li>What day and time is the weekly review? Who attends? How long is it? (Standard agenda: summarize the week, walk open loops, check stale projects, promote daily-log notes to curated memory, set next priorities.)</li><li>What qualifies a daily-log note for promotion to curated memory? Who confirms? (Restates the Interview 3 promotion gate as a weekly habit.)</li><li>What is the memory contradiction audit cadence, and which review meeting carries it?</li><li>For scheduled or recurring operator jobs (Expert+): what does the job check at start and write at end? (The heartbeat checklist.)</li><li>What happens when a weekly review is missed? (Standard: never miss twice, the next session&rsquo;s boot includes the skipped review&rsquo;s open-loops walk.)</li></ol></section>
+<section class="panel" data-title="Build prompt"><h3>Build prompt</h3><div class="promptwrap"><button class="btn copy" type="button">Copy prompt</button><pre><code>Using the interview answers, create the session protocol document.
+
+Include:
+- Boot sequence: ordered read list, time budget under two minutes.
+- Shutdown sequence: ordered write list, time budget under three minutes.
+- Weekly review: day, time, duration, attendees, standard agenda (summarize,
+  open loops, stale projects, memory promotion, next priorities).
+- Memory promotion rules: the gate, the confirmer, the contradiction-audit
+  cadence (reference the Interview 3 rules, do not redefine them).
+- Missed-review rule: never miss twice.
+- Heartbeat checklist for scheduled jobs (if any): start checks and end writes.
+- Owner and review date.
+
+Separate approved facts / proposed rules / assumptions / unanswered questions /
+evidence needed; mark assumptions unconfirmed. One page total, a ritual that
+does not fit on a page will not be run.</code></pre></div></section>
+<section class="panel" data-title="Test"><h3>Test</h3><p>Concrete cases:</p>
+<ol>
+<li><strong>Cold boot.</strong> Fresh session, boot sequence only. Pass if the operator can state current state, today&rsquo;s queue contents, and open loops due, without the participant re-explaining anything.</li>
+<li><strong>Shutdown capture.</strong> End a real session with the shutdown sequence. Pass if the daily log gains a summary, decisions, and open loops, and at least one queue item moved to reviewed.</li>
+<li><strong>Weekly review.</strong> Hold one at the scheduled time, on the agenda. Pass if at least one daily-log note is promoted (or explicitly rejected) through the gate and next priorities are written.</li>
+<li><strong>Missed-review drill.</strong> Skip one weekly review deliberately (or use the first real miss). Pass if the next session&rsquo;s boot includes the skipped open-loops walk, never miss twice.</li>
+</ol></section>
+<section class="panel" data-title="Done"><h3>Done</h3><div class="two"><div><h4>Definition of done</h4><p>Boot and shutdown run inside their time budgets; one weekly review has been held on schedule; promotion happened through the gate, not around it; the protocol is one page the participant actually keeps open.</p></div><div><h4>Minimum viable artifact</h4><p>Half a page: the boot read list, the shutdown write list, the weekly review appointment with agenda, and the never-miss-twice rule.</p><div class="intent"><b>Implementation intention</b>&quot;When I open an AI session for this workflow, I will run the boot list before typing a request, and when I close it, I will write the shutdown list before closing the tab.&quot;</div></div></div></section>
+<section class="panel" data-title="Depth by stage"><h3>Depth by stage</h3><p>Starter carries a simplified boot line in the operator brief instead. Intermediate installs the full module. Expert adds the heartbeat checklist for scheduled operator runs. Frontier adds the conversation-distillation review to the weekly agenda and re-checks the protocol in the portability run.</p>
+<hr /></section>
+</div>
