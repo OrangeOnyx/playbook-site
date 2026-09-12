@@ -5,7 +5,22 @@ from pathlib import Path
 BANNED = re.compile(r"\bleverage|\bseamless|\bempower|\bunlock\b|\brobust\b|actionable|data-driven|game-changer|synergy|circle back|best practices|dive into|at the end of the day|\bdelve|\belevate\b|testament", re.I)
 IDENTITY = re.compile(r"orange ocean|disbar", re.I)
 HEADLINE = re.compile(r"\b(Interview|Order|Layer|Phase|Level)\s+\d+\b|\bLayers?\b|\bPhases?\b")
-HEADLINE_TAGS = re.compile(r"<(h1|h2|h3|title|figcaption)[^>]*>(.*?)</\1>", re.S | re.I)
+# Every tag a reader scans as a headline: the full h1-h6 ladder (h4-h6 carry real
+# sub-headings inside the document cards and the example pages), <title>, <figcaption>,
+# and the drawn plates' own <span class="plate-label"> caption strip.
+HEADLINE_TAGS = re.compile(
+    r'<(h1|h2|h3|h4|h5|h6|title|figcaption)[^>]*>(.*?)</\1>'
+    r'|<(span)\s+class="plate-label"[^>]*>(.*?)</\3>',
+    re.S | re.I)
+
+
+def headline_blocks(html):
+    """Yield (tag label, inner html) for every headline-ish block in the page."""
+    for m in HEADLINE_TAGS.finditer(html):
+        if m.group(1):
+            yield m.group(1), m.group(2)
+        else:
+            yield 'span class="plate-label"', m.group(4)
 NAV_LINKS = re.compile(r"<nav[^>]*>(.*?)</nav>", re.S | re.I)
 CONTENTS_LINKS = re.compile(r'<ol class="contents"[^>]*>(.*?)</ol>', re.S | re.I)
 ALLOW_COPY = ("curriculum/read/",)
@@ -22,7 +37,7 @@ def check_text(html, path):
         for m in BANNED.finditer(_strip(html)): out.append("%s: banned word %r" % (p, m.group(0)))
         for m in IDENTITY.finditer(_strip(html)): out.append("%s: identity term %r" % (p, m.group(0)))
     if not any(a in p for a in ALLOW_NUMBERING):
-        for tag, inner in HEADLINE_TAGS.findall(html):
+        for tag, inner in headline_blocks(html):
             if HEADLINE.search(_strip(inner)): out.append("%s: numbering in <%s>: %r" % (p, tag, _strip(inner).strip()[:60]))
         for nav in NAV_LINKS.findall(html):
             for a in re.findall(r"<a[^>]*>(.*?)</a>", nav, re.S):
