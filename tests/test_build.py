@@ -27,6 +27,8 @@ def test_cover(tmp_path):
         assert anchor in s, anchor
     assert s.count('class="lane-pick"') == 2
     assert "Ten interviews" not in s.split("<h1>")[0]
+    assert s.count("by Cypress Command") == 1
+    assert "<title>The AI Playbook</title>" in s
 
 def test_stage_hubs(tmp_path):
     B.render(tmp_path)
