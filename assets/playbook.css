@@ -30,3 +30,7 @@ fieldset.q legend{font-size:.92rem;padding:0 .4rem;color:var(--ink)}
 .card-body .panel{display:block}
 /* ---- section pager (prev/next), unstyled in the imported layer ---- */
 .pager{display:flex;justify-content:space-between;gap:1rem;margin-top:3rem;padding-top:1.6rem;border-top:2px solid var(--ink);font-size:.92rem;flex-wrap:wrap}
+/* ---- figure numbers: the imported rule targets ".caption .fignum", but no
+   figcaption is ever wrapped in .caption, so it never matched; retarget it
+   at the real markup (figcaption > .fignum) ---- */
+figcaption .fignum{font-family:var(--slab);font-weight:900;font-size:13px;color:var(--ink);white-space:nowrap}
