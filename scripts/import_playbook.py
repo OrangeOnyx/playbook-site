@@ -39,6 +39,7 @@ WORD_FIXES = [
     ("Depth by level", "Depth by stage"),
     ("by level", "by stage"),
     ("Level notes", "Stage notes"),
+    ("actionable", "concrete"),
 ]
 
 # Em dashes never survive import; the gate would fail them. A plain literal replace of the

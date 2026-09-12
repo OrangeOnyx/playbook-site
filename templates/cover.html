@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block description %}The AI Playbook by Cypress Command: four stages, interviewed out of you, tested in a fresh session, used on real work. Free and complete.{% endblock %}
+{% block crumb %}{% endblock %}
+{% block ladder %}{% endblock %}
+{% block main %}
+<header class="cover"><div class="grid">
+  <div>
+    <p class="eyebrow">The AI Playbook · Illustrated edition</p>
+    <h1>Four stages.<br>One operating system.</h1>
+    <p class="lede">Your AI operating system, interviewed out of you, tested in a fresh session, used on real work, and reinforced until it is a habit. The vault is the asset; the agent is rented.</p>
+    <div class="meta"><div><b>4</b><small>stages, each complete in itself</small></div><div><b>1</b><small>real workflow to start</small></div><div><b>180</b><small>days to "I cannot imagine going back"</small></div></div>
+    <p><a class="btn" href="/1-starter/">Open Stage 1</a> <a class="btn ghost" href="/radar/">Score the radar first</a></p>
+  </div>
+  <div>{{ partial("plates/fig-00.html") }}</div>
+</div></header>
+
+<section id="contents" class="chapter-sec">
+  <h2>The whole book, in one ladder.</h2>
+  {{ partial("plates/fig-02.html") }}
+  <ol class="contents">
+  {% for st in spine.stages %}
+    <li><a href="/{{ st.slug }}/"><b>{{ st.number }} {{ st.name }}</b> <span class="quiet">{{ st.weeks }}</span></a>
+      <ol>{% for x in sections if x.stage == st.number %}<li><a href="{{ x.path }}">{{ x.id }} {{ x.title }}</a></li>{% endfor %}</ol>
+      <p class="quiet">Gate: {{ st.gate }}</p></li>
+  {% endfor %}
+  </ol>
+</section>
+
+<section id="why" class="chapter-sec">{{ partial("front/ch-1.html") }}</section>
+<section class="chapter-sec">{{ partial("front/gw-sound-familiar.html") }}</section>
+<section class="chapter-sec">{{ partial("front/gw-rule.html") }}</section>
+<section class="chapter-sec">{{ partial("front/ch-2.html") }}</section>
+<section class="chapter-sec">{{ partial("front/lanes.html") }}{{ partial("plates/fig-10.html") }}</section>
+<section class="chapter-sec">{{ partial("front/compounding.html") }}</section>
+<section class="chapter-sec">{{ partial("front/ch-4.html") }}</section>
+<section class="chapter-sec">{{ partial("front/gw-authority.html") }}</section>
+<section class="chapter-sec">{{ partial("front/ch-6.html") }}</section>
+<section class="chapter-sec">{{ partial("front/ch-7.html") }}</section>
+<section class="chapter-sec">{{ partial("front/ch-8.html") }}</section>
+<section class="chapter-sec">{{ partial("front/why-now.html") }}</section>
+<section class="chapter-sec">{{ partial("front/gw-who.html") }}</section>
+<section class="chapter-sec">{{ partial("front/gw-faq.html") }}</section>
+<section class="chapter-sec"><h2>Want it built with you?</h2><p>The free audit is the only door. <a class="btn" href="/start/">Start</a></p></section>
+{% endblock %}
