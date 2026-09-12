@@ -182,12 +182,36 @@ def _add_platform_note(inner):
 # example-page partials (platform.html, console.html) still said "Order N" /
 # "the six standing orders" in running text and in the drawn SVG labels, which
 # a visitor reads just as readily as a heading. PROSE_FIXES rewrites that old
-# numbering wherever it survives in those two files specifically; articles and
-# docs keep their original interview-number references on purpose. Order
-# matters here too: run the multi-word idioms and the plural/uppercase forms
-# before the generic singular word-boundary patterns they would otherwise
-# overlap or get shadowed by.
+# numbering wherever it survives. It now runs over the six article partials (and
+# the document cards carved out of the same order-page source), the five gw-*
+# front partials, and the two example pages; content/examples, content/cards, and
+# the generated curriculum reader are left alone. Order matters here: run the
+# multi-word idioms, the ranges, and the plural/uppercase forms before the generic
+# singular word-boundary patterns they would otherwise overlap or get shadowed by.
+SECTION_FOR_ORDER = {"1": "1.1", "2": "2.1", "3": "3.1", "4": "3.2", "5": "2.2", "6": "4.2"}
+
+
+def _range_to_sections(m):
+    """"orders N to M" / "Orders N and M" -> "sections X to Y", each end of the range
+    mapped through SECTION_FOR_ORDER. The replacement is always lowercase "sections":
+    every occurrence of this shape in the source sits mid-sentence."""
+    return "sections %s %s %s" % (SECTION_FOR_ORDER[m.group(1)], m.group(2), SECTION_FOR_ORDER[m.group(3)])
+
+
 PROSE_FIXES = [
+    (re.compile(r"\b([Tt]he) standing half \(Remember and Improve\)"),
+     r"\1 standing half (2.2 Remember my world and 4.2 Improve and survive)"),
+    (re.compile(r"\b[Oo]rders (\d) (to|and) (\d)\b"), _range_to_sections),
+    # "a standing order to edit" is the military idiom, not the old numbering; the
+    # generic "standing order" rule below would turn it into nonsense ("is a section
+    # to edit"), so the whole phrase is rewritten first.
+    (re.compile(r"\bis a standing order to edit\b"), "is reason enough to edit"),
+    (re.compile(r"\border 1\b"), "section 1.1"),
+    (re.compile(r"\border 2\b"), "section 2.1"),
+    (re.compile(r"\border 3\b"), "section 3.1"),
+    (re.compile(r"\border 4\b"), "section 3.2"),
+    (re.compile(r"\border 5\b"), "section 2.2"),
+    (re.compile(r"\border 6\b"), "section 4.2"),
     (re.compile(r"\bOrders 2 \+ 3\b"), "Sections 2.1 + 3.1"),
     (re.compile(r"\bORDER 1\b"), "SECTION 1.1"),
     (re.compile(r"\bORDER 2\b"), "SECTION 2.1"),
@@ -210,35 +234,51 @@ PROSE_FIXES = [
     (re.compile(r"\bsix standing orders\b", re.I), "the stages"),
     (re.compile(r"\bstanding orders\b", re.I), "sections"),
     (re.compile(r"\bstanding order\b", re.I), "section"),
-    (re.compile(r"\bfifteen documents\b", re.I), "the templates"),
     (re.compile(r"\bLayer \d+\b"), "section"),
     (re.compile(r"\bPhase \d+\b"), "stage"),
 ]
 
+# Applied to the two example partials only, exactly as before. On the articles and the
+# front partials the same rule would read badly ("the fifteen documents," -> "the the
+# templates,") or shout out of an uppercase drawn label ("LOADED IN ORDER . FIFTEEN
+# DOCUMENTS"), and "fifteen documents" is not retired numbering, so it stays put there.
+EXAMPLE_PROSE_FIXES = [
+    (re.compile(r"\bfifteen documents\b", re.I), "the templates"),
+]
+
+# The order-number rules deliberately produce lowercase "section N.N" because almost every
+# occurrence sits mid-sentence. Where the old "Order N" opened a sentence, a paragraph, or a
+# link label, the lowercase result reads as a typo, so the word is capitalized back up after
+# a sentence end, a tag boundary, or an entity such as &larr;.
+SENTENCE_START_SECTION = re.compile(r"(>|[.!?;])(\s*)section(s?)(?= \d)")
+
 def _apply_prose_fixes(inner):
-    """Apply PROSE_FIXES to a whole partial's body text. Only ever called for
-    the platform and console partials (see run())."""
+    """Apply PROSE_FIXES to a whole partial's body text. Called for the six article
+    partials (and the document cards carved out of the same source), the five gw-*
+    front partials, and the platform and console example partials (see run())."""
     for pat, rep in PROSE_FIXES: inner = pat.sub(rep, inner)
-    return inner
+    return SENTENCE_START_SECTION.sub(lambda m: m.group(1) + m.group(2) + "Section" + m.group(3), inner)
 
 def run(gw, out):
     _assert_commit(gw)
     spine = S.load()
     counts = {"articles": 0, "docs": 0, "front": 0, "pages": 0}
     for slug, rel in ORDER_PAGES.items():
+        # One pipeline for the whole order page, then carve the document cards out of
+        # it. The cards are part of the article partial's own source, so they inherit
+        # exactly the transforms the surrounding prose gets and the two cannot drift.
         inner = _strip_chrome(_main_inner(_read(gw / rel)))
+        inner = _apply_prose_fixes(_fix_headings(_apply_rename(_rewrite_links(inner, "guide", spine))))
         for m in DOC_CARD.finditer(inner):
-            doc = _fix_headings(_apply_rename(_rewrite_links(m.group(0), "guide", spine)))
-            _write(out / "content" / "docs" / ("doc-%s.html" % m.group(2).zfill(2)), doc)
+            _write(out / "content" / "docs" / ("doc-%s.html" % m.group(2).zfill(2)), m.group(0))
             counts["docs"] += 1
         inner = DOC_CARD.sub("", inner)
-        inner = _fix_headings(_apply_rename(_rewrite_links(inner, "guide", spine)))
         _write(out / "content" / "articles" / (slug + ".html"), inner)
         counts["articles"] += 1
     home = _read(gw / "index.html")
     for slug, sid in FRONT.items():
         m = re.search(r'<section[^>]*id="%s"[^>]*>(.*?)</section>' % sid, home, re.S)
-        front = _fix_headings(_apply_rename(_rewrite_links(m.group(1), ".", spine)))
+        front = _apply_prose_fixes(_fix_headings(_apply_rename(_rewrite_links(m.group(1), ".", spine))))
         _write(out / "content" / "front" / ("gw-%s.html" % slug), front)
         counts["front"] += 1
     for slug, rel in PAGES.items():
@@ -247,7 +287,9 @@ def run(gw, out):
         inner = _apply_rename(inner)
         if slug == "platform": inner = _add_platform_note(inner)
         inner = _fix_headings(inner)
-        if slug in ("platform", "console"): inner = _apply_prose_fixes(inner)
+        if slug in ("platform", "console"):
+            for pat, rep in EXAMPLE_PROSE_FIXES: inner = pat.sub(rep, inner)
+            inner = _apply_prose_fixes(inner)
         if slug == "lineage":
             era = ('<p class="prov">Provenance. From August 2026 to September 2026 this program was published as Groundwork, '
                    'arranged as six standing orders producing fifteen documents. The AI Playbook keeps every document and every '
