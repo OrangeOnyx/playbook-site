@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Training-Stack Internals | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="3 Expert · Individual Track: Training-Stack Internals. Compiled verbatim from the Groundwork Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/l4-individual-02-training-stack-internals.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/" aria-current="page">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / Training-Stack Internals</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">3 EXPERT · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">Training-Stack Internals</h1></div></div>
+<p class="rnote">This page compiles 6 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-4-professional/individual/02-training-stack-internals">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-4-professional/individual/02-training-stack-internals/README.md</span></p>
+<h1>Training-Stack Internals</h1>
+<p>You do not need to build a frontier model to lead AI well, but you must understand the constraints that shape model behavior and cost. Training-stack fluency lets you distinguish a genuine capability issue from a bad dataset, weak evaluation, impossible latency budget, or misused architecture.</p>
+<p>The core loop is straightforward: text or multimodal data becomes tokens; tokens enter a neural network; the network predicts the next token; loss measures error; backpropagation updates parameters; repeated passes turn large amounts of compute and data into general statistical capability. The complexity lives in scaling, parallelism, data quality, numerical stability, and post-training.</p>
+<p>As a practitioner, be able to reason about:</p>
+<ul>
+<li>attention and why context length is expensive;</li>
+<li>mixture-of-experts routing and why nominal parameter count can mislead;</li>
+<li>tokenization and its effect on languages, structured data, and price;</li>
+<li>KV caches, batching, and memory pressure at inference;</li>
+<li>quantization tradeoffs between speed, memory, and quality.</li>
+</ul>
+<p>Use this knowledge to ask better questions of vendors and your own team. What context is actually being attended to? Is the bottleneck memory bandwidth or compute? Is a quality regression from weights, decoding, retrieval, or a changed data distribution? What does “70B” mean for active parameters, hardware, and latency?</p>
+<p>The goal is not to memorize equations. It is to form accurate mental models, recognize impossible claims, and choose experiments that isolate the real bottleneck.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-4-professional/individual/02-training-stack-internals/attention-mechanics.md</span></p>
+<h1>Attention Mechanics</h1>
+<p>Attention is the mechanism that lets a transformer decide which parts of its context matter for the next prediction. Each token creates a query, a key, and a value. A query compares itself with keys from other tokens; the resulting weights mix their values into a context-aware representation. In practical terms, every token can look at other relevant tokens rather than passing information only through a fixed-size hidden state.</p>
+<p>This is why transformers can connect a clause at the beginning of a lease to an exception near the end. It is also why long context is not free. Standard attention compares positions broadly, so both compute and memory pressure rise sharply with sequence length. A 200-page document may fit in a window while still being expensive, slow, and easy for a model to use poorly.</p>
+<p>Important operating implications:</p>
+<ul>
+<li>More context can dilute salience; it is not the same as better retrieval.</li>
+<li>Position matters. Models may attend unevenly to information buried in the middle.</li>
+<li>Attention heads specialize imperfectly and cannot be assumed to represent human-readable concepts.</li>
+<li>Caches store prior keys and values so generation does not recompute the entire prefix each token.</li>
+</ul>
+<p>For a production workflow, retrieve a compact, attributable evidence set, put instructions near the relevant material, and evaluate with realistic document lengths. Do not call “it has a large context window” an architecture plan. The question is whether the system reliably selects the evidence needed for the user’s decision.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-4-professional/individual/02-training-stack-internals/kv-cache-and-inference.md</span></p>
+<h1>kv cache and inference</h1>
+<p>This lesson belongs in a practitioner’s operating system, not a collection of facts to recite. The point is to make a better decision under uncertainty: define the claim, identify the evidence that could change it, name the failure mode, and record the consequence of being wrong. Read it with a live initiative in mind—an internal workflow, customer-facing product, training run, or research bet—and turn the ideas into an explicit test.</p>
+<p>Start from the outcome rather than the technology. Specify the user or stakeholder, the task boundary, the data and permissions involved, the success measure, and the unacceptable result. Establish a baseline before changing anything. Then make the smallest reversible move that can distinguish competing explanations. A plausible demo is evidence of possibility, not evidence of reliability, value, or safety.</p>
+<p>Keep an evidence log. Separate observations from interpretations, measured performance from anecdotes, and known risks from assumptions. Review representative failures by hand; aggregate metrics can hide the one pattern that matters. For high-impact work, assign a clear owner, predefine an escalation path, and decide what will cause a pause or rollback. Do not outsource accountability to a model, vendor, benchmark, or committee.</p>
+<p>The professional standard is legibility. Another capable person should be able to understand why this approach was chosen, rerun the evaluation, find its limits, and improve it without guessing. Build reusable artifacts—datasets, decision records, checklists, incident notes, and release criteria—so each project leaves the next one stronger.</p>
+<h2>Working exercise</h2>
+<p>Write a one-page decision memo for a current initiative. State the hypothesis, baseline, evaluation, threshold, owner, risks, and next action. If any of these cannot be stated plainly, the work is not ready to scale.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-4-professional/individual/02-training-stack-internals/moe-and-sparsity.md</span></p>
+<h1>Mixture of Experts and Sparsity</h1>
+<p>Dense models activate most parameters for each token. Mixture-of-experts (MoE) models contain many expert subnetworks but use a router to activate only a few for a given token. This sparse activation can increase total capacity without multiplying per-token compute by the same amount.</p>
+<p>The headline parameter count therefore needs interpretation. A model advertised with hundreds of billions of parameters may activate a much smaller subset per token. It can be powerful and efficient, but it also introduces routing behavior, communication overhead, load-balancing problems, and potentially uneven capability across domains.</p>
+<p>For practitioners, three points matter. First, test the model on your distribution; aggregate leaderboard performance cannot tell you whether router decisions work on property descriptions, legal clauses, or your tool-call format. Second, serving cost depends on active parameters, memory layout, hardware, batching, and context—not just the total number printed on a model card. Third, sparse architectures can fail in ways that look inconsistent: similar prompts may route differently or depend on specialists that are rarely activated.</p>
+<p>Sparsity is broader than MoE. It includes pruning, sparse attention, and conditional computation. The common idea is to spend computation where it matters rather than everywhere. It is an engineering tradeoff, not magic: every saving creates a new scheduling, calibration, or debugging burden.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-4-professional/individual/02-training-stack-internals/quantization.md</span></p>
+<h1>quantization</h1>
+<p>This lesson belongs in a practitioner’s operating system, not a collection of facts to recite. The point is to make a better decision under uncertainty: define the claim, identify the evidence that could change it, name the failure mode, and record the consequence of being wrong. Read it with a live initiative in mind—an internal workflow, customer-facing product, training run, or research bet—and turn the ideas into an explicit test.</p>
+<p>Start from the outcome rather than the technology. Specify the user or stakeholder, the task boundary, the data and permissions involved, the success measure, and the unacceptable result. Establish a baseline before changing anything. Then make the smallest reversible move that can distinguish competing explanations. A plausible demo is evidence of possibility, not evidence of reliability, value, or safety.</p>
+<p>Keep an evidence log. Separate observations from interpretations, measured performance from anecdotes, and known risks from assumptions. Review representative failures by hand; aggregate metrics can hide the one pattern that matters. For high-impact work, assign a clear owner, predefine an escalation path, and decide what will cause a pause or rollback. Do not outsource accountability to a model, vendor, benchmark, or committee.</p>
+<p>The professional standard is legibility. Another capable person should be able to understand why this approach was chosen, rerun the evaluation, find its limits, and improve it without guessing. Build reusable artifacts—datasets, decision records, checklists, incident notes, and release criteria—so each project leaves the next one stronger.</p>
+<h2>Working exercise</h2>
+<p>Write a one-page decision memo for a current initiative. State the hypothesis, baseline, evaluation, threshold, owner, risks, and next action. If any of these cannot be stated plainly, the work is not ready to scale.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-4-professional/individual/02-training-stack-internals/tokenization-deep-dive.md</span></p>
+<h1>Tokenization Deep Dive</h1>
+<p>Language models process tokens, not words. A tokenizer maps text into integer units, usually subword pieces. Common words may be one token; rare names, punctuation-heavy addresses, source code, and non-English text may break into many. This mapping affects context limits, latency, price, truncation, and the apparent difficulty of a task.</p>
+<p>Never estimate production cost from word count alone. Measure tokens on representative inputs and outputs. Real-estate workflows are especially vulnerable to surprises: parcel identifiers, tables copied from PDFs, legal language, image OCR artifacts, and multilingual inquiries can all inflate token counts or degrade structure.</p>
+<p>Tokenization also affects model behavior. Models learn patterns in token space. A string that looks simple to a human may be fragmented into unusual pieces, making exact spelling, arithmetic, or structured extraction less reliable. The same applies to JSON schemas: use constrained decoding or validation rather than trusting that a model’s learned token patterns guarantee valid syntax.</p>
+<p>Inspect the tokenizer when diagnosing problems. Compare how it encodes a successful and failed input. Check whether retrieval chunks are cut mid-sentence or mid-table. Count reserved tokens for tools, system instructions, and expected output before setting a context budget.</p>
+<p>Treat tokenization as a boundary condition for every design. It is mundane until it is the reason a high-value document was truncated, a system timed out, or a cost model was wrong by ten times.</p>
+</article>
+
+  <div class="pnav">
+    <a href="l4-individual-01-leading-ai-teams.html">← Leading AI Teams</a>
+    <a href="l4-individual-03-custom-model-training.html">README →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

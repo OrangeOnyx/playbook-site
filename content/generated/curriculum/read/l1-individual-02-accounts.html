@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>02 — Accounts | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="1 Starter · Individual Track: 02 — Accounts. Compiled verbatim from the Groundwork Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/l1-individual-02-accounts.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/" aria-current="page">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 02 — Accounts</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">02 — Accounts</h1></div></div>
+<p class="rnote">This page compiles 4 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-1-essentials/individual/02-accounts">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-1-essentials/individual/02-accounts/README.md</span></p>
+<h1>02 — Accounts</h1>
+<p>Create accounts in this order. Each unlocks capabilities the next one builds on.</p>
+<h2>Files in this folder</h2>
+<ol>
+<li><code>accounts-order.md</code> — the priority list with costs and rationale</li>
+<li><code>api-keys-setup.md</code> — how to provision keys for each provider</li>
+<li><code>password-manager-template.md</code> — how to store credentials</li>
+</ol>
+<h2>The principle</h2>
+<p>Consumer subscriptions first (they give you the widest exploration surface). API keys second (they give you programmatic power). Local tools third (they give you speed).</p>
+<h2>Time budget</h2>
+<ul>
+<li>Consumer subscriptions: 30 minutes total</li>
+<li>API keys: 45 minutes total (including billing setup)</li>
+<li>Password manager entries: 15 minutes</li>
+</ul>
+<h2>Definition of done</h2>
+<ul>
+<li>All Tier 1 consumer subscriptions active</li>
+<li>All Tier 1 API keys in your password manager</li>
+<li>Billing caps set on every API key</li>
+<li>One key stored in a <code>.env.local</code> file only (never <code>.env</code> — never commit)</li>
+</ul>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-1-essentials/individual/02-accounts/accounts-order.md</span></p>
+<h1>Accounts — Priority Order</h1>
+<p>Prices are USD, monthly, as of August 2026. Confirm current pricing before subscribing.</p>
+<h2>Tier 1 — The core four (get these all)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Service</th>
+<th>Why</th>
+<th>Approx cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ChatGPT Plus (or Pro)</td>
+<td>Widest ecosystem, custom GPTs, memory, voice, Sora, most third-party integrations</td>
+<td>$20–$200/mo</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Claude Pro (or Max)</td>
+<td>Best long-form reasoning, Projects, Artifacts, Skills, Claude Code</td>
+<td>$20–$100/mo</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Perplexity Pro</td>
+<td>Best real-time research, Comet browser, Computer (this product), connectors</td>
+<td>$20/mo</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Gemini Advanced</td>
+<td>Google Workspace integration, Deep Research, Veo video, longest context</td>
+<td>$20/mo</td>
+</tr>
+</tbody>
+</table>
+<h2>Tier 2 — Stack-dependent</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Service</th>
+<th>When you need it</th>
+<th>Approx cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Microsoft Copilot Pro</td>
+<td>You live in Word/Excel/Outlook/Teams</td>
+<td>$30/mo</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GitHub Copilot Pro+ or Cursor Pro</td>
+<td>You write code</td>
+<td>$20–$40/mo</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Grok (X Premium+)</td>
+<td>You need real-time X data or uncensored image gen</td>
+<td>$16–$40/mo</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Midjourney or Ideogram</td>
+<td>Serious image generation</td>
+<td>$10–$60/mo</td>
+</tr>
+<tr>
+<td>9</td>
+<td>ElevenLabs</td>
+<td>Serious voice/TTS work</td>
+<td>$5–$99/mo</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Runway or Higgsfield</td>
+<td>Serious video generation</td>
+<td>$12–$95/mo</td>
+</tr>
+</tbody>
+</table>
+<h2>Tier 3 — API accounts (get all six, cap billing)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Provider</th>
+<th>Best for</th>
+<th>Signup URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>OpenAI Platform</td>
+<td>GPT models, Whisper, DALL·E, Sora API</td>
+<td>platform.openai.com</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Anthropic Console</td>
+<td>Claude models, longest context, best coding</td>
+<td>console.anthropic.com</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Google AI Studio</td>
+<td>Gemini models, longest context, cheapest tier</td>
+<td>aistudio.google.com</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Perplexity API</td>
+<td>Search-grounded generation</td>
+<td>perplexity.ai/settings/api</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Groq</td>
+<td>Fastest inference (LLaMA, Mixtral, Qwen)</td>
+<td>console.groq.com</td>
+</tr>
+<tr>
+<td>6</td>
+<td>OpenRouter</td>
+<td>One key → 300+ models, easiest experimentation</td>
+<td>openrouter.ai</td>
+</tr>
+</tbody>
+</table>
+<h2>Tier 4 — Nice to have</h2>
+<ul>
+<li>Together AI, Fireworks, Replicate — additional inference options</li>
+<li>Hugging Face Pro — dataset + model hub</li>
+<li>Kaggle — free notebooks + datasets</li>
+</ul>
+<h2>Rule of thumb</h2>
+<p>If you're spending more than $150/mo on subscriptions, one of them is unused. Audit quarterly.</p>
+<h2>Enterprise upgrades</h2>
+<p>If you're using any of these for work with sensitive data, upgrade to the Enterprise / Team / Business tier for that provider. The delta buys you:
+- SSO / SCIM
+- No training on your data (with contract)
+- Admin console + audit logs
+- DPA / BAA availability
+- Increased context or rate limits</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-1-essentials/individual/02-accounts/api-keys-setup.md</span></p>
+<h1>API Keys Setup</h1>
+<h2>Universal rules</h2>
+<ol>
+<li><strong>One key per project.</strong> Never share a key across projects; you lose cost attribution.</li>
+<li><strong>Set a hard spending cap</strong> on every key at the provider dashboard.</li>
+<li><strong>Set a soft email alert</strong> at 50% and 80% of cap.</li>
+<li><strong>Store in a password manager</strong>, not in Notes.app or a text file.</li>
+<li><strong>Never commit</strong> a key to git. Use <code>.env.local</code> (git-ignored) or a secret manager.</li>
+<li><strong>Rotate every 90 days</strong>, or immediately after a suspected leak.</li>
+<li><strong>Prefer service-specific project keys</strong> over root keys wherever the provider supports them.</li>
+</ol>
+<h2>Per-provider setup</h2>
+<h3>OpenAI</h3>
+<ol>
+<li>platform.openai.com → Settings → Billing → add card, set hard limit ($20 to start)</li>
+<li>API Keys → Create new secret key → name it after the project</li>
+<li>Enable usage tracking → set alert at 50% and 80%</li>
+<li>Turn on "Usage limits" per project if you use multiple projects</li>
+</ol>
+<h3>Anthropic</h3>
+<ol>
+<li>console.anthropic.com → Plans &amp; Billing → add card, set monthly budget</li>
+<li>API Keys → Create key → tag it</li>
+<li>Enable Workspace-scoped keys if you want isolation between projects</li>
+<li>Note: Anthropic bills per model; Opus is expensive, Sonnet is the workhorse, Haiku is cheap</li>
+</ol>
+<h3>Google AI Studio</h3>
+<ol>
+<li>aistudio.google.com → Get API key → tied to a Google Cloud project</li>
+<li>In Google Cloud Console → Billing → set budget alert</li>
+<li>Enable Generative Language API on that project</li>
+<li>Note: Gemini has a free tier — use it for experimentation</li>
+</ol>
+<h3>Perplexity</h3>
+<ol>
+<li>perplexity.ai/settings/api → Generate key</li>
+<li>Purchase credits (pay-as-you-go)</li>
+<li>Note: sonar / sonar-pro are search-grounded (unique to Perplexity)</li>
+</ol>
+<h3>Groq</h3>
+<ol>
+<li>console.groq.com → API Keys → Create</li>
+<li>Free tier is generous; upgrade to pay-as-you-go for higher rate limits</li>
+<li>Use for: fastest inference of open-weight models (LLaMA 3.x, Mixtral, Qwen)</li>
+</ol>
+<h3>OpenRouter</h3>
+<ol>
+<li>openrouter.ai → Keys → Create</li>
+<li>Add credits (one-time)</li>
+<li>This becomes your "try any model" playground — one key routes to 300+ models</li>
+<li>Great for experimentation and fallback</li>
+</ol>
+<h2><code>.env.local</code> template</h2>
+<pre><code class="language-bash"># AI provider keys — never commit this file
+OPENAI_API_KEY=sk-proj-...
+ANTHROPIC_API_KEY=sk-ant-...
+GOOGLE_API_KEY=AIza...
+PERPLEXITY_API_KEY=pplx-...
+GROQ_API_KEY=gsk_...
+OPENROUTER_API_KEY=sk-or-v1-...
+
+# Optional
+COHERE_API_KEY=
+TOGETHER_API_KEY=
+FIREWORKS_API_KEY=
+REPLICATE_API_TOKEN=
+HUGGINGFACE_TOKEN=
+</code></pre>
+<p>Add <code>.env.local</code> to your global <code>.gitignore</code>:</p>
+<pre><code class="language-bash">echo &quot;.env.local&quot; &gt;&gt; ~/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
+</code></pre>
+<h2>Spending sanity floor</h2>
+<p>Start with these caps and adjust up as you learn your consumption:</p>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Starting cap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenAI</td>
+<td>$20/mo</td>
+</tr>
+<tr>
+<td>Anthropic</td>
+<td>$20/mo</td>
+</tr>
+<tr>
+<td>Google</td>
+<td>$10/mo</td>
+</tr>
+<tr>
+<td>Perplexity</td>
+<td>$10/mo</td>
+</tr>
+<tr>
+<td>Groq</td>
+<td>$10/mo</td>
+</tr>
+<tr>
+<td>OpenRouter</td>
+<td>$20/mo</td>
+</tr>
+</tbody>
+</table>
+<p>Total starter API budget: <strong>$90/mo</strong>. Most individuals never exceed this while learning.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-1-essentials/individual/02-accounts/password-manager-template.md</span></p>
+<h1>Password Manager Template</h1>
+<p>Create one entry per provider. Recommended tool: 1Password, Bitwarden, or Dashlane.</p>
+<h2>Entry template</h2>
+<pre><code>Title: [Provider] — [Purpose]  (e.g., &quot;OpenAI — Personal Dev&quot;)
+
+Username: [account email]
+Password: [account password]
+
+Custom fields:
+  api_key:          sk-...
+  api_key_created:  2026-08-19
+  api_key_rotates:  2026-11-17
+  spending_cap:     $20/mo
+  billing_alert:    50% and 80%
+  scope:            [personal | project-x | client-y]
+  provider_url:     https://platform.openai.com
+  key_management:   https://platform.openai.com/api-keys
+
+Notes:
+  - Data class allowed: [public / internal / confidential]
+  - Zero-retention: [yes / no / see DPA]
+  - Notes on quirks
+</code></pre>
+<h2>Rotation calendar</h2>
+<p>Add these to your calendar as recurring events:</p>
+<ul>
+<li>Every 90 days: "Rotate API keys" — walk through password manager, regenerate each</li>
+<li>Every 30 days: "Review AI spending" — check each provider dashboard</li>
+<li>Every 7 days: "Check billing alerts" — during Friday weekly review</li>
+</ul>
+<h2>Sharing model</h2>
+<ul>
+<li><strong>Never share</strong> a personal API key</li>
+<li>For a company, use the LLM gateway pattern (see <code>company/02-accounts-procurement/llm-gateway-selection.md</code>) — no one gets raw keys</li>
+<li>For a family, each person gets their own key on the same billing account (where the provider supports this)</li>
+</ul>
+</article>
+
+  <div class="pnav">
+    <a href="l1-individual-01-foundation.html">← 01 — Foundation</a>
+    <a href="l1-individual-03-system-prompts.html">03 — System Prompts →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

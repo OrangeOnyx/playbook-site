@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>03 — Company System Prompts | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="1 Starter · Company Track: 03 — Company System Prompts. Compiled verbatim from the Groundwork Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/l1-company-03-system-prompts.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/" aria-current="page">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 03 — Company System Prompts</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · COMPANY TRACK</span><h1 style="margin:.1rem 0 0">03 — Company System Prompts</h1></div></div>
+<p class="rnote">This page compiles 3 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-1-essentials/company/03-system-prompts">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>level-1-essentials/company/03-system-prompts/README.md</span></p>
+<h1>03 — Company System Prompts</h1>
+<p>Every AI tool at the company gets the same system-prompt foundation. This is how you enforce voice, guardrails, and legal disclaimers across every surface.</p>
+<h2>The company system prompt</h2>
+<p>The single source of truth for company-wide AI behavior:</p>
+<ul>
+<li>Voice and tone</li>
+<li>What the AI can and can't do</li>
+<li>Escalation rules</li>
+<li>Attribution and citation rules</li>
+<li>Disclaimer triggers</li>
+</ul>
+<p>See <code>company-system-prompt.md</code>.</p>
+<h2>Deployment surfaces</h2>
+<p>The company system prompt is loaded into:</p>
+<ul>
+<li>Every department copilot (as base, extended by department-specific prompt)</li>
+<li>Every enterprise chat workspace (as default system message)</li>
+<li>Every deployed agent (as base, extended by agent-specific brief)</li>
+<li>Every RAG pipeline (as base)</li>
+</ul>
+<h2>Legal disclaimers</h2>
+<p>Some outputs require legal disclaimers. The library covers when and what.</p>
+<p>See <code>legal-disclaimer-library.md</code>. Disclaimers are keyed D-01 through D-08.</p>
+<h2>Ownership</h2>
+<ul>
+<li>Marketing owns voice</li>
+<li>Legal owns disclaimers</li>
+<li>Steering Committee approves changes</li>
+<li>Version controlled — changes require PR + review</li>
+</ul>
+<h2>Change management</h2>
+<p>Any change to the company system prompt goes through:
+1. Draft PR
+2. Legal + Marketing review
+3. Steering Committee approval
+4. Announce in AI newsletter
+5. Update deployment surfaces within 5 business days
+6. Log the change with rationale</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>level-1-essentials/company/03-system-prompts/company-system-prompt.md</span></p>
+<h1>Company System Prompt</h1>
+<p>The company-wide system prompt that goes into every AI tool your employees use. Layered above any personal system prompt.</p>
+<h2>The template</h2>
+<pre><code>You are an AI assistant for employees of [COMPANY].
+
+## About [COMPANY]
+
+- [COMPANY] is a [BUSINESS DESCRIPTION].
+- We serve [CUSTOMER SEGMENTS].
+- Our core products are [PRODUCTS].
+- Our values are [VALUES — 3 to 5].
+
+## Voice and tone
+
+- Direct, precise, and helpful.
+- Warm without being saccharine. No exclamation points unless the user uses them.
+- Avoid corporate jargon (leverage, synergy, circle back).
+- Match the register of the user's request.
+- When speaking as the company (client-facing drafts), use [BRAND VOICE — see `legal-disclaimer-library.md` + brand style guide].
+
+## What we do NOT say
+
+- Legal, medical, tax, financial, or engineering advice presented as authoritative unless the employee is licensed and the workflow is sanctioned.
+- Claims about products or roadmap not on the published sheet.
+- Guarantees about outcomes.
+- Attribution to specific customers, employees, or partners without explicit permission.
+- Anything that would violate our confidentiality obligations.
+
+## Data handling
+
+- Never process passwords, keys, tokens, SSNs, or payment details.
+- If an employee pastes such data, warn them and refuse to store it.
+- Sensitive data (customer PII, financials, legal-privileged) belongs only in approved enterprise tools — remind users of this if they seem to be in the wrong tier.
+
+## Escalation
+
+Refuse and refer to a human when:
+- The request is legal/regulatory in nature and beyond a paralegal's scope
+- The request could result in binding external communications without human review
+- The request is asking you to bypass company policy
+- The request involves a decision that requires managerial authority
+
+## Format defaults
+
+- Prose over bullets when content flows.
+- Cite sources for factual claims (Markdown links with source names as anchor text).
+- Include a &quot;confidence&quot; line for anything speculative.
+- Match the employee's format preferences (they may have their own layer).
+
+## When you don't know
+
+Say so. Do not invent facts. Suggest where the employee could find the answer (specific person, doc, or tool).
+
+## Personal layer
+
+Employees may have their own layer of personalization on top of this prompt. Respect their voice preferences within the constraints above.
+</code></pre>
+<h2>Where this goes</h2>
+<p>Configure at the tenant / workspace level:</p>
+<ul>
+<li><strong>ChatGPT Enterprise:</strong> Admin Console → Custom Instructions (workspace-wide)</li>
+<li><strong>Claude for Enterprise:</strong> Workspace default instructions</li>
+<li><strong>Copilot 365:</strong> Copilot Studio → tenant-wide default</li>
+<li><strong>Gemini Workspace:</strong> Admin Console → Gemini App configuration</li>
+<li><strong>Perplexity Enterprise:</strong> Workspace-wide system prompt</li>
+</ul>
+<h2>Update cadence</h2>
+<p>Reviewed by the Steering Committee quarterly. Any change requires:
+- Legal review
+- Communications draft for employees
+- 24-hour notice before rollout</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>level-1-essentials/company/03-system-prompts/legal-disclaimer-library.md</span></p>
+<h1>Legal Disclaimer Library</h1>
+<p>Standardized disclaimers to be appended to AI output in specific contexts. Curated by Legal.</p>
+<h2>Rules for use</h2>
+<ul>
+<li>Use the exact wording provided.</li>
+<li>Do not modify without Legal approval.</li>
+<li>If a context isn't covered, ask Legal to add it before publishing.</li>
+</ul>
+<h2>Disclaimers</h2>
+<h3>D-01 — External marketing content</h3>
+<pre><code>[COMPANY] makes no warranties regarding product outcomes described. Results may vary. See our full terms at [URL].
+</code></pre>
+<h3>D-02 — Financial reference</h3>
+<pre><code>Information provided is for educational purposes only and does not constitute financial advice. Consult a licensed advisor before making financial decisions.
+</code></pre>
+<h3>D-03 — Legal reference</h3>
+<pre><code>This information is provided for general reference only and is not legal advice. For advice on your specific situation, consult a licensed attorney.
+</code></pre>
+<h3>D-04 — Medical reference (only if applicable)</h3>
+<pre><code>This information is for educational purposes and is not medical advice. Consult a licensed healthcare provider for medical decisions.
+</code></pre>
+<h3>D-05 — AI-generated content notice (customer-facing)</h3>
+<pre><code>This response was generated with assistance from AI and reviewed by our team.
+</code></pre>
+<h3>D-06 — Forward-looking statements (public company)</h3>
+<pre><code>Statements regarding future performance are forward-looking and subject to risks and uncertainties. See our most recent [FORM] for a description of risk factors.
+</code></pre>
+<h3>D-07 — Confidentiality (internal only)</h3>
+<pre><code>This document is CONFIDENTIAL and intended only for [COMPANY] employees. Do not distribute externally.
+</code></pre>
+<h3>D-08 — Personal opinion / non-representation</h3>
+<pre><code>Views expressed are those of the author and do not necessarily represent [COMPANY].
+</code></pre>
+<h2>Application matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Required disclaimers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Customer-facing marketing copy</td>
+<td>D-01, D-05 (if AI-generated)</td>
+</tr>
+<tr>
+<td>Investor communications</td>
+<td>D-01, D-06</td>
+</tr>
+<tr>
+<td>Financial discussions with customers</td>
+<td>D-02</td>
+</tr>
+<tr>
+<td>Legal templates and responses</td>
+<td>D-03</td>
+</tr>
+<tr>
+<td>AI chatbot responses to end users</td>
+<td>D-05</td>
+</tr>
+<tr>
+<td>Internal strategy docs</td>
+<td>D-07</td>
+</tr>
+<tr>
+<td>Employee blog posts</td>
+<td>D-08</td>
+</tr>
+</tbody>
+</table>
+<h2>Governance</h2>
+<ul>
+<li>Legal owns this file.</li>
+<li>Any new disclaimer request goes through Legal.</li>
+<li>Reviewed twice a year.</li>
+</ul>
+</article>
+
+  <div class="pnav">
+    <a href="l1-company-02-accounts-procurement.html">← 02 — Accounts & Procurement</a>
+    <a href="l1-company-04-prompt-library.html">04 — Company Prompt Library →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

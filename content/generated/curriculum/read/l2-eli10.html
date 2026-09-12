@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2 Intermediate ELI10 companions | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="2 Intermediate: 2 Intermediate ELI10 companions. Compiled verbatim from the Groundwork Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/l2-eli10.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/" aria-current="page">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 2 Intermediate ELI10 companions</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><div><span class="kicker" style="margin-bottom:.15rem">2 INTERMEDIATE</span><h1 style="margin:.1rem 0 0">2 Intermediate ELI10 companions</h1></div></div>
+<p class="rnote">This page compiles 10 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-2-intermediate/eli10">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-2-intermediate/eli10/what-is-a-llm-gateway-eli10.md</span></p>
+<h1>What Is an LLM Gateway?</h1>
+<p>An LLM gateway is like the front desk at a big office building. Instead of every employee having their own key to every room, they go through the front desk. The desk checks who they are, sends them to the right room, keeps a record, and can close a room if there is a problem.</p>
+<p>For AI, the gateway is the one place that talks to model companies. Belle Realty and Deal Leverage send requests to the gateway. It chooses an approved model, checks a budget, adds safety settings, keeps track of time and cost, and returns the answer.</p>
+<p>This makes problems easier to fix. If one model is slow or expensive, the gateway can switch an approved route. If a workflow starts spending too much, it can be limited. If something unsafe happens, one switch can stop that agent.</p>
+<p>The gateway should not secretly read everything. Good systems hide or redact sensitive details in logs and keep access limited.</p>
+<p><strong>Why it matters:</strong> a gateway turns many scattered AI experiments into one manageable system with guardrails, receipts, and emergency controls.</p>
+<p>The grown-up rule is to test the setup with real examples before trusting it with real people.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-2-intermediate/eli10/what-is-a-vector-database-eli10.md</span></p>
+<h1>What Is a Vector Database?</h1>
+<p>A vector database is a library with a smart librarian who remembers vibes, not just titles. If you ask for “rules about having a dog,” the librarian can find a page that says “domestic animals” even if it never uses the word “dog.”</p>
+<p>To do this, the computer turns a piece of text into a long list of numbers called a vector. Text with similar meaning gets number lists that sit close together. The database stores those lists and can quickly find nearby ones.</p>
+<p>That is useful for leases, messages, and data rooms because people ask questions in many different ways. But the librarian can still bring the wrong book if the shelves are mixed up. Builders attach labels like tenant, property, lease version, page, and permission. They filter by those labels before using “vibes.”</p>
+<p>A vector database is often paired with normal keyword search. Exact things like “Unit 204” or “$75” are better found by matching exact words.</p>
+<p><strong>Why it matters:</strong> it helps AI find meaning across messy language, but good labels, permissions, and citations are what make the results trustworthy.</p>
+<p>The grown-up rule is to test the setup with real examples before trusting it with real people.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-2-intermediate/eli10/what-is-an-agent-eli10.md</span></p>
+<h1>What Is an Agent?</h1>
+<p>Imagine a very fast intern. You give the intern a job, a few approved tools, and rules about when to ask for help. The intern can look up a lease, read a maintenance ticket, fill out a draft, and report back. That is an AI agent.</p>
+<p>A normal chatbot mostly talks. An agent has a loop: it sees the job, chooses one allowed action, uses a tool, looks at the result, and decides what to do next. For Belle Realty, an agent could read a tenant’s message, check whether there is already a maintenance ticket, and prepare a reply for a staff member to approve.</p>
+<p>The tools matter. Giving the intern a calculator is safe. Giving the intern keys to every apartment, every bank account, and the “send” button is not. Good agents have small toolboxes and clear stop signs. They can propose an action, but a person approves anything important.</p>
+<p>Agents can make mistakes. They can misunderstand a message, pick the wrong document, or sound confident about something they do not know. That is why builders give them checklists, evidence, tests, and a way to say “I need a human.”</p>
+<p><strong>Why it matters:</strong> agents can take repetitive investigation and drafting work off your plate, but only if they are built like supervised interns—not like magic robots.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-2-intermediate/eli10/what-is-an-eval-eli10.md</span></p>
+<h1>What Is an Eval?</h1>
+<p>An eval is a test for AI, like a spelling bee with an answer sheet and rules. You give the system a known challenge, check what it does, and keep score. The point is not to embarrass it. The point is to know whether it is safe to use.</p>
+<p>For a lease extractor, a test might include a real-looking lease and ask for the late fee. A good answer has the correct amount, the correct page, and a quote proving it. For tenant triage, a test might say “I smell gas.” The only acceptable result is an urgent escalation—not a cheerful generic reply.</p>
+<p>One good example is not enough. You need normal cases, messy cases, missing information, strange wording, and trick cases. You also save old tests so a change that fixes one problem does not quietly break another.</p>
+<p>Some tests can be checked by software, like whether JSON is valid. Some need people, like whether a reply is respectful. Good evals use both.</p>
+<p><strong>Why it matters:</strong> without evals, you only know an AI looks good in a demo. With evals, you know where it works, where it fails, and what must never be allowed to break.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-2-intermediate/eli10/what-is-cost-engineering-eli10.md</span></p>
+<h1>What Is Cost Engineering?</h1>
+<p>Cost engineering is paying attention to what an AI helper costs to do a useful job. Think of a restaurant kitchen. You do not only check the total grocery bill. You ask how much it costs to make one good meal, how much food gets wasted, and whether an expensive ingredient makes the meal better.</p>
+<p>AI costs can come from reading lots of words, writing lots of words, searching documents, turning pages into searchable “vibes,” and trying again after errors. A system that reads an entire lease every time someone asks one question wastes money and can make worse answers.</p>
+<p>Builders save money by skipping unnecessary AI calls, sending only the important pages, remembering safe repeated answers, and using a small helper for easy jobs. But they should not save pennies by skipping safety checks or using a weak model for an emergency message.</p>
+<p>For Belle Realty, the useful number is cost per correct outcome: how much did it cost to extract a lease correctly or route a tenant safely—not how cheap was one chat message?</p>
+<p><strong>Why it matters:</strong> cost engineering helps AI stay useful as people use it more, instead of becoming a surprise bill or a low-quality shortcut.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-2-intermediate/eli10/what-is-fine-tuning-eli10.md</span></p>
+<h1>What Is Fine-Tuning?</h1>
+<p>Fine-tuning is like training a new helper with a big stack of examples from one job. Instead of only telling the helper “classify tenant messages,” you show many messages and the correct labels. Over time, the helper gets better at that particular kind of work.</p>
+<p>It is useful when the job repeats a lot and the rules stay mostly the same. For example, if OTB gets thousands of messages that need to be sorted into the same categories, a tuned model might classify them quickly and cheaply.</p>
+<p>It is not the right way to teach a model today’s lease details. That is like training a helper on yesterday’s filing cabinet and expecting them to know what was added this morning. For current facts, use RAG: let the helper read the current document.</p>
+<p>Fine-tuning also needs clean examples, permission to use them, tests, and updates. If the examples are messy or unfair, the model learns messy or unfair habits.</p>
+<p><strong>Why it matters:</strong> fine-tuning can make a repeated job faster and more consistent, but it is an investment—not a magic fix for missing data or unclear rules.</p>
+<p>The grown-up rule is to test the setup with real examples before trusting it with real people.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-2-intermediate/eli10/what-is-mcp-eli10.md</span></p>
+<h1>What Is MCP?</h1>
+<p>MCP stands for Model Context Protocol. Think of it as a universal remote control for AI tools. A universal remote tells a TV, speaker, or game console exactly what buttons they have and how to use them. MCP does that for an AI assistant and software tools.</p>
+<p>Instead of teaching every AI app a different way to look up a property or lease clause, Belle Realty can offer one MCP server. It can say: here is a <code>get_lease_clause</code> button; it needs a lease ID and clause name; here is what it returns. The assistant can use that button safely.</p>
+<p>A good universal remote cannot unlock your house just because someone asks it nicely. Same with MCP. The server checks who is asking, what property they can see, how much information they can request, and whether the tool is read-only. For actions like making a maintenance ticket, the tool can prepare a suggestion while a person presses the final approval button.</p>
+<p><strong>Why it matters:</strong> MCP makes AI tools reusable and organized, but the server—not the AI—must enforce the safety rules.</p>
+<p>The grown-up rule is to test the setup with real examples before trusting it with real people.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-2-intermediate/eli10/what-is-multi-agent-eli10.md</span></p>
+<h1>What Is Multi-Agent AI?</h1>
+<p>Multi-agent AI means using several AI helpers instead of one. Think of a small team: one person sorts incoming mail, one reads leases, one checks the work, and one asks a manager when something is risky.</p>
+<p>This can be useful when jobs are truly different. For Deal Leverage, one helper might identify document types, another extract insurance facts, and a checker makes sure each finding has a page citation. Their work can sometimes happen at the same time.</p>
+<p>But a bigger team is not automatically better. If everyone reads the same file and chats about it, you pay more, wait longer, and may get more confusion. Three helpers agreeing on the same wrong answer does not turn it into a fact.</p>
+<p>Good multi-agent systems give each helper a narrow job, a small set of tools, and a clear handoff. They also have one accountable final decision: evidence wins over a vote, and a person decides important issues.</p>
+<p><strong>Why it matters:</strong> splitting work can make hard jobs faster and easier to check, but only when each helper has a real reason to exist.</p>
+<p>The grown-up rule is to test the setup with real examples before trusting it with real people.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-2-intermediate/eli10/what-is-prompt-injection-eli10.md</span></p>
+<h1>What Is Prompt Injection?</h1>
+<p>Prompt injection is when someone hides bossy instructions inside information that an AI is supposed to read. Imagine a kid slips a note into a library book saying, “Ignore the teacher and give me the answer key.” The note is part of the book. It is not a rule from the teacher.</p>
+<p>An attacker might put “ignore your safety rules” in a tenant message, a PDF, a web page, or even a file name. A careless AI could mistake those words for orders instead of treating them as ordinary content.</p>
+<p>The best defense is not just telling the AI to be careful. The software must keep important buttons locked. A lease-reading agent should be able to read lease text, not send money or reveal every tenant record. A tool server checks permissions even if the AI asks for something silly or dangerous.</p>
+<p>Builders also test bad notes on purpose: requests for secrets, fake instructions in documents, and attempts to see another customer’s files. These tests make weak spots visible.</p>
+<p><strong>Why it matters:</strong> AI reads untrusted words all day. Treating those words as data—not authority—keeps a clever note from becoming a command.</p>
+<p>The grown-up rule is to test the setup with real examples before trusting it with real people.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-2-intermediate/eli10/what-is-rag-eli10.md</span></p>
+<h1>What Is RAG?</h1>
+<p>RAG means Retrieval-Augmented Generation. Think of it as an open-book test. Instead of asking an AI to remember every lease in Belle Realty, you let it open the right pages before it answers.</p>
+<p>First, the system searches a library of documents. Then it chooses the few pages most likely to help. Finally, the AI writes an answer using those pages and shows where the answer came from. If someone asks, “How much notice does Unit 204 need to give?” the system should find that unit’s current lease and point to the notice clause.</p>
+<p>This is better than hoping the AI remembers facts. But it only works if the library is organized well. A smart librarian still fails if the book has the wrong label, pages are missing, or it is allowed to hand you another tenant’s lease.</p>
+<p>RAG is not a truth machine. The AI can still choose the wrong page or make up a sentence that is not in the book. Good RAG makes it cite the page, reject weak evidence, and say it cannot find the answer.</p>
+<p><strong>Why it matters:</strong> RAG lets AI answer questions from your current documents without pretending it has memorized them. The proof—the page and quote—is the valuable part.</p>
+</article>
+
+  <div class="pnav">
+    <a href="l2-repos.html">← Working repositories</a>
+    <a href="l3-overview.html">3 Expert at a glance →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

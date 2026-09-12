@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3 Expert ELI10 companions | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="3 Expert: 3 Expert ELI10 companions. Compiled verbatim from the Groundwork Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/l3-eli10.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/" aria-current="page">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 3 Expert ELI10 companions</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><div><span class="kicker" style="margin-bottom:.15rem">3 EXPERT</span><h1 style="margin:.1rem 0 0">3 Expert ELI10 companions</h1></div></div>
+<p class="rnote">This page compiles 10 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-3-advanced/eli10">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-3-advanced/eli10/what-is-a-model-card-eli10.md</span></p>
+<h1>What Is a Model Card?</h1>
+<p>A model card is the owner’s manual and nutrition label for a model. Before you buy a tool, you want to know what it is for, what it cannot do, what it was tested on, and what risks come with using it.</p>
+<p>Imagine running a busy apartment building. The useful question is never “is the assistant smart?” It is “will the right person get the right help, quickly and safely, when something weird happens?” That turns a technical idea into an operating promise.</p>
+<p>A useful card names the model version, intended jobs, known weak spots, languages, context limit, safety behavior, training or data notes, evaluation results, cost and latency expectations, and licensing terms. For a property system, it should not just say “good at reasoning.” It should say whether it was tested on extracting lease terms, how it behaves with private data, and when it needs retrieval or human review.</p>
+<p>The trick is to make the promise visible. Write down what starts the process, what the system is allowed to use, what a good result looks like, and what happens when it cannot be sure. Then measure the real result, not just a convincing demo. If a resident gets a fast answer that sends them to the wrong vendor, the system did not succeed.</p>
+<p>For Belle Realty, test this with ordinary work and uncomfortable cases: a missing unit number, a resident who changes their story, an old lease PDF, a provider outage, a message that tries to trick the assistant, or a request involving private information. Good systems have a safe way to pause, ask, escalate, or hand off to a human.</p>
+<h2>Why it matters</h2>
+<p>This concept matters because production AI has real consequences: tenant trust, property operations, money, privacy, and safety. Understanding it helps you build a system people can rely on even when the situation is messy.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-3-advanced/eli10/what-is-a-red-team-eli10.md</span></p>
+<h1>What Is a Red Team?</h1>
+<p>A red team is like friendly burglars testing your locks. You invite them in under rules so they can find the loose window, hidden spare key, and alarm blind spot before a real burglar does.</p>
+<p>Imagine running a busy apartment building. The useful question is never “is the assistant smart?” It is “will the right person get the right help, quickly and safely, when something weird happens?” That turns a technical idea into an operating promise.</p>
+<p>For an AI assistant, friendly attackers try to make a lease PDF give secret instructions, convince the system to reveal another tenant’s records, misuse a vendor-notification tool, or ignore safety rules. They save proof, report the path, and let the blue team fix it. The goal is not to embarrass builders or “break AI.” The goal is to learn where architecture, permissions, data boundaries, and human processes need stronger locks.</p>
+<p>The trick is to make the promise visible. Write down what starts the process, what the system is allowed to use, what a good result looks like, and what happens when it cannot be sure. Then measure the real result, not just a convincing demo. If a resident gets a fast answer that sends them to the wrong vendor, the system did not succeed.</p>
+<p>For Belle Realty, test this with ordinary work and uncomfortable cases: a missing unit number, a resident who changes their story, an old lease PDF, a provider outage, a message that tries to trick the assistant, or a request involving private information. Good systems have a safe way to pause, ask, escalate, or hand off to a human.</p>
+<h2>Why it matters</h2>
+<p>This concept matters because production AI has real consequences: tenant trust, property operations, money, privacy, and safety. Understanding it helps you build a system people can rely on even when the situation is messy.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-3-advanced/eli10/what-is-agent-memory-eli10.md</span></p>
+<h1>What Is Agent Memory?</h1>
+<p>Agent memory is like the notes a good property manager keeps. A sticky note helps with today’s call. A properly filed record helps next month, but only if it belongs to the right tenant, is still true, and can be corrected.</p>
+<p>Imagine running a busy apartment building. The useful question is never “is the assistant smart?” It is “will the right person get the right help, quickly and safely, when something weird happens?” That turns a technical idea into an operating promise.</p>
+<p>Short-term memory holds the details needed to finish a conversation. Long-term memory holds approved facts or preferences that may be useful later. Keep those in different places. Every saved fact should say where it came from, who may see it, how confident the system is, and when it expires. Let people correct bad notes. Remembering an old vendor instruction or the wrong resident preference can cause more harm than asking one extra question.</p>
+<p>The trick is to make the promise visible. Write down what starts the process, what the system is allowed to use, what a good result looks like, and what happens when it cannot be sure. Then measure the real result, not just a convincing demo. If a resident gets a fast answer that sends them to the wrong vendor, the system did not succeed.</p>
+<p>For Belle Realty, test this with ordinary work and uncomfortable cases: a missing unit number, a resident who changes their story, an old lease PDF, a provider outage, a message that tries to trick the assistant, or a request involving private information. Good systems have a safe way to pause, ask, escalate, or hand off to a human.</p>
+<h2>Why it matters</h2>
+<p>This concept matters because production AI has real consequences: tenant trust, property operations, money, privacy, and safety. Understanding it helps you build a system people can rely on even when the situation is messy.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-3-advanced/eli10/what-is-an-slo-eli10.md</span></p>
+<h1>What Is an SLO?</h1>
+<p>An SLO is like a pizza delivery promise. A restaurant cannot promise that every pizza arrives instantly, but it can promise that almost all arrive hot within a stated time and explain what happens when that promise is missed.</p>
+<p>Imagine running a busy apartment building. The useful question is never “is the assistant smart?” It is “will the right person get the right help, quickly and safely, when something weird happens?” That turns a technical idea into an operating promise.</p>
+<p>For an AI maintenance helper, the promise might be: 99.5% of eligible requests get a first useful response within ten seconds, and urgent safety reports are escalated correctly. The tiny allowed set of misses is the error budget. If too many pizzas arrive cold, the restaurant pauses new menu experiments and fixes delivery. AI teams should do the same: pause risky releases when reliability is spending the budget too quickly.</p>
+<p>The trick is to make the promise visible. Write down what starts the process, what the system is allowed to use, what a good result looks like, and what happens when it cannot be sure. Then measure the real result, not just a convincing demo. If a resident gets a fast answer that sends them to the wrong vendor, the system did not succeed.</p>
+<p>For Belle Realty, test this with ordinary work and uncomfortable cases: a missing unit number, a resident who changes their story, an old lease PDF, a provider outage, a message that tries to trick the assistant, or a request involving private information. Good systems have a safe way to pause, ask, escalate, or hand off to a human.</p>
+<h2>Why it matters</h2>
+<p>This concept matters because production AI has real consequences: tenant trust, property operations, money, privacy, and safety. Understanding it helps you build a system people can rely on even when the situation is messy.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-3-advanced/eli10/what-is-canary-deploy-eli10.md</span></p>
+<h1>What Is a Canary Deployment?</h1>
+<p>A canary deployment is sending one canary into the mine first. Miners once watched the bird because it would react to dangerous air before people were exposed. In software, a small carefully chosen group sees a change before everybody else.</p>
+<p>Imagine running a busy apartment building. The useful question is never “is the assistant smart?” It is “will the right person get the right help, quickly and safely, when something weird happens?” That turns a technical idea into an operating promise.</p>
+<p>For a new leasing assistant, maybe one internal property team or 2% of low-risk conversations gets the new model. Watch latency, wrong-answer reports, safety blocks, cost, and human escalations. If the canary looks healthy, expand slowly. If it gets sick, turn the feature flag off and examine the evidence. A canary is not a magic safety ritual; it works only if you decide in advance what would make you stop.</p>
+<p>The trick is to make the promise visible. Write down what starts the process, what the system is allowed to use, what a good result looks like, and what happens when it cannot be sure. Then measure the real result, not just a convincing demo. If a resident gets a fast answer that sends them to the wrong vendor, the system did not succeed.</p>
+<p>For Belle Realty, test this with ordinary work and uncomfortable cases: a missing unit number, a resident who changes their story, an old lease PDF, a provider outage, a message that tries to trick the assistant, or a request involving private information. Good systems have a safe way to pause, ask, escalate, or hand off to a human.</p>
+<h2>Why it matters</h2>
+<p>This concept matters because production AI has real consequences: tenant trust, property operations, money, privacy, and safety. Understanding it helps you build a system people can rely on even when the situation is messy.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-3-advanced/eli10/what-is-drift-eli10.md</span></p>
+<h1>What Is Drift?</h1>
+<p>Drift is like your dog slowly learning bad habits. Nobody flips a switch, but after enough weeks your dog starts grabbing food from the table because the world around it changed and the behavior was rewarded.</p>
+<p>Imagine running a busy apartment building. The useful question is never “is the assistant smart?” It is “will the right person get the right help, quickly and safely, when something weird happens?” That turns a technical idea into an operating promise.</p>
+<p>An AI system can drift even if its model never changes. Residents may begin using new slang, a property-management system may alter its ticket format, city rules may change, or old documents may crowd out new ones. The assistant then sees a different world than the one it practiced on. Watch changes in what goes in, what comes out, and whether the final result is still correct. When the pattern moves, investigate and retrain the surrounding system—not only the model.</p>
+<p>The trick is to make the promise visible. Write down what starts the process, what the system is allowed to use, what a good result looks like, and what happens when it cannot be sure. Then measure the real result, not just a convincing demo. If a resident gets a fast answer that sends them to the wrong vendor, the system did not succeed.</p>
+<p>For Belle Realty, test this with ordinary work and uncomfortable cases: a missing unit number, a resident who changes their story, an old lease PDF, a provider outage, a message that tries to trick the assistant, or a request involving private information. Good systems have a safe way to pause, ask, escalate, or hand off to a human.</p>
+<h2>Why it matters</h2>
+<p>This concept matters because production AI has real consequences: tenant trust, property operations, money, privacy, and safety. Understanding it helps you build a system people can rely on even when the situation is messy.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-3-advanced/eli10/what-is-fine-tuning-eli10.md</span></p>
+<h1>What Is Fine-Tuning?</h1>
+<p>Fine-tuning is like hiring a talented cook and teaching them your restaurant’s exact recipes. The cook already knows how to cook. You are teaching consistent portions, names, plating, and special-house rules through many good examples.</p>
+<p>Imagine running a busy apartment building. The useful question is never “is the assistant smart?” It is “will the right person get the right help, quickly and safely, when something weird happens?” That turns a technical idea into an operating promise.</p>
+<p>It is deeper than simply pasting instructions into a prompt because the pattern becomes part of an adapted model. That can make repetitive classification, extraction, or tone cheaper and steadier. But it does not magically teach current facts. Teaching a cook last year’s menu will not tell them today’s sold-out item. Keep current property policies in retrieval and databases; use fine-tuning only for stable behavior that is already demonstrated in clean examples.</p>
+<p>The trick is to make the promise visible. Write down what starts the process, what the system is allowed to use, what a good result looks like, and what happens when it cannot be sure. Then measure the real result, not just a convincing demo. If a resident gets a fast answer that sends them to the wrong vendor, the system did not succeed.</p>
+<p>For Belle Realty, test this with ordinary work and uncomfortable cases: a missing unit number, a resident who changes their story, an old lease PDF, a provider outage, a message that tries to trick the assistant, or a request involving private information. Good systems have a safe way to pause, ask, escalate, or hand off to a human.</p>
+<h2>Why it matters</h2>
+<p>This concept matters because production AI has real consequences: tenant trust, property operations, money, privacy, and safety. Understanding it helps you build a system people can rely on even when the situation is messy.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-3-advanced/eli10/what-is-guardrails-eli10.md</span></p>
+<h1>What Are Guardrails?</h1>
+<p>Guardrails are bumpers in bowling. They do not roll the ball for you, but they keep a normal throw from falling into the gutter. Good AI guardrails protect the system before, during, and after a model responds.</p>
+<p>Imagine running a busy apartment building. The useful question is never “is the assistant smart?” It is “will the right person get the right help, quickly and safely, when something weird happens?” That turns a technical idea into an operating promise.</p>
+<p>Input guardrails check who is asking and whether a request is risky. Tool guardrails decide whether the assistant may actually send a message or change a record. Output guardrails check that the final answer has the right shape, no secret information, and no unsupported claim. The most important bumper is permission: a model can suggest a maintenance update, but a separate system decides whether that update is allowed.</p>
+<p>The trick is to make the promise visible. Write down what starts the process, what the system is allowed to use, what a good result looks like, and what happens when it cannot be sure. Then measure the real result, not just a convincing demo. If a resident gets a fast answer that sends them to the wrong vendor, the system did not succeed.</p>
+<p>For Belle Realty, test this with ordinary work and uncomfortable cases: a missing unit number, a resident who changes their story, an old lease PDF, a provider outage, a message that tries to trick the assistant, or a request involving private information. Good systems have a safe way to pause, ask, escalate, or hand off to a human.</p>
+<h2>Why it matters</h2>
+<p>This concept matters because production AI has real consequences: tenant trust, property operations, money, privacy, and safety. Understanding it helps you build a system people can rely on even when the situation is messy.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-3-advanced/eli10/what-is-inference-optimization-eli10.md</span></p>
+<h1>What Is Inference Optimization?</h1>
+<p>Inference optimization is like organizing a drive-through kitchen so cars get good food quickly without wasting ingredients. You prepare common ingredients ahead of time, group similar orders, and avoid making every cook start from zero.</p>
+<p>Imagine running a busy apartment building. The useful question is never “is the assistant smart?” It is “will the right person get the right help, quickly and safely, when something weird happens?” That turns a technical idea into an operating promise.</p>
+<p>For models, the expensive work is reading a long prompt and producing words one at a time. Teams reuse common instructions, keep useful context in a cache, batch requests, choose a smaller model for simple jobs, and stop sending irrelevant documents. They measure wait time, first useful response, cost per job, and quality together. Cutting cost by making every answer vague is like serving smaller cold pizzas: technically cheaper, but not better.</p>
+<p>The trick is to make the promise visible. Write down what starts the process, what the system is allowed to use, what a good result looks like, and what happens when it cannot be sure. Then measure the real result, not just a convincing demo. If a resident gets a fast answer that sends them to the wrong vendor, the system did not succeed.</p>
+<p>For Belle Realty, test this with ordinary work and uncomfortable cases: a missing unit number, a resident who changes their story, an old lease PDF, a provider outage, a message that tries to trick the assistant, or a request involving private information. Good systems have a safe way to pause, ask, escalate, or hand off to a human.</p>
+<h2>Why it matters</h2>
+<p>This concept matters because production AI has real consequences: tenant trust, property operations, money, privacy, and safety. Understanding it helps you build a system people can rely on even when the situation is messy.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="20" x2="28" y2="26" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="14" cy="18" r="5.5" fill="#A44E12"/><circle cx="30" cy="27" r="3.4" fill="#C7681D"/></svg><span>level-3-advanced/eli10/what-is-multi-agent-eli10.md</span></p>
+<h1>What Is Multi-Agent AI?</h1>
+<p>Multi-agent AI is like running a small construction crew. One person checks permits, another orders materials, another does the work, and a foreman decides whether the finished job is acceptable.</p>
+<p>Imagine running a busy apartment building. The useful question is never “is the assistant smart?” It is “will the right person get the right help, quickly and safely, when something weird happens?” That turns a technical idea into an operating promise.</p>
+<p>This can help when tasks really need different skills or independent checking. A leasing workflow might have one worker collect approved listings, another check availability, and a final worker write a tenant-safe answer. But more workers also mean more dropped handoffs and more people reaching for the same tool. Give each agent a narrow job, a budget, a shared job number, and a clear rule for when to stop. Most problems should start with one good worker, not a crowd.</p>
+<p>The trick is to make the promise visible. Write down what starts the process, what the system is allowed to use, what a good result looks like, and what happens when it cannot be sure. Then measure the real result, not just a convincing demo. If a resident gets a fast answer that sends them to the wrong vendor, the system did not succeed.</p>
+<p>For Belle Realty, test this with ordinary work and uncomfortable cases: a missing unit number, a resident who changes their story, an old lease PDF, a provider outage, a message that tries to trick the assistant, or a request involving private information. Good systems have a safe way to pause, ask, escalate, or hand off to a human.</p>
+<h2>Why it matters</h2>
+<p>This concept matters because production AI has real consequences: tenant trust, property operations, money, privacy, and safety. Understanding it helps you build a system people can rely on even when the situation is messy.</p>
+</article>
+
+  <div class="pnav">
+    <a href="l3-shared.html">← 3 Expert shared materials</a>
+    <a href="l4-overview.html">3 Expert at a glance →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

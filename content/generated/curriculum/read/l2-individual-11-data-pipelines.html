@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Pipelines: The Work Before AI Looks Smart | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="2 Intermediate · Individual Track: Data Pipelines: The Work Before AI Looks Smart. Compiled verbatim from the Groundwork Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/l2-individual-11-data-pipelines.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/" aria-current="page">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / Data Pipelines: The Work Before AI Looks Smart</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">2 INTERMEDIATE · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">Data Pipelines: The Work Before AI Looks Smart</h1></div></div>
+<p class="rnote">This page compiles 4 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-2-intermediate/individual/11-data-pipelines">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/11-data-pipelines/README.md</span></p>
+<h1>Data Pipelines: The Work Before AI Looks Smart</h1>
+<p>Agents and RAG are downstream of data operations. If Belle Realty leases are duplicated, incorrectly scoped, stale, or missing page text, no model choice will produce trustworthy answers. The data pipeline owns ingestion, normalization, identity, versioning, enrichment, indexing, retries, and freshness.</p>
+<p>Treat every source file and record as an event with a stable ID, checksum, source timestamp, owner, access scope, and processing state. Make work idempotent: a retry should not create duplicate lease chunks, embeddings, or diligence rows. Separate the raw source, normalized representation, derived artifacts, and user-facing answer index. This makes reprocessing safe when OCR, chunking, embeddings, or policies change.</p>
+<p>Use queues for slow or bursty work, dead-letter failures that need inspection, and explicit backoff for provider limits. Reindexing must be selective and versioned. A new chunker should not force you to lose the prior index before the replacement is validated.</p>
+<p>The guides describe proven ingestion patterns, reindex strategies, and the actual tradeoff between fresh information and compute spend. Your pipeline should make “what changed and what answered from it?” easy to answer.</p>
+<p>Before adding complexity, run this design through a small representative eval and inspect the trace with the operator who will own failures. Make the boundary, escalation, and rollback visible in the product. That discipline will expose more useful work than another round of prompt cleverness.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/11-data-pipelines/freshness-vs-cost.md</span></p>
+<h1>Freshness vs. Cost</h1>
+<p>Freshness is not universally good. A signed lease should be indexed immediately because the system may answer contractual questions from it. A static property brochure can refresh weekly. A live maintenance status may be queried from the operational database at answer time rather than embedded at all. Choose a freshness objective per data class.</p>
+<p>Define freshness as source-change-to-serving latency, then set targets: access revocations near real time; lease uploads within minutes; financial statements after validation; broad reference content nightly. Measure actual lag and use it in answers when relevant: “Lease index updated at…” is better than pretending data is current.</p>
+<p>Avoid embedding volatile facts that can be fetched safely from the source of truth. An embedding index is a discovery layer, not a transaction system. For frequently edited material, use event-driven partial updates, debounce bursts, and TTLs for caches. Reserve full rebuilds for representation changes, not ordinary edits.</p>
+<p>Balance cost using priority queues: high-risk or user-requested documents first, bulk backfills later. Coalesce repeated changes, skip unchanged checksums, cache embeddings by exact text and model version, and backpressure uploads when providers are constrained. Never defer deletion or permission revocation to save money.</p>
+<p>Freshness decisions are product promises. Document them, expose them to operators, and test the ugly case: a lease addendum uploaded after a tenant asks a question.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/11-data-pipelines/ingestion-patterns.md</span></p>
+<h1>Ingestion Patterns</h1>
+<p>Use an event-driven pipeline for documents and operational records. When a lease is uploaded, write a source record first, calculate a checksum, assign organization/property/lease scope, and enqueue processing. Workers extract text, run OCR if needed, classify document type, normalize metadata, create chunks, embed, and mark the index version ready. Each stage writes a status and idempotency key.</p>
+<p>Separate raw, normalized, and derived storage. Raw is the immutable original PDF or export. Normalized is page text, tables, metadata, and source offsets. Derived is chunks, embeddings, summaries, clause proposals, and search indexes. Never overwrite raw evidence with model output. Derived artifacts name the source checksum and pipeline version that created them.</p>
+<p>Use a queue with bounded concurrency, retryable versus permanent errors, and a dead-letter queue. Network timeout: retry. Password-protected PDF, unreadable scan, missing ownership metadata: mark for review. Do not continually retry semantic failures. Emit events for each transition so the application can show users “uploaded,” “processing,” “needs review,” or “ready.”</p>
+<p>For database records, use change-data capture or application outbox events rather than periodic full scans when possible. Debounce rapid edits and coalesce events by entity. Make deletes and access revocations high priority: remove or filter derived content immediately, then clean physical indexes. Ingestion is a security system as much as it is an ETL system.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/11-data-pipelines/reindexing-strategies.md</span></p>
+<h1>Reindexing Strategies</h1>
+<p>Reindex when a source changes or a derived representation becomes obsolete: new lease version, corrected OCR, different chunking, new embedding model, metadata bug, access-scope change, or retrieval schema update. Keep source version, chunker version, embedding model, and index version on every artifact so the reason is explicit.</p>
+<p>Prefer selective reindexing. A changed lease should rebuild only that document and invalidate its previous active chunks. A revised chunker may require a corpus-wide rebuild, but run it into a new index namespace rather than mutating the live one. Validate retrieval metrics, access filters, cost, and latency, then switch a feature flag or alias. Keep the old index long enough for rollback and trace reproducibility.</p>
+<p>Use a manifest to enumerate intended documents and completion state. Compare expected versus produced chunks, embeddings, and active source versions. Rebuild failures go to a queue; do not quietly omit them. Deletions and permission changes require immediate serving-layer enforcement even if physical vector deletion is asynchronous.</p>
+<p>Test reindexing with known difficult leases: addenda, scans, duplicate templates, superseded documents, and revoked tenant access. Monitor index freshness lag, failed jobs, chunk count drift, retrieval recall, and storage cost. Reindexing is a deploy; treat it with the same change control as application migrations.</p>
+</article>
+
+  <div class="pnav">
+    <a href="l2-individual-10-multi-model-orchestration.html">← Multi-Model Orchestration</a>
+    <a href="l2-individual-12-jargon-level-2.html">Level 2 Glossary →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

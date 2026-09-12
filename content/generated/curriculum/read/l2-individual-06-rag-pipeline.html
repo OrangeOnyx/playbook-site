@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAG Pipeline: Lease Knowledge That Can Prove Its Work | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="2 Intermediate · Individual Track: RAG Pipeline: Lease Knowledge That Can Prove Its Work. Compiled verbatim from the Groundwork Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/l2-individual-06-rag-pipeline.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/" aria-current="page">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / RAG Pipeline: Lease Knowledge That Can Prove Its Work</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">2 INTERMEDIATE · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">RAG Pipeline: Lease Knowledge That Can Prove Its Work</h1></div></div>
+<p class="rnote">This page compiles 4 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-2-intermediate/individual/06-rag-pipeline">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/06-rag-pipeline/README.md</span></p>
+<h1>RAG Pipeline: Lease Knowledge That Can Prove Its Work</h1>
+<p>Retrieval-augmented generation (RAG) is the system behind answers grounded in your documents. It is not “put PDFs in a vector database.” A usable Belle Realty lease RAG system must ingest documents correctly, preserve versions and page citations, retrieve the right chunks, reject weak evidence, and show the answer’s support.</p>
+<p>Start with leases because they are high-value, repetitive, and version-sensitive. A tenant or operator question should retrieve the current signed lease and governing addenda for that tenant—not a semantically similar lease from another property. Metadata filters and authorization are as important as embeddings.</p>
+<p>The pipeline has six stages: ingest, normalize, chunk, embed, retrieve, rerank, then answer with citations. Store source version and extraction status at every stage. If you cannot reproduce an answer from the document version that existed at the time, you do not have an operational RAG system.</p>
+<p>Use the build guide first. Contextual retrieval and hybrid search are upgrades after you establish a baseline and a retrieval eval set. Retrieval quality, not model eloquence, determines whether this is useful.</p>
+<p>Before adding complexity, run this design through a small representative eval and inspect the trace with the operator who will own failures. Make the boundary, escalation, and rollback visible in the product. That discipline will expose more useful work than another round of prompt cleverness.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/06-rag-pipeline/build-your-rag.md</span></p>
+<h1>Build RAG Over Belle Realty Leases</h1>
+<h2>Ingest and normalize</h2>
+<p>Create a document record with tenant, property, lease, document type, version, effective date, checksum, access scope, and extraction status. Extract page text; retain source PDF and page offsets. For scanned files, store OCR confidence per page. Do not embed a lease until its identity and scope are known. Addenda must link to the base lease and carry a precedence field.</p>
+<h2>Chunk with legal structure</h2>
+<p>Chunk by section heading, numbered clause, page, and paragraph—not fixed token windows alone. Aim for 250–500 tokens with 40–80 token overlap only where a clause crosses a boundary. Each chunk stores <code>document_id</code>, <code>lease_id</code>, page range, heading path, effective date, and text. A clause such as “Notice” should remain intact. A generic vector match for the word “notice” is not enough without the correct lease filter.</p>
+<h2>Retrieve, rerank, answer</h2>
+<p>Filter first by organization and caller authorization, then tenant/lease when the question is contextual. Retrieve 20 candidates with vector plus keyword search. Rerank the top candidates using a cross-encoder or small judge tuned for query–passage relevance, then pass the best 3–6 to the answer model. The answer contract: cite every factual claim, quote when stakes are high, state document version, and say “I can’t find that” when evidence is weak.</p>
+<h2>Guardrails and evaluation</h2>
+<p>Require a minimum retrieval score and a source from an active, signed document before answering policy questions. Never silently use a superseded lease. Build a test set of real questions with expected source sections, including misleading and unanswerable questions. Measure recall@k for the gold chunk, citation correctness, grounded answer rate, abstention correctness, latency, and cost. Diagnose retrieval before changing prompts. Most RAG failures are bad metadata, chunks, or filters—not a lack of clever instructions.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/06-rag-pipeline/contextual-retrieval.md</span></p>
+<h1>Contextual Retrieval: Make Chunks Understandable Alone</h1>
+<p>A chunk often loses the facts that make it meaningful. “Tenant shall provide notice within 30 days” is useless if the retrieved text omits the property, lease version, clause heading, and whether it concerns renewal or move-out. Contextual retrieval solves that by attaching compact, document-specific context before embedding and storing it with the chunk.</p>
+<p>For Belle Realty, generate or deterministically build a context prefix such as: “Belle Realty | Oak Ridge Unit 204 | Lease executed 2026-02-01 | Addendum A | Section 18: Renewal and Non-Renewal.” Embed <code>prefix + chunk</code>; display the original chunk plus human-readable source metadata. This makes semantic retrieval distinguish a renewal notice from a maintenance notice without filling every answer prompt with repeated boilerplate.</p>
+<p>Use deterministic metadata wherever possible. An LLM-generated context can enrich messy documents, but validate it and keep it separate from the source text. Do not let generated context introduce legal facts or replace citations. Record the context-generation version so you can reindex safely.</p>
+<p>Context helps recall, not authorization. Still filter by organization, active lease, and caller scope before similarity search. It also does not fix overly broad chunks or poor OCR. Test it with queries that are ambiguous without headers: “How much notice?”, “Are pets allowed?”, “Who handles the filter?” Compare gold-chunk recall before and after.</p>
+<p>The goal is not longer chunks. It is chunks that retain enough identity and purpose to be retrieved for the right reason.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>level-2-intermediate/individual/06-rag-pipeline/hybrid-search.md</span></p>
+<h1>Hybrid Search: Keywords and Meaning Together</h1>
+<p>Vector search understands paraphrases. Keyword search is excellent at exact tokens: unit numbers, clause names, “Section 14,” dollar amounts, vendor IDs, and unusual legal terms. Belle Realty needs both. A tenant asking “Can I have a dog?” should find a pet clause even if the lease says “domestic animals.” An operator asking for “$75 late fee” should find the exact amount.</p>
+<p>Run lexical and vector retrieval over the same authorized corpus. Normalize each result score independently, then combine them with a weighted method such as reciprocal rank fusion. Start with equal influence; tune only against an eval set. Apply metadata filters before both searches, not after. If a request concerns a specific lease, a perfect semantic match in another tenant’s lease is still an invalid result.</p>
+<p>Rerank the merged top 20 with a relevance model that sees query, passage, and selected metadata. Preserve the originating search signals for debugging: lexical rank, vector rank, final rank, filter set, and document version. This tells you whether failures come from vocabulary, embedding, or reranking.</p>
+<p>Use hybrid search when exact identifiers and natural-language questions coexist. Do not use it as an excuse to dump 50 chunks into a model context. Retrieval should be ruthless: return a small, diverse, cited evidence set. Evaluate gold-chunk recall@5 and recall@10, plus answer groundedness. If keyword search consistently wins for clause lookup, keep it. Architecture should follow corpus behavior, not fashion.</p>
+</article>
+
+  <div class="pnav">
+    <a href="l2-individual-05-mcp-server.html">← MCP Server: Give Agents Safe Access to Real Data</a>
+    <a href="l2-individual-07-evaluation.html">Evaluation: Build a Test Suite Before You Build Trust →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

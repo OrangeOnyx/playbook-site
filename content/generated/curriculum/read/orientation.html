@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Read this first | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="Orientation: Read this first. Compiled verbatim from the Groundwork Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/orientation.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / Read this first</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="20" r="9" fill="none" stroke="#A44E12" stroke-width="1.4" opacity="0.5"/><circle cx="22" cy="20" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">ORIENTATION</span><h1 style="margin:.1rem 0 0">Read this first</h1></div></div>
+<p class="rnote">This page compiles 3 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/groundwork-curriculum">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="20" r="9" fill="none" stroke="#A44E12" stroke-width="1.4" opacity="0.5"/><circle cx="22" cy="20" r="5" fill="#A44E12"/></svg><span>README.md</span></p>
+<h1>Groundwork Curriculum</h1>
+<blockquote>
+<p><strong>Part of <a href="https://groundwork.adamabdalla.com">Groundwork</a></strong> — the AI Readiness system by Adam Abdalla. Free. Ungated. MIT.</p>
+</blockquote>
+<p><img alt="AI Fluency Program" src="assets/shared--graphics--hero-cover.jpg" /></p>
+<p>The free, ungated curriculum arm of Groundwork. A five-level path from AI novice to AI builder to AI contributor.</p>
+<p><strong>How this relates to the Groundwork site:</strong> the <a href="https://groundwork.adamabdalla.com">site</a> is the readiness doctrine, six standing orders you build once for your business. This Curriculum is the capability path, five levels of skill you climb yourself. Different axes, one system. Full mapping: <a href="orientation.html">GROUNDWORK-AND-FLUENCY.md</a>.</p>
+<p><strong>Two tracks at every level:</strong> individual and company.
+<strong>Two voices at every level:</strong> the standard docs and an ELI10 companion.</p>
+<blockquote>
+<p><strong>Start with the letter:</strong> <a href="shared-cover-letter.html"><code>shared/cover-letter/short-wake-up-letter.md</code></a> — 5 minutes.
+Or the full case: <a href="shared-cover-letter.html"><code>shared/cover-letter/field-guide-manifesto.md</code></a> — 30 minutes.</p>
+</blockquote>
+<h2>The five levels</h2>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>You are...</th>
+<th>You can...</th>
+<th>Typical time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1 — Essentials</strong></td>
+<td>New to AI</td>
+<td>Use every top AI product well. Know the jargon. Have your own prompts and rituals.</td>
+<td>30 days</td>
+</tr>
+<tr>
+<td><strong>2 — Intermediate</strong></td>
+<td>Comfortable with AI</td>
+<td>Build your own agents, RAG systems, and MCP servers. Own your evals. Control cost.</td>
+<td>60–90 days</td>
+</tr>
+<tr>
+<td><strong>3 — Advanced</strong></td>
+<td>An AI builder</td>
+<td>Ship AI features to real users. Orchestrate multi-agent systems. Handle drift, incidents, and adversarial inputs at scale.</td>
+<td>4–6 months</td>
+</tr>
+<tr>
+<td><strong>4 — Professional</strong></td>
+<td>An AI practitioner</td>
+<td>Lead an AI team. Custom training. Applied alignment. Safety engineering. Red-teaming.</td>
+<td>6–12 months</td>
+</tr>
+<tr>
+<td><strong>5 — Frontier</strong></td>
+<td>An AI contributor</td>
+<td>Build novel systems, publish research, contribute to open weights or foundation infra.</td>
+<td>Ongoing</td>
+</tr>
+</tbody>
+</table>
+<p>See <code>LEVEL-MAP.md</code> for the visual map.</p>
+<h2>Where to start</h2>
+<ul>
+<li><strong>Start reading:</strong> <code>shared/cover-letter/short-wake-up-letter.md</code> (5 min)</li>
+<li><strong>Get convinced:</strong> <code>shared/cover-letter/field-guide-manifesto.md</code> (30 min)</li>
+<li><strong>Start doing:</strong> <code>level-1-essentials/00-start-here/30-day-starter-sequence.md</code></li>
+<li><strong>Set up your tools:</strong> <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/shared/starter-packs"><code>shared/starter-packs/</code></a> — ready-to-paste custom instructions for Claude, ChatGPT, Perplexity, Claude Code, Cursor, Grok, Gemini, and the Anthropic API</li>
+</ul>
+<h2>Not sure this is the right program for you?</h2>
+<p>Read <a href="orientation.html">GROUNDWORK-AND-FLUENCY.md</a>. The Groundwork Curriculum assumes your files, identity, and knowledge are already in a shape AI can use. If they aren't yet, the <a href="https://groundwork.adamabdalla.com">Groundwork program</a> is the readiness prerequisite. Both are free to start; both are open. Neither gates its content.</p>
+<h2>The ELI10 layer</h2>
+<p>Every technical section in this program has a matching plain-language companion in the <code>eli10/</code> folder at that level. Think of it as the same information explained to a curious 10-year-old — no jargon, real analogies, why-it-matters framing.</p>
+<p>If a section feels dense, jump to its ELI10 twin first, then come back.</p>
+<h2>Program design principles</h2>
+<ol>
+<li><strong>Two tracks, every level</strong> — individual + company</li>
+<li><strong>Two voices, every level</strong> — technical + ELI10</li>
+<li><strong>Every doc is opinionated</strong> — no placeholder shrug docs</li>
+<li><strong>Every workflow has an eval</strong> — measurable, not vibes</li>
+<li><strong>Every autonomy step is earned</strong> — HITL before full auto</li>
+<li><strong>Governance in front of scale</strong> — policy before pilots</li>
+<li><strong>Continuous refresh</strong> — the field moves; the kit moves with it</li>
+</ol>
+<h2>Ownership</h2>
+<p>You. Fork it. Extend it. Prune it. Ship your own kits from it.</p>
+<h2>License</h2>
+<p>MIT (see <code>LICENSE</code>) — use it, remix it, teach with it.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="20" r="9" fill="none" stroke="#A44E12" stroke-width="1.4" opacity="0.5"/><circle cx="22" cy="20" r="5" fill="#A44E12"/></svg><span>GROUNDWORK-AND-FLUENCY.md</span></p>
+<h1>Groundwork and the Curriculum: how the two programs fit together</h1>
+<p><strong>TL;DR.</strong> Groundwork is the <strong>readiness</strong> program. The Groundwork Curriculum is the <strong>capability</strong> program: five levels that build AI fluency in you and your team. Groundwork gets your identity, knowledge, and rules into a shape AI can work on. The Curriculum teaches you to use AI well and, at the higher levels, to build the agents, tools, and evaluation systems that run on top of that foundation. They are sequential, not competing. Neither is gated. You can start in either program at any order or level that fits where you already are.</p>
+<ul>
+<li>Groundwork: <a href="https://groundwork.adamabdalla.com">groundwork.adamabdalla.com</a></li>
+<li>The Curriculum: this repo. Start at <a href="orientation.html">README.md</a>.</li>
+</ul>
+<p>One axis note before anything else, because it trips people up: <strong>Groundwork has six standing ORDERS. The Curriculum has five LEVELS.</strong> Orders are things you build once for your business. Levels are stages of skill you climb as a person or a team. The numbers are not the same axis and never map one-to-one.</p>
+<hr />
+<h2>Two programs, one arc</h2>
+<p>Groundwork's core thesis is <strong>"do not automate chaos."</strong> It is six standing orders built in sequence, producing fifteen plain-text documents, with one scoped AI Operator activated at order four:</p>
+<ul>
+<li><strong>Orders 1 to 3, the foundation, required first:</strong> Order 1 Know me (Identity: who you are and how you are allowed to behave), Order 2 Know my information (Knowledge: what the system is allowed to trust and use, including the Context Vault and Authority Classification), Order 3 Know your limits (Governance: what the system is allowed to do).</li>
+<li><strong>Order 4, activation:</strong> Help me operate. One scoped AI Operator, running under the rules the first three orders wrote.</li>
+<li><strong>Orders 5 and 6, the standing half:</strong> Order 5 Remember (Continuity) and Order 6 Improve (measurement and the operating rhythm). From activation on, the system runs one loop: capture, understand, decide, act, verify, remember, improve.</li>
+</ul>
+<p>Automation enters at order four, and only inside the three zones Order 3 defines: Auto-Execute, Draft &amp; Wait, Never Automate. The default rule: unlisted work falls to Draft &amp; Wait, never to Auto-Execute.</p>
+<p>The Curriculum starts where a serious learner actually needs help: not "how do I organize my business" but "how do I get genuinely good at this, and eventually build systems without shipping something that embarrasses me." Level 1 assumes you can already talk to an AI product. Level 2 assumes you are ready to build. Level 3 and up assume you are operating AI systems for other people.</p>
+<p>The overlap between the two is deliberate and small. Groundwork Order 4, the Operator, is the exact bridge: it hands off to Curriculum Level 2 the moment you want to build automation as software rather than as prompt-and-approval loops.</p>
+<h2>Full mapping: six orders to five levels</h2>
+<table>
+<thead>
+<tr>
+<th>If you are here in Groundwork</th>
+<th>This is the natural starting point in the Curriculum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order 1, Know me (charter, brand voice, decision principles)</td>
+<td>Level 1 · <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-1-essentials/individual/03-system-prompts">03-system-prompts</a>: your identity documents become the system prompt</td>
+</tr>
+<tr>
+<td>Order 2, Know my information (Context Vault, Authority Classification)</td>
+<td>Level 1 memory and context habits, then Level 2 · <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-2-intermediate/individual/06-rag-pipeline">06-rag-pipeline</a>: the vault becomes the corpus</td>
+</tr>
+<tr>
+<td>Order 3, Know your limits (the three zones, escalation, allowed tools)</td>
+<td>Level 2 Company · <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-2-intermediate/company/02-agent-governance">02-agent-governance</a>: the org-wide version of your zone rules</td>
+</tr>
+<tr>
+<td>Order 4, Help me operate (the Agent Scope and the Operator)</td>
+<td><strong>Level 2</strong>, the whole track. You are ready to build agents.</td>
+</tr>
+<tr>
+<td>Order 5, Remember (succession, override authority, working memory)</td>
+<td>Level 2 Company · <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-2-intermediate/company/02-agent-governance">02-agent-governance</a>, the access and estate side</td>
+</tr>
+<tr>
+<td>Order 6, Improve (signals, the correction loop, ownership, cadence)</td>
+<td>Level 2 · <a href="https://github.com/OrangeOnyx/groundwork-curriculum/tree/master/level-2-intermediate/individual/07-evaluation">07-evaluation</a> and Level 3 and up: evals, drift, incidents, operating over time</td>
+</tr>
+</tbody>
+</table>
+<p>Groundwork's Readiness Scorecard names your weakest order. If it names Order 1, 2, or 3, run Groundwork first: the Curriculum assumes that foundation exists. If the foundation stands and your vault is real, Level 1 will feel like a natural next chapter. If your Operator is already running, you belong in Level 2.</p>
+<h2>Where the two programs agree, verbatim</h2>
+<p>Both programs teach the same <strong>three-zone approval model</strong> because it is the correct one:</p>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Both programs call it</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Auto-Execute</td>
+<td>Low-risk, reversible, rule-bound. Runs without a human.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Draft &amp; Wait</td>
+<td>AI prepares the output. A human reviews before it leaves the system.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Never Automate</td>
+<td>Money, legal, personnel, sensitive comms. AI can research and prep, never act.</td>
+</tr>
+</tbody>
+</table>
+<p>In Groundwork these are the three zones of Order 3, Know your limits. In the Curriculum the same model appears as HITL propose-write defaults: the companion repos (<code>belle-mcp-server</code>, <code>lease-abstractor</code>, <code>support-triage-agent</code>, <code>diligence-agent</code>) all default to Zone 2 behavior, propose-write with <code>auto_send</code> off. That is on purpose. It is the same zone Groundwork tells you to default to when in doubt. Nothing in either program ships with autonomous send turned on.</p>
+<h2>Where the two programs deliberately differ</h2>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Groundwork</th>
+<th>The Curriculum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Format</td>
+<td>Six standing orders, strictly sequenced, with a scorecard</td>
+<td>Any-order reference. Jump in at any level. Every module stands alone.</td>
+</tr>
+<tr>
+<td>Audience</td>
+<td>Any owner or operator who wants their business AI-ready</td>
+<td>Learners and builders raising their own capability</td>
+</tr>
+<tr>
+<td>Deliverable</td>
+<td>Fifteen plain-text documents and one scoped AI Operator</td>
+<td>Skills, working code, evals, and companion repos</td>
+</tr>
+<tr>
+<td>Pedagogy</td>
+<td>Foundation-first: the first three orders are required before activation</td>
+<td>Level-independent: refresher-friendly, no prerequisites enforced</td>
+</tr>
+<tr>
+<td>Delivery</td>
+<td>Free and ungated: the site, the Field Guide PDF, the free audit conversation</td>
+<td>Free and open. This repo is the whole thing.</td>
+</tr>
+</tbody>
+</table>
+<p>If you are a technical builder, the Curriculum is almost certainly what you need. If you are an owner who has never systematically organized the business's information, run Groundwork first: coming to the Curriculum without a vault and an approval framework in your head means you will build agents that automate a mess.</p>
+<h2>How to enter each program</h2>
+<p><strong>Enter Groundwork if any of these are true:</strong>
+- Your files live in Downloads, Desktop, and email attachments
+- You explain the same preferences to AI every time you open a new chat
+- You have no rules for what AI is allowed to do without asking you
+- You worry about losing everything if your current AI provider changes terms
+- You want a Day One, a scorecard, and a finished system at the end</p>
+<p><strong>Enter the Curriculum if any of these are true:</strong>
+- You already have a Markdown notes system or the equivalent
+- You know what a system prompt is and have written one that matters
+- You want to build an agent, an MCP server, or a RAG pipeline this month
+- You want evals, not vibes
+- You are hiring or leading people who will build these things</p>
+<p><strong>Enter both, in sequence,</strong> if you are building AI capability for a real business: Groundwork gets the foundation right, the Curriculum builds the skill and the systems on top of it.</p>
+<h2>Cross-links in this repo</h2>
+<ul>
+<li><a href="l1-overview.html">Level 1 · Essentials README</a> treats a knowledge base you own as the recommended starting condition; Groundwork Order 2, Know my information, is where that vault gets built</li>
+<li><a href="l2-company-02-agent-governance.html">Level 2 Company · 02-agent-governance</a> references Groundwork Order 3, Know your limits, for the personal analogue of the org approval matrix, and Order 5, Remember, for access and estate rules</li>
+<li><a href="l2-company-08-cross-team-workflows.html">Level 2 Company · 08-cross-team-workflows</a> references the Groundwork zone model as the individual analogue of the org-wide approval matrix</li>
+</ul>
+<p>No file in this repo requires Groundwork to make sense. You can jump into any level, any module, and get value. Groundwork is the recommended prerequisite for owners whose foundation is not yet set. It is not a paywall.</p>
+<h2>One-line summary for readers</h2>
+<blockquote>
+<p>Groundwork gets your information into a shape AI can use. The Curriculum teaches you to use it well and build systems on top of it. Run them in that order and both are cheaper and faster than doing this ad-hoc.</p>
+</blockquote>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="20" r="9" fill="none" stroke="#A44E12" stroke-width="1.4" opacity="0.5"/><circle cx="22" cy="20" r="5" fill="#A44E12"/></svg><span>LEVEL-MAP.md</span></p>
+<h1>Level Map</h1>
+<p>The full path from novice to frontier. See <code>shared/graphics/level-map.svg</code> for the visual.</p>
+<h2>Level 1 — Essentials</h2>
+<p><strong>Prereq:</strong> none.
+<strong>Exit criteria:</strong>
+- You have a master system prompt and About-Me block
+- You have a personal prompt library (20+ prompts)
+- You know which model to route which task to
+- You can pass the 15-question jargon fluency test
+- You've shipped at least 5 real work outputs using AI
+- For the company track: AUP signed, accounts procured, first two department copilots piloting</p>
+<p><strong>Unlocks:</strong> ability to build.</p>
+<h2>Level 2 — Intermediate</h2>
+<p><strong>Prereq:</strong> Level 1 exit criteria met.
+<strong>Exit criteria:</strong>
+- You've built 3 real custom agents on your own stack
+- You've deployed at least one MCP server
+- You've built a real RAG pipeline over your own docs
+- You have an eval harness with regression testing
+- You understand cost engineering and have measured cost per workflow
+- For the company track: eval framework live, observability platform running, first agents in production</p>
+<p><strong>Unlocks:</strong> ability to ship AI to real users.</p>
+<h2>Level 3 — Advanced</h2>
+<p><strong>Prereq:</strong> Level 2 exit criteria met.
+<strong>Exit criteria:</strong>
+- You've shipped an AI product or feature to real users, with SLOs met
+- You've orchestrated a multi-agent workflow in production
+- You've handled at least one real drift or incident
+- You've done a model bake-off with data-driven decision
+- You've hardened one workflow against adversarial input
+- For the company track: full observability, incident response tested, cross-department scaling underway</p>
+<p><strong>Unlocks:</strong> systems design.</p>
+<h2>Level 4 — Professional</h2>
+<p><strong>Prereq:</strong> Level 3 exit criteria met.
+<strong>Exit criteria:</strong>
+- You've fine-tuned a model with measurable impact
+- You've led a red-team exercise
+- You understand training-stack internals (attention, MoE, quantization, inference)
+- You can teach any Level 1–3 concept
+- You can lead an AI team or an AI initiative
+- For the company track: applied research team stood up, safety program mature, cross-industry benchmarking</p>
+<p><strong>Unlocks:</strong> practitioner-grade work.</p>
+<h2>Level 5 — Frontier</h2>
+<p><strong>Prereq:</strong> Level 4 exit criteria met.
+<strong>Exit criteria:</strong>
+- You've contributed original work: a paper, a novel system, a widely-used tool, or open-weight training
+- You engage with the research community
+- You have a point of view on where the field is going and act on it
+- For the company track: category-defining product, open-source contributions, industry-recognized capability</p>
+<p><strong>Unlocks:</strong> contribution to the field itself.</p>
+<h2>Movement between levels</h2>
+<ul>
+<li>You don't have to be uniform. A person might be Level 3 on RAG, Level 2 on agents.</li>
+<li>A company might be Level 2 on governance, Level 1 on department deployments.</li>
+<li>The map is a compass, not a report card.</li>
+</ul>
+<h2>Timing</h2>
+<p>Realistic timelines assume 4–8 hours/week of dedicated effort alongside real work:</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Individual (fast)</th>
+<th>Individual (typical)</th>
+<th>Company (fast)</th>
+<th>Company (typical)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>15 days</td>
+<td>30 days</td>
+<td>60 days</td>
+<td>90 days</td>
+</tr>
+<tr>
+<td>2</td>
+<td>45 days</td>
+<td>90 days</td>
+<td>90 days</td>
+<td>180 days</td>
+</tr>
+<tr>
+<td>3</td>
+<td>90 days</td>
+<td>180 days</td>
+<td>180 days</td>
+<td>360 days</td>
+</tr>
+<tr>
+<td>4</td>
+<td>180 days</td>
+<td>360 days</td>
+<td>360 days</td>
+<td>720 days</td>
+</tr>
+<tr>
+<td>5</td>
+<td>360 days</td>
+<td>ongoing</td>
+<td>720 days</td>
+<td>ongoing</td>
+</tr>
+</tbody>
+</table>
+<p>Faster is possible with full-time focus and prior software background.</p>
+</article>
+
+  <div class="pnav">
+    <a href="index.html">← Reader contents</a>
+    <a href="shared-cover-letter.html">The cover letters →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
