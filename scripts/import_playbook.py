@@ -232,9 +232,9 @@ def import_css(src, out):
             keep.append(chunk)
     slim = "".join(keep).replace(".is-in", ".ink").replace("[data-anim]", ".fig")
     slim = _dedupe_data_uris(slim)
-    header = "/* The AI Playbook: page-specific layer on top of guide.css (imported from playbook v2, slimmed). */\n"
+    header = "/* The AI Playbook: page-specific layer on top of guide.css (imported from playbook v2, slimmed). Generated from import/playbook-v2 by scripts/import_playbook.py -- never hand-edit; hand-authored rules live in assets/playbook.css instead. */\n"
     out_css = header + slim
-    _write(out / "assets" / "playbook.css", out_css)
+    _write(out / "assets" / "playbook-import.css", out_css)
     return len(out_css)
 
 
