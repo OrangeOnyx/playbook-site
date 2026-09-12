@@ -7,12 +7,25 @@ Real-markup notes (verified against import/playbook-v2, Sept 2026 export):
   by their opening tag position and sliced up to the next panel's opening tag (or, for the
   last panel, up to the card's own four wrapper-closing </div> before </section>).
 - Plates are NOT already `<figure class="plate">`; the source wraps them as
-  `<figure class="figure" id="..."><div class="plate ..."><svg class="fig ...">...</svg></div>
-  <figcaption class="caption">...</figcaption></figure>`. The target site (assets/guide.css +
-  assets/motion.js) expects a plain `<figure class="fig plate">` holding just the <svg> and the
-  <figcaption> -- guide.css defines `.fig.plate{...}` as a single combined selector and
-  motion.js does `querySelectorAll('.fig, [data-ink]')` and toggles `.ink` on that same element,
-  so the "plate" class alone (no "fig") would never be picked up by the motion layer.
+  `<figure class="figure" id="..."><div class="plate ..."><span class="plate-label">...</span>
+  <button class="btn replay">Replay</button><svg class="fig ...">...</svg></div>
+  <figcaption class="caption">...</figcaption></figure>`. The controller ruled on one canonical
+  shape every plate takes, standalone or embedded inside a chapter/card:
+  `<figure class="fig plate" id="fig-NN"><span class="plate-label">...</span><svg ...>...</svg>
+  <figcaption><span class="fignum">Fig. NN</span><span>caption</span></figcaption>
+  <button class="replay" type="button">Replay</button></figure>` -- the figure alone owns
+  `.fig` (guide.css's `.fig.plate{...}` and motion.js's `querySelectorAll('.fig, [data-ink]')`
+  both expect one observed/styled element, so the inner <svg> must not also carry the class),
+  the div.plate wrapper is dropped, and the label/replay chrome move up to be direct children of
+  the figure. `_canonical_plate()` is the single helper used both for the standalone
+  content/plates/fig-NN.html export and for converting figures embedded in chapters/cards in
+  place -- one transform, two call sites, so they can never drift apart.
+- 16 figures are embedded (not exported standalone) inside chapter and card partials: 9 inside
+  index.html chapters (ch-2, ch-3, ch-4, ch-6 x5, ch-9) and 7 inside interview cards (s4, s5, s7,
+  s9, s10, s11, s14). Every one of them already carries a Fig. number that duplicates a plate
+  already exported from index.html/plates.html, so `import_plates` never needs to write a
+  separate `fig-c-<n>.html` for them -- but the raw embedded markup still needs the same
+  canonical reshaping, done in place by `_normalize_embedded_figures()`.
 - playbook.css repeats one ~24KB base64 PNG watermark six times (nav/byline/footer x2 each);
   after slimming to the kept sections that is still ~112KB, over the 90KB budget the gate
   enforces. The five duplicate copies are byte-identical, so they are deduped into one
@@ -92,8 +105,9 @@ def import_cards(src, out):
                 raw = html[content_start:]
                 trimmed = LAST_PANEL_TRAILER_RE.sub("", raw)
                 raw = trimmed if trimmed != raw else re.sub(r"\s*</section>\s*\Z", "", raw)
+            raw = _normalize_embedded_figures(_to_groundwork_fig(raw.strip()))
             body.append('<section class="panel" data-title="%s"><h3>%s</h3>%s</section>'
-                         % (ptitle, ptitle, _fix_words(_to_groundwork_fig(raw.strip()))))
+                         % (ptitle, ptitle, _fix_words(raw)))
         body.append("</div>")
         _write(out / "content" / "cards" / (cid + ".html"), _fix_words("\n".join(body)))
         n += 1
@@ -101,18 +115,44 @@ def import_cards(src, out):
 
 
 FIGURE_RE = re.compile(r'<figure class="figure"[^>]*>.*?</figure>', re.S)
+SVG_CLASS_RE = re.compile(r'\sclass="[^"]*"')
 
 
-def _plate_partial(fig_html):
-    """Reshape a source `<figure class="figure">` (div.plate wrapper + replay button +
-    svg + figcaption) into the Groundwork-vocabulary `<figure class="fig plate">` that
-    guide.css/motion.js style and animate directly -- just the drawing and its caption."""
+def _canonical_plate(fig_html):
+    """The one canonical plate shape, standalone or embedded: <figure class="fig plate"
+    id="fig-NN"> holding the plate-label span, a bare <svg> (no class attribute at all -- the
+    figure is the single element guide.css styles and motion.js observes/animates; the source's
+    occasional second token, e.g. "fig-cover", has no rule anywhere in guide.css either, so the
+    whole class attribute is dropped rather than leaving inert cruft behind), the <figcaption>
+    (no class -- just the fignum + caption spans), and the Replay button, in that order.
+    No data-anim survives; the div.plate wrapper and the "btn" class on the source's replay
+    button are dropped along with it."""
     fig_html = _to_groundwork_fig(fig_html)
-    svg_m = re.search(r"<svg\b.*?</svg>", fig_html, re.S)
-    cap_m = re.search(r"<figcaption.*?</figcaption>", fig_html, re.S)
+    num_m = re.search(r"Fig\.\s*(\d+)", fig_html)
+    num = num_m.group(1).zfill(2) if num_m else None
+
+    label_m = re.search(r'<span class="plate-label">.*?</span>', fig_html, re.S)
+    label = label_m.group(0) if label_m else ""
+
+    svg_m = re.search(r"<svg\b[^>]*>.*?</svg>", fig_html, re.S)
     svg = svg_m.group(0) if svg_m else ""
-    cap = cap_m.group(0) if cap_m else ""
-    return '<figure class="fig plate">%s%s</figure>' % (svg, cap)
+    # The figure owns .fig (and any modifier like "fig-cover", which carries no rule in
+    # guide.css and did nothing there either); the svg keeps no class of its own.
+    svg = SVG_CLASS_RE.sub("", svg, count=1)
+
+    cap_m = re.search(r"<figcaption[^>]*>.*?</figcaption>", fig_html, re.S)
+    cap = re.sub(r"^<figcaption[^>]*>", "<figcaption>", cap_m.group(0)) if cap_m else ""
+
+    id_attr = ' id="fig-%s"' % num if num else ""
+    button = '<button class="replay" type="button">Replay</button>'
+    return '<figure class="fig plate"%s>%s%s%s%s</figure>' % (id_attr, label, svg, cap, button)
+
+
+def _normalize_embedded_figures(html):
+    """Reshape every figure embedded in a chapter/card partial into the same canonical plate
+    shape _canonical_plate() produces for the standalone content/plates/fig-NN.html files, so
+    the two never diverge."""
+    return FIGURE_RE.sub(lambda m: _canonical_plate(m.group(0)), html)
 
 
 def import_plates(src, out):
@@ -128,7 +168,7 @@ def import_plates(src, out):
             if num in seen:
                 continue
             seen.add(num)
-            _write(out / "content" / "plates" / ("fig-%s.html" % num), _fix_words(_plate_partial(fig)))
+            _write(out / "content" / "plates" / ("fig-%s.html" % num), _fix_words(_canonical_plate(fig)))
             n += 1
     return n
 
@@ -140,7 +180,8 @@ def import_chapters(src, out):
     s = _read(src / "playbook" / "index.html")
     n = 0
     for cid, inner in CHAPTER_RE.findall(s):
-        _write(out / "content" / "front" / (cid + ".html"), _fix_words(_to_groundwork_fig(inner.strip())))
+        inner = _normalize_embedded_figures(_to_groundwork_fig(inner.strip()))
+        _write(out / "content" / "front" / (cid + ".html"), _fix_words(inner))
         n += 1
     return n
 

@@ -20,3 +20,33 @@ def test_import_writes_cards_plates_chapters(tmp_path):
     assert len(chapters) == 9
     css = io.open(tmp_path / "assets" / "playbook.css", encoding="utf-8").read()
     assert ".plate" in css and ".is-in" not in css and len(css) < 90000
+
+
+FIG_BLOCK_RE = re.compile(r"<figure\b.*?</figure>", re.S)
+
+
+def _assert_canonical_plates(text, where):
+    """The controller's one canonical plate shape, standalone or embedded: exactly one
+    class="fig plate" figure per <figure> found, no leftover source markup (svg still
+    carrying class="fig", the old class="figure" wrapper, the div.plate wrapper, or the
+    "btn replay" button class), and every figure carries a figcaption/fignum and a Replay
+    button in the new class="replay" form."""
+    fig_opens = re.findall(r"<figure\b[^>]*>", text)
+    assert len(fig_opens) == text.count('class="fig plate"'), where
+    assert not re.search(r'<svg[^>]*class="[^"]*\bfig\b', text), where
+    assert 'class="figure"' not in text, where
+    assert 'div class="plate' not in text, where
+    assert "btn replay" not in text, where
+    for fig in FIG_BLOCK_RE.findall(text):
+        assert "<figcaption" in fig and 'class="fignum"' in fig, where
+        assert '<button class="replay"' in fig, where
+
+
+def test_plates_and_embedded_figures_are_canonical(tmp_path):
+    out = I.run(ROOT / "import" / "playbook-v2", tmp_path)
+    for p in sorted((tmp_path / "content" / "plates").glob("fig-*.html")):
+        _assert_canonical_plates(io.open(p, encoding="utf-8").read(), str(p))
+    for p in sorted((tmp_path / "content" / "cards").glob("s*.html")):
+        _assert_canonical_plates(io.open(p, encoding="utf-8").read(), str(p))
+    for p in sorted((tmp_path / "content" / "front").glob("ch-*.html")):
+        _assert_canonical_plates(io.open(p, encoding="utf-8").read(), str(p))
