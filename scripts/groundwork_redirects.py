@@ -19,17 +19,22 @@ def build(spine):
     return {"redirects": rules}
 
 
+def merge_config(existing, rules):
+    headers = (existing or {}).get("headers")
+    out = {}
+    if headers:
+        out["headers"] = headers
+    out["redirects"] = rules
+    return out
+
+
 if __name__ == "__main__":
     gw = Path(__file__).resolve().parents[2] / "groundwork-site"
     cfg = build(S.load())
     vercel_path = gw / "vercel.json"
-    headers = None
+    existing = None
     if vercel_path.exists():
         existing = json.loads(io.open(vercel_path, encoding="utf-8").read())
-        headers = existing.get("headers")
-    out = {}
-    if headers:
-        out["headers"] = headers
-    out["redirects"] = cfg["redirects"]
+    out = merge_config(existing, cfg["redirects"])
     io.open(vercel_path, "w", encoding="utf-8", newline="\n").write(json.dumps(out, indent=2) + "\n")
     print("wrote", len(out["redirects"]), "redirects")

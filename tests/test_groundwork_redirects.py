@@ -34,3 +34,19 @@ def test_raises_when_a_catch_all_precedes_a_literal():
     bad["redirects"].insert(0, {"source": "/(.*)", "destination": "/$1"})
     with pytest.raises(ValueError):
         GR.build(bad)
+
+
+def test_merge_config_preserves_existing_headers_verbatim():
+    rules = [{"source": "/x", "destination": "https://playbook.adamabdalla.com/x", "permanent": True}]
+    headers = [{"source": "/(.*)", "headers": [{"key": "X-Frame-Options", "value": "SAMEORIGIN"}]}]
+    existing = {"headers": headers, "redirects": [{"source": "/old", "destination": "/old", "permanent": True}]}
+    out = GR.merge_config(existing, rules)
+    assert out["headers"] == headers
+    assert out["redirects"] == rules
+
+
+def test_merge_config_omits_headers_when_absent():
+    rules = [{"source": "/x", "destination": "https://playbook.adamabdalla.com/x", "permanent": True}]
+    assert GR.merge_config(None, rules) == {"redirects": rules}
+    assert GR.merge_config({}, rules) == {"redirects": rules}
+    assert GR.merge_config({"redirects": []}, rules) == {"redirects": rules}
