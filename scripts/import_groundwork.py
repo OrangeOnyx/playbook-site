@@ -81,6 +81,62 @@ RENAME = [
     (r"\bAtlas\b", "Cypress Command Platform"),
 ]
 
+# The Groundwork source still speaks in the old "six standing orders" numbering
+# (Order N, Layer N, Phase N). The spine renumbers those onto the ten sections
+# (see spine.json: guide/identity.html -> 1.1, knowledge -> 2.1, remember -> 2.2,
+# limits -> 3.1, operator -> 3.2, improve -> 4.2). HEADING_FIXES rewrites that old
+# language wherever it survives inside a heading or figcaption of an imported
+# partial, so the copy gate (scripts/gates.py, banned old numbering in <h1>-<h3>/
+# <figcaption>/nav) stays clean. Never rewrite prose outside heading tags here;
+# body copy keeps the original interview-number references on purpose.
+HEADING_FIXES = [
+    (re.compile(r"\bOrder One\b"), "Section 1.1"),
+    (re.compile(r"\bOrder 1\b"), "Section 1.1"),
+    (re.compile(r"\bOrder Two\b"), "Section 2.1"),
+    (re.compile(r"\bOrder 2\b"), "Section 2.1"),
+    (re.compile(r"\bOrder Three\b"), "Section 3.1"),
+    (re.compile(r"\bOrder 3\b"), "Section 3.1"),
+    (re.compile(r"\bOrder Four\b"), "Section 3.2"),
+    (re.compile(r"\bOrder 4\b"), "Section 3.2"),
+    (re.compile(r"\bOrder Five\b"), "Section 2.2"),
+    (re.compile(r"\bOrder 5\b"), "Section 2.2"),
+    (re.compile(r"\bOrder Six\b"), "Section 4.2"),
+    (re.compile(r"\bOrder 6\b"), "Section 4.2"),
+    (re.compile(r"\bstanding orders\b", re.I), "sections"),
+    (re.compile(r"\bLayer \d+\b"), "section"),
+    (re.compile(r"\bLayers\b"), "sections"),
+    (re.compile(r"\bLayer\b"), "section"),
+    (re.compile(r"\bPhase \d+\b"), "stage"),
+    (re.compile(r"\bPhases\b"), "stages"),
+    (re.compile(r"\bPhase\b"), "stage"),
+]
+# The gate also bans a short list of identity terms (scripts/gates.py IDENTITY:
+# orange ocean|disbar|attorney|lawyer) anywhere on the page, not only in headings.
+# Two Groundwork passages name a lawyer/attorney as a plot device inside an
+# example; neither is load-bearing, so reword rather than drop the sentence.
+IDENTITY_FIXES = [
+    (re.compile(r"\byour attorney gets the override call\b"), "your named legal contact gets the override call"),
+    (re.compile(r"\bwould need a lawyer, an apology,"), "would need legal advice, an apology,"),
+]
+
+def _fix_identity_terms(inner):
+    """Apply IDENTITY_FIXES across the whole partial body (gates.py checks the
+    identity term list over the full page text, not just headings)."""
+    for pat, rep in IDENTITY_FIXES: inner = pat.sub(rep, inner)
+    return inner
+
+HEADING_TAG = re.compile(r"<(h1|h2|h3|figcaption)([^>]*)>(.*?)</\1>", re.S | re.I)
+
+def _fix_headings(inner):
+    """Apply HEADING_FIXES, but only to text inside <h1>-<h3> and <figcaption>
+    tags, never to surrounding body copy."""
+    def sub(m):
+        tag, attrs, body = m.group(1), m.group(2), m.group(3)
+        for pat, rep in HEADING_FIXES:
+            body = pat.sub(rep, body)
+        return "<%s%s>%s</%s>" % (tag, attrs, body, tag)
+    return HEADING_TAG.sub(sub, inner)
+
 def _apply_rename(inner):
     """Apply the Platform rename rules to any imported partial. Deliberately case-
     sensitive per exact token (Atlas / ATLAS), never a blanket case-insensitive match:
@@ -102,17 +158,17 @@ def run(gw, out):
     for slug, rel in ORDER_PAGES.items():
         inner = _strip_chrome(_main_inner(_read(gw / rel)))
         for m in DOC_CARD.finditer(inner):
-            doc = _apply_rename(_rewrite_links(m.group(0), "guide", spine))
+            doc = _fix_headings(_fix_identity_terms(_apply_rename(_rewrite_links(m.group(0), "guide", spine))))
             _write(out / "content" / "docs" / ("doc-%s.html" % m.group(2).zfill(2)), doc)
             counts["docs"] += 1
         inner = DOC_CARD.sub("", inner)
-        inner = _apply_rename(_rewrite_links(inner, "guide", spine))
+        inner = _fix_headings(_fix_identity_terms(_apply_rename(_rewrite_links(inner, "guide", spine))))
         _write(out / "content" / "articles" / (slug + ".html"), inner)
         counts["articles"] += 1
     home = _read(gw / "index.html")
     for slug, sid in FRONT.items():
         m = re.search(r'<section[^>]*id="%s"[^>]*>(.*?)</section>' % sid, home, re.S)
-        front = _apply_rename(_rewrite_links(m.group(1), ".", spine))
+        front = _fix_headings(_fix_identity_terms(_apply_rename(_rewrite_links(m.group(1), ".", spine))))
         _write(out / "content" / "front" / ("gw-%s.html" % slug), front)
         counts["front"] += 1
     for slug, rel in PAGES.items():
@@ -120,6 +176,7 @@ def run(gw, out):
         inner = _rewrite_links(inner, str(Path(rel).parent), spine)
         inner = _apply_rename(inner)
         if slug == "platform": inner = _add_platform_note(inner)
+        inner = _fix_identity_terms(_fix_headings(inner))
         _write(out / "content" / "pages" / (slug + ".html"), inner)
         counts["pages"] += 1
     return counts

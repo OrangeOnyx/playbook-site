@@ -35,3 +35,14 @@ def test_stage_hubs(tmp_path):
     for sid in ("1.0", "1.1", "1.2"): assert sid in s
     assert "Gate:" in s and 'class="lanes"' in s
     assert 'data-card="s14"' in s   # the evidence log lives on Stage 1
+
+def test_section_pages(tmp_path):
+    B.render(tmp_path)
+    s = io.open(tmp_path / "2-intermediate" / "2-3-capture-and-commit" / "index.html", encoding="utf-8").read()
+    assert "<h1>2.3 Capture and commit.</h1>" in s
+    assert s.count('class="card-body"') == 2
+    assert 'class="prov">Source: Interviews 4 and 5' in s
+    assert 'class="lanes"' in s and "<h3>Why it exists</h3>" in s
+    k = io.open(tmp_path / "1-starter" / "1-1-know-me" / "index.html", encoding="utf-8").read()
+    assert 'href="/1-starter/1-2-learn-my-work/"' in k
+    assert "<h3>Document 01: Identity Charter</h3>" in k
