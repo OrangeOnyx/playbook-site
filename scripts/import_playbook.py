@@ -156,6 +156,13 @@ def _normalize_embedded_figures(html):
     return FIGURE_RE.sub(lambda m: _canonical_plate(m.group(0)), html)
 
 
+# Plates the redraw script owns (scripts/redraw_plates.py). The controller ruled that import
+# must never overwrite these numbers on disk; the redraw runs after the import so the final
+# fig-00.html and fig-02.html on disk are always the redrawn ones. They still count toward
+# "seen" for dedup purposes -- only the write is skipped.
+OWNED_BY_REDRAW = {"00", "02"}
+
+
 def import_plates(src, out):
     n = 0
     seen = set()
@@ -169,6 +176,8 @@ def import_plates(src, out):
             if num in seen:
                 continue
             seen.add(num)
+            if num in OWNED_BY_REDRAW:
+                continue
             _write(out / "content" / "plates" / ("fig-%s.html" % num), _fix_words(_canonical_plate(fig)))
             n += 1
     return n
