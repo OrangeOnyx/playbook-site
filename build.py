@@ -60,6 +60,15 @@ def render(out_dir=None):
     (out / ".vercel").mkdir(); shutil.copy(ROOT / ".vercel" / "project.json", out / ".vercel" / "project.json")
     gen = ROOT / "content" / "generated" / "curriculum" / "read"   # written by scripts/build_reader.py (Wave 2)
     if gen.exists(): shutil.copytree(gen, out / "curriculum" / "read")
+    urls = [spine["domain"] + ("/" if p["out"] == "index.html" else "/" + p["out"].replace("index.html", "")) for p in pages(spine) if p["out"] != "404.html"]
+    io.open(out / "sitemap.xml", "w", encoding="utf-8", newline="\n").write(
+        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+        "".join("<url><loc>%s</loc></url>\n" % u for u in urls) + "</urlset>\n")
+    io.open(out / "robots.txt", "w", encoding="utf-8", newline="\n").write("User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n" % spine["domain"])
+    io.open(out / "llms.txt", "w", encoding="utf-8", newline="\n").write(
+        "# The AI Playbook\n\n> Four stages that install an AI operating system into your life and work. By Cypress Command. Free and complete.\n\n" +
+        "".join("- [%s %s](%s/%s/)\n" % (s["number"], s["name"], spine["domain"], s["slug"]) for s in spine["stages"]) +
+        "".join("- [%s %s](%s%s)\n" % (x["id"], x["title"], spine["domain"], x["path"]) for x in S.sections(spine)))
     return n
 
 if __name__ == "__main__":

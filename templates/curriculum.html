@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block ladder %}{% endblock %}
+{% block main %}
+<header class="page pagehead"><span class="kicker">CURRICULUM · THE PARALLEL TRACK</span><h1>The playbook builds your system. The Curriculum builds you.</h1>
+<p class="lede">Same four stages, same numbers, going deeper where you want to build rather than operate. Free, open, MIT-licensed, credit Jake Van Clief.</p></header>
+{{ partial("plates/fig-15.html") }}
+<ol class="contents">{% for st in spine.stages %}<li><a href="/curriculum/{{ st.slug }}/"><b>{{ st.number }} {{ st.name }}</b></a></li>{% endfor %}</ol>
+<p><a href="/curriculum/read/">Read the whole curriculum on this site</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">The repository</a></p>
+{% endblock %}
