@@ -97,7 +97,11 @@ def render(out_dir=None):
     n = 0
     for p in pages(spine):
         tpl = ROOT / "templates" / p["template"]
-        if not tpl.exists(): continue          # a later task adds it; the registry is complete now
+        if not tpl.exists():
+            # Every template in the registry exists now, so a miss is a real break
+            # (a rename, a deleted file) and must stop the build instead of silently
+            # dropping the page out of dist.
+            raise SystemExit("missing template: templates/%s (needed by %s)" % (p["template"], p["out"]))
         html = env.get_template(p["template"]).render(**p["ctx"])
         dest = out / p["out"]; dest.parent.mkdir(parents=True, exist_ok=True)
         io.open(dest, "w", encoding="utf-8", newline="\n").write(html); n += 1

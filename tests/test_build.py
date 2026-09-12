@@ -1,4 +1,5 @@
 import sys, pathlib, io, re
+import pytest
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 import build as B
@@ -103,3 +104,11 @@ def test_sitemap_lists_every_reader_page(tmp_path):
         want = "/curriculum/read/" + ("" if f.name == "index.html" else f.name)
         assert want in read, want
     assert "<loc>%s/</loc>" % dom in sm and "<loc>%s/start/</loc>" % dom in sm
+
+def test_missing_template_stops_the_build(tmp_path, monkeypatch):
+    spine = B.S.load()
+    ghost = dict(B.pages(spine)[0]); ghost["template"] = "no-such-template.html"; ghost["out"] = "ghost/index.html"
+    monkeypatch.setattr(B, "pages", lambda sp: [ghost])
+    with pytest.raises(SystemExit) as e:
+        B.render(tmp_path)
+    assert "no-such-template.html" in str(e.value) and "ghost/index.html" in str(e.value)
