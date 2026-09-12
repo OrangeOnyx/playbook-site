@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% set idx = sections.index(section) %}
+{% block main %}
+<header class="page pagehead"><span class="kicker">STAGE {{ stage.number }} · {{ stage.name|upper }} · SECTION {{ section.id }}</span>
+<h1>{{ section.id }} {{ section.title }}.</h1>
+<p class="lede">Builds: {{ section.artifacts|join("; ") }}.</p>
+<p class="prov">Source: {{ section.provenance }}. The interview numbers are the playbook's reference labels; this page is the section.</p></header>
+<div class="lanes">
+<div class="lane lane-personal"><h4>Personal</h4><p>{{ section.lanes.personal }}</p></div>
+<div class="lane lane-business"><h4>Professional</h4><p>{{ section.lanes.business }}</p></div>
+</div>
+{% for c in section.cards %}<section class="interview">{{ partial("cards/" ~ c ~ ".html") }}</section>{% endfor %}
+{% if section.article %}<section class="article"><h2>Going deeper.</h2>{{ partial("articles/" ~ section.article.replace("guide/","").replace(".html","") ~ ".html") }}</section>{% endif %}
+{% if section.docs %}<section class="docs"><h2>The documents this section produces.</h2>{% for d in section.docs %}{{ partial("docs/doc-" ~ ("%02d" % d) ~ ".html") }}{% endfor %}</section>{% endif %}
+<nav class="pager">
+{% if idx > 0 %}<a href="{{ sections[idx-1].path }}">{{ sections[idx-1].id }} {{ sections[idx-1].title }}</a>{% endif %}
+{% if idx < sections|length - 1 %}<a href="{{ sections[idx+1].path }}">{{ sections[idx+1].id }} {{ sections[idx+1].title }}</a>{% else %}<a href="/4-frontier-operator/">Graduation</a>{% endif %}
+</nav>
+{% endblock %}
