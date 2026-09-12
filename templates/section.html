@@ -13,7 +13,7 @@
 {% if section.article %}<section class="article"><h2>Going deeper.</h2>{{ partial("articles/" ~ section.article.replace("guide/","").replace(".html","") ~ ".html") }}</section>{% endif %}
 {% if section.docs %}<section class="docs"><h2>The documents this section produces.</h2>{% for d in section.docs %}{{ partial("docs/doc-" ~ ("%02d" % d) ~ ".html") }}{% endfor %}</section>{% endif %}
 <nav class="pager">
-{% if idx > 0 %}<a href="{{ sections[idx-1].path }}">{{ sections[idx-1].id }} {{ sections[idx-1].title }}</a>{% endif %}
-{% if idx < sections|length - 1 %}<a href="{{ sections[idx+1].path }}">{{ sections[idx+1].id }} {{ sections[idx+1].title }}</a>{% else %}<a href="/4-frontier-operator/">Graduation</a>{% endif %}
+{% if idx > 0 %}<a href="{{ sections[idx-1].path }}">&larr; {{ sections[idx-1].id }} {{ sections[idx-1].title }}</a>{% else %}<span></span>{% endif %}
+{% if idx < sections|length - 1 %}<a href="{{ sections[idx+1].path }}">{{ sections[idx+1].id }} {{ sections[idx+1].title }} &rarr;</a>{% else %}<a href="/4-frontier-operator/">Graduation &rarr;</a>{% endif %}
 </nav>
 {% endblock %}
