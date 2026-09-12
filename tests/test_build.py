@@ -1,4 +1,4 @@
-import sys, pathlib, io
+import sys, pathlib, io, re
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 import build as B
@@ -60,3 +60,11 @@ def test_templates_index(tmp_path):
     assert s.count("<h3>Document ") == 15
     for x in B.S.sections(B.S.load()):
         if x["docs"]: assert ("<h2>" + x["id"] + " " + x["title"]) in s
+
+def test_no_duplicate_fig_ids(tmp_path):
+    B.render(tmp_path)
+    for f in tmp_path.rglob("*.html"):
+        s = io.open(f, encoding="utf-8").read()
+        ids = re.findall(r'id="(fig-\d+)"', s)
+        dupes = {i for i in ids if ids.count(i) > 1}
+        assert not dupes, f"{f.relative_to(tmp_path)} has duplicate figure ids: {dupes}"
