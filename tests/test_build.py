@@ -90,3 +90,16 @@ def test_lineage_and_legal(tmp_path):
     assert "published as Groundwork" in l
     g = io.open(tmp_path / "legal" / "index.html", encoding="utf-8").read()
     assert "<h1>" in g
+
+def test_sitemap_lists_every_reader_page(tmp_path):
+    B.render(tmp_path)
+    sm = io.open(tmp_path / "sitemap.xml", encoding="utf-8").read()
+    dom = B.S.load()["domain"]
+    read = re.findall(r"<loc>%s(/curriculum/read/[^<]*)</loc>" % re.escape(dom), sm)
+    assert len(read) >= 120, len(read)
+    assert "/curriculum/read/" in read, "the reader index keeps its directory URL"
+    assert not [u for u in read if u.endswith("index.html")]
+    for f in (tmp_path / "curriculum" / "read").glob("*.html"):
+        want = "/curriculum/read/" + ("" if f.name == "index.html" else f.name)
+        assert want in read, want
+    assert "<loc>%s/</loc>" % dom in sm and "<loc>%s/start/</loc>" % dom in sm

@@ -13,6 +13,7 @@ READER_PREFIXES = {1: ("l1-",), 2: ("l2-",), 3: ("l3-", "l4-"), 4: ("l5-",)}
 READER_GROUP_ORDER = ["overview", "start-here", "individual", "company", "shared", "repos", "eli10"]
 READER_LEVEL_WORD = re.compile(r"\bLevel (\d+)\b")
 READER_MODULE_FOLDER = re.compile(r"^l\d+-(?:individual|company)-(.+)$")
+INDEX_SUFFIX = re.compile(r"index\.html$")
 
 def partial(name):
     p = ROOT / "content" / name
@@ -106,7 +107,15 @@ def render(out_dir=None):
     (out / ".vercel").mkdir(); shutil.copy(ROOT / ".vercel" / "project.json", out / ".vercel" / "project.json")
     gen = ROOT / "content" / "generated" / "curriculum" / "read"   # written by scripts/build_reader.py (Wave 2)
     if gen.exists(): shutil.copytree(gen, out / "curriculum" / "read")
-    urls = [spine["domain"] + ("/" if p["out"] == "index.html" else "/" + p["out"].replace("index.html", "")) for p in pages(spine) if p["out"] != "404.html"]
+    # The registry's own pages, then every copied reader page. INDEX_SUFFIX is anchored to
+    # the end of the path so a page whose directory happens to contain "index.html" as a
+    # substring keeps its directory intact.
+    urls = [spine["domain"] + ("/" if p["out"] == "index.html" else "/" + INDEX_SUFFIX.sub("", p["out"]))
+            for p in pages(spine) if p["out"] != "404.html"]
+    read_dir = out / "curriculum" / "read"
+    if read_dir.exists():
+        for f in sorted(read_dir.glob("*.html")):
+            urls.append(spine["domain"] + "/curriculum/read/" + ("" if f.name == "index.html" else f.name))
     io.open(out / "sitemap.xml", "w", encoding="utf-8", newline="\n").write(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         "".join("<url><loc>%s</loc></url>\n" % u for u in urls) + "</urlset>\n")
