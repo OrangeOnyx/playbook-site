@@ -33,3 +33,12 @@ def test_redirects_cover_every_groundwork_guide_page():
               "/guide/index.html","/legal.html","/curriculum/index.html","/curriculum/level-1.html",
               "/curriculum/level-5.html","/assets/Groundwork-Program-Guide.pdf"]:
         assert p in srcs, p
+
+def test_catch_all_redirects_must_come_last():
+    sp = S.load()
+    bad = dict(sp)
+    bad["redirects"] = list(sp["redirects"])
+    bad["redirects"].insert(0, {"source": "/(.*)", "destination": "/$1"})
+    bad["redirects"].append({"source": "/late-literal.html", "destination": "/somewhere/"})
+    errs = S.validate(bad)
+    assert any("catch-all" in e for e in errs)

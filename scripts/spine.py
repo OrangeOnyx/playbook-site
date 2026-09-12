@@ -52,9 +52,14 @@ def validate(spine):
             if not x.get("lanes", {}).get(lane): errs.append("section %s missing %s lane" % (sid, lane))
     ids = [x["id"] for x in sections(spine)]
     if ids != sorted(ids): errs.append("sections out of order: %r" % ids)
+    seen_catch_all = False
     for r in spine["redirects"]:
         if not r["source"].startswith("/") or not r["destination"].startswith("/"):
             errs.append("redirect must be root-relative: %r" % r)
+        if "(.*)" in r["source"]:
+            seen_catch_all = True
+        elif seen_catch_all:
+            errs.append("literal redirect %r comes after a catch-all" % r["source"])
     return errs
 
 if __name__ == "__main__":

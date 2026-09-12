@@ -120,8 +120,8 @@
     {"source": "/curriculum/level-3.html", "destination": "/curriculum/3-expert/"},
     {"source": "/curriculum/level-4.html", "destination": "/curriculum/3-expert/"},
     {"source": "/curriculum/level-5.html", "destination": "/curriculum/4-frontier-operator/"},
-    {"source": "/curriculum/read/(.*)", "destination": "/curriculum/read/$1"},
     {"source": "/assets/Groundwork-Program-Guide.pdf", "destination": "/assets/The-AI-Playbook-Field-Guide.pdf"},
+    {"source": "/curriculum/read/(.*)", "destination": "/curriculum/read/$1"},
     {"source": "/assets/(.*)", "destination": "/assets/$1"},
     {"source": "/(.*)", "destination": "/$1"}
   ]
