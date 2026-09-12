@@ -83,7 +83,8 @@ def track(sp):
     for st in sp["stages"]:
         x = 120 + (st["number"] - 1) * 170
         b.append(S_("M%d 45V165" % x, "lt", i, 1)); i += 1
-        for y in (60, 100): b.append(C(x, y, 4, i, "")); i += 1
+        # Same inks as fig-14: the personal lane is accent, the business lane olive.
+        for y, cls in ((60, "acc"), (100, "oli")): b.append(C(x, y, 4, i, cls)); i += 1
         b.append(S_("M%d 150v-8h-6v8M%d 150v-14h-6v14" % (x, x + 10), "mus", i, 1)); i += 1
         b.append(T(x, 35, "%d %s" % (st["number"], st["name"].upper()), i, "middle", "", 8)); i += 1
         b.append(T(x, 178, "%d.1  %d.2  ...  DEEPER" % (st["number"], st["number"]), i, "middle", "lt", 7)); i += 1
