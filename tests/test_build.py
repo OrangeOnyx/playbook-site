@@ -18,3 +18,12 @@ def test_render_smoke(tmp_path):
     assert 'class="vw journeystrip ladder' in s and 'data-theme' in s
     assert (tmp_path / "assets" / "guide.css").exists() and (tmp_path / "vercel.json").exists()
     assert (tmp_path / ".vercel" / "project.json").exists()
+
+def test_cover(tmp_path):
+    B.render(tmp_path)
+    s = io.open(tmp_path / "index.html", encoding="utf-8").read()
+    assert "<h1>Four stages.<br>One operating system.</h1>" in s
+    for anchor in ('id="why"', 'id="contents"', 'id="compounding"', 'id="why-now"', 'id="lanes"'):
+        assert anchor in s, anchor
+    assert s.count('class="lane-pick"') == 2
+    assert "Ten interviews" not in s.split("<h1>")[0]
