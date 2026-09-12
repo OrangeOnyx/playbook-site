@@ -14,6 +14,11 @@ def test_numbering_gate_catches_headlines_only():
     ok = '<h2>2.3 Capture and commit</h2><p class="prov">Source: Interview 4 and Interview 5.</p>'
     assert not [e for e in G.check_text(ok, "z.html") if "numbering" in e]
 
+def test_numbering_gate_catches_contents_list_links():
+    bad = '<ol class="contents"><li><a href="/x/">Level 2 Glossary</a></li></ol>'
+    f = G.check_text(bad, "y.html")
+    assert any("numbering" in e for e in f)
+
 def test_lineage_and_reader_are_allowlisted():
     s = "<h2>Order 1</h2>"
     assert not G.check_text(s, "lineage/index.html")
