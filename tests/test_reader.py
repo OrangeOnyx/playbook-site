@@ -24,8 +24,13 @@ def test_reader_output_carries_no_level_numbering(tmp_path):
     for f in tmp_path.glob("*.html"):
         s = io.open(f, encoding="utf-8").read()
         for m in re.finditer(r"\bLevel [1-5]\b|\blevel-[1-5]-", s):
-            line = s[max(0, m.start() - 60): m.end() + 20]
-            if "Formerly" not in line:
+            start = s.rfind("\n", 0, m.start()) + 1
+            end = s.find("\n", m.end())
+            if end == -1:
+                end = len(s)
+            line = s[start:end]
+            stripped = re.sub(r"<[^>]+>", "", line).strip()
+            if not stripped.startswith("Formerly"):
                 bad.append((f.name, line))
     assert not bad, bad[:5]
 
