@@ -158,7 +158,7 @@ def group_device(key, size=44):
 
 def parallel_tracks(w=960, h=300):
     """The Playbook (what you build) and the Curriculum (what you learn) as two rising
-    lines with the same four stations. Replaces the retired doctrine-vs-levels map."""
+    lines with the same four stations. Replaces the retired two-axis map."""
     td, ink, isoft, ol = T["terra_deep"], T["ink"], T["ink_soft"], T["olive_deep"]
     xs = [120, 360, 600, 840]
     o = [f'<svg viewBox="0 0 {w} {h}" xmlns="http://www.w3.org/2000/svg" role="img" '
