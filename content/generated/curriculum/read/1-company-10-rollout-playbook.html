@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10 — Rollout Playbook | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="1 Starter · Company Track: 10 — Rollout Playbook. Compiled verbatim from The AI Playbook Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/1-company-10-rollout-playbook.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/" aria-current="page">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 10 — Rollout Playbook</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · COMPANY TRACK</span><h1 style="margin:.1rem 0 0">10 — Rollout Playbook</h1></div></div>
+<p class="rnote">This page compiles 4 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/1-starter/company/10-rollout-playbook">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/10-rollout-playbook/README.md</span></p>
+<h1>10 — Rollout Playbook</h1>
+<p>How to go from Day 0 to a company-wide AI program in 90 days, then continue.</p>
+<h2>Files</h2>
+<ul>
+<li><code>30-60-90-plan.md</code> — the day-by-day rollout plan</li>
+<li><code>pilot-selection-criteria.md</code> — how to pick first workflows and departments</li>
+<li><code>expansion-decision-framework.md</code> — when and how to expand from pilot → dept → company</li>
+</ul>
+<h2>The three phases</h2>
+<ul>
+<li><strong>Days 1-30 — Foundation:</strong> governance, accounts, prompts, training basics</li>
+<li><strong>Days 31-60 — First workflows:</strong> pilot with 2 departments, launch first agents</li>
+<li><strong>Days 61-90 — Expand and measure:</strong> roll to more departments, measure ROI</li>
+</ul>
+<h2>Success criteria at Day 90</h2>
+<ul>
+<li>60%+ of company using AI weekly</li>
+<li>10+ production workflows</li>
+<li>Cost within budget</li>
+<li>3+ measurable ROI examples</li>
+<li>Employee NPS ≥ 40</li>
+</ul>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/10-rollout-playbook/30-60-90-plan.md</span></p>
+<h1>30-60-90 Rollout Plan</h1>
+<p>The company's rollout playbook. Assumes you're starting from ~0 AI maturity.</p>
+<h2>Day 0 — Prerequisites</h2>
+<p>Before Day 1:
+- Executive sponsor identified and committed
+- Steering Committee members named (5-7 people)
+- Initial budget approved (see <code>budget-and-billing-model.md</code>)
+- Legal + Security + IT engaged
+- Communications plan drafted</p>
+<h2>Days 1–30 — Foundation</h2>
+<h3>Governance</h3>
+<ul>
+<li>[ ] AUP drafted and reviewed (<code>company/01-governance/acceptable-use-policy.md</code>)</li>
+<li>[ ] Data classification matrix approved (<code>company/01-governance/data-classification-matrix.md</code>)</li>
+<li>[ ] Vendor DPA checklist ready</li>
+<li>[ ] Incident response addendum in place</li>
+<li>[ ] Steering Committee charter signed</li>
+</ul>
+<h3>Accounts &amp; procurement</h3>
+<ul>
+<li>[ ] ChatGPT Enterprise procured (or equivalent enterprise chat)</li>
+<li>[ ] Claude Team / Enterprise procured</li>
+<li>[ ] Perplexity Enterprise procured</li>
+<li>[ ] Copilot / Cursor site license procured</li>
+<li>[ ] LLM gateway selected (Portkey / LiteLLM / OpenRouter)</li>
+<li>[ ] Vector DB selected (pgvector for start, or Pinecone if scale is high)</li>
+<li>[ ] SSO integration confirmed for each</li>
+</ul>
+<h3>Prompts &amp; personas</h3>
+<ul>
+<li>[ ] Company-wide system prompt drafted (<code>company/03-system-prompts/company-system-prompt.md</code>)</li>
+<li>[ ] Legal disclaimer library published</li>
+<li>[ ] 15 company-wide prompts loaded to enterprise workspaces</li>
+<li>[ ] Individual master system prompt template distributed</li>
+</ul>
+<h3>Training</h3>
+<ul>
+<li>[ ] Onboarding curriculum ready</li>
+<li>[ ] AI Champions named (one per department)</li>
+<li>[ ] Champions trained on the kit</li>
+<li>[ ] Employee kickoff communication sent</li>
+</ul>
+<h3>Success criteria at Day 30</h3>
+<ul>
+<li>100% of employees have accounts and have completed Module 1</li>
+<li>100% of managers know the AUP</li>
+<li>Steering Committee met at least twice</li>
+<li>Zero data classification incidents</li>
+</ul>
+<h2>Days 31–60 — First workflows</h2>
+<h3>Deploy first workflows</h3>
+<ul>
+<li>[ ] Individual prompt library rolled out to all employees</li>
+<li>[ ] Department copilot launched for 2 pilot departments (usually Sales + Support)</li>
+<li>[ ] Meeting-notes-to-CRM agent piloted for sales team</li>
+<li>[ ] Inbox triage agent piloted with 10 volunteers</li>
+</ul>
+<h3>Evaluation</h3>
+<ul>
+<li>[ ] Eval sets built for the first two department copilots (25 cases minimum each)</li>
+<li>[ ] Baseline scores captured</li>
+<li>[ ] Weekly regression running</li>
+</ul>
+<h3>Observability</h3>
+<ul>
+<li>[ ] All LLM calls flowing through gateway</li>
+<li>[ ] Logging + redaction verified</li>
+<li>[ ] Cost dashboards live</li>
+<li>[ ] Adoption dashboards live</li>
+</ul>
+<h3>Communication</h3>
+<ul>
+<li>[ ] "AI at [Company]" internal newsletter launched (biweekly)</li>
+<li>[ ] First "what shipped" showcase completed</li>
+<li>[ ] Employee feedback survey run</li>
+</ul>
+<h3>Success criteria at Day 60</h3>
+<ul>
+<li>≥ 50% of pilot department employees actively using their copilot weekly</li>
+<li>3 real production workflows live</li>
+<li>Cost tracking working; monthly spend within 80-120% of forecast</li>
+<li>Zero critical incidents</li>
+</ul>
+<h2>Days 61–90 — Expand and measure</h2>
+<h3>Expand</h3>
+<ul>
+<li>[ ] Department copilots launched for 3 more departments</li>
+<li>[ ] Weekly report generator rolled out company-wide (opt-in)</li>
+<li>[ ] Second wave of 5 department-specific workflows shipped</li>
+</ul>
+<h3>Measure</h3>
+<ul>
+<li>[ ] ROI measurement framework applied to first workflows</li>
+<li>[ ] Adoption goals set per department</li>
+<li>[ ] Cost per resolved-item baselined</li>
+<li>[ ] Executive dashboard reviewed</li>
+</ul>
+<h3>Iterate</h3>
+<ul>
+<li>[ ] First model bake-off completed</li>
+<li>[ ] Prompt library reviewed and pruned</li>
+<li>[ ] Retired workflows documented</li>
+<li>[ ] Rules and policies updated per learning</li>
+</ul>
+<h3>Success criteria at Day 90</h3>
+<ul>
+<li>≥ 60% of company using AI weekly</li>
+<li>10+ production workflows live</li>
+<li>Cost within budget</li>
+<li>One completed model bake-off with a decision</li>
+<li>Executive team can point to 3 measurable ROI examples</li>
+<li>Employee NPS on AI program ≥ 40</li>
+</ul>
+<h2>Days 91+ — Steady state</h2>
+<p>Enter continuous mode:
+- Monthly steering committee
+- Quarterly refresh + bake-offs
+- Biannual department deep-dives
+- Annual audit + strategy refresh
+- Continuous eval regression
+- Continuous adoption expansion</p>
+<h2>Rollout risks and mitigations</h2>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Slow adoption</td>
+<td>AI Champions, showcases, incentives, manager expectations</td>
+</tr>
+<tr>
+<td>Data leak incident</td>
+<td>AUP, tool tiering, redaction, training, monitoring</td>
+</tr>
+<tr>
+<td>Runaway cost</td>
+<td>Gateway with per-team budgets, spend alerts, cache strategy</td>
+</tr>
+<tr>
+<td>Poor quality</td>
+<td>Eval framework, HITL, staged rollout</td>
+</tr>
+<tr>
+<td>Shadow IT</td>
+<td>Clear approved list, easy access, active enforcement</td>
+</tr>
+<tr>
+<td>Employee anxiety</td>
+<td>Transparent communication, upskilling, no-layoffs-from-AI commitment where credible</td>
+</tr>
+</tbody>
+</table>
+<h2>Executive checkpoints</h2>
+<ul>
+<li>Day 30: Governance + accounts confirmed</li>
+<li>Day 60: First workflows shipping</li>
+<li>Day 90: ROI evidence + roll-forward plan</li>
+<li>Quarterly thereafter: dashboard review</li>
+</ul>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/10-rollout-playbook/expansion-decision-framework.md</span></p>
+<h1>Expansion Decision Framework</h1>
+<p>When and how to expand from pilot to broader rollout.</p>
+<h2>The decision moments</h2>
+<p>Three natural checkpoints:</p>
+<ol>
+<li><strong>Pilot → Department:</strong> After 30 days, expand to the full pilot department?</li>
+<li><strong>Department → Adjacent Departments:</strong> After 60 days, roll to more departments?</li>
+<li><strong>Adjacent → Company-wide:</strong> After 90 days, roll to everyone?</li>
+</ol>
+<p>Do not skip stages. Each stage teaches you something you can't learn from the previous.</p>
+<h2>Gate criteria — Pilot → Department</h2>
+<p>Must have all:</p>
+<ul>
+<li>[ ] Quality: aggregate eval score ≥ 80% of maximum</li>
+<li>[ ] Safety: zero P1 incidents in pilot period</li>
+<li>[ ] Adoption: ≥ 70% of pilot users active weekly</li>
+<li>[ ] User NPS: ≥ 40 among pilot users</li>
+<li>[ ] Cost: within budget</li>
+<li>[ ] Owner ready: department Champion recommends expansion</li>
+<li>[ ] Docs ready: SOP, prompts, training material updated</li>
+</ul>
+<p>Should have most:</p>
+<ul>
+<li>[ ] Time-saved estimate confirmed (rough ROI)</li>
+<li>[ ] At least 3 case studies from real users</li>
+<li>[ ] Retrospective completed with lessons captured</li>
+</ul>
+<h2>Gate criteria — Department → Adjacent</h2>
+<p>Same as above, plus:</p>
+<ul>
+<li>[ ] Champion identified in target department</li>
+<li>[ ] Adjacent department's data and permissions ready</li>
+<li>[ ] Playbook adjusted for new department's context</li>
+<li>[ ] Steering Committee approval</li>
+</ul>
+<h2>Gate criteria — Adjacent → Company-wide</h2>
+<p>All previous gates, plus:</p>
+<ul>
+<li>[ ] Cross-department feedback synthesized</li>
+<li>[ ] Training scaled (recording available, self-serve)</li>
+<li>[ ] Support model defined (help channel, escalations, office hours)</li>
+<li>[ ] Enterprise licensing at scale</li>
+<li>[ ] Formal exec sponsor for full rollout</li>
+<li>[ ] Comms plan for company-wide announcement</li>
+</ul>
+<h2>Warning signs — Do NOT expand</h2>
+<p>Any of these = pause:</p>
+<ul>
+<li>Any P1 safety incident</li>
+<li>Adoption &lt; 50% at expected marker</li>
+<li>Quality trending down</li>
+<li>Cost trending above 130% of forecast</li>
+<li>Employee sentiment negative</li>
+<li>Champion resigns or is deprioritized</li>
+<li>Change in exec sponsor commitment</li>
+</ul>
+<h2>The rollback playbook</h2>
+<p>If a workflow fails after expansion:</p>
+<ol>
+<li><strong>Contain</strong> — pause the workflow immediately if quality/safety broken</li>
+<li><strong>Diagnose</strong> — analyze eval regression, user complaints, incident logs</li>
+<li><strong>Fix</strong> — revert to last known good version, or re-do the workflow</li>
+<li><strong>Communicate</strong> — tell affected users honestly what happened</li>
+<li><strong>Post-mortem</strong> — blameless, structural fixes</li>
+<li><strong>Re-launch</strong> — after fixes, run pilot-scale again</li>
+</ol>
+<h2>Communication cadence during expansion</h2>
+<ul>
+<li><strong>Weekly:</strong> operational update to Steering Committee</li>
+<li><strong>Bi-weekly:</strong> all-hands mention of AI wins</li>
+<li><strong>Monthly:</strong> exec dashboard review</li>
+<li><strong>Quarterly:</strong> full program review with board or leadership</li>
+</ul>
+<h2>Expansion staffing</h2>
+<p>Successful expansion needs staffing. Typical model:</p>
+<ul>
+<li><strong>1 AI Champion per department</strong> (partial FTE — usually 20%)</li>
+<li><strong>1 AI Program Manager</strong> central (full FTE)</li>
+<li><strong>1 AI Platform Engineer</strong> central (full FTE, more as scale grows)</li>
+<li><strong>1 Security/Legal partner</strong> central (partial FTE)</li>
+<li><strong>1 L&amp;D partner</strong> central (partial FTE)</li>
+</ul>
+<p>Do not attempt company-wide rollout without this staffing.</p>
+<h2>Long-term ambition setting</h2>
+<p>After 90 days, the Steering Committee sets 12-month and 24-month ambition:</p>
+<ul>
+<li><strong>Coverage goal:</strong> % of workforce using AI weekly (target: 90% in year 1)</li>
+<li><strong>Depth goal:</strong> average workflows per user (target: 3 in year 1)</li>
+<li><strong>Cost goal:</strong> cost per user per month (target: within enterprise SaaS band)</li>
+<li><strong>Value goal:</strong> measured productivity or revenue impact (target: 10-20% team-relative)</li>
+</ul>
+<h2>Sunset criteria</h2>
+<p>Retire workflows that:
+- Fall below quality threshold and can't be fixed
+- Have adoption &lt; 20% after 6 months
+- Are superseded by better tools
+- Violate updated policies
+- No longer have an owner</p>
+<p>Sunset formally: announce retirement, provide alternatives, archive assets, remove from launchers.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/10-rollout-playbook/pilot-selection-criteria.md</span></p>
+<h1>Pilot Selection Criteria</h1>
+<p>How to pick which workflows and departments go first.</p>
+<h2>The scoring model</h2>
+<p>Score each candidate on 1-5:</p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>1</th>
+<th>3</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Time saved / week</strong></td>
+<td>&lt; 30 min</td>
+<td>2-4 hours</td>
+<td>&gt; 8 hours</td>
+</tr>
+<tr>
+<td><strong>Volume</strong></td>
+<td>Rare</td>
+<td>Weekly</td>
+<td>Daily</td>
+</tr>
+<tr>
+<td><strong>Repeatability</strong></td>
+<td>Unique</td>
+<td>Similar-ish</td>
+<td>Nearly identical</td>
+</tr>
+<tr>
+<td><strong>Sponsor enthusiasm</strong></td>
+<td>Neutral</td>
+<td>Interested</td>
+<td>Champion-level</td>
+</tr>
+<tr>
+<td><strong>Data availability</strong></td>
+<td>Fragmented</td>
+<td>Some accessible</td>
+<td>Fully in one system</td>
+</tr>
+<tr>
+<td><strong>Risk of harm</strong></td>
+<td>High blast radius</td>
+<td>Bounded</td>
+<td>Read-only</td>
+</tr>
+<tr>
+<td><strong>Measurable ROI</strong></td>
+<td>Vague</td>
+<td>Estimable</td>
+<td>Directly measurable</td>
+</tr>
+<tr>
+<td><strong>Time to value</strong></td>
+<td>&gt; 90 days</td>
+<td>30-90 days</td>
+<td>&lt; 30 days</td>
+</tr>
+</tbody>
+</table>
+<p>Total 40. Pick candidates scoring ≥ 30.</p>
+<h2>The archetypes of good first pilots</h2>
+<h3>Archetype 1 — High-volume drafting</h3>
+<ul>
+<li>Sales follow-ups, support responses, marketing content</li>
+<li>Well-defined output format</li>
+<li>Human always reviews before send</li>
+<li>Easy to measure time-per-task</li>
+</ul>
+<h3>Archetype 2 — Research and synthesis</h3>
+<ul>
+<li>Weekly reports, competitive research, meeting briefs</li>
+<li>Reads a lot, writes a summary</li>
+<li>Low-risk (informational)</li>
+<li>Individual productivity gain</li>
+</ul>
+<h3>Archetype 3 — Data extraction</h3>
+<ul>
+<li>Contracts, receipts, resumes, forms</li>
+<li>Structured output</li>
+<li>Ground-truth easy to check</li>
+<li>Bounded blast radius</li>
+</ul>
+<h3>Archetype 4 — Q&amp;A over docs (RAG)</h3>
+<ul>
+<li>Employee handbook Q&amp;A, policy Q&amp;A, product-doc Q&amp;A</li>
+<li>Frequency: many small asks per day</li>
+<li>Reduces load on subject-matter experts</li>
+<li>Confidence-scored answers</li>
+</ul>
+<h2>Archetypes to AVOID first</h2>
+<ul>
+<li><strong>Autonomous external communication</strong> — sending emails, posting to social</li>
+<li><strong>High-stakes irreversible decisions</strong> — approvals, denials, pricing</li>
+<li><strong>Regulated workflows without human review</strong> — HIPAA, GLBA, GDPR-restricted</li>
+<li><strong>Anything requiring long-horizon planning</strong> — plans over 5-10 steps are still fragile</li>
+<li><strong>Novel domains without eval data</strong> — no way to know if it works</li>
+</ul>
+<h2>Department readiness scoring</h2>
+<p>Before picking a department for pilot:</p>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Has an internal champion</td>
+<td>+5</td>
+</tr>
+<tr>
+<td>Manager committed to sponsor</td>
+<td>+5</td>
+</tr>
+<tr>
+<td>Backlog of well-defined workflows</td>
+<td>+5</td>
+</tr>
+<tr>
+<td>Comfortable with iteration</td>
+<td>+5</td>
+</tr>
+<tr>
+<td>History of adopting new tools</td>
+<td>+3</td>
+</tr>
+<tr>
+<td>Data lives in modern systems</td>
+<td>+3</td>
+</tr>
+<tr>
+<td>Team is not in a crunch</td>
+<td>+2</td>
+</tr>
+<tr>
+<td>High turnover / instability</td>
+<td>-5</td>
+</tr>
+<tr>
+<td>Prior AI experiment failed</td>
+<td>-3</td>
+</tr>
+<tr>
+<td>Regulatory constraints unusual</td>
+<td>-3</td>
+</tr>
+</tbody>
+</table>
+<p>Departments scoring ≥ 20 are ready. Below 15, wait or invest in readiness first.</p>
+<h2>The recommended first-pilot mix</h2>
+<p>Two departments, chosen to demonstrate range:</p>
+<ul>
+<li><strong>One customer-facing</strong> (Sales or Support) — validates external-quality workflow</li>
+<li><strong>One internal-facing</strong> (Ops, Finance, or HR) — validates safer internal workflow</li>
+</ul>
+<p>Total 4-6 workflows across those two departments in the first pilot.</p>
+<h2>Success bar for the pilot</h2>
+<p>At the end of 60 days:
+- ≥ 60% of pilot department using ≥ 1 workflow weekly
+- Quality metrics ≥ baseline
+- No critical incidents
+- Champion recommends expansion
+- Sponsor recommends expansion
+- Steering Committee approves expansion</p>
+<p>If any of these fail, do not expand. Iterate first.</p>
+</article>
+
+  <div class="pnav">
+    <a href="1-company-09-training.html">← 09 — Training</a>
+    <a href="1-shared.html">1 Starter shared materials →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

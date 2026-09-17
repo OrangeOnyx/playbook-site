@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>06 — RAG Knowledge Base | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="1 Starter · Company Track: 06 — RAG Knowledge Base. Compiled verbatim from The AI Playbook Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/1-company-06-rag-knowledge-base.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/" aria-current="page">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 06 — RAG Knowledge Base</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · COMPANY TRACK</span><h1 style="margin:.1rem 0 0">06 — RAG Knowledge Base</h1></div></div>
+<p class="rnote">This page compiles 4 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/1-starter/company/06-rag-knowledge-base">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/06-rag-knowledge-base/README.md</span></p>
+<h1>06 — RAG Knowledge Base</h1>
+<p>The retrieval layer. Where department copilots get their grounded facts.</p>
+<h2>Files</h2>
+<ul>
+<li><code>knowledge-base-structure.md</code> — folder taxonomy, document standards, refresh rules</li>
+<li><code>chunking-strategy.md</code> — how to split documents before embedding</li>
+<li><code>permissions-model.md</code> — how to enforce source-system ACLs through retrieval</li>
+</ul>
+<h2>Non-negotiables</h2>
+<ol>
+<li>One canonical source per topic</li>
+<li>Every doc has an owner and review date</li>
+<li>Permissions match source system</li>
+<li>Every chunk has classification metadata</li>
+<li>Adversarial retrieval tests before ship</li>
+</ol>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/06-rag-knowledge-base/chunking-strategy.md</span></p>
+<h1>Chunking Strategy</h1>
+<p>How to split documents before embedding. Get this wrong and RAG is useless.</p>
+<h2>The default recipe</h2>
+<ul>
+<li><strong>Chunk size:</strong> 500 tokens (target)</li>
+<li><strong>Chunk overlap:</strong> 100 tokens (20%)</li>
+<li><strong>Split on:</strong> heading boundaries first, then paragraphs, then sentences</li>
+<li><strong>Preserve:</strong> section titles as prefixes in each chunk</li>
+<li><strong>Minimum chunk:</strong> 100 tokens (smaller merges into neighbor)</li>
+<li><strong>Maximum chunk:</strong> 1000 tokens (larger splits at sentence boundary)</li>
+</ul>
+<h2>Variant strategies</h2>
+<h3>Semantic chunking</h3>
+<p>Group sentences by embedding similarity, split when similarity drops below threshold. Slower to compute but better retrieval quality on prose-heavy corpora.</p>
+<h3>Sliding window</h3>
+<p>Fixed-size windows with heavy overlap (50%). Good for narrow question-answer patterns. Wasteful on storage.</p>
+<h3>Recursive splitting</h3>
+<p>Try to split on <code>\n\n</code>, then <code>\n</code>, then <code>.</code>, then space. Falls back gracefully.</p>
+<h3>Document-type-aware</h3>
+<ul>
+<li>Code files: split on function/class boundaries</li>
+<li>Markdown: split on H2/H3 boundaries</li>
+<li>PDFs: extract by page, then apply text splitting</li>
+<li>Slides: one slide = one chunk (or a group of related slides)</li>
+<li>Spreadsheets: rows or logical groups; consider text-serialization</li>
+</ul>
+<h2>Chunk metadata</h2>
+<p>Every chunk carries:</p>
+<pre><code class="language-json">{
+  &quot;chunk_id&quot;: &quot;sales-playbook-v3::obj-pricing::0&quot;,
+  &quot;doc_id&quot;: &quot;sales-playbook-v3&quot;,
+  &quot;section_path&quot;: [&quot;Objections&quot;, &quot;Pricing&quot;],
+  &quot;chunk_index&quot;: 0,
+  &quot;chunk_count&quot;: 5,
+  &quot;prev_chunk_id&quot;: null,
+  &quot;next_chunk_id&quot;: &quot;sales-playbook-v3::obj-pricing::1&quot;,
+  ... [all doc-level metadata inherited] ...
+}
+</code></pre>
+<h2>Pre-embedding cleaning</h2>
+<p>Before embedding, strip / normalize:
+- Boilerplate headers/footers
+- Watermarks
+- Extra whitespace
+- Repeated navigational text
+- Table of contents entries (dedupe against body)
+- Signatures and email routing</p>
+<h2>Contextual retrieval</h2>
+<p>Anthropic-recommended pattern: prepend each chunk with a short LLM-generated context summary (50–100 tokens) that says "This chunk is from [doc] discussing [topic]. Prior context is: [summary]." Improves retrieval by 30-50% but adds cost.</p>
+<h2>Multi-representation</h2>
+<p>Store multiple representations of each chunk:
+- Raw text (as-is)
+- Cleaned text (whitespace normalized)
+- Summary (LLM-generated 1-line summary — searched with a different embedding)
+- Entities extracted (for filter-based retrieval)</p>
+<p>Retrieve using summary embeddings, return raw text.</p>
+<h2>Verification</h2>
+<p>For any RAG deployment, verify chunking with:</p>
+<ol>
+<li><strong>Random inspection</strong> — sample 20 chunks. Are they self-contained? Do they include enough context?</li>
+<li><strong>Reconstruction test</strong> — retrieve the top 5 chunks for a real question. Does the LLM produce a correct answer?</li>
+<li><strong>Ground-truth eval</strong> — for known answers, does the retrieval find the right chunk in top-5?</li>
+</ol>
+<p>If retrieval@5 is below 80%, chunking or embedding needs work.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/06-rag-knowledge-base/knowledge-base-structure.md</span></p>
+<h1>Knowledge Base Structure</h1>
+<p>The KB is the foundation of every department copilot. Structure it right and RAG works. Structure it wrong and it hallucinates.</p>
+<h2>Organizing principle</h2>
+<p><strong>One canonical source per topic.</strong> Every piece of information should live in exactly one authoritative document. Copies decay.</p>
+<h2>Folder structure</h2>
+<pre><code>knowledge-base/
+├── 01-company-fundamentals/
+│   ├── mission-values.md
+│   ├── org-chart.md
+│   ├── glossary.md
+│   ├── brand-voice-guide.md
+│   └── policies/
+│       ├── acceptable-use-policy.md
+│       ├── data-classification-matrix.md
+│       ├── code-of-conduct.md
+│       └── ...
+├── 02-product/
+│   ├── product-overview.md
+│   ├── feature-catalog.md
+│   ├── roadmap-published.md
+│   ├── api-reference/
+│   └── release-notes/
+├── 03-customers/
+│   ├── icp-profiles.md
+│   ├── personas.md
+│   ├── approved-case-studies/
+│   └── customer-list-approved-for-reference.md
+├── 04-competition/
+│   ├── landscape-map.md
+│   └── battle-cards/
+├── 05-sales/
+│   ├── playbook.md
+│   ├── pricing-sheet.md
+│   ├── objection-handling.md
+│   ├── email-templates/
+│   └── ...
+├── 06-marketing/
+│   ├── style-guide.md
+│   ├── messaging-house.md
+│   ├── content-calendar.md
+│   └── ...
+├── 07-engineering/
+│   ├── architecture-overview.md
+│   ├── coding-standards.md
+│   ├── runbooks/
+│   ├── postmortems/
+│   └── ...
+├── 08-support/
+│   ├── kb-articles/
+│   ├── escalation-matrix.md
+│   └── ...
+├── 09-legal-compliance/
+│   ├── standard-nda.md
+│   ├── msa-template.md
+│   ├── privacy-policy.md
+│   └── ...
+├── 10-hr/
+│   ├── handbook.md
+│   ├── benefits.md
+│   └── ...
+├── 11-finance/
+│   ├── chart-of-accounts.md
+│   ├── budget-model.xlsx
+│   └── ...
+└── 99-archived/
+    └── [retired docs with dates]
+</code></pre>
+<h2>Document standards</h2>
+<p>Every document has:</p>
+<pre><code class="language-markdown">---
+title: [Title]
+owner: [Name / Role]
+last_reviewed: YYYY-MM-DD
+next_review: YYYY-MM-DD
+classification: [Public / Internal / Confidential / Restricted]
+tags: [array]
+version: X.Y
+---
+
+# Title
+
+[Content]
+</code></pre>
+<h2>Chunking-friendly writing</h2>
+<p>Write documents so they chunk well for RAG:</p>
+<ul>
+<li><strong>H2 sections</strong> break at natural knowledge units</li>
+<li><strong>One idea per section</strong> — don't cover multiple topics in one section</li>
+<li><strong>Self-contained sections</strong> — a section should stand alone when retrieved out of context</li>
+<li><strong>Explicit terminology</strong> — spell out acronyms first use per section</li>
+<li><strong>Concrete examples</strong> included where relevant</li>
+<li><strong>No inline "see above" or "as mentioned"</strong> — those break when the chunk is retrieved standalone</li>
+</ul>
+<h2>Metadata for filtering</h2>
+<p>Every chunk carries metadata for filtered retrieval:</p>
+<pre><code class="language-json">{
+  &quot;doc_id&quot;: &quot;sales-playbook-v3&quot;,
+  &quot;section&quot;: &quot;objection-handling-pricing&quot;,
+  &quot;classification&quot;: &quot;internal&quot;,
+  &quot;department&quot;: &quot;sales&quot;,
+  &quot;last_reviewed&quot;: &quot;2026-08-01&quot;,
+  &quot;tags&quot;: [&quot;objection&quot;, &quot;pricing&quot;],
+  &quot;permissions_group&quot;: &quot;all-employees&quot;
+}
+</code></pre>
+<p>Retrieval filters:
+- Copilot only retrieves chunks the user is authorized to see (permissions_group)
+- Only current (not archived) unless user asks for history
+- Only classification appropriate to the current session tool</p>
+<h2>What NOT to put in the KB</h2>
+<ul>
+<li>Personal drafts</li>
+<li>Ephemeral status updates</li>
+<li>Duplicates (any information more than once is wrong)</li>
+<li>Anything &gt; 18 months old without explicit re-review</li>
+<li>Unstructured chat logs</li>
+<li>Deprecated processes without archived tag</li>
+<li>Individual PII of employees or customers beyond what's business-critical</li>
+<li>Content that could go stale within a week</li>
+</ul>
+<h2>Refresh rules</h2>
+<ul>
+<li>Every doc has <code>next_review</code> — after that date, either re-approve or archive</li>
+<li>Doc owner gets a monthly digest of docs coming due</li>
+<li>Any change to a policy triggers a KB update within 5 business days</li>
+<li>Retired docs move to <code>99-archived/</code> with a redirect stub in the original location if links exist</li>
+</ul>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/06-rag-knowledge-base/permissions-model.md</span></p>
+<h1>RAG Permissions Model</h1>
+<p>RAG that ignores permissions leaks confidential data. This is the top RAG security issue.</p>
+<h2>Principle</h2>
+<p><strong>The RAG system enforces the same permissions as the source documents.</strong></p>
+<p>If a user can't see the source doc in Google Drive / Confluence / SharePoint, they can't see it via RAG either.</p>
+<h2>Implementation patterns</h2>
+<h3>Pattern 1 — Permissioned namespaces (best for scale)</h3>
+<ul>
+<li>Each user or role has a namespace of chunks they're authorized for</li>
+<li>Query only searches the user's namespaces</li>
+<li>Requires syncing permissions from source system to vector DB at ingest time</li>
+<li>Requires re-sync when permissions change (nightly or event-driven)</li>
+</ul>
+<h3>Pattern 2 — Post-retrieval filtering</h3>
+<ul>
+<li>All chunks are indexed together</li>
+<li>After retrieval, filter out chunks the user isn't authorized for</li>
+<li>Simpler but leaks information via retrieval score signals if not careful</li>
+<li>Not recommended for high-sensitivity environments</li>
+</ul>
+<h3>Pattern 3 — Query-time authorization</h3>
+<ul>
+<li>Attach user identity to every query</li>
+<li>Vector DB filters by ACL metadata during retrieval</li>
+<li>Requires ACL as metadata on every chunk</li>
+<li>Supported by Pinecone, Weaviate, Qdrant natively</li>
+</ul>
+<h2>ACL metadata</h2>
+<p>Every chunk carries:</p>
+<pre><code class="language-json">{
+  &quot;permissions&quot;: {
+    &quot;read_roles&quot;: [&quot;all-employees&quot;, &quot;sales-team&quot;],
+    &quot;read_users&quot;: [&quot;alice@co.com&quot;],
+    &quot;confidential&quot;: true,
+    &quot;source_system_acl_ref&quot;: &quot;gdrive-file-123&quot;
+  }
+}
+</code></pre>
+<p>Rules:
+- Union of role membership and explicit user grants
+- Never OR-across roles for confidential — require the specific role
+- Denial by default</p>
+<h2>Source-system sync</h2>
+<p>For each connected source (Drive, Notion, SharePoint, Confluence, GitHub):</p>
+<ul>
+<li>Sync file metadata daily (permissions, last_modified, ACLs)</li>
+<li>Re-embed on content change</li>
+<li>Remove from index on delete</li>
+<li>Update ACLs on permissions change (within 1 hour target)</li>
+</ul>
+<h2>User identity</h2>
+<p>Every query includes:
+- Authenticated user identity (via SSO)
+- Their role(s) at query time (fresh, not cached)
+- Any context restrictions (e.g., "this session is for external customer response — restrict to public and internal only")</p>
+<h2>Auditing</h2>
+<p>Log for every retrieval:
+- Timestamp
+- User identity
+- Query (redacted for PII)
+- Chunks retrieved
+- Chunks filtered (permissions denied)
+- Response generated (redacted)</p>
+<p>Retain per policy (typically 90 days minimum for security review).</p>
+<h2>Testing</h2>
+<p>Every RAG deployment has these red-team tests:</p>
+<ol>
+<li><strong>Direct ask:</strong> User A queries for content in a doc User A can't see. Must return "not found" or refusal, not the content.</li>
+<li><strong>Indirect ask:</strong> User A queries for the topic of a restricted doc. Must not surface the restricted doc's information.</li>
+<li><strong>Permission change:</strong> After removing User A from a group, they can't retrieve previously-authorized content.</li>
+<li><strong>Injection:</strong> Adversarial input in a document tries to override permission checks.</li>
+</ol>
+<p>Run these tests before every RAG deployment, and quarterly thereafter.</p>
+</article>
+
+  <div class="pnav">
+    <a href="1-company-05-department-copilots.html">← 05 — Department Copilots</a>
+    <a href="1-company-07-agents-mcp.html">07 — Agents & MCP →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

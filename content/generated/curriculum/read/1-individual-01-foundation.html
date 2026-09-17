@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>01 — Foundation | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="1 Starter · Individual Track: 01 — Foundation. Compiled verbatim from The AI Playbook Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/1-individual-01-foundation.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/" aria-current="page">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 01 — Foundation</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">01 — Foundation</h1></div></div>
+<p class="rnote">This page compiles 4 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/1-starter/individual/01-foundation">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/01-foundation/README.md</span></p>
+<h1>01 — Foundation</h1>
+<p>Before you touch a single model, gather these inputs. This is the difference between a stack that feels like yours and a stack that feels like everyone's default ChatGPT.</p>
+<h2>The rule</h2>
+<p>You are configuring an assistant. An assistant needs to know:
+1. <strong>Who you are</strong> — role, background, expertise, tone
+2. <strong>What you're working on</strong> — projects, goals, deadlines
+3. <strong>How you like to work</strong> — formatting, length, when to push back
+4. <strong>What you never want to touch</strong> — the privacy line</p>
+<h2>Files to produce in this folder</h2>
+<ol>
+<li><code>foundation-inputs-checklist.md</code> — checklist of raw materials to collect</li>
+<li><code>privacy-line-worksheet.md</code> — decide what never gets pasted into a consumer model</li>
+<li><code>about-me-draft.md</code> — the raw material for your system prompt (you'll refine in step 03)</li>
+</ol>
+<h2>Time budget</h2>
+<ul>
+<li>Gathering inputs: 60–90 minutes</li>
+<li>Privacy line: 15 minutes</li>
+<li>About-me draft: 30 minutes</li>
+</ul>
+<h2>Definition of done</h2>
+<ul>
+<li>All files in this folder filled in</li>
+<li>A folder somewhere on your machine called <code>ai-inputs/</code> containing the raw materials (resume, writing samples, past prompts, etc.)</li>
+<li>You can answer these three questions in one sentence each:</li>
+<li>What do I do?</li>
+<li>What am I trying to accomplish this quarter?</li>
+<li>What am I sensitive about pasting into a model?</li>
+</ul>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/01-foundation/about-me-draft.md</span></p>
+<h1>About-Me Draft</h1>
+<p>This is raw material. You'll polish it into a system prompt in step 03.</p>
+<p>Fill in each block honestly. Skip nothing.</p>
+<h2>Identity</h2>
+<p>Name:
+Preferred name:
+Location / timezone:
+Languages:</p>
+<h2>Role</h2>
+<p>Current role:
+Company / entities:
+What I actually do day-to-day (3 bullets):</p>
+<h2>Expertise (top 10)</h2>
+<p>1.
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+10.</p>
+<h2>Areas I'm learning (top 5)</h2>
+<p>1.
+2.
+3.
+4.
+5.</p>
+<h2>People I work with regularly</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Role</th>
+<th>One-line context</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Active projects</h2>
+<table>
+<thead>
+<tr>
+<th>Project</th>
+<th>One-line description</th>
+<th>Status</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Goals</h2>
+<p>1-year:
+90-day:
+This quarter's #1:</p>
+<h2>Voice</h2>
+<p>Words I use:
+Words I never use:
+Sentence length I prefer:
+Formatting default (bullets / prose / mixed):
+Headers: yes / no / minimal:
+Tables: yes / no / when useful:
+Emojis: yes / no / never:</p>
+<h2>Meta-preferences</h2>
+<ul>
+<li>When you disagree with me, I want you to:</li>
+<li>When I'm being lazy or vague, I want you to:</li>
+<li>When I ask for opinion, I want you to:</li>
+<li>When I ask for a decision, I want you to:</li>
+<li>Length default (short / medium / long):</li>
+<li>Confidence signaling (hedged / direct / calibrated):</li>
+</ul>
+<h2>Constraints</h2>
+<p>Never do these things:
+1.
+2.
+3.</p>
+<p>Always do these things:
+1.
+2.
+3.</p>
+<h2>Privacy</h2>
+<p>Do not process for me:
+- Passwords, API keys, tokens
+- [add your own]</p>
+<hr />
+<p>Once this is filled in, move to <code>03-system-prompts/master-system-prompt.md</code>.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/01-foundation/foundation-inputs-checklist.md</span></p>
+<h1>Foundation Inputs Checklist</h1>
+<p>Collect these into one folder on your machine (call it <code>~/ai-inputs/</code>).</p>
+<h2>Identity</h2>
+<ul>
+<li>[ ] Full name, preferred name, pronouns</li>
+<li>[ ] Location and timezone</li>
+<li>[ ] Current role and company</li>
+<li>[ ] Government ID scan (for KYC on paid tiers)</li>
+<li>[ ] Payment method for subscriptions + API billing</li>
+</ul>
+<h2>Professional background</h2>
+<ul>
+<li>[ ] Resume (<code>.docx</code> and <code>.pdf</code>)</li>
+<li>[ ] LinkedIn profile export (<code>.pdf</code> or <code>.zip</code>)</li>
+<li>[ ] Bios: 50 words, 150 words, 400 words</li>
+<li>[ ] List of expertise areas (top 10)</li>
+<li>[ ] List of things you are NOT expert in but are learning</li>
+</ul>
+<h2>Voice and style</h2>
+<ul>
+<li>[ ] 5 writing samples across tones (formal email, Slack message, blog post, technical doc, casual note)</li>
+<li>[ ] Your top 10 banned words/phrases (e.g., "leverage", "synergy", "at the end of the day")</li>
+<li>[ ] Formatting preferences: bullets vs prose, header depth, table use, code fence style</li>
+<li>[ ] Length defaults for common outputs (email reply length, memo length, summary length)</li>
+</ul>
+<h2>Work context</h2>
+<ul>
+<li>[ ] Org chart or list of key people you interact with (name, role, one-line context)</li>
+<li>[ ] Active projects (5–10), each with a one-line description and current status</li>
+<li>[ ] Quarterly goals</li>
+<li>[ ] Weekly rhythms (standups, reviews, planning cycles)</li>
+</ul>
+<h2>Prompt history</h2>
+<ul>
+<li>[ ] 10–20 real past prompts you've used, with the ideal answer you wish you'd gotten</li>
+<li>[ ] 5 prompts that produced bad output — save the bad output too (these become your eval set later)</li>
+</ul>
+<h2>Personal glossary</h2>
+<ul>
+<li>[ ] Names and one-line context for your people, teams, clients, vendors</li>
+<li>[ ] Project codenames and their real meanings</li>
+<li>[ ] Acronyms you use daily (industry-specific)</li>
+</ul>
+<h2>Privacy line</h2>
+<ul>
+<li>[ ] List of data types you'll never paste into a consumer model</li>
+<li>Suggested: SSN, medical records, client PII, unreleased IP, legal-privileged, source code with secrets, credentials</li>
+<li>[ ] List of tools cleared for each data class (fill in during step 05)</li>
+</ul>
+<h2>Goals</h2>
+<ul>
+<li>[ ] 1-year goal (one sentence)</li>
+<li>[ ] 90-day goal (one sentence)</li>
+<li>[ ] This week's top 3 priorities (updated weekly)</li>
+</ul>
+<hr />
+<h2>Where these files feed into the kit</h2>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Feeds into</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bios + expertise</td>
+<td><code>03-system-prompts/master-system-prompt.md</code></td>
+</tr>
+<tr>
+<td>Writing samples + banned words</td>
+<td><code>03-system-prompts/personal-style-guide.md</code></td>
+</tr>
+<tr>
+<td>Projects + goals + glossary</td>
+<td><code>03-system-prompts/about-me-block.md</code> and model memories (<code>06-memory-hygiene/</code>)</td>
+</tr>
+<tr>
+<td>Past prompts</td>
+<td><code>04-prompt-library/</code> and eval templates</td>
+</tr>
+<tr>
+<td>Privacy line</td>
+<td><code>05-model-routing/</code> (constrains which model handles which data class)</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/01-foundation/privacy-line-worksheet.md</span></p>
+<h1>Privacy Line Worksheet</h1>
+<p>Answer these five questions before you configure a single model.</p>
+<h2>1. What data types do you touch regularly?</h2>
+<p>Check all that apply:
+- [ ] Personal PII (yours, family's)
+- [ ] Client PII (names, contact, financial, health)
+- [ ] Payment data (card numbers, bank accounts)
+- [ ] Medical / health records
+- [ ] Legal-privileged material (attorney-client communications)
+- [ ] Employer trade secrets or unreleased IP
+- [ ] Source code with API keys, database URLs, or private business logic
+- [ ] Personal financial data (bank statements, tax returns)
+- [ ] Real estate confidential (deal terms, tenant financials) — relevant for Adam
+- [ ] Password/credential material
+- [ ] Other: <strong><em>_</em></strong><strong><em>_</em></strong>___</p>
+<h2>2. For each checked item, which tool tier is it cleared for?</h2>
+<table>
+<thead>
+<tr>
+<th>Data class</th>
+<th>Consumer AI (ChatGPT free/Plus, Claude free/Pro)</th>
+<th>Paid API with zero-retention</th>
+<th>Local model only</th>
+<th>Never AI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Public / already-shipped work</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Personal notes, drafts</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Client names only (no PII)</td>
+<td>⚠️ redact</td>
+<td>✅</td>
+<td>✅</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Client PII</td>
+<td>❌</td>
+<td>✅ (with DPA)</td>
+<td>✅</td>
+<td>consider</td>
+</tr>
+<tr>
+<td>Payment / SSN</td>
+<td>❌</td>
+<td>❌</td>
+<td>⚠️</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Legal-privileged</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Source code with secrets</td>
+<td>❌</td>
+<td>⚠️ scrub keys</td>
+<td>✅</td>
+<td>consider</td>
+</tr>
+<tr>
+<td>Passwords</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>Customize this table for your own risk tolerance.</p>
+<h2>3. What's your redaction workflow?</h2>
+<p>Before pasting anything sensitive:
+1. Search-and-replace names → <code>[CLIENT_A]</code>, <code>[PROPERTY_1]</code>
+2. Search-and-replace addresses → <code>[ADDRESS]</code>
+3. Search-and-replace amounts if they identify a party → <code>[AMOUNT]</code>
+4. Remove headers/footers, email routing, signature blocks
+5. Keep a "redacted → real" mapping in a local, encrypted note</p>
+<h2>4. Which providers have you confirmed no-training settings on?</h2>
+<ul>
+<li>[ ] OpenAI — Settings → Data Controls → "Improve the model for everyone" <strong>off</strong></li>
+<li>[ ] Anthropic Claude — On by default for consumer accounts; confirmed</li>
+<li>[ ] Perplexity — Settings → Privacy → "AI Data Retention" reviewed</li>
+<li>[ ] Google Gemini — Activity → Gemini Apps Activity <strong>off</strong> if desired</li>
+<li>[ ] Microsoft Copilot — Enterprise tier only for sensitive data</li>
+<li>[ ] Grok — Settings → Data sharing <strong>off</strong></li>
+</ul>
+<h2>5. What's your one-sentence privacy rule?</h2>
+<p>Write it here. Example: "Never paste anything I couldn't Slack to a coworker outside my company without a DPA."</p>
+<p>Yours: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>______</p>
+</article>
+
+  <div class="pnav">
+    <a href="1-start-here.html">← Start here</a>
+    <a href="1-individual-02-accounts.html">02 — Accounts →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

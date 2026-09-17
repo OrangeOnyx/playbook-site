@@ -19,10 +19,11 @@ def test_numbering_gate_catches_contents_list_links():
     f = G.check_text(bad, "y.html")
     assert any("numbering" in e for e in f)
 
-def test_lineage_and_reader_are_allowlisted():
+def test_lineage_is_allowlisted_and_the_reader_only_for_copy():
     s = "<h2>Order 1</h2>"
     assert not G.check_text(s, "lineage/index.html")
-    assert not G.check_text("<p>—</p>", "curriculum/read/l1-x.html")
+    assert not G.check_text("<p>—</p>", "curriculum/read/1-overview.html")          # verbatim voice: copy gate off
+    assert G.check_text("<h2>Level 4 Jargon</h2>", "curriculum/read/3-eli10.html")  # numbering gate on
 
 def test_link_check(tmp_path):
     (tmp_path / "a").mkdir()

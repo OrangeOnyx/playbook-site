@@ -2,7 +2,7 @@
 {% block main %}
 <header class="page pagehead"><span class="kicker">CURRICULUM · STAGE {{ stage.number }}</span><h1>{{ stage.number }} {{ stage.name }}, deeper.</h1>
 <p class="lede">{{ stage.promise }} This is the builder's track for that stage.</p></header>
-<p class="prov">Repository folders in this stage: {{ spine.curriculum[stage.number|string].levels|join(", ") }}.</p>
+<p class="prov">Repository folder for this stage: {{ spine.curriculum[stage.number|string].folder }}.</p>
 <p><a href="/curriculum/read/">Open the reader</a></p>
 <ol class="contents">{% for t, h in modules %}<li><a href="{{ h }}">{{ t }}</a></li>{% endfor %}</ol>
 {% endblock %}

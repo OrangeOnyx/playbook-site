@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stage 3 Systems Glossary | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="3 Expert · Individual Track: Stage 3 Systems Glossary. Compiled verbatim from The AI Playbook Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/3-individual-14-jargon-stage-3.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/" aria-current="page">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / Stage 3 Systems Glossary</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">3 EXPERT · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">Stage 3 Systems Glossary</h1></div></div>
+<p class="rnote">This page compiles 1 file from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/3-expert/individual/14-jargon-stage-3">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>3-expert/individual/14-jargon-stage-3/README.md</span></p>
+<h1>Stage 3 Systems Glossary</h1>
+<p>Use these terms precisely. They describe different layers of a production AI system: how a model computes, how it is served, how it is aligned, how it is evaluated, and how operators observe it. A technical founder should be able to ask which metric moved, which layer owns the risk, and what evidence supports a change.</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Working definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MoE</td>
+<td>Mixture of Experts; routes tokens to a subset of specialist parameter blocks.</td>
+</tr>
+<tr>
+<td>Sparse attention</td>
+<td>Attention that considers selected token relationships rather than every pair.</td>
+</tr>
+<tr>
+<td>FlashAttention</td>
+<td>Memory-efficient exact attention algorithm that reduces I/O overhead.</td>
+</tr>
+<tr>
+<td>PagedAttention</td>
+<td>KV-cache layout that pages memory to improve serving utilization.</td>
+</tr>
+<tr>
+<td>vLLM</td>
+<td>Open-source inference engine known for PagedAttention and continuous batching.</td>
+</tr>
+<tr>
+<td>TGI</td>
+<td>Text Generation Inference, a model-serving stack from Hugging Face.</td>
+</tr>
+<tr>
+<td>TensorRT-LLM</td>
+<td>NVIDIA optimization and serving toolkit for LLM inference.</td>
+</tr>
+<tr>
+<td>Triton</td>
+<td>GPU programming language/compiler often used for custom inference kernels.</td>
+</tr>
+<tr>
+<td>KV cache management</td>
+<td>Allocation, reuse, eviction, and sharing of attention key/value state.</td>
+</tr>
+<tr>
+<td>Prefix caching</td>
+<td>Reusing computation for identical prompt prefixes, such as system policy.</td>
+</tr>
+<tr>
+<td>Speculative decoding</td>
+<td>A small draft model proposes tokens a larger model verifies.</td>
+</tr>
+<tr>
+<td>Batched inference</td>
+<td>Processing multiple requests together to use hardware efficiently.</td>
+</tr>
+<tr>
+<td>Continuous batching</td>
+<td>Adding and removing requests from a live inference batch.</td>
+</tr>
+<tr>
+<td>Chunked prefill</td>
+<td>Splitting long prompt processing so decode traffic remains responsive.</td>
+</tr>
+<tr>
+<td>Tensor parallelism</td>
+<td>Splitting model tensors across devices for one model invocation.</td>
+</tr>
+<tr>
+<td>Pipeline parallelism</td>
+<td>Splitting model layers into stages across devices.</td>
+</tr>
+<tr>
+<td>ZeRO</td>
+<td>Optimizer-state and gradient sharding approach from DeepSpeed.</td>
+</tr>
+<tr>
+<td>DeepSpeed</td>
+<td>Microsoft training/inference system with distributed optimization tools.</td>
+</tr>
+<tr>
+<td>FSDP</td>
+<td>Fully Sharded Data Parallel; shards model state across workers.</td>
+</tr>
+<tr>
+<td>RLHF</td>
+<td>Reinforcement learning from human feedback.</td>
+</tr>
+<tr>
+<td>RLAIF</td>
+<td>Reinforcement learning from AI feedback.</td>
+</tr>
+<tr>
+<td>DPO</td>
+<td>Direct Preference Optimization; learns preferences without a separate reward loop.</td>
+</tr>
+<tr>
+<td>IPO</td>
+<td>Identity Preference Optimization; a preference-learning variant.</td>
+</tr>
+<tr>
+<td>KTO</td>
+<td>Kahneman-Tversky Optimization; uses desirable/undesirable labels.</td>
+</tr>
+<tr>
+<td>GRPO</td>
+<td>Group Relative Policy Optimization; compares sampled responses within groups.</td>
+</tr>
+<tr>
+<td>ORPO</td>
+<td>Odds Ratio Preference Optimization; combines likelihood and preference learning.</td>
+</tr>
+<tr>
+<td>Constitutional AI</td>
+<td>Alignment approach using written principles to guide critique and revision.</td>
+</tr>
+<tr>
+<td>Self-play</td>
+<td>Training through competition or interaction with copies of a policy.</td>
+</tr>
+<tr>
+<td>Tool-use RL</td>
+<td>Reinforcement learning that rewards correct external-tool behavior.</td>
+</tr>
+<tr>
+<td>Agent RL</td>
+<td>Reinforcement learning over multi-step agent trajectories.</td>
+</tr>
+<tr>
+<td>PPO</td>
+<td>Proximal Policy Optimization, a clipped policy-gradient method.</td>
+</tr>
+<tr>
+<td>TRPO</td>
+<td>Trust Region Policy Optimization, constraining policy update size.</td>
+</tr>
+<tr>
+<td>Reward model</td>
+<td>Model that predicts preference or quality for a response.</td>
+</tr>
+<tr>
+<td>Reward hacking</td>
+<td>Optimizing the score while missing the intended outcome.</td>
+</tr>
+<tr>
+<td>Sycophancy</td>
+<td>Agreeing with a user’s premise rather than correcting it.</td>
+</tr>
+<tr>
+<td>Mode collapse</td>
+<td>Reduced diversity in generated outputs or learned behavior.</td>
+</tr>
+<tr>
+<td>Capability elicitation</td>
+<td>Prompting or scaffolding to reveal a model’s latent ability.</td>
+</tr>
+<tr>
+<td>Red team</td>
+<td>Authorized adversarial testers seeking harmful or bypass behavior.</td>
+</tr>
+<tr>
+<td>Blue team</td>
+<td>Defenders operating controls, detection, and response.</td>
+</tr>
+<tr>
+<td>Purple team</td>
+<td>Collaborative red/blue work that validates defenses.</td>
+</tr>
+<tr>
+<td>Model card</td>
+<td>Documentation of a model’s intended use, limits, data, and risks.</td>
+</tr>
+<tr>
+<td>System card</td>
+<td>Documentation of a deployed system, including integrations and controls.</td>
+</tr>
+<tr>
+<td>Eval card</td>
+<td>Documentation of an evaluation’s scope, dataset, metrics, and limits.</td>
+</tr>
+<tr>
+<td>MMLU</td>
+<td>Broad multiple-choice benchmark across academic subjects.</td>
+</tr>
+<tr>
+<td>HellaSwag</td>
+<td>Benchmark for commonsense sentence completion.</td>
+</tr>
+<tr>
+<td>HumanEval</td>
+<td>Python coding benchmark scored by tests.</td>
+</tr>
+<tr>
+<td>MBPP</td>
+<td>Mostly Basic Python Problems coding benchmark.</td>
+</tr>
+<tr>
+<td>GSM8K</td>
+<td>Grade-school math word-problem benchmark.</td>
+</tr>
+<tr>
+<td>MATH</td>
+<td>Competition-style mathematics benchmark.</td>
+</tr>
+<tr>
+<td>BIG-Bench</td>
+<td>Community benchmark suite spanning many tasks.</td>
+</tr>
+<tr>
+<td>HELM</td>
+<td>Holistic Evaluation of Language Models framework.</td>
+</tr>
+<tr>
+<td>TruthfulQA</td>
+<td>Benchmark probing false-but-plausible answers.</td>
+</tr>
+<tr>
+<td>Arena Elo</td>
+<td>Relative ranking from pairwise user preferences.</td>
+</tr>
+<tr>
+<td>LMSYS</td>
+<td>Organization associated with Chatbot Arena and model evaluation.</td>
+</tr>
+<tr>
+<td>Offline eval</td>
+<td>Evaluation on a fixed dataset before release.</td>
+</tr>
+<tr>
+<td>Online eval</td>
+<td>Evaluation using live or live-like traffic after release.</td>
+</tr>
+<tr>
+<td>A/B test</td>
+<td>Randomized comparison of variants across user cohorts.</td>
+</tr>
+<tr>
+<td>Interleaved test</td>
+<td>Presents blended ranking results to compare systems efficiently.</td>
+</tr>
+<tr>
+<td>Canary metrics</td>
+<td>Health metrics for a limited-release cohort.</td>
+</tr>
+<tr>
+<td>Guardrail metrics</td>
+<td>Rates and outcomes of safety-policy decisions.</td>
+</tr>
+<tr>
+<td>Drift metrics</td>
+<td>Measures showing input, output, or outcome distribution change.</td>
+</tr>
+<tr>
+<td>Telemetry</td>
+<td>Operational signals emitted by a system.</td>
+</tr>
+<tr>
+<td>Span</td>
+<td>Timed, attributed unit of work inside a trace.</td>
+</tr>
+<tr>
+<td>Trace</td>
+<td>Linked record of work for one request or transaction.</td>
+</tr>
+<tr>
+<td>Event</td>
+<td>Discrete business or system occurrence.</td>
+</tr>
+<tr>
+<td>Log</td>
+<td>Timestamped diagnostic record.</td>
+</tr>
+<tr>
+<td>Structured logging</td>
+<td>Logs encoded as queryable fields rather than free text.</td>
+</tr>
+<tr>
+<td>PII redaction</td>
+<td>Detecting and removing or masking personal information.</td>
+</tr>
+<tr>
+<td>Tokenization</td>
+<td>Converting text into model-readable token IDs.</td>
+</tr>
+<tr>
+<td>BPE</td>
+<td>Byte Pair Encoding tokenization based on merged frequent pairs.</td>
+</tr>
+<tr>
+<td>SentencePiece</td>
+<td>Tokenizer framework that treats text as a raw byte sequence.</td>
+</tr>
+<tr>
+<td>Unigram</td>
+<td>Tokenization model selecting likely subword pieces from a vocabulary.</td>
+</tr>
+<tr>
+<td>Vocabulary</td>
+<td>Set of token units a tokenizer can emit.</td>
+</tr>
+<tr>
+<td>Context window</td>
+<td>Maximum tokens a model can consider in one invocation.</td>
+</tr>
+<tr>
+<td>Sliding window attention</td>
+<td>Limits attention to nearby tokens to support long sequences.</td>
+</tr>
+<tr>
+<td>RoPE</td>
+<td>Rotary Positional Embeddings encoding relative token position.</td>
+</tr>
+<tr>
+<td>ALiBi</td>
+<td>Attention with Linear Biases, a positional-bias technique.</td>
+</tr>
+<tr>
+<td>Positional encoding</td>
+<td>Signal that gives a transformer token-order information.</td>
+</tr>
+</tbody>
+</table>
+<p>The point is not memorization. Use the vocabulary to connect a lease-renewal assistant’s user-visible latency to queueing, KV cache behavior, model routing, safety decisions, and business outcomes. That is systems design.</p>
+</article>
+
+  <div class="pnav">
+    <a href="3-individual-13-user-experience.html">← AI User Experience</a>
+    <a href="3-individual-15-leading-ai-teams.html">Leading AI Teams →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

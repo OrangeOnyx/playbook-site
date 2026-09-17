@@ -26,7 +26,7 @@ def headline_blocks(html):
 NAV_LINKS = re.compile(r"<nav[^>]*>(.*?)</nav>", re.S | re.I)
 CONTENTS_LINKS = re.compile(r'<ol class="contents"[^>]*>(.*?)</ol>', re.S | re.I)
 ALLOW_COPY = ("curriculum/read/",)
-ALLOW_NUMBERING = ("lineage/", "curriculum/read/")
+ALLOW_NUMBERING = ("lineage/",)
 
 def _strip(s): return re.sub(r"<[^>]+>", " ", s)
 

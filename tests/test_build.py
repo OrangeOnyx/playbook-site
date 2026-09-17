@@ -97,7 +97,7 @@ def test_sitemap_lists_every_reader_page(tmp_path):
     sm = io.open(tmp_path / "sitemap.xml", encoding="utf-8").read()
     dom = B.S.load()["domain"]
     read = re.findall(r"<loc>%s(/curriculum/read/[^<]*)</loc>" % re.escape(dom), sm)
-    assert len(read) >= 120, len(read)
+    assert len(read) >= 110, len(read)
     assert "/curriculum/read/" in read, "the reader index keeps its directory URL"
     assert not [u for u in read if u.endswith("index.html")]
     for f in (tmp_path / "curriculum" / "read").glob("*.html"):

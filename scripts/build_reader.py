@@ -1,13 +1,13 @@
 # The AI Playbook curriculum reader.
-# Compiles the groundwork-curriculum repo working tree VERBATIM into
+# Compiles the ai-playbook-curriculum repo working tree VERBATIM into
 # content/generated/curriculum/read/*.html: one page per module folder, plus
-# orientation, shared, per-level overview / start-here / shared / repos / eli10
+# orientation, shared, per-stage overview / start-here / shared / repos / eli10
 # pages and a contents page. Same reading order and the same illustration
-# plates (gw_plates.py) as the Groundwork book/site reader, adapted so the
-# shell speaks the playbook's four stages (via spine.json's "curriculum" key)
-# instead of the curriculum repo's five levels.
-# CONTENT IS THE REPO'S OWN VOICE: the site copy gates deliberately do not
-# run on curriculum/read/ (see scripts/gates.py ALLOW_COPY / ALLOW_NUMBERING).
+# plates (gw_plates.py), with the shell speaking the playbook's four stages
+# directly (via spine.json's "curriculum" key, one repository folder per stage).
+# CONTENT IS THE REPO'S OWN VOICE: the site copy gate deliberately does not
+# run on curriculum/read/ (see scripts/gates.py ALLOW_COPY); the numbering
+# gate does run there (ALLOW_NUMBERING no longer exempts this path).
 # build.py owns the sitemap; this module does not touch it.
 # Usage: python scripts/build_reader.py [repo-path] [out-path]
 
@@ -28,20 +28,13 @@ from scripts import spine as S
 from scripts.gw_plates import group_device, GROUPS, climb_line
 
 _sp = S.load()
-STAGE_OF = {lv: int(k) for k, v in _sp["curriculum"].items() for lv in v["levels"]}
 STAGE_NAME = {int(k): "%s %s" % (k, v["name"]) for k, v in _sp["curriculum"].items()}
 STAGE_SLUG = {s["number"]: s["slug"] for s in _sp["stages"]}
-LEVEL_DIRS = ["level-1-essentials", "level-2-intermediate", "level-3-advanced",
-              "level-4-professional", "level-5-frontier"]
-LEVELS = [(lv, STAGE_OF[lv], STAGE_NAME[STAGE_OF[lv]]) for lv in LEVEL_DIRS]
-# Position (1..5, matches the l{n}- filename prefixes) -> stage number. The one place
-# this mapping is computed; build.py's reader_modules() imports it rather than
-# recomputing, so a "Level N" reference in surfaced copy always resolves to the same
-# stage as the page it names actually belongs to.
-LEVEL_TO_STAGE = {i: stage_num for i, (_, stage_num, _) in enumerate(LEVELS, start=1)}
+# (number, repository folder, "N Name"), in climbing order. The folder is the stage slug.
+STAGES = [(int(k), v["folder"], STAGE_NAME[int(k)]) for k, v in sorted(_sp["curriculum"].items())]
 
-GH = "https://github.com/OrangeOnyx/groundwork-curriculum"
-BOOK = GH + "/releases/latest/download/Groundwork-Curriculum.pdf"
+GH = "https://github.com/OrangeOnyx/ai-playbook-curriculum"
+BOOK = GH + "/releases/latest/download/The-AI-Playbook-Curriculum.pdf"
 BASE_URL = "https://playbook.adamabdalla.com/curriculum/read/"
 
 MD = markdown.Markdown(extensions=["tables", "fenced_code"])
@@ -89,7 +82,7 @@ FOOT = """
     <a href="{next_href}">{next_label} →</a>
   </div>
 </main>
-<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/groundwork-curriculum">Curriculum on GitHub</a></div>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
 The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
 <script defer src="/assets/motion.js"></script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -101,8 +94,10 @@ _GROUP_ORDER = ["overview", "start-here", "individual", "company", "shared", "re
 
 
 def run(repo=None, out=None):
-    repo = Path(repo) if repo else ROOT.parent / "groundwork-curriculum"
+    repo = Path(repo) if repo else ROOT.parent / "ai-playbook-curriculum"
     out = Path(out) if out else ROOT / "content" / "generated" / "curriculum" / "read"
+    if out.exists():
+        shutil.rmtree(out)   # full regen: a prior run's slugs (e.g. the retired l1-... scheme) must not survive
     assets = out / "assets"
 
     def rel_md_files(subdir):
@@ -136,35 +131,35 @@ def run(repo=None, out=None):
                               files=files, ghdir=ghdir, stage=stage))
 
     add("orientation", "Read this first", "ORIENTATION", "overview",
-        [f for f in ["README.md", "GROUNDWORK-AND-FLUENCY.md", "LEVEL-MAP.md"] if (repo / f).exists()],
+        [f for f in ["README.md", "PLAYBOOK-AND-CURRICULUM.md", "STAGE-MAP.md"] if (repo / f).exists()],
         GH)
     add("shared-cover-letter", "The cover letters", "SHARED MATERIALS", "shared",
         rel_md_files("shared/cover-letter"), f"{GH}/tree/master/shared/cover-letter")
     add("shared-starter-packs", "The starter packs", "SHARED MATERIALS", "shared",
         rel_md_files("shared/starter-packs"), f"{GH}/tree/master/shared/starter-packs")
 
-    for i, (ldir, stage_num, stage_name) in enumerate(LEVELS, start=1):
+    for num, folder, stage_name in STAGES:
         kick = stage_name.upper()
-        add(f"l{i}-overview", f"{stage_name} at a glance", kick, "overview",
-            [f"{ldir}/README.md"], f"{GH}/tree/master/{ldir}", stage_num)
-        add(f"l{i}-start-here", "Start here", kick, "start-here",
-            rel_md_files(f"{ldir}/00-start-here"), f"{GH}/tree/master/{ldir}/00-start-here", stage_num)
+        add(f"{num}-overview", f"{stage_name} at a glance", kick, "overview",
+            [f"{folder}/README.md"], f"{GH}/tree/master/{folder}", num)
+        add(f"{num}-start-here", "Start here", kick, "start-here",
+            rel_md_files(f"{folder}/00-start-here"), f"{GH}/tree/master/{folder}/00-start-here", num)
         for track in ("individual", "company"):
-            tdir = repo / ldir / track
+            tdir = repo / folder / track
             if not tdir.is_dir():
                 continue
             for mod in sorted(p for p in tdir.iterdir() if p.is_dir()):
-                mrel = f"{ldir}/{track}/{mod.name}"
+                mrel = f"{folder}/{track}/{mod.name}"
                 title = first_h1(f"{mrel}/README.md") or humanize(mod.name)
-                add(f"l{i}-{track}-{mod.name}", title,
+                add(f"{num}-{track}-{mod.name}", title,
                     f"{kick} · {track.upper()} TRACK", track,
-                    rel_md_files(mrel), f"{GH}/tree/master/{mrel}", stage_num)
-        add(f"l{i}-shared", f"{stage_name} shared materials", kick, "shared",
-            rel_md_files(f"{ldir}/shared"), f"{GH}/tree/master/{ldir}/shared", stage_num)
-        add(f"l{i}-repos", "Working repositories", kick, "repos",
-            rel_md_files(f"{ldir}/repos"), f"{GH}/tree/master/{ldir}/repos", stage_num)
-        add(f"l{i}-eli10", f"{stage_name} ELI10 companions", kick, "eli10",
-            rel_md_files(f"{ldir}/eli10"), f"{GH}/tree/master/{ldir}/eli10", stage_num)
+                    rel_md_files(mrel), f"{GH}/tree/master/{mrel}", num)
+        add(f"{num}-shared", f"{stage_name} shared materials", kick, "shared",
+            rel_md_files(f"{folder}/shared"), f"{GH}/tree/master/{folder}/shared", num)
+        add(f"{num}-repos", "Working repositories", kick, "repos",
+            rel_md_files(f"{folder}/repos"), f"{GH}/tree/master/{folder}/repos", num)
+        add(f"{num}-eli10", f"{stage_name} ELI10 companions", kick, "eli10",
+            rel_md_files(f"{folder}/eli10"), f"{GH}/tree/master/{folder}/eli10", num)
 
     add("appendix", "Contributing, and the license", "APPENDIX", "shared",
         [f for f in ["CONTRIBUTING.md"] if (repo / f).exists()], GH)
@@ -253,7 +248,7 @@ def run(repo=None, out=None):
         prev = pages[i - 1] if i > 0 else None
         nxt = pages[i + 1] if i + 1 < len(pages) else None
         body = [HEAD.format(title=pg["title"], slug=pg["slug"], base_url=BASE_URL,
-                            desc=f"{pg['kicker'].title()}: {pg['title']}. Compiled verbatim from the Groundwork Curriculum repository.",
+                            desc=f"{pg['kicker'].title()}: {pg['title']}. Compiled verbatim from The AI Playbook Curriculum repository.",
                             nav=nav_html(pg["stage"]), crumbleaf=pg["title"])]
         body.append(f'<div class="gopen">{group_device(pg["gkey"], 44)}'
                     f'<div><span class="kicker" style="margin-bottom:.15rem">{pg["kicker"]}</span>'
@@ -284,7 +279,7 @@ def run(repo=None, out=None):
                'verbatim from the repository in reading order. Nothing summarized, nothing gated. '
                'Prefer it bound? <a href="' + BOOK + '">The book</a> is the same content. '
                'Prefer the living files? <a href="' + GH + '">The repo</a> is the source of truth.</p></header>')
-    toc.append(f'<nav class="vw journeystrip" aria-label="Curriculum levels">{climb_line(None)}</nav>')
+    toc.append(f'<nav class="vw journeystrip" aria-label="Curriculum stages">{climb_line(None)}</nav>')
     cur_kick = None
     for pg in pages:
         if pg["kicker"] != cur_kick:
@@ -300,6 +295,10 @@ def run(repo=None, out=None):
     toc.append(FOOT.format(prev_href="/curriculum/", prev_label="The Curriculum",
                            next_href="orientation.html", next_label="Read this first"))
     (out / "index.html").write_text("\n".join(toc), encoding="utf-8", newline="\n")
+
+    import subprocess
+    sha = subprocess.run(["git", "-C", str(repo), "rev-parse", "HEAD"], capture_output=True, text=True, check=True).stdout.strip()
+    (out / "SOURCE").write_text(sha + "\n", encoding="utf-8", newline="\n")
 
     return len(pages) + 1
 

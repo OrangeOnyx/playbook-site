@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2 Intermediate at a glance | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="2 Intermediate: 2 Intermediate at a glance. Compiled verbatim from The AI Playbook Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/2-overview.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/" aria-current="page">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 2 Intermediate at a glance</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="20" r="9" fill="none" stroke="#A44E12" stroke-width="1.4" opacity="0.5"/><circle cx="22" cy="20" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">2 INTERMEDIATE</span><h1 style="margin:.1rem 0 0">2 Intermediate at a glance</h1></div></div>
+<p class="rnote">Deeper on this stage on the main site: <a href="/curriculum/2-intermediate/">2 Intermediate</a>.</p>
+<p class="rnote">This page compiles 1 file from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="20" r="9" fill="none" stroke="#A44E12" stroke-width="1.4" opacity="0.5"/><circle cx="22" cy="20" r="5" fill="#A44E12"/></svg><span>2-intermediate/README.md</span></p>
+<h1>Stage 2 Intermediate</h1>
+<p><strong>You are:</strong> comfortable using AI daily.
+<strong>You will become:</strong> a builder — someone who can build agents, RAG systems, MCP servers, evals, and cost-controlled workflows.
+<strong>The Curriculum's pace:</strong> 60–90 days at 4–8 hours/week.</p>
+<p><img alt="Stage 2" src="assets/shared--graphics--stage-2.svg" /></p>
+<h2>Prerequisites</h2>
+<ul>
+<li>Stage 1 exit criteria met — see <code>../STAGE-MAP.md</code></li>
+<li>Comfortable in a terminal</li>
+<li>Basic Python or TypeScript</li>
+<li>Familiarity with git and GitHub</li>
+<li>A codebase or dataset of your own to anchor examples on</li>
+</ul>
+<h2>Exit criteria</h2>
+<p>You've moved to Stage 3 when:
+- You've built 3 real custom agents on your own stack
+- You've deployed at least one MCP server
+- You've built a RAG pipeline over your own docs
+- You have an eval harness with regression testing
+- You can articulate cost per workflow in dollars
+- For companies: eval framework live, observability platform running, first agents in production</p>
+<h2>Tracks</h2>
+<ul>
+<li><strong><code>individual/</code></strong> — 12 core modules + 1 bonus for personal capability</li>
+<li><strong><code>company/</code></strong> — 8 modules for org-level capability</li>
+<li><strong><code>repos/</code></strong> — 4 public GitHub repos backing the core walkthroughs — <a href="2-repos.html">read the overview</a></li>
+<li><strong><code>shared/</code></strong> — templates and briefs</li>
+<li><strong><code>eli10/</code></strong> — plain-language companions for each big concept</li>
+</ul>
+<h2>Working code repositories</h2>
+<table>
+<thead>
+<tr>
+<th>Repo</th>
+<th>For walkthrough</th>
+<th>Domain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/OrangeOnyx/lease-abstractor"><code>lease-abstractor</code></a></td>
+<td><code>02-build-first-agent</code></td>
+<td>Real estate</td>
+</tr>
+<tr>
+<td><a href="https://github.com/OrangeOnyx/support-triage-agent"><code>support-triage-agent</code></a></td>
+<td><code>03-build-second-agent</code></td>
+<td>Any (SaaS, e-commerce, services, agency)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/OrangeOnyx/diligence-agent"><code>diligence-agent</code></a></td>
+<td><code>04-build-third-agent</code></td>
+<td>Any (M&amp;A, vendor, CRE, contracts)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/OrangeOnyx/belle-mcp-server"><code>belle-mcp-server</code></a></td>
+<td><code>05-mcp-server</code></td>
+<td>Real estate</td>
+</tr>
+</tbody>
+</table>
+<h2>How to work Stage 2</h2>
+<ol>
+<li>Pick one of the three agent walkthroughs (<code>02</code>, <code>03</code>, <code>04</code>) and build it end-to-end. Not skimmed. Built.</li>
+<li>Then build an MCP server (<code>05</code>) exposing your own data.</li>
+<li>Then build a RAG pipeline (<code>06</code>) over your own docs.</li>
+<li>Then wrap the eval harness (<code>07</code>) around all of them.</li>
+<li>Then optimize cost (<code>08</code>).</li>
+<li>Everything else deepens what you've built.</li>
+<li>Bonus: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/13-combine-two-agents"><code>individual/13-combine-two-agents</code></a> — chain two of your agents into a real system</li>
+</ol>
+<p>If you finish this level, you can build real AI systems on your own stack.</p>
+<p>Formerly Level 2 Intermediate.</p>
+</article>
+
+  <div class="pnav">
+    <a href="1-eli10.html">← 1 Starter ELI10 companions</a>
+    <a href="2-individual-01-agent-architectures.html">Agent Architectures →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

@@ -86,10 +86,10 @@
     "12": "Continuity and Succession", "13": "Session Notes", "14": "Measurement Notes", "15": "Operating Rhythm"
   },
   "curriculum": {
-    "1": {"levels": ["level-1-essentials"], "name": "Starter"},
-    "2": {"levels": ["level-2-intermediate"], "name": "Intermediate"},
-    "3": {"levels": ["level-3-advanced", "level-4-professional"], "name": "Expert"},
-    "4": {"levels": ["level-5-frontier"], "name": "Frontier Operator"}
+    "1": {"folder": "1-starter", "name": "Starter"},
+    "2": {"folder": "2-intermediate", "name": "Intermediate"},
+    "3": {"folder": "3-expert", "name": "Expert"},
+    "4": {"folder": "4-frontier-operator", "name": "Frontier Operator"}
   },
   "redirects": [
     {"source": "/", "destination": "/"},

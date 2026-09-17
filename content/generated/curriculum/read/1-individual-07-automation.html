@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>07 — Automation | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="1 Starter · Individual Track: 07 — Automation. Compiled verbatim from The AI Playbook Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/1-individual-07-automation.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/" aria-current="page">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 07 — Automation</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">07 — Automation</h1></div></div>
+<p class="rnote">This page compiles 3 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/1-starter/individual/07-automation">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/07-automation/README.md</span></p>
+<h1>07 — Automation</h1>
+<p>Automation is where AI moves from "helpful tool" to "leverage." Start with three specific automations.</p>
+<h2>Files in this folder</h2>
+<ol>
+<li><code>first-three-automations.md</code> — the exact three to build first</li>
+<li><code>local-tools-setup.md</code> — Cursor, Claude Code, Raycast, ffmpeg, clipboard manager</li>
+</ol>
+<h2>The principle</h2>
+<p>Don't automate everything. Automate the three things you do most that are boring.</p>
+<h2>Definition of done</h2>
+<ul>
+<li>Three automations running</li>
+<li>Local tools installed and configured</li>
+<li>One recurring task scheduled (via Perplexity Computer, Zapier, or Make)</li>
+</ul>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/07-automation/first-three-automations.md</span></p>
+<h1>The First Three Automations</h1>
+<p>Build in this order. Each takes 30–60 minutes.</p>
+<h2>Automation 1 — Daily brief</h2>
+<p><strong>What it does:</strong> Every morning at 7am, you get a summary of:
+- Calendar for the day
+- Overnight email requiring reply
+- Overnight Slack DMs / mentions
+- Top 3 priorities from your goals doc
+- Weather + one thing to know from the news</p>
+<p><strong>Build it with:</strong>
+- <strong>Easiest:</strong> Perplexity Computer → Schedule a cron task at 7am America/Chicago, connect Gmail + Google Calendar + Slack
+- <strong>Alternative:</strong> Claude Code with a scheduled shell script
+- <strong>Alternative:</strong> Zapier / Make with a scheduled trigger + email step</p>
+<p><strong>Prompt for the scheduled task:</strong></p>
+<pre><code>Every weekday at 7am America/Chicago:
+
+1. Fetch today's calendar events (Google Calendar)
+2. Fetch overnight unread emails (Gmail, marked important)
+3. Fetch Slack DMs and mentions since 6pm yesterday
+4. Read my goals doc at /path/to/goals.md
+5. Summarize:
+
+## Today
+- Calendar: bullet each event with time + location + prep note
+- Priorities (from goals): top 3
+- Weather: 1 line
+- News: 1 headline that matters
+
+## Overnight
+- Emails needing reply (max 5): sender + one-line + urgency
+- Slack: mentions + DMs (max 10)
+
+Email the summary to me. Total under 250 words.
+</code></pre>
+<h2>Automation 2 — End-of-week review</h2>
+<p><strong>What it does:</strong> Every Friday at 4pm, generates your weekly review using the prompt from <code>04-prompt-library/19-weekly-review.md</code>, pulling from Calendar, Slack, GitHub, and your notes.</p>
+<p><strong>Build it with:</strong> Perplexity Computer scheduled task</p>
+<p><strong>Prompt:</strong></p>
+<pre><code>Every Friday at 4pm America/Chicago:
+
+1. Pull my calendar events from Mon–Fri this week
+2. Pull my commits and PRs from GitHub this week
+3. Pull the Slack messages I sent this week (mine only)
+4. Pull notes I've added this week to [notes location]
+
+Then run the weekly-review prompt from my prompt library:
+[paste the prompt from 04-prompt-library/19-weekly-review.md]
+
+Send the output to me by email and Slack DM.
+</code></pre>
+<h2>Automation 3 — Inbox triage</h2>
+<p><strong>What it does:</strong> Every 2 hours during working hours, scans unread email and:
+- Labels: <code>Reply-today</code>, <code>Reply-this-week</code>, <code>FYI-only</code>, <code>Newsletter</code>, <code>Trash</code>
+- Drafts replies for the <code>Reply-today</code> items</p>
+<p><strong>Build it with:</strong> Zapier + OpenAI, or Perplexity Computer with Gmail connector</p>
+<p><strong>Rules to give it:</strong></p>
+<pre><code>For each unread email:
+
+1. Classify:
+   - Reply-today: needs response within 24h, from a real person, not a bulk sender
+   - Reply-this-week: from a real person, not urgent
+   - FYI-only: informational, no action needed
+   - Newsletter: bulk sender, marketing, updates
+   - Trash: spam-like, expired promo, notifications with no info value
+
+2. For Reply-today items, draft a reply in my voice using the email-reply-drafter prompt from my library.
+
+3. Never send. Only draft. Save drafts to Gmail's drafts folder.
+
+4. Slack DM me a summary: &quot;3 replies ready to review, 5 FYIs, 12 newsletters archived.&quot;
+</code></pre>
+<h2>Progression: what to automate next</h2>
+<p>Once these three are running smoothly, look for the next three:</p>
+<ul>
+<li>Meeting-notes-to-CRM (Fireflies → Notion / HubSpot with AI extraction)</li>
+<li>Weekly research digest on a topic you follow</li>
+<li>Auto-tag new expenses (Plaid → sheet with AI category)</li>
+<li>Voice memo → structured notes (Whisper + Claude → notes app)</li>
+<li>Overnight news brief on your industry</li>
+<li>Auto-file receipts / invoices from email</li>
+</ul>
+<h2>Anti-patterns</h2>
+<p>Do NOT automate these on day one:
+- Anything that sends messages to other people (too risky)
+- Financial transactions
+- Anything that modifies external systems without a review step
+- Anything with a false-positive cost you can't tolerate</p>
+<p>Rule: Automations should default to <em>drafting</em> and <em>summarizing</em>, not <em>sending</em> or <em>acting</em>.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/07-automation/local-tools-setup.md</span></p>
+<h1>Local Tools Setup</h1>
+<p>The five tools every AI power-user should have installed locally.</p>
+<h2>1. A great code editor with AI baked in</h2>
+<p><strong>Choose one:</strong></p>
+<h3>Cursor</h3>
+<ul>
+<li>Download: cursor.sh</li>
+<li>Best for: mainstream Claude/GPT-in-editor experience</li>
+<li>Config: Settings → Rules for AI → paste your master system prompt</li>
+<li>Pricing: $20/mo Pro</li>
+</ul>
+<h3>Zed with AI</h3>
+<ul>
+<li>Download: zed.dev</li>
+<li>Best for: performance, minimalism</li>
+<li>Free with paid AI features</li>
+</ul>
+<h3>VS Code + Continue + GitHub Copilot</h3>
+<ul>
+<li>Free-ish path</li>
+<li>More setup, more flexibility</li>
+</ul>
+<h2>2. An agentic coding tool</h2>
+<h3>Claude Code (recommended)</h3>
+<ul>
+<li>Install: <code>npm install -g @anthropic-ai/claude-code</code></li>
+<li>Best for: multi-file refactors, autonomous coding sessions</li>
+<li>Config: create <code>CLAUDE.md</code> in each project root with:
+  ```
+  # Project rules for Claude Code</li>
+</ul>
+<p>## Voice
+  [inherit master prompt voice]</p>
+<p>## Codebase conventions
+  - Framework: [Next.js / Node / whatever]
+  - Tests: [Vitest / Jest / etc.]
+  - Formatting: [Prettier config]</p>
+<p>## Commands
+  - Build: npm run build
+  - Test: npm test
+  - Lint: npm run lint</p>
+<p>## Never do
+  - Delete files without confirmation
+  - Modify env files
+  - Commit to main
+  ```</p>
+<h2>3. A launcher with AI extensions</h2>
+<h3>Raycast (macOS)</h3>
+<ul>
+<li>Download: raycast.com</li>
+<li>Install AI Chat extension</li>
+<li>Bind hotkeys: <code>⌥ Space</code> for launcher, <code>⌥ ⌘ Space</code> for AI Chat</li>
+<li>Add extensions: OpenAI, Claude, Perplexity</li>
+</ul>
+<h3>Alfred + AI powerpacks</h3>
+<ul>
+<li>Alternative for macOS die-hards</li>
+</ul>
+<h3>PowerToys (Windows)</h3>
+<ul>
+<li>Windows equivalent with Copilot integration</li>
+</ul>
+<h2>4. A clipboard manager</h2>
+<p>Essential when prompt-engineering — you copy and paste dozens of times per day.</p>
+<ul>
+<li><strong>macOS:</strong> Raycast Clipboard History, Alfred, or Paste.app</li>
+<li><strong>Windows:</strong> Windows+V (built-in), or Ditto</li>
+<li><strong>Linux:</strong> CopyQ</li>
+</ul>
+<p>Configure: 30-day history, exclude password fields.</p>
+<h2>5. Media tools</h2>
+<h3>ffmpeg</h3>
+<pre><code class="language-bash"># macOS
+brew install ffmpeg
+
+# Windows
+winget install ffmpeg
+
+# Linux
+sudo apt install ffmpeg
+</code></pre>
+<p>Used for: converting audio/video for Whisper, extracting frames, compressing outputs.</p>
+<h3>yt-dlp</h3>
+<pre><code class="language-bash">brew install yt-dlp
+</code></pre>
+<p>Used for: downloading videos to feed to transcription / analysis.</p>
+<h3>mat2 (metadata scrubber)</h3>
+<pre><code class="language-bash">brew install mat2
+</code></pre>
+<p>Used for: stripping metadata from files before uploading (privacy hygiene).</p>
+<h2>6. Text expander</h2>
+<p>Snippets that expand into common prompts.</p>
+<ul>
+<li><strong>macOS/Windows:</strong> TextExpander, Alfred/Raycast snippets</li>
+<li><strong>Cross-platform:</strong> Espanso (free, open source)</li>
+</ul>
+<p>Suggested snippets:
+- <code>;;aboutme</code> → your compact about-me block
+- <code>;;style</code> → link or paste of your style guide
+- <code>;;reviewprompt</code> → the code-review prompt
+- <code>;;summarize</code> → the meeting-summarizer prompt</p>
+<h2>7. Ollama (optional but recommended)</h2>
+<p>Run local models on your machine for offline / sensitive work.</p>
+<pre><code class="language-bash"># Install
+brew install ollama
+
+# Pull a model
+ollama pull llama3.3:70b
+ollama pull qwen3:32b
+ollama pull deepseek-r1
+
+# Run
+ollama run llama3.3
+</code></pre>
+<p>Best used for:
+- Sensitive data that can't leave your machine
+- Learning how models work
+- Offline scenarios</p>
+<h2>8. Environment variables setup</h2>
+<p>Create <code>~/.env.local</code> (never commit) with your API keys from <code>individual/02-accounts/api-keys-setup.md</code>.</p>
+<p>Add to your shell profile (<code>~/.zshrc</code> or <code>~/.bashrc</code>):</p>
+<pre><code class="language-bash">if [ -f ~/.env.local ]; then
+  set -a
+  source ~/.env.local
+  set +a
+fi
+</code></pre>
+<p>Now every terminal session has your keys available as env vars.</p>
+<h2>Verification</h2>
+<p>After setup, run:</p>
+<pre><code class="language-bash">ffmpeg -version
+yt-dlp --version
+ollama --version
+claude-code --version   # if installed
+echo $OPENAI_API_KEY | cut -c1-10   # should show 'sk-proj-' or 'sk-'
+</code></pre>
+<p>If any fails, fix before moving on.</p>
+</article>
+
+  <div class="pnav">
+    <a href="1-individual-06-memory-hygiene.html">← 06 — Memory Hygiene</a>
+    <a href="1-individual-08-jargon-glossary.html">Jargon Glossary →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
