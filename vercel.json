@@ -1,10 +1,612 @@
 {
   "headers": [
-    { "source": "/(.*)", "headers": [
-      { "key": "X-Content-Type-Options", "value": "nosniff" },
-      { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-      { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-      { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
-    ] }
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/curriculum/read/l1-company-01-governance.html",
+      "destination": "/curriculum/read/1-company-01-governance.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-company-02-accounts-procurement.html",
+      "destination": "/curriculum/read/1-company-02-accounts-procurement.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-company-03-system-prompts.html",
+      "destination": "/curriculum/read/1-company-03-system-prompts.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-company-04-prompt-library.html",
+      "destination": "/curriculum/read/1-company-04-prompt-library.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-company-05-department-copilots.html",
+      "destination": "/curriculum/read/1-company-05-department-copilots.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-company-06-rag-knowledge-base.html",
+      "destination": "/curriculum/read/1-company-06-rag-knowledge-base.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-company-07-agents-mcp.html",
+      "destination": "/curriculum/read/1-company-07-agents-mcp.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-company-08-observability-evals.html",
+      "destination": "/curriculum/read/1-company-08-observability-evals.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-company-09-training.html",
+      "destination": "/curriculum/read/1-company-09-training.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-company-10-rollout-playbook.html",
+      "destination": "/curriculum/read/1-company-10-rollout-playbook.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-eli10.html",
+      "destination": "/curriculum/read/1-eli10.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-individual-01-foundation.html",
+      "destination": "/curriculum/read/1-individual-01-foundation.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-individual-02-accounts.html",
+      "destination": "/curriculum/read/1-individual-02-accounts.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-individual-03-system-prompts.html",
+      "destination": "/curriculum/read/1-individual-03-system-prompts.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-individual-04-prompt-library.html",
+      "destination": "/curriculum/read/1-individual-04-prompt-library.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-individual-05-model-routing.html",
+      "destination": "/curriculum/read/1-individual-05-model-routing.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-individual-06-memory-hygiene.html",
+      "destination": "/curriculum/read/1-individual-06-memory-hygiene.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-individual-07-automation.html",
+      "destination": "/curriculum/read/1-individual-07-automation.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-individual-08-jargon-glossary.html",
+      "destination": "/curriculum/read/1-individual-08-jargon-glossary.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-individual-09-rituals.html",
+      "destination": "/curriculum/read/1-individual-09-rituals.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-overview.html",
+      "destination": "/curriculum/read/1-overview.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-shared.html",
+      "destination": "/curriculum/read/1-shared.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l1-start-here.html",
+      "destination": "/curriculum/read/1-start-here.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-company-01-platform-engineering.html",
+      "destination": "/curriculum/read/2-company-01-platform-engineering.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-company-02-agent-governance.html",
+      "destination": "/curriculum/read/2-company-02-agent-governance.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-company-03-rag-at-scale.html",
+      "destination": "/curriculum/read/2-company-03-rag-at-scale.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-company-04-eval-program.html",
+      "destination": "/curriculum/read/2-company-04-eval-program.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-company-05-fine-tuning-decision.html",
+      "destination": "/curriculum/read/2-company-05-fine-tuning-decision.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-company-06-cost-management.html",
+      "destination": "/curriculum/read/2-company-06-cost-management.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-company-07-adoption-metrics.html",
+      "destination": "/curriculum/read/2-company-07-adoption-metrics.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-company-08-cross-team-workflows.html",
+      "destination": "/curriculum/read/2-company-08-cross-team-workflows.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-eli10.html",
+      "destination": "/curriculum/read/2-eli10.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-individual-01-agent-architectures.html",
+      "destination": "/curriculum/read/2-individual-01-agent-architectures.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-individual-02-build-first-agent.html",
+      "destination": "/curriculum/read/2-individual-02-build-first-agent.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-individual-03-build-second-agent.html",
+      "destination": "/curriculum/read/2-individual-03-build-second-agent.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-individual-04-build-third-agent.html",
+      "destination": "/curriculum/read/2-individual-04-build-third-agent.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-individual-05-mcp-server.html",
+      "destination": "/curriculum/read/2-individual-05-mcp-server.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-individual-06-rag-pipeline.html",
+      "destination": "/curriculum/read/2-individual-06-rag-pipeline.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-individual-07-evaluation.html",
+      "destination": "/curriculum/read/2-individual-07-evaluation.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-individual-08-cost-engineering.html",
+      "destination": "/curriculum/read/2-individual-08-cost-engineering.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-individual-09-prompt-engineering-depth.html",
+      "destination": "/curriculum/read/2-individual-09-prompt-engineering-depth.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-individual-10-multi-model-orchestration.html",
+      "destination": "/curriculum/read/2-individual-10-multi-model-orchestration.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-individual-11-data-pipelines.html",
+      "destination": "/curriculum/read/2-individual-11-data-pipelines.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-individual-12-jargon-level-2.html",
+      "destination": "/curriculum/read/2-individual-12-jargon-stage-2.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-individual-13-combine-two-agents.html",
+      "destination": "/curriculum/read/2-individual-13-combine-two-agents.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-overview.html",
+      "destination": "/curriculum/read/2-overview.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-repos.html",
+      "destination": "/curriculum/read/2-repos.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l2-shared.html",
+      "destination": "/curriculum/read/2-shared.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-company-01-production-ai-org.html",
+      "destination": "/curriculum/read/3-company-01-production-ai-org.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-company-02-slos-and-slas.html",
+      "destination": "/curriculum/read/3-company-02-slos-and-slas.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-company-03-safety-program.html",
+      "destination": "/curriculum/read/3-company-03-safety-program.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-company-04-red-team-program.html",
+      "destination": "/curriculum/read/3-company-04-red-team-program.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-company-05-multi-region-deployment.html",
+      "destination": "/curriculum/read/3-company-05-multi-region-deployment.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-company-06-privacy-and-compliance.html",
+      "destination": "/curriculum/read/3-company-06-privacy-and-compliance.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-company-07-vendor-strategy.html",
+      "destination": "/curriculum/read/3-company-07-vendor-strategy.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-company-08-cost-governance-at-scale.html",
+      "destination": "/curriculum/read/3-company-08-cost-governance-at-scale.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-company-09-org-wide-observability.html",
+      "destination": "/curriculum/read/3-company-09-org-wide-observability.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-company-10-continuous-learning-org.html",
+      "destination": "/curriculum/read/3-company-10-continuous-learning-org.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-eli10.html",
+      "destination": "/curriculum/read/3-eli10.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-individual-01-shipping-to-production.html",
+      "destination": "/curriculum/read/3-individual-01-shipping-to-production.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-individual-02-multi-agent-orchestration.html",
+      "destination": "/curriculum/read/3-individual-02-multi-agent-orchestration.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-individual-03-drift-detection.html",
+      "destination": "/curriculum/read/3-individual-03-drift-detection.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-individual-04-incident-response.html",
+      "destination": "/curriculum/read/3-individual-04-incident-response.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-individual-05-adversarial-hardening.html",
+      "destination": "/curriculum/read/3-individual-05-adversarial-hardening.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-individual-06-observability-at-depth.html",
+      "destination": "/curriculum/read/3-individual-06-observability-at-depth.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-individual-07-cost-at-scale.html",
+      "destination": "/curriculum/read/3-individual-07-cost-at-scale.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-individual-08-model-bake-offs.html",
+      "destination": "/curriculum/read/3-individual-08-model-bake-offs.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-individual-09-fine-tuning-practice.html",
+      "destination": "/curriculum/read/3-individual-09-fine-tuning-practice.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-individual-10-agent-memory.html",
+      "destination": "/curriculum/read/3-individual-10-agent-memory.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-individual-11-safety-engineering.html",
+      "destination": "/curriculum/read/3-individual-11-safety-engineering.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-individual-12-data-engineering-for-ai.html",
+      "destination": "/curriculum/read/3-individual-12-data-engineering-for-ai.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-individual-13-user-experience.html",
+      "destination": "/curriculum/read/3-individual-13-user-experience.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-individual-14-jargon-level-3.html",
+      "destination": "/curriculum/read/3-individual-14-jargon-stage-3.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-overview.html",
+      "destination": "/curriculum/read/3-overview.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l3-shared.html",
+      "destination": "/curriculum/read/3-shared.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-company-01-applied-research-team.html",
+      "destination": "/curriculum/read/3-company-11-applied-research-team.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-company-02-safety-program-mature.html",
+      "destination": "/curriculum/read/3-company-12-safety-program-mature.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-company-03-model-training-in-house.html",
+      "destination": "/curriculum/read/3-company-13-model-training-in-house.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-company-04-open-source-strategy.html",
+      "destination": "/curriculum/read/3-company-14-open-source-strategy.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-company-05-ai-org-scaling.html",
+      "destination": "/curriculum/read/3-company-15-ai-org-scaling.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-company-06-regulatory-engagement.html",
+      "destination": "/curriculum/read/3-company-16-regulatory-engagement.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-company-07-external-communication.html",
+      "destination": "/curriculum/read/3-company-17-external-communication.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-company-08-partnership-strategy.html",
+      "destination": "/curriculum/read/3-company-18-partnership-strategy.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-eli10.html",
+      "destination": "/curriculum/read/3-eli10.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-individual-01-leading-ai-teams.html",
+      "destination": "/curriculum/read/3-individual-15-leading-ai-teams.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-individual-02-training-stack-internals.html",
+      "destination": "/curriculum/read/3-individual-16-training-stack-internals.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-individual-03-custom-model-training.html",
+      "destination": "/curriculum/read/3-individual-17-custom-model-training.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-individual-04-applied-alignment.html",
+      "destination": "/curriculum/read/3-individual-18-applied-alignment.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-individual-05-safety-engineering-depth.html",
+      "destination": "/curriculum/read/3-individual-19-safety-engineering-depth.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-individual-06-red-team-mastery.html",
+      "destination": "/curriculum/read/3-individual-20-red-team-mastery.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-individual-07-evaluation-mastery.html",
+      "destination": "/curriculum/read/3-individual-21-evaluation-mastery.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-individual-08-inference-optimization.html",
+      "destination": "/curriculum/read/3-individual-22-inference-optimization.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-individual-09-open-weights-work.html",
+      "destination": "/curriculum/read/3-individual-23-open-weights-work.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-individual-10-cross-domain-fluency.html",
+      "destination": "/curriculum/read/3-individual-24-cross-domain-fluency.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-individual-11-teaching-and-writing.html",
+      "destination": "/curriculum/read/3-individual-25-teaching-and-writing.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-individual-12-jargon-level-4.html",
+      "destination": "/curriculum/read/3-individual-26-jargon-stage-3-continued.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-overview.html",
+      "destination": "/curriculum/read/3-overview.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l4-shared.html",
+      "destination": "/curriculum/read/3-shared.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-company-01-frontier-lab-operations.html",
+      "destination": "/curriculum/read/4-company-01-frontier-lab-operations.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-company-02-original-research-culture.html",
+      "destination": "/curriculum/read/4-company-02-original-research-culture.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-company-03-open-weight-releases.html",
+      "destination": "/curriculum/read/4-company-03-open-weight-releases.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-company-04-industry-leadership.html",
+      "destination": "/curriculum/read/4-company-04-industry-leadership.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-company-05-long-term-planning.html",
+      "destination": "/curriculum/read/4-company-05-long-term-planning.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-company-06-ethics-and-society.html",
+      "destination": "/curriculum/read/4-company-06-ethics-and-society.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-eli10.html",
+      "destination": "/curriculum/read/4-eli10.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-individual-01-research-fluency.html",
+      "destination": "/curriculum/read/4-individual-01-research-fluency.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-individual-02-novel-architectures.html",
+      "destination": "/curriculum/read/4-individual-02-novel-architectures.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-individual-03-mechanistic-interpretability.html",
+      "destination": "/curriculum/read/4-individual-03-mechanistic-interpretability.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-individual-04-frontier-training.html",
+      "destination": "/curriculum/read/4-individual-04-frontier-training.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-individual-05-agents-as-research.html",
+      "destination": "/curriculum/read/4-individual-05-agents-as-research.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-individual-06-publication-and-influence.html",
+      "destination": "/curriculum/read/4-individual-06-publication-and-influence.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-individual-07-open-source-leadership.html",
+      "destination": "/curriculum/read/4-individual-07-open-source-leadership.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-individual-08-founding-an-ai-company.html",
+      "destination": "/curriculum/read/4-individual-08-founding-an-ai-company.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-individual-09-cross-disciplinary.html",
+      "destination": "/curriculum/read/4-individual-09-cross-disciplinary.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-individual-10-jargon-level-5.html",
+      "destination": "/curriculum/read/4-individual-10-jargon-stage-4.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-overview.html",
+      "destination": "/curriculum/read/4-overview.html",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/read/l5-shared.html",
+      "destination": "/curriculum/read/4-shared.html",
+      "permanent": true
+    }
   ]
 }

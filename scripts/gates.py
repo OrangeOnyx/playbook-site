@@ -68,6 +68,7 @@ def check_links(dist):
 FRESH_ARTIFACTS = [
     ("assets/The-AI-Playbook-Field-Guide.pdf", "python scripts/build_field_guide.py"),
     ("content/generated/curriculum/read/index.html", "python scripts/build_reader.py"),
+    ("vercel.json", "python scripts/reader_redirects.py"),
 ]
 
 

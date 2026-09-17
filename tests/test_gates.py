@@ -48,7 +48,7 @@ def test_fresh_gate_passes_on_this_repo():
 
 def test_fresh_gate_names_the_stale_artifact_and_how_to_regenerate(tmp_path, monkeypatch):
     stale = {"spine.json": 200, "assets/The-AI-Playbook-Field-Guide.pdf": 100,
-             "content/generated/curriculum/read/index.html": 300}
+             "content/generated/curriculum/read/index.html": 300, "vercel.json": 300}
     monkeypatch.setattr(G, "_last_commit_ts", lambda root, rel: stale.get(rel))
     errs = G.check_fresh(tmp_path)
     assert len(errs) == 1
