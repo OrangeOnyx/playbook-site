@@ -1,4 +1,5 @@
 import sys, pathlib, io, re
+import pytest
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts import build_reader as R
@@ -38,6 +39,13 @@ def test_reader_records_its_source_commit(tmp_path):
     R.run(REPO, tmp_path)
     sha = (tmp_path / "SOURCE").read_text(encoding="utf-8").strip()
     assert re.fullmatch(r"[0-9a-f]{40}", sha)
+
+def test_run_refuses_to_delete_a_foreign_directory(tmp_path):
+    keep = tmp_path / "keep.txt"
+    keep.write_text("do not touch", encoding="utf-8")
+    with pytest.raises(SystemExit):
+        R.run(REPO, tmp_path)
+    assert keep.exists()
 
 def test_stage_pages_list_modules_without_level_words(tmp_path):
     B.render(tmp_path)

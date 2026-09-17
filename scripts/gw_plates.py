@@ -27,7 +27,7 @@ def _txt(x, y, s, size=9, fill=None, anchor="middle", weight=700, ls=1, family=S
 
 
 def brand_mark(size=32):
-    """The Groundwork mark: three terra bars, mustard Operator disc, ink ground."""
+    """The Playbook mark: three terra bars, mustard Operator disc, ink ground."""
     return (f'<svg width="{size}" height="{size}" viewBox="0 0 32 32" '
             f'xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
             f'<rect x="8" y="22" width="16" height="4" fill="{T["terra"]}"/>'

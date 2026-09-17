@@ -97,7 +97,17 @@ def run(repo=None, out=None):
     repo = Path(repo) if repo else ROOT.parent / "ai-playbook-curriculum"
     out = Path(out) if out else ROOT / "content" / "generated" / "curriculum" / "read"
     if out.exists():
-        shutil.rmtree(out)   # full regen: a prior run's slugs (e.g. the retired l1-... scheme) must not survive
+        # full regen: a prior run's slugs (e.g. the retired l1-... scheme) must not survive.
+        # Only remove a directory that looks like a reader output directory, so a bad
+        # `out` path can't wipe out something unrelated.
+        is_reader_output = (
+            not any(out.iterdir())
+            or (out / "index.html").exists()
+            or (out / "SOURCE").exists()
+        )
+        if not is_reader_output:
+            raise SystemExit("refusing to delete %s: not a reader output directory" % out)
+        shutil.rmtree(out)
     out.mkdir(parents=True, exist_ok=True)
     assets = out / "assets"
 

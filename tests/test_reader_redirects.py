@@ -30,7 +30,7 @@ def test_derive_skips_unchanged_pages_and_index():
 
 def test_committed_vercel_json_matches_the_generator():
     renames = json.load(io.open(ROOT / "content" / "reader-renames.json", encoding="utf-8"))
-    assert len(renames) >= 100
+    assert len(renames) == 117
     want = RR.build_config(renames)
     have = json.load(io.open(ROOT / "vercel.json", encoding="utf-8"))
     assert have == want, "regenerate: python scripts/reader_redirects.py"
