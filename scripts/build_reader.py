@@ -98,6 +98,7 @@ def run(repo=None, out=None):
     out = Path(out) if out else ROOT / "content" / "generated" / "curriculum" / "read"
     if out.exists():
         shutil.rmtree(out)   # full regen: a prior run's slugs (e.g. the retired l1-... scheme) must not survive
+    out.mkdir(parents=True, exist_ok=True)
     assets = out / "assets"
 
     def rel_md_files(subdir):
