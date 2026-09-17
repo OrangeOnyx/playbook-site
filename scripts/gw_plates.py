@@ -1,15 +1,9 @@
-# The Groundwork Curriculum illustration system: the Annual Report world's
+# The AI Playbook Curriculum illustration system: the Annual Report world's
 # drawing language (flat ink on paper, stars and rules, spot color at device
-# scale) as self-contained SVG generators. Used by BOTH renderers so the book
-# and the site reader can never drift apart visually:
-#   - curriculum-pdf/build_curriculum_pdf.py   (the 600-page book)
-#   - print/build-curriculum-reader.py         (the /curriculum/read/ pages)
-# Every SVG carries explicit fills/fonts (no CSS vars), so plates render
-# identically in headless Edge print and in any browser.
-# Design authority: DESIGN.md at the project root. Rules honored here:
-# square corners; circles only for stars (plotted points) and the Operator
-# disc; oxblood never appears (no prohibitions are drawn in these plates);
-# text-carrying fields only ink/terra-deep/olive/olive-deep.
+# scale) as self-contained SVG generators. Canonical copy: playbook-site/scripts/gw_plates.py.
+# Used by: scripts/build_reader.py (the /curriculum/read/ pages), curriculum-pdf/build_curriculum_pdf.py
+# (the book), and, as a byte-identical vendored copy, ai-playbook-curriculum/shared/graphics/plates.py
+# (the repository's own stage plates). Edit here, then copy; tests/test_gw_plates.py checks the twin.
 
 T = {
     "paper": "#F4EFE2", "paper_deep": "#EAE2CD", "ink": "#1E1B16",
@@ -20,9 +14,9 @@ T = {
 SANS = "Archivo, Arial, 'Helvetica Neue', sans-serif"
 SLAB = "Besley, Georgia, 'Times New Roman', serif"
 
-STOP_X = [60, 210, 360, 510, 660]
-STOP_Y = [46, 39, 32, 25, 18]
-LEVEL_NAMES = ["ESSENTIALS", "INTERMEDIATE", "ADVANCED", "PROFESSIONAL", "FRONTIER"]
+STOP_X = [90, 270, 450, 630]
+STOP_Y = [46, 36, 26, 16]
+STAGE_NAMES = ["STARTER", "INTERMEDIATE", "EXPERT", "FRONTIER OPERATOR"]
 
 
 def _txt(x, y, s, size=9, fill=None, anchor="middle", weight=700, ls=1, family=SANS):
@@ -45,11 +39,11 @@ def brand_mark(size=32):
 
 
 def climb_line(current=None, w=720, labels=True, numerals=False):
-    """The five-level climb: a rising line of stars. current (1-5) gets the halo."""
+    """The four-stage climb: a rising line of stars. current (1-4) gets the halo."""
     h = 64 if labels else 40
     pts = " ".join(f"{x},{y}" for x, y in zip(STOP_X, STOP_Y))
     out = [f'<svg viewBox="0 0 {w} {h}" xmlns="http://www.w3.org/2000/svg" '
-           f'role="img" aria-label="The five levels, climbing.">',
+           f'role="img" aria-label="The four stages, climbing.">',
            f'<polyline points="{pts}" fill="none" stroke="{T["terra_deep"]}" '
            f'stroke-width="1" opacity="0.75"/>']
     for i, (x, y) in enumerate(zip(STOP_X, STOP_Y), 1):
@@ -59,15 +53,14 @@ def climb_line(current=None, w=720, labels=True, numerals=False):
         out.append(f'<circle cx="{x}" cy="{y}" r="{5 if i == current else 4}" '
                    f'fill="{T["terra_deep"]}"/>')
         if labels:
-            lab = f"{i} {LEVEL_NAMES[i-1]}" if numerals else LEVEL_NAMES[i - 1]
+            lab = f"{i} {STAGE_NAMES[i-1]}" if numerals else STAGE_NAMES[i - 1]
             out.append(_txt(x, 60, lab, 9))
     out.append("</svg>")
     return "".join(out)
 
 
-def level_emblem(n, size=120):
-    """One emblem per level, same star-and-rule language, drawn at 120x120.
-    1 first light - 2 the build - 3 the network - 4 the lead - 5 the frontier."""
+def stage_emblem(n, size=120):
+    """One emblem per stage: 1 first light, 2 the build, 3 the network, 4 the frontier."""
     td, ink, pd, rl = T["terra_deep"], T["ink"], T["paper_deep"], T["rule"]
     body = ""
     if n == 1:
@@ -96,15 +89,6 @@ def level_emblem(n, size=120):
                 f'<circle cx="86" cy="80" r="6" fill="{td}"/>'
                 f'<circle cx="104" cy="62" r="3" fill="{T["ink_soft"]}"/>')
     elif n == 4:
-        body = (f'<path d="M14 102 H106" stroke="{ink}" stroke-width="2" stroke-linecap="round"/>'
-                f'<line x1="60" y1="40" x2="36" y2="72" stroke="{rl}" stroke-width="1.2"/>'
-                f'<line x1="60" y1="40" x2="84" y2="72" stroke="{rl}" stroke-width="1.2"/>'
-                f'<circle cx="60" cy="40" r="7" fill="{td}"/>'
-                f'<circle cx="36" cy="72" r="4" fill="{T["ink_soft"]}"/>'
-                f'<circle cx="84" cy="72" r="4" fill="{T["ink_soft"]}"/>'
-                f'<circle cx="24" cy="90" r="4" fill="{T["ink_soft"]}"/>'
-                f'<circle cx="96" cy="90" r="4" fill="{T["ink_soft"]}"/>')
-    elif n == 5:
         body = (f'<path d="M14 102 H72" stroke="{ink}" stroke-width="2" stroke-linecap="round"/>'
                 f'<path d="M72 102 L112 96" stroke="{rl}" stroke-width="1.4"/>'
                 f'<circle cx="52" cy="84" r="5" fill="{td}"/>'
@@ -119,7 +103,7 @@ def level_emblem(n, size=120):
 
 
 GROUPS = {
-    "overview":   "The level at a glance",
+    "overview":   "The stage at a glance",
     "start-here": "Start here",
     "individual": "Individual track",
     "company":    "Company track",
@@ -130,7 +114,7 @@ GROUPS = {
 
 
 def group_device(key, size=44):
-    """Small recurring mark per group, constant across levels so the book and
+    """Small recurring mark per group, constant across stages so the book and
     reader rhyme: flag / star / three stars / ledger / fork / paired stars."""
     td, ink, pd, rl = T["terra_deep"], T["ink"], T["paper_deep"], T["rule"]
     g = ""
@@ -172,34 +156,41 @@ def group_device(key, size=44):
             f'xmlns="http://www.w3.org/2000/svg" aria-hidden="true">{g}</svg>')
 
 
-def axis_bands(w=960, h=330):
-    """The doctrine-vs-curriculum map: six layer squares on a ground line above,
-    five stars on a rising line below. Ported from the site hub drawing."""
-    td, ink, isoft = T["terra_deep"], T["ink"], T["ink_soft"]
-    sq = lambda x, fill: f'<rect x="{x}" y="85" width="14" height="14" fill="{fill}"/>'
+def parallel_tracks(w=960, h=300):
+    """The Playbook (what you build) and the Curriculum (what you learn) as two rising
+    lines with the same four stations. Replaces the retired doctrine-vs-levels map."""
+    td, ink, isoft, ol = T["terra_deep"], T["ink"], T["ink_soft"], T["olive_deep"]
+    xs = [120, 360, 600, 840]
     o = [f'<svg viewBox="0 0 {w} {h}" xmlns="http://www.w3.org/2000/svg" role="img" '
-         f'aria-label="Two bands: the doctrine as six squares on a ground line; '
-         f'the curriculum as five stars on a rising line.">',
-         _txt(60, 28, "THE DOCTRINE &#183; WHAT YOU BUILD &#183; SIX LAYERS", 11.5, ink, "start", ls=1.5),
-         _txt(900, 28, "THE GUIDE + THE FIELD GUIDE", 10, isoft, "end"),
-         _txt(215, 60, "PHASE 1 &#183; REQUIRED FIRST", 9), _txt(475, 60, "PHASE 2 &#183; ACTIVATION", 9),
-         _txt(737, 60, "PHASE 3 &#183; DURABILITY", 9),
-         f'<line x1="60" y1="92" x2="900" y2="92" stroke="{ink}" stroke-width="2" opacity="0.85"/>',
-         sq(93, td), sq(215, td), sq(337, td),
-         f'<circle cx="475" cy="92" r="9" fill="{T["mustard"]}"/>',
-         sq(595, T["olive_deep"]), sq(730, T["olive_deep"]), sq(865, T["olive_deep"]),
-         _txt(100, 122, "IDENTITY", 9), _txt(222, 122, "KNOWLEDGE", 9), _txt(344, 122, "GOVERNANCE", 9),
-         _txt(475, 122, "THE OPERATOR", 9), _txt(602, 122, "CONTINUITY", 9),
-         _txt(737, 122, "MEASUREMENT", 9), _txt(872, 122, "OPERATING RHYTHM", 9),
-         _txt(60, 150, "BUILT ONCE, FOR THE BUSINESS. STRICT ORDER.", 9.5, anchor="start"),
-         _txt(60, 200, "THE CURRICULUM &#183; WHAT YOU LEARN &#183; FIVE LEVELS", 11.5, ink, "start", ls=1.5),
-         _txt(900, 200, "THE SITE + GITHUB + THIS BOOK", 10, isoft, "end"),
-         f'<polyline points="100,290 300,278 500,264 700,248 880,230" fill="none" '
-         f'stroke="{td}" stroke-width="1.2" opacity="0.8"/>']
-    for x, y, lab in [(100, 290, "1 ESSENTIALS"), (300, 278, "2 INTERMEDIATE"),
-                      (500, 264, "3 ADVANCED"), (700, 248, "4 PROFESSIONAL"),
-                      (880, 230, "5 FRONTIER")]:
-        o.append(f'<circle cx="{x}" cy="{y}" r="5" fill="{td}"/>')
-        o.append(_txt(x, 313, lab, 9))
+         f'aria-label="Two rising lines with the same four stations: the Playbook above, the Curriculum below.">',
+         _txt(60, 28, "THE PLAYBOOK &#183; WHAT YOU BUILD", 11.5, ink, "start", ls=1.5),
+         _txt(900, 28, "TEN SECTIONS IN FOUR STAGES", 10, isoft, "end"),
+         f'<polyline points="{xs[0]},110 {xs[1]},98 {xs[2]},86 {xs[3]},74" fill="none" stroke="{td}" stroke-width="1.2" opacity="0.8"/>',
+         _txt(60, 175, "THE CURRICULUM &#183; WHAT YOU LEARN", 11.5, ink, "start", ls=1.5),
+         _txt(900, 175, "TWO TRACKS AT EVERY STAGE", 10, isoft, "end"),
+         f'<polyline points="{xs[0]},262 {xs[1]},250 {xs[2]},238 {xs[3]},226" fill="none" stroke="{ol}" stroke-width="1.2" opacity="0.8"/>']
+    for i, (x, name) in enumerate(zip(xs, STAGE_NAMES), 1):
+        ya, yb = 110 - 12 * (i - 1), 262 - 12 * (i - 1)
+        o.append(f'<circle cx="{x}" cy="{ya}" r="5" fill="{td}"/>')
+        o.append(f'<circle cx="{x}" cy="{yb}" r="5" fill="{ol}"/>')
+        o.append(_txt(x, 138, f"{i} {name}", 9))
+        o.append(_txt(x, 290, f"{i} {name}", 9))
     o.append("</svg>")
     return "".join(o)
+
+
+def cover_plate(w=960, h=540):
+    """The repository cover: mark, title, imprint, the four-station climb."""
+    ink, td, isoft = T["ink"], T["terra_deep"], T["ink_soft"]
+    climb = climb_line(None, 720, labels=True, numerals=True).replace("<svg ", '<svg x="120" y="380" width="720" height="64" ', 1)
+    return (f'<svg viewBox="0 0 {w} {h}" xmlns="http://www.w3.org/2000/svg" role="img" '
+            f'aria-label="The AI Playbook Curriculum: four stages, two tracks.">'
+            f'<rect width="{w}" height="{h}" fill="{T["paper"]}"/>'
+            f'<g transform="translate(120,70)">{brand_mark(44)}</g>'
+            + _txt(180, 100, "THE AI PLAYBOOK", 13, ink, "start", 900, 4)
+            + f'<line x1="120" y1="126" x2="840" y2="126" stroke="{ink}" stroke-width="2"/>'
+            + _txt(120, 176, "THE CURRICULUM", 44, ink, "start", 900, -1)
+            + _txt(120, 236, "FOUR STAGES &#183; TWO TRACKS &#183; TWO VOICES", 12, td, "start", 700, 2.5)
+            + _txt(120, 290, "Free, ungated, MIT. Curriculum authorship: Jake Van Clief. By Cypress Command.", 13, isoft, "start", 400, 0, SLAB)
+            + f'<rect x="120" y="320" width="46" height="3" fill="{td}"/>'
+            + climb + "</svg>")
