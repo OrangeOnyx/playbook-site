@@ -16,6 +16,7 @@ Write-Host "clean"
 Write-Host "== Reader source =="
 # The reader is compiled from the curriculum clone; what shipped must be what the owner merged and pushed.
 $cur = Join-Path (Split-Path $PSScriptRoot -Parent) "ai-playbook-curriculum"
+if (-not (Test-Path $cur)) { throw "Curriculum clone not found at $cur. Clone OrangeOnyx/ai-playbook-curriculum beside this repo." }
 $recorded = (Get-Content -Raw "content/generated/curriculum/read/SOURCE").Trim()
 $head = (git -C $cur rev-parse HEAD).Trim()
 $remote = ((git -C $cur ls-remote origin master) -split "\s+")[0]
