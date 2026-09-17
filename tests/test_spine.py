@@ -42,3 +42,15 @@ def test_catch_all_redirects_must_come_last():
     bad["redirects"].append({"source": "/late-literal.html", "destination": "/somewhere/"})
     errs = S.validate(bad)
     assert any("catch-all" in e for e in errs)
+
+def test_curriculum_key_names_one_folder_per_stage():
+    sp = S.load()
+    assert sorted(sp["curriculum"]) == ["1", "2", "3", "4"]
+    assert [sp["curriculum"][k]["folder"] for k in "1234"] == ["1-starter", "2-intermediate", "3-expert", "4-frontier-operator"]
+    assert all("levels" not in v for v in sp["curriculum"].values())
+    assert not S.validate(sp)
+
+def test_validate_rejects_a_curriculum_folder_that_is_not_the_stage_slug():
+    sp = S.load()
+    sp["curriculum"]["3"]["folder"] = "level-3-advanced"
+    assert any("curriculum folder" in e for e in S.validate(sp))

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2 Intermediate shared materials | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="2 Intermediate: 2 Intermediate shared materials. Compiled verbatim from The AI Playbook Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/2-shared.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/" aria-current="page">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 2 Intermediate shared materials</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><div><span class="kicker" style="margin-bottom:.15rem">2 INTERMEDIATE</span><h1 style="margin:.1rem 0 0">2 Intermediate shared materials</h1></div></div>
+<p class="rnote">This page compiles 4 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/shared">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><span>2-intermediate/shared/agent-brief-template.md</span></p>
+<h1>Agent Brief Template</h1>
+<h2>Template</h2>
+<p><strong>Name and owner:</strong> [agent name], [business owner], [technical owner].<br />
+<strong>User and job:</strong> [who uses it] needs to [specific outcome].<br />
+<strong>Non-goals:</strong> [what it must not decide or do].<br />
+<strong>Risk tier and data:</strong> [low/medium/high], [permitted data], [forbidden data].<br />
+<strong>Inputs / outputs:</strong> [typed input] → [typed output schema].<br />
+<strong>Architecture:</strong> [workflow, router, ReAct, plan-execute]; stop rules.<br />
+<strong>Tools:</strong> [name, read/write/propose, authorization, row/result cap].<br />
+<strong>Human gates:</strong> [exact triggers, approver role, fallback].<br />
+<strong>Quality contract:</strong> [critical metrics and thresholds].<br />
+<strong>Cost/latency:</strong> [unit budget, p95 target, model route].<br />
+<strong>Rollout/rollback:</strong> [shadow plan, flag, kill switch].</p>
+<h2>Worked example: Belle Lease Clause Extractor</h2>
+<p><strong>Owner:</strong> Adam; technical owner: Belle Realty platform. <strong>User/job:</strong> leasing operations turns a signed lease into cited clause records. <strong>Non-goals:</strong> legal interpretation, tenant communication, database writes by the model. <strong>Risk/data:</strong> medium; current authorized leases only; never payment instruments or unrelated tenant data.</p>
+<p><strong>Input/output:</strong> <code>{lease_id, document_version}</code> → typed clause proposals with normalized value, exact quote, page, source chunk, confidence, and status. <strong>Architecture:</strong> deterministic ingestion and retrieval, structured extractor, one verifier pass; stop after two retrieval attempts. <strong>Tools:</strong> <code>find_clause</code> and <code>get_page</code>, read-only and lease-scoped; <code>create_review_task</code>, propose-only. <strong>Human gates:</strong> low confidence, OCR below 0.88, conflicts, and all final publication. <strong>Quality:</strong> 98% critical-field precision, 100% citation support, zero wrong-lease sources. <strong>Cost:</strong> target under $0.20 per lease; p95 under 90 seconds. <strong>Rollout:</strong> 30-lease shadow set, then one property; per-agent feature flag and writes disabled by default.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><span>2-intermediate/shared/eval-set-template.md</span></p>
+<h1>Intermediate Eval Set Template</h1>
+<h2>Case record</h2>
+<p><code>case_id</code>, task, version, owner, data classification, source provenance, input, authorized context, expected output or rubric, expected evidence IDs, expected abstention/escalation, tags, risk tier, and notes. Keep immutable versions and split into development, locked regression, adversarial, and production-sampled sets.</p>
+<h2>Intermediate rubric</h2>
+<p>Score deterministic requirements first: valid schema; correct organization and entity scope; required fields; source citation presence; tool policy compliance; no prohibited side effect. Then score task behavior: factual correctness, evidence support/faithfulness, groundedness, completeness, calibrated confidence, correct abstention, escalation correctness, and usable tone. Record latency, tokens, model route, cache status, tool calls, and cost.</p>
+<h2>Required slices</h2>
+<p>Include normal cases, messy OCR, missing evidence, conflicting addenda, stale documents, ambiguous requests, irrelevant retrieved content, prompt injection, cross-tenant requests, malformed tool results, and low-confidence cases. For tenant triage include emergencies, fair-housing concerns, payment disputes, threats, attachments, and multilingual messages.</p>
+<h2>Release gates</h2>
+<p>Define critical failures as zero-tolerance: cross-tenant data, unsupported legal claim, unsafe write proposal, failed emergency escalation, or leaked canary. Compare candidate against baseline by slice, not only average. Use LLM judges only with documented calibration against human labels; require human adjudication for high-risk disagreements. Add every verified production failure to a candidate queue, then curate it before it becomes a regression case.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><span>2-intermediate/shared/mcp-server-brief-template.md</span></p>
+<h1>MCP Server Brief Template</h1>
+<p><strong>Server and owner:</strong> [name], [technical owner], [on-call owner].<br />
+<strong>Purpose:</strong> [specific capabilities], not [explicit exclusions].<br />
+<strong>Callers and auth:</strong> [clients], token audience, scopes, organization binding.<br />
+<strong>Data boundary:</strong> allowed entities/fields; forbidden fields; retention/log redaction.<br />
+<strong>Tools/resources:</strong> for each: name, purpose, strict input schema, output schema, read/propose/write classification, authorization rule, result cap, timeout, audit event.<br />
+<strong>Write policy:</strong> proposal shape, approver, commit endpoint, idempotency, rollback.<br />
+<strong>Rate limits:</strong> actor/org/tool limits, response-byte and query-cost caps.<br />
+<strong>Safety:</strong> prompt-injection assumptions, input validation, error taxonomy, kill switches.<br />
+<strong>Observability:</strong> trace fields, metrics, alerts, sampled review.<br />
+<strong>Eval/launch:</strong> isolation tests, malformed input tests, canaries, shadow plan, rollback.</p>
+<h2>Example outline: Belle Read Server</h2>
+<p>Purpose: provide authorized lease and maintenance facts to internal assistants. Callers use short-lived organization-bound tokens. Tools: <code>get_lease_clause</code>, <code>list_open_maintenance</code>, and <code>get_property</code>; each is read-only, RLS-backed, returns a fixed schema, and logs safe IDs plus row count. <code>propose_create_ticket</code> returns a draft only; the Belle app repeats authorization before persistence. Rate limits apply by actor and property. Tests include guessed lease IDs, cross-tenant semantic requests, oversized searches, stale addenda, and repeated proposal approval. Success means zero isolation failures, predictable p95 latency, and complete audit traces.</p>
+<p><strong>Completion check:</strong> the brief is not complete until an unauthorized-ID test, a rate-limit test, a proposed-write approval test, and a server-disable test have recorded expected results.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><span>2-intermediate/shared/rag-pipeline-brief-template.md</span></p>
+<h1>RAG Pipeline Brief Template</h1>
+<p><strong>Question and user:</strong> [who asks what decision-support question].<br />
+<strong>Corpus:</strong> source types, owner, authority, access labels, refresh target, retention.<br />
+<strong>Non-goals:</strong> [what RAG must not answer or decide].<br />
+<strong>Ingestion:</strong> source ID, checksum, extraction/OCR, normalized metadata, raw storage.<br />
+<strong>Chunking:</strong> structural rule, size/overlap, required metadata, version.<br />
+<strong>Indexing:</strong> embedding model, lexical index, namespace/filter strategy, active version.<br />
+<strong>Retrieval:</strong> authorization filters, query rewrite policy, top-k, hybrid method, reranker.<br />
+<strong>Answer contract:</strong> source citations, abstention threshold, freshness display, forbidden claims.<br />
+<strong>Evaluation:</strong> gold queries, recall@k, citation precision, groundedness, latency, cost.<br />
+<strong>Operations:</strong> reindex trigger, deletion/revocation path, SLOs, owner, rollback.</p>
+<h2>Example: Belle lease Q&amp;A</h2>
+<p>Users: authorized staff answering lease-policy questions. Corpus: signed leases and governing addenda, with tenant/property scope and effective dates. Chunk by numbered clause and heading, preserve pages and precedence. Filter by organization and active lease before hybrid retrieval; rerank top 20 and answer from 3–6 passages. Every claim cites document/page; if no active evidence exists, return an abstention and review path. Targets: 100% authorized-result correctness and citation support; measure gold-clause recall@5, p95 latency, and cost per grounded answer. An addendum upload triggers selective reindex; permission revocation immediately removes serving eligibility.</p>
+<p><strong>Completion check:</strong> include one unanswerable query and one cross-tenant request in the launch set; both must fail safely with an observable trace.</p>
+</article>
+
+  <div class="pnav">
+    <a href="2-company-08-cross-team-workflows.html">← Cross-Team Workflows</a>
+    <a href="2-repos.html">Working repositories →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

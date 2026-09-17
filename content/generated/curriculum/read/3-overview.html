@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3 Expert at a glance | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="3 Expert: 3 Expert at a glance. Compiled verbatim from The AI Playbook Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/3-overview.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/" aria-current="page">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 3 Expert at a glance</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="20" r="9" fill="none" stroke="#A44E12" stroke-width="1.4" opacity="0.5"/><circle cx="22" cy="20" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">3 EXPERT</span><h1 style="margin:.1rem 0 0">3 Expert at a glance</h1></div></div>
+<p class="rnote">Deeper on this stage on the main site: <a href="/curriculum/3-expert/">3 Expert</a>.</p>
+<p class="rnote">This page compiles 1 file from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/3-expert">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="20" r="9" fill="none" stroke="#A44E12" stroke-width="1.4" opacity="0.5"/><circle cx="22" cy="20" r="5" fill="#A44E12"/></svg><span>3-expert/README.md</span></p>
+<h1>Stage 3 Expert</h1>
+<p><strong>You are:</strong> a builder.
+<strong>You will become:</strong> a practitioner: shipping AI to real users with SLOs, handling incidents, drift, adversarial inputs, and cost at scale; then leading an AI team, doing custom model training, applied alignment, safety engineering, red-teaming. Comfortable with training-stack internals.
+<strong>The Curriculum's pace:</strong> 10 to 18 months.</p>
+<p><img alt="Stage 3" src="assets/shared--graphics--stage-3.svg" /></p>
+<h2>Prerequisites</h2>
+<ul>
+<li>Stage 2 exit criteria met</li>
+<li>Have shipped software to real users before (not necessarily AI)</li>
+<li>Comfortable with observability tools (metrics, traces, logs)</li>
+<li>Access to a production environment or willingness to build one</li>
+<li>Later in the stage: access to compute for training runs (cloud GPUs at minimum) and willingness to read papers</li>
+</ul>
+<h2>Exit criteria</h2>
+<ul>
+<li>You've shipped an AI product or feature to real users with SLOs met</li>
+<li>You've orchestrated a multi-agent workflow in production</li>
+<li>You've handled a real drift or incident (or run a realistic dry-run)</li>
+<li>You've done a model bake-off with a data-driven decision</li>
+<li>You've hardened one workflow against adversarial input</li>
+<li>You've fine-tuned a model with measurable impact</li>
+<li>You've led a red-team exercise</li>
+<li>You understand training-stack internals (attention, MoE, quantization, inference optimization)</li>
+<li>You can teach any Stages 1 to 3 concept clearly</li>
+<li>You can lead an AI team or an AI initiative</li>
+<li>For companies: full observability, incident response tested, cross-department scaling underway; applied research team stood up, safety program mature, cross-industry benchmarking</li>
+</ul>
+<h2>Tracks</h2>
+<ul>
+<li><strong><code>individual/</code></strong>: 26 modules, 01 to 14 for production systems design, 15 to 26 for the practitioner</li>
+<li><strong><code>company/</code></strong>: 18 modules, 01 to 10 for AI operations at organizational scale, 11 to 18 for mature AI organizations</li>
+<li><strong><code>shared/</code></strong>: production checklist and templates; training, safety, and card templates</li>
+<li><strong><code>eli10/</code></strong>: plain-language companions</li>
+</ul>
+<h2>How to work Stage 3</h2>
+<p>Stage 3 is about shipping, then leading. Every module ends with "did you ship the thing?" Not "did you read about it."</p>
+<ol>
+<li>Pick one Stage 2 project and take it to production (<code>01</code>, <code>06</code>)</li>
+<li>Add observability and SLOs before customers touch it</li>
+<li>Run a bake-off before you commit to a model (<code>08</code>)</li>
+<li>Red-team it (<code>05</code>)</li>
+<li>Write the incident playbook before you need it (<code>04</code>)</li>
+<li>Deepen training-stack understanding (<code>16</code>): you cannot lead what you do not understand</li>
+<li>Do a real fine-tuning project (<code>17</code>)</li>
+<li>Build safety engineering discipline (<code>19</code>, <code>20</code>)</li>
+<li>Master evaluation (<code>21</code>)</li>
+<li>Teach the material (<code>25</code>): teaching forces mastery</li>
+<li>Everything else is depth on the specialty you are pursuing</li>
+</ol>
+<p>If you finish this stage, you can lead an AI product, platform, team, or initiative.</p>
+<p>Formerly Level 3 Advanced and Level 4 Professional.</p>
+</article>
+
+  <div class="pnav">
+    <a href="2-eli10.html">← 2 Intermediate ELI10 companions</a>
+    <a href="3-individual-01-shipping-to-production.html">Shipping AI to Production →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

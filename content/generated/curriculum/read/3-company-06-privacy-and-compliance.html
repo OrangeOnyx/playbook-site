@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy and Compliance for AI | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="3 Expert · Company Track: Privacy and Compliance for AI. Compiled verbatim from The AI Playbook Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/3-company-06-privacy-and-compliance.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/" aria-current="page">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / Privacy and Compliance for AI</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">3 EXPERT · COMPANY TRACK</span><h1 style="margin:.1rem 0 0">Privacy and Compliance for AI</h1></div></div>
+<p class="rnote">This page compiles 5 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/3-expert/company/06-privacy-and-compliance">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>3-expert/company/06-privacy-and-compliance/README.md</span></p>
+<h1>Privacy and Compliance for AI</h1>
+<p>Compliance starts with data minimization and purpose limitation. If a feature does not need a tenant’s phone number, lease attachment, or maintenance history, it should never receive it.</p>
+<p>At company scale, AI is not a side project owned by the person who writes prompts. It is a production capability spanning product, domain operations, platform engineering, security, privacy, finance, and support. Belle Realty should make the operating decision visible: what is authorized, who is accountable, what evidence is required, and how the system is stopped when reality disagrees.</p>
+<h2>Operating model</h2>
+<p>Name one directly responsible individual for the outcome and one executive sponsor for the risk. Define the decision rights for data access, model changes, vendor changes, policy exceptions, and emergency shutdowns. Maintain a registry of deployed features with purpose, customer cohorts, model and retrieval versions, data sources, tool permissions, SLOs, evaluation evidence, and review date.</p>
+<h2>Control cadence</h2>
+<p>Review leading indicators weekly: reliability, safety interventions, access denials, cost, drift, user corrections, and unresolved incidents. Review material changes before launch and at a fixed expiry date after launch. The agenda should end in decisions, owners, and dates—not a dashboard tour.</p>
+<h2>Evidence standard</h2>
+<p>Require representative offline evaluation, staged release evidence, traceable telemetry, and a documented rollback path. Segment results by geography, property type, tenant context, language, and risk level. A global pass rate is insufficient for a system that operates differently for one high-risk cohort.</p>
+<h2>Practical scenario</h2>
+<p>Before allowing an assistant to send maintenance messages across a portfolio, prove authorization boundaries, approved language, escalation behavior, provider fallback, outage handling, audit retention, and per-property cost limits. Have operations rehearse the manual path and the stop path.</p>
+<h2>Decision test</h2>
+<p>The program is mature only when a new engineer can determine what is running, why it is permitted, how it is measured, and who can change or stop it without relying on tribal knowledge.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>3-expert/company/06-privacy-and-compliance/audit-preparation.md</span></p>
+<h1>AI Audit Preparation</h1>
+<p>Prepare a bounded evidence package: system inventory, data flows, risk assessments, policies, access records, evals, release approvals, incident records, vendor terms, and control tests. Make artifacts searchable before an auditor asks.</p>
+<p>At company scale, AI is not a side project owned by the person who writes prompts. It is a production capability spanning product, domain operations, platform engineering, security, privacy, finance, and support. Belle Realty should make the operating decision visible: what is authorized, who is accountable, what evidence is required, and how the system is stopped when reality disagrees.</p>
+<h2>Operating model</h2>
+<p>Name one directly responsible individual for the outcome and one executive sponsor for the risk. Define the decision rights for data access, model changes, vendor changes, policy exceptions, and emergency shutdowns. Maintain a registry of deployed features with purpose, customer cohorts, model and retrieval versions, data sources, tool permissions, SLOs, evaluation evidence, and review date.</p>
+<h2>Control cadence</h2>
+<p>Review leading indicators weekly: reliability, safety interventions, access denials, cost, drift, user corrections, and unresolved incidents. Review material changes before launch and at a fixed expiry date after launch. The agenda should end in decisions, owners, and dates—not a dashboard tour.</p>
+<h2>Evidence standard</h2>
+<p>Require representative offline evaluation, staged release evidence, traceable telemetry, and a documented rollback path. Segment results by geography, property type, tenant context, language, and risk level. A global pass rate is insufficient for a system that operates differently for one high-risk cohort.</p>
+<h2>Practical scenario</h2>
+<p>Before allowing an assistant to send maintenance messages across a portfolio, prove authorization boundaries, approved language, escalation behavior, provider fallback, outage handling, audit retention, and per-property cost limits. Have operations rehearse the manual path and the stop path.</p>
+<h2>Decision test</h2>
+<p>The program is mature only when a new engineer can determine what is running, why it is permitted, how it is measured, and who can change or stop it without relying on tribal knowledge.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>3-expert/company/06-privacy-and-compliance/gdpr-for-ai.md</span></p>
+<h1>GDPR for AI</h1>
+<p>Operationalize lawful basis, transparency, minimization, retention, data-subject rights, processor controls, automated-decision safeguards, and transfer mechanisms. Document how model, retrieval, logs, and vendors participate.</p>
+<p>At company scale, AI is not a side project owned by the person who writes prompts. It is a production capability spanning product, domain operations, platform engineering, security, privacy, finance, and support. Belle Realty should make the operating decision visible: what is authorized, who is accountable, what evidence is required, and how the system is stopped when reality disagrees.</p>
+<h2>Operating model</h2>
+<p>Name one directly responsible individual for the outcome and one executive sponsor for the risk. Define the decision rights for data access, model changes, vendor changes, policy exceptions, and emergency shutdowns. Maintain a registry of deployed features with purpose, customer cohorts, model and retrieval versions, data sources, tool permissions, SLOs, evaluation evidence, and review date.</p>
+<h2>Control cadence</h2>
+<p>Review leading indicators weekly: reliability, safety interventions, access denials, cost, drift, user corrections, and unresolved incidents. Review material changes before launch and at a fixed expiry date after launch. The agenda should end in decisions, owners, and dates—not a dashboard tour.</p>
+<h2>Evidence standard</h2>
+<p>Require representative offline evaluation, staged release evidence, traceable telemetry, and a documented rollback path. Segment results by geography, property type, tenant context, language, and risk level. A global pass rate is insufficient for a system that operates differently for one high-risk cohort.</p>
+<h2>Practical scenario</h2>
+<p>Before allowing an assistant to send maintenance messages across a portfolio, prove authorization boundaries, approved language, escalation behavior, provider fallback, outage handling, audit retention, and per-property cost limits. Have operations rehearse the manual path and the stop path.</p>
+<h2>Decision test</h2>
+<p>The program is mature only when a new engineer can determine what is running, why it is permitted, how it is measured, and who can change or stop it without relying on tribal knowledge.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>3-expert/company/06-privacy-and-compliance/hipaa-for-ai.md</span></p>
+<h1>HIPAA for AI</h1>
+<p>If protected health information enters an AI workflow, verify scope, business associate agreements, access controls, auditability, minimum-necessary use, and breach processes. Do not assume a model vendor is covered by default.</p>
+<p>At company scale, AI is not a side project owned by the person who writes prompts. It is a production capability spanning product, domain operations, platform engineering, security, privacy, finance, and support. Belle Realty should make the operating decision visible: what is authorized, who is accountable, what evidence is required, and how the system is stopped when reality disagrees.</p>
+<h2>Operating model</h2>
+<p>Name one directly responsible individual for the outcome and one executive sponsor for the risk. Define the decision rights for data access, model changes, vendor changes, policy exceptions, and emergency shutdowns. Maintain a registry of deployed features with purpose, customer cohorts, model and retrieval versions, data sources, tool permissions, SLOs, evaluation evidence, and review date.</p>
+<h2>Control cadence</h2>
+<p>Review leading indicators weekly: reliability, safety interventions, access denials, cost, drift, user corrections, and unresolved incidents. Review material changes before launch and at a fixed expiry date after launch. The agenda should end in decisions, owners, and dates—not a dashboard tour.</p>
+<h2>Evidence standard</h2>
+<p>Require representative offline evaluation, staged release evidence, traceable telemetry, and a documented rollback path. Segment results by geography, property type, tenant context, language, and risk level. A global pass rate is insufficient for a system that operates differently for one high-risk cohort.</p>
+<h2>Practical scenario</h2>
+<p>Before allowing an assistant to send maintenance messages across a portfolio, prove authorization boundaries, approved language, escalation behavior, provider fallback, outage handling, audit retention, and per-property cost limits. Have operations rehearse the manual path and the stop path.</p>
+<h2>Decision test</h2>
+<p>The program is mature only when a new engineer can determine what is running, why it is permitted, how it is measured, and who can change or stop it without relying on tribal knowledge.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>3-expert/company/06-privacy-and-compliance/soc2-for-ai.md</span></p>
+<h1>SOC 2 for AI</h1>
+<p>Map AI controls to security, availability, confidentiality, processing integrity, and privacy. Evidence should show the control operated: access reviews, change approvals, logging, vendor review, incidents, and recovery tests.</p>
+<p>At company scale, AI is not a side project owned by the person who writes prompts. It is a production capability spanning product, domain operations, platform engineering, security, privacy, finance, and support. Belle Realty should make the operating decision visible: what is authorized, who is accountable, what evidence is required, and how the system is stopped when reality disagrees.</p>
+<h2>Operating model</h2>
+<p>Name one directly responsible individual for the outcome and one executive sponsor for the risk. Define the decision rights for data access, model changes, vendor changes, policy exceptions, and emergency shutdowns. Maintain a registry of deployed features with purpose, customer cohorts, model and retrieval versions, data sources, tool permissions, SLOs, evaluation evidence, and review date.</p>
+<h2>Control cadence</h2>
+<p>Review leading indicators weekly: reliability, safety interventions, access denials, cost, drift, user corrections, and unresolved incidents. Review material changes before launch and at a fixed expiry date after launch. The agenda should end in decisions, owners, and dates—not a dashboard tour.</p>
+<h2>Evidence standard</h2>
+<p>Require representative offline evaluation, staged release evidence, traceable telemetry, and a documented rollback path. Segment results by geography, property type, tenant context, language, and risk level. A global pass rate is insufficient for a system that operates differently for one high-risk cohort.</p>
+<h2>Practical scenario</h2>
+<p>Before allowing an assistant to send maintenance messages across a portfolio, prove authorization boundaries, approved language, escalation behavior, provider fallback, outage handling, audit retention, and per-property cost limits. Have operations rehearse the manual path and the stop path.</p>
+<h2>Decision test</h2>
+<p>The program is mature only when a new engineer can determine what is running, why it is permitted, how it is measured, and who can change or stop it without relying on tribal knowledge.</p>
+</article>
+
+  <div class="pnav">
+    <a href="3-company-05-multi-region-deployment.html">← Multi-Region AI Deployment</a>
+    <a href="3-company-07-vendor-strategy.html">AI Vendor Strategy →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

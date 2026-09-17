@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCP Server: Give Agents Safe Access to Real Data | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="2 Intermediate · Individual Track: MCP Server: Give Agents Safe Access to Real Data. Compiled verbatim from The AI Playbook Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/2-individual-05-mcp-server.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/" aria-current="page">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / MCP Server: Give Agents Safe Access to Real Data</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">2 INTERMEDIATE · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">MCP Server: Give Agents Safe Access to Real Data</h1></div></div>
+<p class="rnote">This page compiles 3 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/05-mcp-server">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>2-intermediate/individual/05-mcp-server/README.md</span></p>
+<h1>MCP Server: Give Agents Safe Access to Real Data</h1>
+<blockquote>
+<p><strong>Live code:</strong> <a href="https://github.com/OrangeOnyx/belle-mcp-server"><code>OrangeOnyx/belle-mcp-server</code></a> — clone, run locally, then follow the walkthrough. See the <a href="2-repos.html">repos overview</a> for how the four Stage 2 repos fit together.</p>
+</blockquote>
+<p>Model Context Protocol (MCP) is a standard way to expose tools and resources to an AI client. For Belle Realty, the first MCP server should be intentionally boring: read-only, tenant-scoped, rate-limited queries that return typed facts. Boring is a feature. It lets an agent answer “What is the late-fee policy for Unit 204?” without handing it a Supabase service key or unrestricted SQL.</p>
+<p>Build a thin policy layer over Supabase, not a database proxy. Each tool has a clear purpose, input schema, authorization check, row limit, response schema, audit event, and redaction behavior. Examples: look up a property, fetch a lease clause, list open maintenance tickets, and retrieve a tenant’s permitted communications context. Tools return facts and stable IDs; the LLM decides how to explain them.</p>
+<p>Writes are proposals. An MCP call may construct <code>propose_create_maintenance_ticket</code>, but the actual commit happens through a separate application approval endpoint with an actor, review record, and idempotency key. This boundary keeps a conversational model from becoming an unreviewed operator.</p>
+<p>Read the build guide, then implement authentication and rate limits before connecting any client. The server is production infrastructure, not prompt plumbing.</p>
+<p>Before adding complexity, run this design through a small representative eval and inspect the trace with the operator who will own failures. Make the boundary, escalation, and rollback visible in the product. That discipline will expose more useful work than another round of prompt cleverness.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>2-intermediate/individual/05-mcp-server/auth-and-rate-limiting.md</span></p>
+<h1>MCP Authentication and Rate Limiting</h1>
+<p>Use short-lived user or service tokens with audience, organization ID, role, scopes, and expiration. The server verifies the token itself; it does not trust a client-provided tenant, property, or organization identifier. Map scopes to tools: a leasing coordinator may read assigned properties; a maintenance vendor may see only assigned work orders; an internal evaluator may use a sandbox organization only.</p>
+<p>Authorize twice. First, the MCP server checks whether the caller may invoke the tool. Second, Supabase row-level security or a security-definer RPC checks which rows it may read. The second check matters because an authorization bug in application code should not become a cross-tenant data breach. Avoid service-role keys in the MCP process whenever possible.</p>
+<p>Rate-limit by actor, organization, tool, and response volume. A sensible starting shape is a small burst allowance, a per-minute call cap, and a daily budget for expensive retrieval tools. Reject oversized arguments and return predictable errors: <code>invalid_input</code>, <code>unauthorized</code>, <code>forbidden</code>, <code>not_found</code>, <code>rate_limited</code>, <code>conflict</code>, and <code>internal_error</code>. Do not reveal whether an inaccessible tenant exists.</p>
+<p>Protect against tool abuse as well as traffic. Cap search results, statement time, response bytes, and concurrent requests. Cache safe, organization-scoped reads briefly. Emit metrics for denied calls, rate-limit events, tool latency, row counts, and unusual ID enumeration. Provide a server-wide kill switch and per-tool feature flags. When a tool is disabled, return a clear unavailable error rather than silently substituting stale data.</p>
+<p>The rule is simple: authentication identifies; authorization constrains; rate limiting contains; auditing proves what happened.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>2-intermediate/individual/05-mcp-server/build-your-first-mcp.md</span></p>
+<h1>Build a Supabase-Backed Belle Realty MCP Server</h1>
+<h2>Scope the first server</h2>
+<p>Expose four read tools: <code>get_property(property_id)</code>, <code>get_lease_clause(lease_id, clause_type)</code>, <code>list_open_maintenance(property_id, unit_id?)</code>, and <code>get_tenant_context(tenant_id)</code>. Return only fields needed by the agent. <code>get_tenant_context</code> might include preferred contact channel, open issues, and lease status; it should not return SSNs, payment instruments, or unrestricted message history.</p>
+<p>Each tool validates input with a strict schema, identifies the authenticated actor and organization, then calls a purpose-built Supabase RPC or view using row-level security. Never accept model-produced SQL, table names, filters, or pagination cursors without server validation. Hard-cap results, sort deterministically, and return a <code>truncated</code> flag. A client cannot escape its organization or property assignment by guessing IDs.</p>
+<h2>Resources and provenance</h2>
+<p>Expose lease snippets as resources with stable URIs such as <code>belle://leases/{lease_id}/clauses/{type}</code>. Include <code>updated_at</code>, extraction version, page, quote, and review status. This lets the client cite a fact and detect stale data. Write an audit event for every call: request ID, actor, tool, safe inputs, row count, latency, policy decision, and result version. Do not log tenant message bodies or raw tokens unless retention policy explicitly permits it.</p>
+<h2>Propose writes</h2>
+<p>A tool such as <code>propose_create_maintenance_ticket</code> returns a typed proposal with deduplication candidates and policy checks. It never persists a ticket. The Belle Realty app renders the proposal, lets an authorized person modify it, and calls a separate approved-write endpoint. That endpoint repeats authorization, applies an idempotency key, records the approver, and returns the final ticket ID. An agent cannot turn a draft into a side effect by rephrasing a request.</p>
+<p>Test ownership isolation, malformed inputs, prompt-injected tool arguments, stale lease references, and repeated approval submissions before adding more tools.</p>
+</article>
+
+  <div class="pnav">
+    <a href="2-individual-04-build-third-agent.html">← Build Your Third Agent: Diligence Checklist</a>
+    <a href="2-individual-06-rag-pipeline.html">RAG Pipeline: Lease Knowledge That Can Prove Its Work →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

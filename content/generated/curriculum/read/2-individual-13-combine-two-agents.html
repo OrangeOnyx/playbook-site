@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Combine Two Agents: Lease Portfolio Diligence | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="2 Intermediate · Individual Track: Combine Two Agents: Lease Portfolio Diligence. Compiled verbatim from The AI Playbook Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/2-individual-13-combine-two-agents.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/" aria-current="page">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / Combine Two Agents: Lease Portfolio Diligence</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">2 INTERMEDIATE · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">Combine Two Agents: Lease Portfolio Diligence</h1></div></div>
+<p class="rnote">This page compiles 1 file from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/13-combine-two-agents">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>2-intermediate/individual/13-combine-two-agents/README.md</span></p>
+<h1>Combine Two Agents: Lease Portfolio Diligence</h1>
+<blockquote>
+<p><strong>Bonus module.</strong> Prerequisites: you've completed <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/02-build-first-agent">module 02 (lease-abstractor)</a> and <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/04-build-third-agent">module 04 (diligence-agent)</a>.</p>
+</blockquote>
+<p>Building one agent is a demo. Composing two is a system. This module walks through a real composition: use <code>lease-abstractor</code> to turn a folder of raw lease documents into structured JSON abstractions, then feed those abstractions into <code>diligence-agent</code> to answer portfolio-level diligence questions.</p>
+<p>This is what a professional AI workflow looks like — small, single-purpose agents chained by structured data, not by conversation.</p>
+<h2>The scenario</h2>
+<p>You're evaluating a portfolio of 5 commercial retail leases for an acquisition. Each lease is a 20-40 page DOCX. You want to answer:</p>
+<ol>
+<li>Which leases have below-market rent escalations?</li>
+<li>Which leases have unusually broad tenant assignment rights?</li>
+<li>Which leases are within 18 months of expiration and lack a renewal option?</li>
+<li>What's the aggregate risk score of the rent roll?</li>
+</ol>
+<p>You could read all 5 leases yourself. That's 4-6 hours. You could paste them into Claude and hope. That's a 45-minute chat that produces something you can't verify.</p>
+<p>Instead, chain the two agents.</p>
+<h2>Architecture</h2>
+<pre><code class="language-mermaid">graph LR
+    A[5 lease DOCX files] --&gt; B[lease-abstractor]
+    B --&gt;|5 abstractions.json| C[Structured lease abstractions folder]
+    C --&gt; D[diligence-agent /ingest]
+    D --&gt; E[Vector store]
+    E --&gt; F[diligence-agent /run]
+    F --&gt; G[Portfolio diligence report]
+    P[lease-portfolio.yaml playbook] --&gt; F
+</code></pre>
+<p>Every arrow between agents is a <strong>structured JSON handoff</strong> — never a natural-language summary. That's the design principle. When one agent's output is another agent's input, use a schema.</p>
+<h2>Step 1: Batch-abstract the portfolio</h2>
+<p>Fork or clone <code>lease-abstractor</code>. Add a script that walks a folder, runs each DOCX through the abstractor, and writes each result to <code>abstractions/&lt;filename&gt;.json</code>.</p>
+<pre><code class="language-bash"># In your lease-abstractor clone:
+mkdir -p scripts
+cat &gt; scripts/batch-abstract.ts &lt;&lt;'EOF'
+import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises';
+import { join, basename, extname } from 'node:path';
+import { abstractLease } from '../src/lib/abstractor.js';
+import { parseDocx } from '../src/lib/docx-parser.js';
+
+const inputDir = process.argv[2] ?? './portfolio';
+const outputDir = process.argv[3] ?? './abstractions';
+
+await mkdir(outputDir, { recursive: true });
+const files = (await readdir(inputDir)).filter((f) =&gt; f.endsWith('.docx'));
+
+for (const file of files) {
+  console.log(`[abstract] ${file}`);
+  const buffer = await readFile(join(inputDir, file));
+  const text = await parseDocx(buffer);
+  const result = await abstractLease(text);
+  const outFile = join(outputDir, `${basename(file, extname(file))}.json`);
+  await writeFile(outFile, JSON.stringify(result.abstraction, null, 2));
+  console.log(`  → ${outFile}  (${result.tokens_used} tokens, $${result.cost_estimate.toFixed(2)})`);
+}
+
+console.log(`Done. ${files.length} leases abstracted.`);
+EOF
+
+npx tsx scripts/batch-abstract.ts ./portfolio ./abstractions
+</code></pre>
+<p>You now have 5 files: <code>abstractions/lease-1.json</code>, <code>abstractions/lease-2.json</code>, etc.</p>
+<p>Total cost: ~$0.15-0.30 per lease with Sonnet 4. Portfolio of 5: about $1.</p>
+<h2>Step 2: Write a portfolio playbook</h2>
+<p>In your <code>diligence-agent</code> clone, create <code>playbooks/lease-portfolio.yaml</code>:</p>
+<pre><code class="language-yaml">name: Lease Portfolio Diligence
+version: 1.0
+description: Portfolio-level review of commercial lease abstractions produced by lease-abstractor.
+variables:
+  target_property_type: retail
+
+items:
+  - id: below_market_escalation
+    title: Below-market rent escalations
+    question: |
+      Identify any lease with a base-rent escalation clause of less than 2.5% per year.
+      For each, report the tenant, the escalation rate, the years-remaining, and the
+      dollar impact of the below-market escalation vs a 3% market benchmark.
+    evaluation_criteria: |
+      GREEN if all leases escalate at 2.5% or more.
+      YELLOW if 1-2 leases are below-market with impact under $10k/year each.
+      RED if 3+ leases below-market or aggregate impact exceeds $30k/year.
+
+  - id: broad_assignment_rights
+    title: Broad tenant assignment rights
+    question: |
+      For each lease, describe the tenant's assignment and subletting rights.
+      Flag any lease where the tenant may assign without landlord consent, or where
+      landlord consent &quot;shall not be unreasonably withheld&quot; without a defined standard.
+    evaluation_criteria: |
+      GREEN if all leases require landlord consent with a workable standard.
+      YELLOW if 1 lease has a soft standard.
+      RED if 2+ leases allow assignment without meaningful consent.
+
+  - id: expiring_no_renewal
+    title: Expiring leases without renewal option
+    question: |
+      List every lease expiring within 18 months of today. For each, note whether
+      the tenant has an unexercised renewal option and the notice deadline.
+    evaluation_criteria: |
+      GREEN if all expiring leases have renewal options.
+      YELLOW if 1 expiring lease has no renewal.
+      RED if 2+ expiring leases have no renewal, especially anchor/large-RSF tenants.
+
+  - id: personal_guarantees
+    title: Personal-guarantee coverage
+    question: |
+      For each lease, confirm whether there's a personal guaranty and, if so, whether
+      it's full-recourse, limited (specify cap), or good-guy-only.
+    evaluation_criteria: |
+      GREEN if all high-risk tenants (new entities, sub-$1M revenue) have full guaranties.
+      YELLOW if 1 borderline case.
+      RED if a major tenant has no guaranty.
+
+  - id: co_tenancy
+    title: Co-tenancy clauses
+    question: |
+      Identify any co-tenancy clauses that permit rent reduction or termination if
+      an anchor or occupancy threshold is not met. Report the specific triggers.
+    evaluation_criteria: |
+      GREEN if no co-tenancy exposure or only minor triggers.
+      YELLOW if 1 lease has a rent-reduction trigger with material exposure.
+      RED if any lease has a termination-right co-tenancy clause tied to a currently-vacant anchor.
+</code></pre>
+<h2>Step 3: Ingest and run</h2>
+<pre><code class="language-bash"># In your diligence-agent clone:
+export DILIGENCE_DATA_ROOT=/path/to/lease-abstractor/abstractions
+make ingest DATA_ROOT=$DILIGENCE_DATA_ROOT
+
+make run-diligence PLAYBOOK=lease-portfolio OUTPUT=./reports/portfolio-2026-08.html
+</code></pre>
+<p>Open the report. Every finding cites the specific lease JSON file it drew from, and every JSON file traces back to the original lease abstraction's section citations.</p>
+<h2>What you just built</h2>
+<p>You now have a repeatable workflow. Point it at any 5 leases, any 50 leases. The playbook is data. The agents are the same. The output is a diligence report you can hand to a lawyer or partner with confidence because every claim traces back to a citation in a specific document.</p>
+<p>This is the shape of professional AI systems: <strong>small agents, structured handoffs, evaluable outputs</strong>.</p>
+<h2>Extensions</h2>
+<ul>
+<li><strong>Add a third agent.</strong> Use the <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/05-mcp-server">belle-mcp-server</a> to pull current market comps from your Supabase, feed them into a new "market-vs-lease" diligence item.</li>
+<li><strong>Regression eval the whole chain.</strong> Save an expected-findings.json for a known portfolio. Add to CI. Now you know when a model update degrades your pipeline before it hits production.</li>
+<li><strong>Turn it into a service.</strong> Wrap the two-step chain in a FastAPI endpoint that takes a folder path and returns a report URL. Deploy on Railway.</li>
+</ul>
+<h2>What this teaches</h2>
+<ul>
+<li><strong>Structured data is the API between agents.</strong> Never chain agents with natural-language summaries.</li>
+<li><strong>Small single-purpose agents compose. Big do-everything agents don't.</strong> Each of these two agents can be tested, evaluated, and swapped independently.</li>
+<li><strong>Cost is predictable.</strong> ~$1 per portfolio pass, deterministic per-lease.</li>
+<li><strong>Every conclusion is auditable.</strong> The report → JSON abstraction → source lease citation chain never breaks.</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li><a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/02-build-first-agent">Original module 02 — lease-abstractor</a></li>
+<li><a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/04-build-third-agent">Original module 04 — diligence-agent</a></li>
+<li><a href="2-repos.html">Repos overview</a></li>
+</ul>
+</article>
+
+  <div class="pnav">
+    <a href="2-individual-12-jargon-stage-2.html">← Stage 2 Glossary</a>
+    <a href="2-company-01-platform-engineering.html">Platform Engineering for AI →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

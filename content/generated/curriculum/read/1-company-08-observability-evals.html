@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>08 — Observability & Evals | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="1 Starter · Company Track: 08 — Observability & Evals. Compiled verbatim from The AI Playbook Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/1-company-08-observability-evals.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/" aria-current="page">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 08 — Observability & Evals</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · COMPANY TRACK</span><h1 style="margin:.1rem 0 0">08 — Observability & Evals</h1></div></div>
+<p class="rnote">This page compiles 4 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/1-starter/company/08-observability-evals">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/08-observability-evals/README.md</span></p>
+<h1>08 — Observability &amp; Evals</h1>
+<p>You can't manage what you can't measure. Every LLM call is logged, every workflow has evals.</p>
+<h2>Files</h2>
+<ul>
+<li><code>logging-and-redaction.md</code> — what to log, what to redact, where it goes, who can see it</li>
+<li><code>eval-framework.md</code> — how the company scores its AI workflows</li>
+<li><code>model-bake-off-protocol.md</code> — quarterly protocol to test whether to switch models</li>
+</ul>
+<h2>Non-negotiables</h2>
+<ol>
+<li>Every LLM call flows through the gateway</li>
+<li>PII/secrets redacted before storage</li>
+<li>Every production workflow has an eval set</li>
+<li>No model or prompt change without a regression run</li>
+<li>Dashboards visible to Steering Committee</li>
+</ol>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/08-observability-evals/eval-framework.md</span></p>
+<h1>Eval Framework</h1>
+<p>The framework the company uses to score AI workflows. Extends the individual framework in <code>shared/eval-templates/</code>.</p>
+<h2>What we eval</h2>
+<p>For every deployed AI workflow, we track:</p>
+<ol>
+<li><strong>Correctness</strong> — does it produce the right output?</li>
+<li><strong>Format compliance</strong> — does it match the expected output shape?</li>
+<li><strong>Voice / brand</strong> — does it sound like us?</li>
+<li><strong>Safety</strong> — does it violate policy or reveal sensitive data?</li>
+<li><strong>Cost</strong> — dollars per resolved item</li>
+<li><strong>Latency</strong> — user-perceived speed</li>
+<li><strong>Adoption</strong> — % of eligible users using it</li>
+<li><strong>ROI</strong> — measured value against measured cost</li>
+</ol>
+<h2>Eval cadence</h2>
+<table>
+<thead>
+<tr>
+<th>Workflow tier</th>
+<th>Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Customer-facing (support agent, sales outreach draft, marketing copy)</td>
+<td>Weekly regression</td>
+</tr>
+<tr>
+<td>High-volume internal (email triage, weekly review)</td>
+<td>Bi-weekly</td>
+</tr>
+<tr>
+<td>Low-volume internal</td>
+<td>Monthly</td>
+</tr>
+<tr>
+<td>Every workflow</td>
+<td>Full quarterly review</td>
+</tr>
+</tbody>
+</table>
+<h2>Ownership</h2>
+<ul>
+<li><strong>Workflow owner</strong> — the department lead that uses it. Owns the eval set content.</li>
+<li><strong>AI Champion</strong> — technical partner that maintains the eval runner.</li>
+<li><strong>Steering Committee</strong> — reviews quarterly aggregate; approves model changes.</li>
+</ul>
+<h2>Eval set structure</h2>
+<p>Per workflow:</p>
+<pre><code>evals/
+└── &lt;workflow-name&gt;/
+    ├── cases.jsonl
+    ├── rubric.md
+    ├── owner.md
+    ├── history/
+    │   ├── 2026-08-01_baseline.json
+    │   └── 2026-08-15_v2.json
+    └── results/
+        └── [per-run scoreboards]
+</code></pre>
+<h2>Minimum eval set</h2>
+<p>Per workflow, minimum:
+- <strong>10 core cases</strong> — cover the workflow's main scenarios
+- <strong>5 edge cases</strong> — inputs that reveal drift
+- <strong>5 adversarial cases</strong> — prompt injection, boundary inputs, permission tests
+- <strong>5 regression cases</strong> — historical failures now fixed</p>
+<p>Total: 25 cases minimum. Some workflows have 200+.</p>
+<h2>Rubric mapping</h2>
+<p>Every case scored on 0-3 across dimensions:</p>
+<ul>
+<li>Correctness</li>
+<li>Format</li>
+<li>Voice</li>
+<li>Length</li>
+<li>Faithfulness (for grounded workflows)</li>
+</ul>
+<p>Plus safety pass/fail:
+- No PII leak
+- No policy violation
+- No unauthorized action
+- Correct escalation</p>
+<h2>Judging</h2>
+<ul>
+<li><strong>Human judges</strong> for calibration (initial 3 rounds)</li>
+<li><strong>LLM-as-judge</strong> with human spot-check (10% sample) for ongoing</li>
+<li><strong>Automated checks</strong> for format compliance and safety (regex/structural)</li>
+<li><strong>A/B test</strong> for anything user-facing, using real user feedback</li>
+</ul>
+<h2>Judge quality control</h2>
+<ul>
+<li>Judges score their inter-rater agreement quarterly</li>
+<li>Judge prompt is versioned like any other prompt</li>
+<li>Judge model is one tier below production model (avoid conflict of interest)</li>
+<li>Judge output is auditable</li>
+</ul>
+<h2>Regression protocol</h2>
+<p>When model or prompt changes:
+1. Run current eval set against baseline
+2. Run against candidate
+3. Compare per-dimension deltas
+4. Ship only if: zero safety regressions, no Priority-1 correctness regressions, aggregate delta ≥ 0</p>
+<h2>Metric definitions</h2>
+<p><strong>Correctness</strong> — output matches ground truth (exact for structured, judged for open-ended)
+<strong>Aggregate score</strong> — mean 0-3 across dimensions, safety-fail excluded
+<strong>Pass rate</strong> — % of cases where aggregate score ≥ 80% of max
+<strong>Cost per resolved item</strong> — total tokens × price + amortized platform cost / resolved items
+<strong>Adoption rate</strong> — % of eligible users making ≥ 1 call per week
+<strong>Deflection rate</strong> — % of tasks completed without human hand-off (for agentic workflows)</p>
+<h2>Publishing eval results</h2>
+<p>Every workflow has a public (within-company) dashboard:</p>
+<ul>
+<li>Current pass rate</li>
+<li>Trend over 8 weeks</li>
+<li>Latest model + prompt version</li>
+<li>Baseline pass rate</li>
+<li>Cost / resolved</li>
+<li>Adoption</li>
+</ul>
+<p>Steering Committee reviews these monthly. Any workflow below its threshold is put on remediation.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/08-observability-evals/logging-and-redaction.md</span></p>
+<h1>Logging and Redaction</h1>
+<p>Every LLM call is logged. Sensitive fields are redacted before storage. This is non-negotiable.</p>
+<h2>What to log</h2>
+<p>For every LLM request:</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;req_abc123&quot;,
+  &quot;timestamp&quot;: &quot;2026-08-19T15:30:00Z&quot;,
+  &quot;team&quot;: &quot;sales&quot;,
+  &quot;project&quot;: &quot;email-triage&quot;,
+  &quot;user_id_hash&quot;: &quot;sha256-of-user-email&quot;,
+  &quot;tool&quot;: &quot;chatgpt-enterprise&quot;,
+  &quot;model&quot;: &quot;gpt-5-2026-06-01&quot;,
+  &quot;provider&quot;: &quot;openai&quot;,
+  &quot;system_prompt_hash&quot;: &quot;sha256-of-system-prompt&quot;,
+  &quot;input_tokens&quot;: 1234,
+  &quot;output_tokens&quot;: 567,
+  &quot;latency_ms&quot;: 3420,
+  &quot;cost_usd&quot;: 0.023,
+  &quot;success&quot;: true,
+  &quot;error_code&quot;: null,
+  &quot;cache_hit&quot;: false,
+  &quot;input_redacted&quot;: &quot;[redacted prompt with PII scrubbed]&quot;,
+  &quot;output_redacted&quot;: &quot;[redacted response]&quot;,
+  &quot;tool_calls&quot;: [...]
+}
+</code></pre>
+<h2>Redaction rules</h2>
+<p>Before any prompt or response is stored, run redaction:</p>
+<h3>Regex-based (fast, first pass)</h3>
+<ul>
+<li>Email addresses → <code>&lt;EMAIL&gt;</code></li>
+<li>Phone numbers → <code>&lt;PHONE&gt;</code></li>
+<li>SSNs → <code>&lt;SSN&gt;</code></li>
+<li>Credit cards → <code>&lt;CARD&gt;</code></li>
+<li>IBANs → <code>&lt;IBAN&gt;</code></li>
+<li>API keys (common patterns: <code>sk-</code>, <code>ghp_</code>, <code>AKIA</code>) → <code>&lt;KEY&gt;</code></li>
+<li>IP addresses → <code>&lt;IP&gt;</code> (optional)</li>
+</ul>
+<h3>Model-based (slower, second pass for high-sensitivity)</h3>
+<ul>
+<li>Use a small classifier or LLM to redact:</li>
+<li>Person names in restricted contexts</li>
+<li>Company names when restricted</li>
+<li>Sensitive medical/legal terms</li>
+</ul>
+<h3>Configurable per team</h3>
+<ul>
+<li>Some workflows must retain data to be useful (e.g., a lease-extraction workflow retains names). Configure exceptions per project, not per request.</li>
+</ul>
+<h2>Where logs go</h2>
+<ul>
+<li><strong>Hot storage:</strong> LLM gateway's DB or observability platform for 30 days (Langfuse, Helicone, LangSmith, or in-house)</li>
+<li><strong>Warm storage:</strong> Company data warehouse for 90 days (analytics)</li>
+<li><strong>Cold storage:</strong> S3 / Glacier for 1 year (audit)</li>
+<li><strong>Deletion:</strong> After retention window; secure deletion documented</li>
+</ul>
+<h2>Who can access</h2>
+<ul>
+<li><strong>Individual user:</strong> their own logs (rolling 30 days)</li>
+<li><strong>Team lead:</strong> their team's logs (redacted content, full metadata)</li>
+<li><strong>Steering Committee:</strong> aggregate + drill-down with justification</li>
+<li><strong>Security:</strong> incident investigation with full access</li>
+<li><strong>Everyone else:</strong> no access</li>
+</ul>
+<p>Access logged and reviewed quarterly.</p>
+<h2>Retention conflict with debugging</h2>
+<p>Engineers sometimes need to see full prompts to debug bugs. Process:</p>
+<ol>
+<li>Engineer files a debug request with the ticket ID</li>
+<li>Security team approves</li>
+<li>Full-fidelity log accessible for the specific request ID, for a bounded time (e.g., 24 hours)</li>
+<li>Access logged</li>
+</ol>
+<h2>What NOT to log</h2>
+<ul>
+<li>Passwords, keys, tokens even if user pastes them (redact first)</li>
+<li>Full customer PII in the clear</li>
+<li>HIPAA-protected content in the clear</li>
+<li>Anything the user has explicitly requested to be deleted (Right to be Forgotten under GDPR)</li>
+</ul>
+<h2>Compliance touchpoints</h2>
+<ul>
+<li><strong>GDPR:</strong> logs are personal data; retention limited; deletion honored</li>
+<li><strong>HIPAA:</strong> if PHI is logged, BAA covers it and access controls enforce minimum-necessary</li>
+<li><strong>SOC 2:</strong> logs demonstrate access control and monitoring</li>
+<li><strong>CCPA:</strong> users can request their data</li>
+</ul>
+<h2>Dashboards</h2>
+<p>Standard dashboards published to the Steering Committee:</p>
+<ul>
+<li>Total spend per team, per week</li>
+<li>Cost per request per tool</li>
+<li>Model usage mix</li>
+<li>Error rate by provider</li>
+<li>Latency percentiles</li>
+<li>Cache hit rate</li>
+<li>Top workflows by volume</li>
+<li>Anomaly alerts (spend spike, error spike, unusual model use)</li>
+</ul>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/08-observability-evals/model-bake-off-protocol.md</span></p>
+<h1>Model Bake-Off Protocol</h1>
+<p>Run this every quarter. Determines whether to switch a workflow's default model.</p>
+<h2>Why</h2>
+<p>Providers release new models constantly. A model that was best last quarter may not be this quarter. A quarterly bake-off keeps you honest.</p>
+<h2>The protocol</h2>
+<h3>Step 1 — Pick workflows to bake off</h3>
+<p>Pick the top 3 workflows by cost or by strategic importance. Not every workflow needs a quarterly bake-off.</p>
+<h3>Step 2 — Identify candidate models</h3>
+<p>For each workflow:
+- <strong>Baseline:</strong> current production model
+- <strong>Candidates:</strong> 2–4 alternatives (usually 1 same-provider newer + 1 competitor + 1 open-weight cheaper option)</p>
+<p>Example for a summarization workflow:
+- Baseline: Claude Sonnet 4
+- Candidate 1: Claude Sonnet 4.5 (newer version)
+- Candidate 2: GPT-5 (competitor)
+- Candidate 3: Llama 4 70B on Groq (open-weight cheap)</p>
+<h3>Step 3 — Freeze the eval set</h3>
+<p>Use the workflow's current eval set. Do not add cases mid-bakeoff.</p>
+<h3>Step 4 — Run each candidate</h3>
+<ul>
+<li>Same system prompt</li>
+<li>Same eval inputs</li>
+<li>Fresh, not cached</li>
+<li>Multiple runs to average out variance (3 runs minimum)</li>
+</ul>
+<h3>Step 5 — Score everything</h3>
+<p>For each candidate:</p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Baseline</th>
+<th>Cand 1</th>
+<th>Cand 2</th>
+<th>Cand 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Correctness</td>
+<td>2.5</td>
+<td>2.7</td>
+<td>2.4</td>
+<td>2.1</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>2.7</td>
+</tr>
+<tr>
+<td>Voice</td>
+<td>2.4</td>
+<td>2.5</td>
+<td>2.3</td>
+<td>1.9</td>
+</tr>
+<tr>
+<td>Safety fails</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Latency (p50)</td>
+<td>2.1s</td>
+<td>1.8s</td>
+<td>2.4s</td>
+<td>0.9s</td>
+</tr>
+<tr>
+<td>Cost / 1k requests</td>
+<td>$8.20</td>
+<td>$8.20</td>
+<td>$12.00</td>
+<td>$0.80</td>
+</tr>
+</tbody>
+</table>
+<h3>Step 6 — Decide</h3>
+<p>Ship the candidate if:
+- Zero safety regressions
+- No Priority-1 correctness regressions
+- Aggregate quality ≥ baseline
+- Cost within budget
+- Latency within SLO</p>
+<p>Reasonable trade-offs:
+- Small quality bump for material cost savings — often yes
+- Material quality bump for equal cost — yes
+- Large cost cut for small quality drop — case by case (only for low-stakes workflows)</p>
+<p>Do NOT switch if:
+- Any safety fail
+- Voice degrades on brand-critical workflows
+- Latency spike breaks user experience</p>
+<h3>Step 7 — Roll out safely</h3>
+<ul>
+<li>Canary: 5% of traffic for 3 days</li>
+<li>If clean, expand to 50% for a week</li>
+<li>If clean, full rollout</li>
+<li>Keep baseline available for rollback for 30 days</li>
+</ul>
+<h3>Step 8 — Document</h3>
+<p>Publish a bake-off report to Steering Committee:
+- Workflows evaluated
+- Candidates
+- Scores
+- Decision + reasoning
+- Rollout plan
+- Rollback plan</p>
+<h2>Automation</h2>
+<p>The bake-off should be scripted. A typical script:</p>
+<pre><code class="language-python">for candidate in candidates:
+    for case in eval_set:
+        for run in range(3):
+            output = model.generate(system_prompt, case.input, model=candidate.id)
+            score = judge(output, case.expected, rubric)
+            record(candidate.id, case.id, run, score, latency, cost)
+
+report = aggregate(records)
+publish(report, to=&quot;steering-committee-slack&quot;)
+</code></pre>
+<h2>Anti-patterns</h2>
+<ul>
+<li>Baking off with a tiny eval set (&lt; 25 cases) — noisy signal</li>
+<li>Baking off only on benchmark data — not your real workflow</li>
+<li>Judging with the same model family that's being tested — biased</li>
+<li>Ignoring cost or latency — they're real user impact</li>
+<li>Making the decision by vibes — write it down</li>
+</ul>
+</article>
+
+  <div class="pnav">
+    <a href="1-company-07-agents-mcp.html">← 07 — Agents & MCP</a>
+    <a href="1-company-09-training.html">09 — Training →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

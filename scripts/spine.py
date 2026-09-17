@@ -52,6 +52,13 @@ def validate(spine):
             if not x.get("lanes", {}).get(lane): errs.append("section %s missing %s lane" % (sid, lane))
     ids = [x["id"] for x in sections(spine)]
     if ids != sorted(ids): errs.append("sections out of order: %r" % ids)
+    slugs = {str(s["number"]): s["slug"] for s in spine["stages"]}
+    cur = spine.get("curriculum", {})
+    if sorted(cur) != ["1", "2", "3", "4"]:
+        errs.append("curriculum must map stages 1..4, got %r" % sorted(cur))
+    for k, v in cur.items():
+        if v.get("folder") != slugs.get(k):
+            errs.append("curriculum folder for stage %s must be the stage slug %r, got %r" % (k, slugs.get(k), v.get("folder")))
     seen_catch_all = False
     for r in spine["redirects"]:
         if not r["source"].startswith("/") or not r["destination"].startswith("/"):

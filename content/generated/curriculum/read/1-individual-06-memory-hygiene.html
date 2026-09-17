@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>06 — Memory Hygiene | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="1 Starter · Individual Track: 06 — Memory Hygiene. Compiled verbatim from The AI Playbook Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/1-individual-06-memory-hygiene.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/" aria-current="page">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 06 — Memory Hygiene</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">06 — Memory Hygiene</h1></div></div>
+<p class="rnote">This page compiles 3 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/1-starter/individual/06-memory-hygiene">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/06-memory-hygiene/README.md</span></p>
+<h1>06 — Memory Hygiene</h1>
+<p>Every major model now has memory. Curated memory is a superpower. Un-curated memory is drift.</p>
+<h2>The rule</h2>
+<p>Memory should contain:
+- Durable facts (name, role, projects, timezone)
+- Persistent preferences (voice, formatting, length)
+- Standing constraints (privacy line, banned topics)</p>
+<p>Memory should NOT contain:
+- Ephemeral tasks
+- Personal secrets
+- One-off preferences ("make this shorter")
+- Anything that changes weekly</p>
+<h2>Files in this folder</h2>
+<ol>
+<li><code>what-to-tell-each-model.md</code> — the initial memory setup script for every provider</li>
+<li><code>memory-audit-template.md</code> — monthly review template</li>
+</ol>
+<h2>Time budget</h2>
+<ul>
+<li>Initial setup across all models: 30 minutes</li>
+<li>Monthly review: 10 minutes</li>
+</ul>
+<h2>Definition of done</h2>
+<ul>
+<li>Memory set consistently across ChatGPT, Claude, Perplexity, Gemini</li>
+<li>Monthly review scheduled</li>
+<li>Nothing sensitive stored in consumer memory</li>
+</ul>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/06-memory-hygiene/memory-audit-template.md</span></p>
+<h1>Memory Audit Template</h1>
+<p>Run this monthly. 10 minutes.</p>
+<h2>Step 1 — Enumerate what each model remembers</h2>
+<p>In each model, ask:</p>
+<blockquote>
+<p>"List everything you remember about me, verbatim."</p>
+</blockquote>
+<p>Copy the output into this file, one section per model.</p>
+<h3>ChatGPT memory dump — [DATE]</h3>
+<pre><code>[paste]
+</code></pre>
+<h3>Claude Project instructions — [DATE]</h3>
+<pre><code>[paste]
+</code></pre>
+<h3>Perplexity AI profile — [DATE]</h3>
+<pre><code>[paste]
+</code></pre>
+<h3>Gemini personal context — [DATE]</h3>
+<pre><code>[paste]
+</code></pre>
+<h2>Step 2 — Score each memory item</h2>
+<p>For every stored fact, decide:
+- ✅ Keep — still true and useful
+- ✏️ Update — needs revision
+- 🗑️ Delete — outdated, ephemeral, or shouldn't have been stored</p>
+<h2>Step 3 — Common corruption patterns to look for</h2>
+<ul>
+<li>[ ] Ephemeral task remembered as permanent ("The user is preparing for their meeting on Tuesday")</li>
+<li>[ ] Duplicate memories with slight variations</li>
+<li>[ ] Sensitive info that leaked in (client names, financial details, health)</li>
+<li>[ ] Preferences that are no longer accurate</li>
+<li>[ ] Projects that ended still listed as active</li>
+<li>[ ] People no longer in your life still in memory</li>
+<li>[ ] Contradictions between what different models remember</li>
+</ul>
+<h2>Step 4 — Prune and update</h2>
+<ul>
+<li>ChatGPT: Settings → Personalization → Manage Memories → delete stale entries</li>
+<li>Claude: edit the Project's Custom Instructions directly</li>
+<li>Perplexity: Settings → AI Profile → rewrite</li>
+<li>Gemini: Settings → Personal context → prune</li>
+</ul>
+<h2>Step 5 — Log the audit</h2>
+<p>Record in this file:</p>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Model</th>
+<th>Entries reviewed</th>
+<th>Deleted</th>
+<th>Updated</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Step 6 — Re-run the calibration test</h2>
+<p>Same test as initial setup:</p>
+<blockquote>
+<p>"Given what you know about me, draft a 3-sentence Slack message declining a lunch invitation from a client."</p>
+</blockquote>
+<p>If any model's output drifted, memory needs more pruning.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/06-memory-hygiene/what-to-tell-each-model.md</span></p>
+<h1>What to Tell Each Model</h1>
+<p>Use this script once for each provider that supports memory. Copy the block, paste it as a message with the phrase "Please remember the following about me:"</p>
+<h2>The universal memory block</h2>
+<pre><code>Please remember the following about me:
+
+Identity:
+- My name is [NAME]. I go by [PREFERRED].
+- Based in [CITY], [TIMEZONE].
+- I work as [ROLE] at [COMPANY / SOLO].
+
+Projects (active):
+- [PROJECT 1] — [one line]
+- [PROJECT 2] — [one line]
+- [PROJECT 3] — [one line]
+
+People I mention often:
+- [NAME] — [role, relationship]
+- [NAME] — [role, relationship]
+
+Voice preferences:
+- Direct over diplomatic.
+- Match my length.
+- No AI tells (delve, certainly, in the ever-evolving landscape).
+- Give recommendations, not option menus.
+- Disagree plainly when I'm wrong.
+
+Formatting defaults:
+- Prose over bullets when content flows.
+- H2 headers in anything over 300 words.
+- No emojis unless I use them first.
+- Tables only for comparisons.
+
+Constraints:
+- Never process credentials, keys, SSNs.
+- Warn if I paste secrets.
+
+When I ask for a decision or recommendation, pick one and justify. Do not list five options with hedged pros and cons.
+</code></pre>
+<h2>Per-provider setup</h2>
+<h3>ChatGPT (Plus/Pro)</h3>
+<ol>
+<li>Settings → Personalization → Memory → toggle ON</li>
+<li>Open a new chat. Paste the universal memory block prefixed with "Please remember the following about me:"</li>
+<li>After it acknowledges, ask: "What do you know about me?" — verify accuracy.</li>
+<li>Also fill Custom Instructions:</li>
+<li>"What would you like ChatGPT to know about you?" — paste identity + projects</li>
+<li>"How would you like ChatGPT to respond?" — paste voice + formatting + constraints</li>
+</ol>
+<h3>Claude (Pro/Max)</h3>
+<ol>
+<li>Claude does not have global memory like ChatGPT. Instead, use Projects.</li>
+<li>Create a Project called "Personal — Default"</li>
+<li>In Custom Instructions, paste the entire universal memory block</li>
+<li>Upload your <code>personal-style-guide.md</code> as a knowledge file</li>
+<li>Use this project as your default chat home</li>
+</ol>
+<h3>Perplexity</h3>
+<ol>
+<li>Settings → Preferences → AI Profile</li>
+<li>Fill "Introduce yourself" — paste identity + projects</li>
+<li>Fill "Your interests" — bullet your active projects and expertise areas</li>
+<li>Enable web memory (opt-in per your privacy line)</li>
+<li>For projects that need persistent context, create Spaces per project</li>
+</ol>
+<h3>Gemini Advanced</h3>
+<ol>
+<li>Settings → Personal context → toggle ON</li>
+<li>Extensions → connect Google Workspace (Drive, Gmail, Docs, Calendar)</li>
+<li>Create a Gem called "Adam Default" with the universal memory block as its instructions</li>
+<li>Set that Gem as your default in Gemini app</li>
+</ol>
+<h3>Microsoft Copilot</h3>
+<ol>
+<li>Copilot uses Microsoft Graph for context — no separate memory input required</li>
+<li>Connect Outlook, OneDrive, SharePoint if using enterprise</li>
+<li>For consumer Copilot, use the "Personalize" settings</li>
+</ol>
+<h3>Grok</h3>
+<ol>
+<li>Personalize → Custom Instructions → paste the compact about-me block (see <code>03-system-prompts/about-me-block.md</code>)</li>
+</ol>
+<h2>Test it</h2>
+<p>After setup, in each model, ask:</p>
+<blockquote>
+<p>"Given what you know about me, draft a 3-sentence Slack message declining a lunch invitation from a client."</p>
+</blockquote>
+<p>If the tone and length feel right in all four models, memory is calibrated.</p>
+</article>
+
+  <div class="pnav">
+    <a href="1-individual-05-model-routing.html">← 05 — Model Routing</a>
+    <a href="1-individual-07-automation.html">07 — Automation →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

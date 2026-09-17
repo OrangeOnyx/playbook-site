@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Working repositories | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="2 Intermediate: Working repositories. Compiled verbatim from The AI Playbook Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/2-repos.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/" aria-current="page">2</a>
+    <a href="/curriculum/3-expert/">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / Working repositories</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="22" y1="34" x2="22" y2="22" stroke="#1E1B16" stroke-width="1.6"/><line x1="22" y1="22" x2="12" y2="12" stroke="#1E1B16" stroke-width="1.4"/><line x1="22" y1="22" x2="32" y2="12" stroke="#1E1B16" stroke-width="1.4"/><circle cx="22" cy="36" r="4" fill="#A44E12"/><circle cx="12" cy="10" r="3.4" fill="#A44E12"/><circle cx="32" cy="10" r="3.4" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">2 INTERMEDIATE</span><h1 style="margin:.1rem 0 0">Working repositories</h1></div></div>
+<p class="rnote">This page compiles 1 file from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/repos">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="22" y1="34" x2="22" y2="22" stroke="#1E1B16" stroke-width="1.6"/><line x1="22" y1="22" x2="12" y2="12" stroke="#1E1B16" stroke-width="1.4"/><line x1="22" y1="22" x2="32" y2="12" stroke="#1E1B16" stroke-width="1.4"/><circle cx="22" cy="36" r="4" fill="#A44E12"/><circle cx="12" cy="10" r="3.4" fill="#A44E12"/><circle cx="32" cy="10" r="3.4" fill="#A44E12"/></svg><span>2-intermediate/repos/README.md</span></p>
+<h1>Stage 2 — Working code repositories</h1>
+<p>Four public GitHub repos back the four core walkthroughs in Stage 2. Each is a real, running codebase — not a snippet — meant to be cloned, run, and modified as you work through the level.</p>
+<p>They're intentionally scoped:</p>
+<table>
+<thead>
+<tr>
+<th>Repo</th>
+<th>Walkthrough</th>
+<th>What it teaches</th>
+<th>Domain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/OrangeOnyx/lease-abstractor"><code>lease-abstractor</code></a></td>
+<td><a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/02-build-first-agent">02</a></td>
+<td>Anthropic tool-use with schema-enforced output, side-by-side citation UI, eval against a gold reference</td>
+<td>Real estate</td>
+</tr>
+<tr>
+<td><a href="https://github.com/OrangeOnyx/support-triage-agent"><code>support-triage-agent</code></a></td>
+<td><a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/03-build-second-agent">03</a></td>
+<td>3-agent pipeline (classify → enrich → draft), HITL approval dashboard, brand-voice config</td>
+<td>Domain-agnostic (SaaS / e-commerce / local services / agency)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/OrangeOnyx/diligence-agent"><code>diligence-agent</code></a></td>
+<td><a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/04-build-third-agent">04</a></td>
+<td>RAG over a document folder, structured findings with citations, per-domain playbooks</td>
+<td>Domain-agnostic (M&amp;A / vendor eval / CRE / contracts)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/OrangeOnyx/belle-mcp-server"><code>belle-mcp-server</code></a></td>
+<td><a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/05-mcp-server">05</a></td>
+<td>MCP server design, per-tool auth + rate limit + audit, HITL propose-write pattern</td>
+<td>Real estate</td>
+</tr>
+</tbody>
+</table>
+<h2>Why this mix</h2>
+<p>You want to know these patterns, and you should not have to be a real-estate operator to learn them. Only two of four repos are real-estate-specific by design: the ones where a specific domain makes the pattern more concrete (lease documents for schema-enforced extraction, a property portfolio for MCP tool design). The other two are generic playbooks you point at any vertical.</p>
+<h2>How to use them</h2>
+<ol>
+<li><strong>Read the code before the walkthrough.</strong> Skim the README and <code>src/</code> tree of the relevant repo. 15 minutes.</li>
+<li><strong>Clone and run locally.</strong> Every repo has a <code>Quick start</code> section in its README that ends with a working local process. Set the env vars, run the seed, see it work end-to-end.</li>
+<li><strong>Follow the walkthrough.</strong> Open the corresponding module — the walkthrough refers to specific files and functions in the repo by path, not by copy-paste of the code.</li>
+<li><strong>Modify it on your data.</strong> Replace the fixture with something from your own life or business. That's the exit criterion for the module.</li>
+</ol>
+<h2>Personal use vs company use</h2>
+<p>Every repo README has both a <code>docs/personal-use.md</code> and a <code>docs/company-use.md</code>. Same code, two ways to deploy — as a solo operator or as a team. That reflects how you'll actually use these; nothing about the code changes based on scale, only the deployment shape and the governance around it.</p>
+<h2>Common tech stack across the four</h2>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Choice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Language</td>
+<td>TypeScript for the three JS repos, Python 3.11 for <code>diligence-agent</code></td>
+</tr>
+<tr>
+<td>Model</td>
+<td><code>claude-sonnet-4-20250514</code> default across all four</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>Supabase (Postgres) primary, local fallbacks (JSON file or ChromaDB) for zero-cloud demos</td>
+</tr>
+<tr>
+<td>Validation</td>
+<td>Zod (TS) / Pydantic v2 (Py) on every agent input and output</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>Vercel for Next.js apps, Railway for services</td>
+</tr>
+<tr>
+<td>Testing</td>
+<td>Vitest / pytest, plus per-repo eval harnesses</td>
+</tr>
+</tbody>
+</table>
+<p>If you're building your own version of any of these, start from these choices and only deviate when your constraints demand it.</p>
+<h2>What to build next</h2>
+<p>After you've cloned and modified at least one repo:</p>
+<ul>
+<li>Combine two — e.g., feed <code>lease-abstractor</code> output into <code>diligence-agent</code> for a lease-portfolio review.</li>
+<li>Add a new tool to <code>belle-mcp-server</code> for a domain you actually care about.</li>
+<li>Fork <code>support-triage-agent</code>, swap the brand-voice config, and point it at your real inbound support channel.</li>
+</ul>
+<p>That's Stage 2. When these four repos feel like starting points instead of endpoints, you're ready for Stage 3.</p>
+</article>
+
+  <div class="pnav">
+    <a href="2-shared.html">← 2 Intermediate shared materials</a>
+    <a href="2-eli10.html">2 Intermediate ELI10 companions →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3 Expert shared materials | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="3 Expert: 3 Expert shared materials. Compiled verbatim from The AI Playbook Curriculum repository.">
+<meta name="theme-color" content="#F4EFE2">
+<script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
+<link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/3-shared.html">
+<meta property="og:image" content="https://playbook.adamabdalla.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Besley:ital,wght@0,400;0,700;0,900;1,400;1,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/guide.css">
+<link rel="stylesheet" href="/assets/playbook-import.css">
+<link rel="stylesheet" href="/assets/playbook.css">
+</head>
+<body class="reader">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Curriculum reader">
+  <a class="brand" href="/" aria-label="The AI Playbook home">
+    <b>THE AI PLAYBOOK</b>
+  </a>
+  <button class="modeswitch" onclick="gwTheme()" aria-pressed="false" aria-label="Switch between day and night">NIGHT</button>
+  <button class="navtoggle" aria-expanded="false" aria-label="Stages" onclick="var l=this.nextElementSibling,o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">MENU</button>
+  <div class="links">
+    <a href="/curriculum/">Curriculum</a>
+    <a href="/curriculum/1-starter/">1</a>
+    <a href="/curriculum/2-intermediate/">2</a>
+    <a href="/curriculum/3-expert/" aria-current="page">3</a>
+    <a href="/curriculum/4-frontier-operator/">4</a>
+    <a href="index.html">Reader</a>
+    <a class="keep" href="/">Main site</a>
+  </div>
+</nav>
+<main id="main" tabindex="-1">
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 3 Expert shared materials</span>
+
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><div><span class="kicker" style="margin-bottom:.15rem">3 EXPERT</span><h1 style="margin:.1rem 0 0">3 Expert shared materials</h1></div></div>
+<p class="rnote">This page compiles 9 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/3-expert/shared">this folder on GitHub</a>.</p>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><span>3-expert/shared/decision-record-template.md</span></p>
+<h1>AI Decision Record Template</h1>
+<p><strong>Decision title:</strong><br />
+<strong>Status:</strong> proposed / accepted / superseded / retired<br />
+<strong>Date / owner / approvers:</strong><br />
+<strong>Decision expiry or review date:</strong>  </p>
+<h2>Context</h2>
+<p>Describe the customer problem, production constraints, and decision boundary. Include the affected workflows, properties or tenants, data classes, dependencies, security and safety considerations, expected volume, latency target, and unit-cost target. Link the relevant system card, evaluations, incident history, and vendor terms.</p>
+<h2>Options considered</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Benefits</th>
+<th>Risks / constraints</th>
+<th>Evidence</th>
+<th>Estimated cost</th>
+<th>Reversibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Do not compare only model quality. Include operational ownership, data residency, permission model, observability, failure modes, migration effort, and customer impact. For example, an open-weight deployment may lower marginal cost while increasing on-call and security burden.</p>
+<h2>Decision</h2>
+<p>State exactly what will be used, by whom, for which cohort, and under which controls. Record the acceptance criteria: offline evaluation threshold, staged rollout plan, SLOs, guardrails, cost cap, and rollback condition. Name the person authorized to stop or reverse the decision.</p>
+<h2>Consequences and follow-up</h2>
+<p>List accepted tradeoffs, unresolved risks, documentation updates, migrations, training, and time-bound follow-up actions. Link implementation pull requests, dashboards, feature flags, and launch evidence. A decision record should let a future operator understand why a configuration exists and when it must be reconsidered.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><span>3-expert/shared/incident-post-mortem-template.md</span></p>
+<h1>AI Incident Post-Mortem Template</h1>
+<p><strong>Title:</strong><br />
+<strong>Incident ID:</strong><br />
+<strong>Severity / start / end:</strong><br />
+<strong>Incident lead / communications lead / technical lead:</strong><br />
+<strong>Affected feature, properties, tenants, and channels:</strong>  </p>
+<h2>Executive summary</h2>
+<p>Describe what users experienced, how many were affected, the worst plausible harm, and the final state. Use concrete language: “The maintenance assistant showed one tenant another tenant’s ticket summary for 17 minutes,” not “there was an issue with retrieval.” State whether any unsafe tool action, legal obligation, or data notification process was triggered.</p>
+<h2>Timeline</h2>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Event</th>
+<th>Evidence / decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Detection</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Containment</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Customer communication</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Recovery</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Impact and scope</h2>
+<p>List confirmed impact, uncertain impact, and population checked. Segment by property, tenant boundary, model/prompt/retrieval version, provider, region, and release cohort. Include customer contacts, financial effect, support load, and safety or privacy implications.</p>
+<h2>Technical and control analysis</h2>
+<p>What changed? What condition allowed the failure? Which controls detected it, failed to detect it, or limited blast radius? Link traces, logs, deployment records, policy decisions, eval evidence, and the exact configuration. Do not attribute root cause to “the model hallucinated”; name the missing validation, ambiguous contract, bad data, unsafe permission, or untested dependency.</p>
+<h2>Corrective actions</h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Type: containment / corrective / preventive</th>
+<th>Owner</th>
+<th>Due date</th>
+<th>Verification evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Lessons and follow-up</h2>
+<p>Record what should change in the runbook, eval suite, dashboard, release gate, vendor strategy, or training. The incident is closed only after actions are verified, affected users receive required follow-up, and the learning is shared with the relevant team.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><span>3-expert/shared/model-card-template.md</span></p>
+<h1>Model Card Template</h1>
+<h2>Model identity</h2>
+<ul>
+<li><strong>Name/version/date:</strong>  </li>
+<li><strong>Base model and license:</strong>  </li>
+<li><strong>Owner/contact:</strong>  </li>
+<li><strong>Weights or endpoint identifier:</strong>  </li>
+</ul>
+<h2>Intended use</h2>
+<p>Describe target users, supported tasks, operating languages, input limits, and expected environment. State prohibited or unsupported uses plainly.</p>
+<h2>Training and adaptation</h2>
+<ul>
+<li>Training objective and method  </li>
+<li>Data sources, rights, dates, filtering, and known gaps  </li>
+<li>Fine-tuning/preference data description  </li>
+<li>Hyperparameters, tokenizer, compute, and run identifier  </li>
+</ul>
+<h2>Evaluation</h2>
+<table>
+<thead>
+<tr>
+<th>Evaluation</th>
+<th>Dataset/slices</th>
+<th>Metric</th>
+<th>Result</th>
+<th>Limitations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Include comparison baseline, contamination controls, human-evaluation protocol, calibration, safety/refusal tests, and representative failures.</p>
+<h2>Risks and mitigations</h2>
+<p>Describe hallucination, bias, privacy, harmful-content, security, misuse, and distribution-shift risks. Pair every mitigation with its scope and remaining limitation.</p>
+<h2>Deployment notes</h2>
+<p>Specify supported quantizations, context limits, inference hardware, expected latency/cost, monitoring, change control, and incident contact.</p>
+<h2>Version history</h2>
+<p>Record changed data, weights, behavior, evaluations, and known regressions for every release.</p>
+<p>This lesson belongs in a practitioner’s operating system, not a collection of facts to recite. The point is to make a better decision under uncertainty: define the claim, identify the evidence that could change it, name the failure mode, and record the consequence of being wrong. Read it with a live initiative in mind—an internal workflow, customer-facing product, training run, or research bet—and turn the ideas into an explicit test.</p>
+<p>Start from the outcome rather than the technology. Specify the user or stakeholder, the task boundary, the data and permissions involved, the success measure, and the unacceptable result. Establish a baseline before changing anything. Then make the smallest reversible move that can distinguish competing explanations. A plausible demo is evidence of possibility, not evidence of reliability, value, or safety.</p>
+<p>Keep an evidence log. Separate observations from interpretations, measured performance from anecdotes, and known risks from assumptions. Review representative failures by hand; aggregate metrics can hide the one pattern that matters. For high-impact work, assign a clear owner, predefine an escalation path, and decide what will cause a pause or rollback. Do not outsource accountability to a model, vendor, benchmark, or committee.</p>
+<p>The professional standard is legibility. Another capable person should be able to understand why this approach was chosen, rerun the evaluation, find its limits, and improve it without guessing. Build reusable artifacts—datasets, decision records, checklists, incident notes, and release criteria—so each project leaves the next one stronger.</p>
+<h2>Working exercise</h2>
+<p>Write a one-page decision memo for a current initiative. State the hypothesis, baseline, evaluation, threshold, owner, risks, and next action. If any of these cannot be stated plainly, the work is not ready to scale.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><span>3-expert/shared/production-ai-checklist.md</span></p>
+<h1>Production AI Checklist</h1>
+<p>Use this checklist as a release gate. Mark each item <strong>yes</strong>, <strong>not applicable</strong>, or <strong>blocked</strong>, with evidence and an owner. A launch is not complete because every box is checked; it is complete when the remaining risk is understood and explicitly accepted.</p>
+<h2>Product and scope</h2>
+<ul>
+<li>[ ] User problem is written in one sentence.</li>
+<li>[ ] Target user and excluded users are named.</li>
+<li>[ ] High-impact decisions are identified.</li>
+<li>[ ] Non-AI alternative is documented.</li>
+<li>[ ] Success metric is measurable.</li>
+<li>[ ] Harm metric is measurable.</li>
+<li>[ ] Customer-facing limitations are defined.</li>
+<li>[ ] Human escalation path exists.</li>
+<li>[ ] Feature owner is named.</li>
+<li>[ ] Domain approver is named.</li>
+</ul>
+<h2>Data and privacy</h2>
+<ul>
+<li>[ ] Data-flow diagram is current.</li>
+<li>[ ] Every source has an owner.</li>
+<li>[ ] Tenant isolation is tested.</li>
+<li>[ ] Authorization is enforced before retrieval.</li>
+<li>[ ] PII inventory is complete.</li>
+<li>[ ] Minimum-necessary fields are used.</li>
+<li>[ ] Sensitive fields are redacted from logs.</li>
+<li>[ ] Retention periods are defined.</li>
+<li>[ ] Deletion path is tested.</li>
+<li>[ ] Consent requirements are documented.</li>
+<li>[ ] Vendor data terms are reviewed.</li>
+<li>[ ] Regional residency is enforced.</li>
+<li>[ ] Backups follow retention policy.</li>
+<li>[ ] Dataset provenance is recorded.</li>
+<li>[ ] Data freshness is visible.</li>
+</ul>
+<h2>Model and prompting</h2>
+<ul>
+<li>[ ] Model version is pinned.</li>
+<li>[ ] Provider fallback is defined.</li>
+<li>[ ] Prompt version is pinned.</li>
+<li>[ ] System instructions state scope.</li>
+<li>[ ] Untrusted content is labeled.</li>
+<li>[ ] Context budget is bounded.</li>
+<li>[ ] Structured output schema is validated.</li>
+<li>[ ] Temperature and limits are intentional.</li>
+<li>[ ] Model card is reviewed.</li>
+<li>[ ] Known limitations are recorded.</li>
+<li>[ ] Fine-tuning data is approved.</li>
+<li>[ ] Retrieval index version is recorded.</li>
+<li>[ ] Citation behavior is specified.</li>
+<li>[ ] Refusal behavior is specified.</li>
+<li>[ ] Model change procedure exists.</li>
+</ul>
+<h2>Retrieval and tools</h2>
+<ul>
+<li>[ ] Chunking strategy is documented.</li>
+<li>[ ] Retrieval access is tenant-scoped.</li>
+<li>[ ] Metadata filters are tested.</li>
+<li>[ ] Stale documents have expiry rules.</li>
+<li>[ ] Reindex plan is reversible.</li>
+<li>[ ] Tool list is allowlisted.</li>
+<li>[ ] Tools use least privilege.</li>
+<li>[ ] Tool parameters are typed.</li>
+<li>[ ] Irreversible actions require confirmation.</li>
+<li>[ ] Idempotency keys protect writes.</li>
+<li>[ ] Rate limits are set.</li>
+<li>[ ] Tool retries are bounded.</li>
+<li>[ ] Tool results are sanitized.</li>
+<li>[ ] Audit events exist for writes.</li>
+<li>[ ] Manual fallback works.</li>
+</ul>
+<h2>Safety and security</h2>
+<ul>
+<li>[ ] Threat model is approved.</li>
+<li>[ ] Prompt injection tests pass.</li>
+<li>[ ] Jailbreak tests pass.</li>
+<li>[ ] Exfiltration tests pass.</li>
+<li>[ ] Cross-tenant tests pass.</li>
+<li>[ ] Identity spoofing tests pass.</li>
+<li>[ ] Retrieval poisoning tests pass.</li>
+<li>[ ] Abuse rate limits are tested.</li>
+<li>[ ] Policy decisions have reason codes.</li>
+<li>[ ] Guardrail bypass is monitored.</li>
+<li>[ ] Secrets are not in prompts or logs.</li>
+<li>[ ] Credentials are short-lived.</li>
+<li>[ ] Vulnerability owner is named.</li>
+<li>[ ] Red-team findings are tracked.</li>
+<li>[ ] Security incident path is rehearsed.</li>
+</ul>
+<h2>Evaluation and release</h2>
+<ul>
+<li>[ ] Offline eval set is versioned.</li>
+<li>[ ] Eval set is representative.</li>
+<li>[ ] Hard negatives are included.</li>
+<li>[ ] Safety evals are included.</li>
+<li>[ ] Quality threshold is predeclared.</li>
+<li>[ ] Cost threshold is predeclared.</li>
+<li>[ ] Latency threshold is predeclared.</li>
+<li>[ ] Results are segmented.</li>
+<li>[ ] Human review rubric exists.</li>
+<li>[ ] Statistical uncertainty is considered.</li>
+<li>[ ] Shadow run is completed.</li>
+<li>[ ] Canary cohort is defined.</li>
+<li>[ ] Feature flag exists.</li>
+<li>[ ] Dark-launch behavior is safe.</li>
+<li>[ ] Rollback has been rehearsed.</li>
+</ul>
+<h2>Reliability and operations</h2>
+<ul>
+<li>[ ] SLOs are documented.</li>
+<li>[ ] Error budget policy exists.</li>
+<li>[ ] Availability is measured at the user edge.</li>
+<li>[ ] Time to first useful response is measured.</li>
+<li>[ ] Quality outcome is sampled.</li>
+<li>[ ] Traces propagate across services.</li>
+<li>[ ] Logs are structured.</li>
+<li>[ ] Dashboard links to traces.</li>
+<li>[ ] Alerts have runbooks.</li>
+<li>[ ] Alert owner is named.</li>
+<li>[ ] On-call rotation is staffed.</li>
+<li>[ ] Incident severity model exists.</li>
+<li>[ ] Status communication is prepared.</li>
+<li>[ ] Queues have backpressure limits.</li>
+<li>[ ] Provider outage behavior is tested.</li>
+<li>[ ] Regional failover is tested.</li>
+<li>[ ] Capacity is measured.</li>
+<li>[ ] Cost per outcome is tracked.</li>
+<li>[ ] Drift baseline exists.</li>
+<li>[ ] Drift alerts have response actions.</li>
+</ul>
+<h2>UX, governance, and follow-through</h2>
+<ul>
+<li>[ ] Loading state is honest.</li>
+<li>[ ] Cancellation works.</li>
+<li>[ ] Error message offers a next step.</li>
+<li>[ ] User corrections are captured.</li>
+<li>[ ] Confidence language matches evidence.</li>
+<li>[ ] Citations appear where decisions happen.</li>
+<li>[ ] Accessible interaction is tested.</li>
+<li>[ ] Admin controls are documented.</li>
+<li>[ ] Change approval is recorded.</li>
+<li>[ ] Decision record is stored.</li>
+<li>[ ] Training is provided to operators.</li>
+<li>[ ] Support team has a playbook.</li>
+<li>[ ] Post-launch review is scheduled.</li>
+<li>[ ] Success and harm metrics are reviewed.</li>
+<li>[ ] Unused data is removed.</li>
+</ul>
+<p>A failed item is useful information. Do not paper over it with an exception; convert it into a conscious launch decision, a compensating control, a named owner, and an expiry date.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><span>3-expert/shared/red-team-report-template.md</span></p>
+<h1>Red-Team Report Template</h1>
+<p><strong>Assessment name / date / owners:</strong><br />
+<strong>Systems and versions assessed:</strong><br />
+<strong>Authorization and rules of engagement:</strong><br />
+<strong>Test data classification and retention:</strong>  </p>
+<h2>Objective and scope</h2>
+<p>State the harm hypotheses: cross-tenant disclosure, prompt injection through listing documents, unsafe maintenance escalation, tool misuse, identity spoofing, policy bypass, or denial of service. Name the in-scope model, retrieval sources, tools, identities, environments, and explicit exclusions. A red-team report without scope cannot be safely reproduced or prioritized.</p>
+<h2>Method</h2>
+<p>Describe attack families, test cases, automation, human review, success criteria, and stop conditions. Preserve exact prompts, documents, identities, configuration, timestamps, and traces in a restricted evidence store. Separate reproducible facts from the tester’s interpretation.</p>
+<h2>Findings</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Severity</th>
+<th>Attack path</th>
+<th>Preconditions</th>
+<th>Impact</th>
+<th>Reproduction</th>
+<th>Evidence</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Critical / high / medium / low</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Score severity using exploitability, blast radius, sensitivity of data or action, likelihood, detection time, and effectiveness of existing controls. Demonstrate impact without accessing real customer data or causing irreversible action.</p>
+<h2>Remediation and retest</h2>
+<p>For each finding, specify immediate containment, durable fix, compensating control, due date, and retest criteria. A model-prompt adjustment alone is rarely sufficient for a permission-boundary problem. Close a finding only after the exact attack fails, regression tests are committed, telemetry can detect recurrence, and risk acceptance is recorded if any residual exposure remains.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><span>3-expert/shared/safety-case-template.md</span></p>
+<h1>Safety Case Template</h1>
+<p>A safety case is an evidence-backed argument that the residual risk of a specific system and use is acceptable. It is not a policy statement.</p>
+<h2>1. System and decision</h2>
+<ul>
+<li><strong>System/version:</strong>  </li>
+<li><strong>Owner and approver:</strong>  </li>
+<li><strong>Intended users and context:</strong>  </li>
+<li><strong>Decision or action affected:</strong>  </li>
+<li><strong>Explicitly excluded uses:</strong>  </li>
+</ul>
+<h2>2. Claim</h2>
+<p>State the claim narrowly: “For [use], under [conditions], the system can be operated with acceptable risk because [controls and evidence].”</p>
+<h2>3. Hazard register</h2>
+<p>For each hazard, record the harmed party, severity, likelihood, signals, prevention, mitigation, and residual risk.</p>
+<table>
+<thead>
+<tr>
+<th>Hazard</th>
+<th>Scenario</th>
+<th>Preventive controls</th>
+<th>Detection</th>
+<th>Response</th>
+<th>Residual risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>4. Evidence</h2>
+<ul>
+<li>Offline evaluation results and slice coverage  </li>
+<li>Human-review method and agreement  </li>
+<li>Red-team findings and closure status  </li>
+<li>Privacy/security assessment  </li>
+<li>Reliability, latency, and availability data  </li>
+<li>Provider/model-change assumptions  </li>
+</ul>
+<h2>5. Operating controls</h2>
+<p>Describe access control, human approvals, runtime policy, logging, monitoring, incident ownership, rollback, and user recourse.</p>
+<h2>6. Limits and review</h2>
+<p>List untested conditions, assumptions, expiry date, next review trigger, and the named authority who can suspend the system. Link raw evidence; do not summarize away uncertainty.</p>
+<p>This lesson belongs in a practitioner’s operating system, not a collection of facts to recite. The point is to make a better decision under uncertainty: define the claim, identify the evidence that could change it, name the failure mode, and record the consequence of being wrong. Read it with a live initiative in mind—an internal workflow, customer-facing product, training run, or research bet—and turn the ideas into an explicit test.</p>
+<p>Start from the outcome rather than the technology. Specify the user or stakeholder, the task boundary, the data and permissions involved, the success measure, and the unacceptable result. Establish a baseline before changing anything. Then make the smallest reversible move that can distinguish competing explanations. A plausible demo is evidence of possibility, not evidence of reliability, value, or safety.</p>
+<p>Keep an evidence log. Separate observations from interpretations, measured performance from anecdotes, and known risks from assumptions. Review representative failures by hand; aggregate metrics can hide the one pattern that matters. For high-impact work, assign a clear owner, predefine an escalation path, and decide what will cause a pause or rollback. Do not outsource accountability to a model, vendor, benchmark, or committee.</p>
+<p>The professional standard is legibility. Another capable person should be able to understand why this approach was chosen, rerun the evaluation, find its limits, and improve it without guessing. Build reusable artifacts—datasets, decision records, checklists, incident notes, and release criteria—so each project leaves the next one stronger.</p>
+<h2>Working exercise</h2>
+<p>Write a one-page decision memo for a current initiative. State the hypothesis, baseline, evaluation, threshold, owner, risks, and next action. If any of these cannot be stated plainly, the work is not ready to scale.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><span>3-expert/shared/slo-worksheet.md</span></p>
+<h1>AI SLO Worksheet</h1>
+<p>Use one worksheet per customer-facing journey. An SLO is an internal target for reliable, valuable behavior. It should be strict enough to protect trust and practical enough that the team can measure and improve it.</p>
+<p><strong>Journey:</strong><br />
+<strong>Users / properties / risk tier:</strong><br />
+<strong>Owner:</strong><br />
+<strong>Dependencies:</strong> model, retrieval, tools, identity, queues, provider, region.<br />
+<strong>Review date:</strong>  </p>
+<h2>Service-level indicators</h2>
+<table>
+<thead>
+<tr>
+<th>Indicator</th>
+<th>Exact event definition</th>
+<th>Good event</th>
+<th>Bad event</th>
+<th>Data source</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Availability</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Latency</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Quality / groundedness</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Safety / escalation</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Action completion</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Objective and budget</h2>
+<table>
+<thead>
+<tr>
+<th>Indicator</th>
+<th>Objective</th>
+<th>Window</th>
+<th>Error budget</th>
+<th>Exclusions</th>
+<th>Alert / burn threshold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Avoid a vague “accuracy SLO.” For a leasing assistant, define whether the answer was based on an authorized source, whether it disclosed uncertainty, whether it avoided protected or sensitive inference, and whether the next action was correct. Quality often needs sampled human labels, so state sampling rate, reviewer rubric, lag, and the operational response to a bad result.</p>
+<h2>Operational plan</h2>
+<ul>
+<li>Containment action when fast burn occurs:</li>
+<li>Owner and escalation path:</li>
+<li>Feature flag or rollback control:</li>
+<li>Customer communication path:</li>
+<li>Manual fallback:</li>
+<li>Dependencies whose failures count toward the SLO:</li>
+<li>Dependencies whose failures are excluded, with reason:</li>
+<li>Dashboard and trace links:</li>
+</ul>
+<p>Review monthly and after every material incident. If a target cannot drive a decision, it is a report, not an SLO.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><span>3-expert/shared/system-card-template.md</span></p>
+<h1>System Card Template</h1>
+<p>A model card describes a model. A system card describes the complete deployed product: model, prompts, retrieval, tools, users, policies, interfaces, and operations.</p>
+<h2>System definition</h2>
+<ul>
+<li><strong>Name/version/owner:</strong>  </li>
+<li><strong>Users and business purpose:</strong>  </li>
+<li><strong>Model providers and component versions:</strong>  </li>
+<li><strong>Data flows and trust boundaries:</strong>  </li>
+<li><strong>High-impact decisions or actions:</strong>  </li>
+</ul>
+<h2>Architecture</h2>
+<p>Describe input handling, identity/authorization, retrieval, model routing, tool calls, output validation, approval steps, logs, and data retention. Include a diagram link where available.</p>
+<h2>Behavior and boundaries</h2>
+<p>List supported tasks, refusal conditions, mandatory escalations, prohibited actions, localization requirements, and user disclosures. Explain what the system must not infer or decide.</p>
+<h2>Evidence</h2>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Evaluation/method</th>
+<th>Result</th>
+<th>Owner</th>
+<th>Expiry</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Include real-world monitoring and known failure examples, not only offline scores.</p>
+<h2>Risk operations</h2>
+<p>State red-team coverage, policy-engine controls, alert thresholds, incident playbook, rollback method, provider-outage plan, audit trail, and review cadence.</p>
+<h2>Change log</h2>
+<p>Every change to model, prompt, retrieval corpus, tools, permissions, or safety policy should have a linked evaluation and approval record.</p>
+<p>This lesson belongs in a practitioner’s operating system, not a collection of facts to recite. The point is to make a better decision under uncertainty: define the claim, identify the evidence that could change it, name the failure mode, and record the consequence of being wrong. Read it with a live initiative in mind—an internal workflow, customer-facing product, training run, or research bet—and turn the ideas into an explicit test.</p>
+<p>Start from the outcome rather than the technology. Specify the user or stakeholder, the task boundary, the data and permissions involved, the success measure, and the unacceptable result. Establish a baseline before changing anything. Then make the smallest reversible move that can distinguish competing explanations. A plausible demo is evidence of possibility, not evidence of reliability, value, or safety.</p>
+<p>Keep an evidence log. Separate observations from interpretations, measured performance from anecdotes, and known risks from assumptions. Review representative failures by hand; aggregate metrics can hide the one pattern that matters. For high-impact work, assign a clear owner, predefine an escalation path, and decide what will cause a pause or rollback. Do not outsource accountability to a model, vendor, benchmark, or committee.</p>
+<p>The professional standard is legibility. Another capable person should be able to understand why this approach was chosen, rerun the evaluation, find its limits, and improve it without guessing. Build reusable artifacts—datasets, decision records, checklists, incident notes, and release criteria—so each project leaves the next one stronger.</p>
+<h2>Working exercise</h2>
+<p>Write a one-page decision memo for a current initiative. State the hypothesis, baseline, evaluation, threshold, owner, risks, and next action. If any of these cannot be stated plainly, the work is not ready to scale.</p>
+</article>
+<article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><span>3-expert/shared/training-run-checklist.md</span></p>
+<h1>Training Run Checklist</h1>
+<p>Use this before any fine-tune, preference-optimization job, or material retraining. A run that cannot be explained, reproduced, evaluated, and rolled back is not ready.</p>
+<h2>Decision and scope</h2>
+<ul>
+<li>[ ] State the user outcome, hypothesis, and baseline.</li>
+<li>[ ] Name the model, version, license, and deployment target.</li>
+<li>[ ] Define success metrics, safety metrics, and a ship/no-ship threshold.</li>
+<li>[ ] Identify the accountable owner and the person authorized to stop the run.</li>
+</ul>
+<h2>Data</h2>
+<ul>
+<li>[ ] Document source, rights, provenance, consent, retention, and access controls.</li>
+<li>[ ] Version the dataset, splits, label guide, and preprocessing code/configuration.</li>
+<li>[ ] Check duplicates, train/evaluation leakage, secrets, personal data, and poisoned examples.</li>
+<li>[ ] Inspect samples from every important slice and rejected-data bucket.</li>
+</ul>
+<h2>Configuration and execution</h2>
+<ul>
+<li>[ ] Record base checkpoint, tokenizer, hyperparameters, random seeds, hardware, and dependency versions.</li>
+<li>[ ] Estimate compute, cost, duration, storage, and failure recovery.</li>
+<li>[ ] Test the pipeline on a small canary run.</li>
+<li>[ ] Save checkpoints, logs, gradients/loss where appropriate, and immutable run metadata.</li>
+</ul>
+<h2>Evaluation and release</h2>
+<ul>
+<li>[ ] Run fixed holdouts, fresh adversarial cases, regression tests, and human review.</li>
+<li>[ ] Compare against the actual baseline—not only the prior model.</li>
+<li>[ ] Inspect failure slices, calibration, refusal behavior, and tool-use boundaries.</li>
+<li>[ ] Produce a model-card update and release decision record.</li>
+<li>[ ] Stage deployment with monitoring, rollback, and user escalation paths.</li>
+</ul>
+<h2>Afterward</h2>
+<p>Write what changed, what did not, what surprised you, and which next experiment this result justifies. Negative results are assets when their conditions are preserved.</p>
+<p>This lesson belongs in a practitioner’s operating system, not a collection of facts to recite. The point is to make a better decision under uncertainty: define the claim, identify the evidence that could change it, name the failure mode, and record the consequence of being wrong. Read it with a live initiative in mind—an internal workflow, customer-facing product, training run, or research bet—and turn the ideas into an explicit test.</p>
+<p>Start from the outcome rather than the technology. Specify the user or stakeholder, the task boundary, the data and permissions involved, the success measure, and the unacceptable result. Establish a baseline before changing anything. Then make the smallest reversible move that can distinguish competing explanations. A plausible demo is evidence of possibility, not evidence of reliability, value, or safety.</p>
+<p>Keep an evidence log. Separate observations from interpretations, measured performance from anecdotes, and known risks from assumptions. Review representative failures by hand; aggregate metrics can hide the one pattern that matters. For high-impact work, assign a clear owner, predefine an escalation path, and decide what will cause a pause or rollback. Do not outsource accountability to a model, vendor, benchmark, or committee.</p>
+<p>The professional standard is legibility. Another capable person should be able to understand why this approach was chosen, rerun the evaluation, find its limits, and improve it without guessing. Build reusable artifacts—datasets, decision records, checklists, incident notes, and release criteria—so each project leaves the next one stronger.</p>
+<h2>Working exercise</h2>
+<p>Write a one-page decision memo for a current initiative. State the hypothesis, baseline, evaluation, threshold, owner, risks, and next action. If any of these cannot be stated plainly, the work is not ready to scale.</p>
+</article>
+
+  <div class="pnav">
+    <a href="3-company-18-partnership-strategy.html">← README</a>
+    <a href="3-eli10.html">3 Expert ELI10 companions →</a>
+  </div>
+</main>
+<footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
+The AI Playbook. Free, complete, ungated. By Cypress Command. <a href="mailto:adam@adamabdalla.com">adam@adamabdalla.com</a> · <a href="/legal/">Disclaimer &amp; Privacy</a></footer>
+<script defer src="/assets/motion.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
