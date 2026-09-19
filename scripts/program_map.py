@@ -103,5 +103,8 @@ def run(pilot_dir):
             io.open(p, "w", encoding="utf-8", newline="\n").write(new_text)
 
 if __name__ == "__main__":
-    run(Path(__file__).resolve().parents[2] / "participants" / "pilot-folder")
+    import sys
+    if len(sys.argv) != 2:
+        sys.exit("usage: python scripts/program_map.py <path-to-pilot-folder>")
+    run(Path(sys.argv[1]))
     print("pilot relabeled")
