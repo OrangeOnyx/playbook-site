@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>05 — Model Routing | The AI Playbook Curriculum Reader</title>
-<meta name="description" content="1 Starter · Individual Track: 05 — Model Routing. Compiled verbatim from The AI Playbook Curriculum repository.">
+<title>05: Model Routing | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="1 Starter · Individual Track: 05: Model Routing. Compiled verbatim from The AI Playbook Curriculum repository.">
 <meta name="theme-color" content="#F4EFE2">
 <script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
 <link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/1-individual-05-model-routing.html">
@@ -38,17 +38,17 @@
   </div>
 </nav>
 <main id="main" tabindex="-1">
-  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 05 — Model Routing</span>
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 05: Model Routing</span>
 
-<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">05 — Model Routing</h1></div></div>
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">05: Model Routing</h1></div></div>
 <p class="rnote">This page compiles 3 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/1-starter/individual/05-model-routing">this folder on GitHub</a>.</p>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/05-model-routing/README.md</span></p>
-<h1>05 — Model Routing</h1>
+<h1>05: Model Routing</h1>
 <p>Which model to use when. The single biggest power-user skill after prompting.</p>
 <h2>Files in this folder</h2>
 <ol>
-<li><code>model-routing-cheat-sheet.md</code> — the one-page you print and keep near your monitor</li>
-<li><code>provider-strengths-matrix.md</code> — the deeper table with reasoning</li>
+<li><code>model-routing-cheat-sheet.md</code>: the one-page you print and keep near your monitor</li>
+<li><code>provider-strengths-matrix.md</code>: the deeper table with reasoning</li>
 </ol>
 <h2>The principle</h2>
 <p>Every model has a shape. Use the right shape for the job.</p>
@@ -87,13 +87,13 @@
 <td>Claude wins at nuance; Gemini wins on context length</td>
 </tr>
 <tr>
-<td>Coding — small changes</td>
+<td>Coding: small changes</td>
 <td>Claude Sonnet in Cursor</td>
 <td>GPT-5 in Cursor</td>
 <td>Sonnet is the daily driver</td>
 </tr>
 <tr>
-<td>Coding — large refactor</td>
+<td>Coding: large refactor</td>
 <td>Claude Code (agent)</td>
 <td>Cursor Composer</td>
 <td>Agent mode for multi-file</td>
@@ -123,13 +123,13 @@
 <td>Native integration wins</td>
 </tr>
 <tr>
-<td>Image generation — realistic</td>
+<td>Image generation: realistic</td>
 <td>GPT (Sora/Images), Midjourney</td>
 <td>Ideogram</td>
 <td>Midjourney for hero art</td>
 </tr>
 <tr>
-<td>Image generation — with text in image</td>
+<td>Image generation: with text in image</td>
 <td>Ideogram</td>
 <td>GPT Images</td>
 <td>Ideogram nails typography</td>
@@ -173,7 +173,7 @@
 <tr>
 <td>Uncensored generation</td>
 <td>Grok, local models</td>
-<td>—</td>
+<td>none</td>
 <td>For legit adult / edgy use cases</td>
 </tr>
 <tr>
@@ -266,7 +266,7 @@
 <li>If it's a code question, add the exact error message to the prompt and try Claude Opus</li>
 </ol>
 <h2>Cost mental model</h2>
-<p>Approximate cost per million tokens output (as of August 2026 — verify current pricing):</p>
+<p>Approximate cost per million tokens output (as of August 2026, so verify current pricing):</p>
 <table>
 <thead>
 <tr>
@@ -346,7 +346,7 @@
 - Native Google Workspace integration (Docs, Sheets, Gmail, Meet)
 - Deep Research mode
 - Veo 3 for video
-- Multimodal — best at video <em>input</em>
+- Multimodal, best at video <em>input</em>
 - Free tier is generous</p>
 <p><strong>Signature weaknesses</strong>
 - Product surface changes often (feature churn)
@@ -359,14 +359,14 @@
 - Research via Deep Research</p>
 <h2>Perplexity</h2>
 <p><strong>Signature strengths</strong>
-- Search-grounded by default — every answer cites sources
+- Search-grounded by default: every answer cites sources
 - Real-time facts
-- Comet browser + Computer (this product) — agentic web workflows
+- Comet browser + Computer (this product): agentic web workflows
 - Spaces (persistent contexts with connectors)
 - Deep Research
 - API returns citations natively</p>
 <p><strong>Signature weaknesses</strong>
-- Less "raw" LLM power — it's a search-tuned system
+- Less "raw" LLM power: it's a search-tuned system
 - Long-doc reasoning is not its strength
 - Some models better for pure generation tasks</p>
 <p><strong>Best for</strong>
@@ -408,7 +408,7 @@
 - Cheap
 - Great free tier</p>
 <p><strong>Signature weaknesses</strong>
-- Only serves open models — no Claude, GPT, Gemini
+- Only serves open models: no Claude, GPT, Gemini
 - Model catalog rotates</p>
 <p><strong>Best for</strong>
 - Batch processing where speed matters
@@ -444,8 +444,8 @@
 </article>
 
   <div class="pnav">
-    <a href="1-individual-04-prompt-library.html">← 04 — Prompt Library</a>
-    <a href="1-individual-06-memory-hygiene.html">06 — Memory Hygiene →</a>
+    <a href="1-individual-04-prompt-library.html">← 04: Prompt Library</a>
+    <a href="1-individual-06-memory-hygiene.html">06: Memory Hygiene →</a>
   </div>
 </main>
 <footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>

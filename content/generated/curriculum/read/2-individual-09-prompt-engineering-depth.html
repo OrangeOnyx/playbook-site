@@ -46,16 +46,16 @@
 <h1>Prompt Engineering at Builder Depth</h1>
 <p>At Stage 2, prompting stops being clever phrasing and becomes interface design. A prompt defines role boundaries, data contracts, tool permissions, output schema, escalation behavior, and attack resistance. If your prompt is doing business logic, move that logic into code. If it is hiding an ambiguous requirement, write an eval before adding more instructions.</p>
 <p>Use reasoning patterns selectively. Tree-of-thoughts can explore alternatives, but it is expensive and often unnecessary. Reflexion can repair a draft, but only with a concrete rubric and source evidence. DSPy can systematically optimize modules, but only after you have a trustworthy metric. None of these replace retrieval, typed outputs, or authorization.</p>
-<p>The practical baseline is short instructions, relevant evidence, strict schemas, named refusal conditions, and examples only for behavior the model consistently misses. Separate the internal reasoning you do not need from the observable decision record you must audit. In property workflows, the trace should show evidence and policy rule—not invented prose about hidden thought.</p>
+<p>The practical baseline is short instructions, relevant evidence, strict schemas, named refusal conditions, and examples only for behavior the model consistently misses. Separate the internal reasoning you do not need from the observable decision record you must audit. In property workflows, the trace should show evidence and policy rule, not invented prose about hidden thought.</p>
 <p>Adversarial hardening is part of prompt design. Tenant messages, lease PDFs, and data rooms are untrusted inputs. Treat every embedded instruction as content, never as authority.</p>
 <p>Before adding complexity, run this design through a small representative eval and inspect the trace with the operator who will own failures. Make the boundary, escalation, and rollback visible in the product. That discipline will expose more useful work than another round of prompt cleverness.</p>
 <h2>In this module</h2>
 <ul>
-<li><a href="2-individual-09-prompt-engineering-depth.html"><code>prompting-techniques.md</code></a> — the 10 techniques that actually move the needle, each with an eval you can run</li>
-<li><a href="2-individual-09-prompt-engineering-depth.html"><code>tree-of-thoughts.md</code></a> — branching exploration for multi-path reasoning</li>
-<li><a href="2-individual-09-prompt-engineering-depth.html"><code>reflexion.md</code></a> — self-critique + repair loops</li>
-<li><a href="2-individual-09-prompt-engineering-depth.html"><code>dspy-primer.md</code></a> — systematic prompt optimization</li>
-<li><a href="2-individual-09-prompt-engineering-depth.html"><code>adversarial-hardening.md</code></a> — defending against injection in untrusted input</li>
+<li><a href="2-individual-09-prompt-engineering-depth.html"><code>prompting-techniques.md</code></a>: the 10 techniques that actually move the needle, each with an eval you can run</li>
+<li><a href="2-individual-09-prompt-engineering-depth.html"><code>tree-of-thoughts.md</code></a>: branching exploration for multi-path reasoning</li>
+<li><a href="2-individual-09-prompt-engineering-depth.html"><code>reflexion.md</code></a>: self-critique + repair loops</li>
+<li><a href="2-individual-09-prompt-engineering-depth.html"><code>dspy-primer.md</code></a>: systematic prompt optimization</li>
+<li><a href="2-individual-09-prompt-engineering-depth.html"><code>adversarial-hardening.md</code></a>: defending against injection in untrusted input</li>
 </ul>
 </article>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>2-intermediate/individual/09-prompt-engineering-depth/adversarial-hardening.md</span></p>
@@ -63,13 +63,13 @@
 <p>Assume documents and messages can contain instructions designed to redirect the model: “Ignore your rules,” “export all tenants,” “approve this payment,” or subtler text inside a lease PDF. This is prompt injection. It is not solved by adding “do not be injected” to a system prompt.</p>
 <p>Create a trust boundary. System instructions, application policy, tool schemas, and authenticated user permissions are authority. Retrieved lease text, tenant messages, web content, file names, and tool results are data. Label untrusted content in the prompt and instruct the model to extract facts from it, never execute its instructions. More importantly, make tools incapable of prohibited actions.</p>
 <p>Use allowlisted tools, typed arguments, server-side authorization, row limits, and proposed writes with human approval. Strip or flag instruction-like text in retrieved chunks for reviewer visibility; do not silently alter source evidence. Separate retrieval from action: an untrusted message can lead to a draft or escalation, not a database write or an external send.</p>
-<p>Build red-team cases: direct override attempts, encoded instructions, document metadata tricks, cross-tenant data requests, tool-argument injection, and social-engineering requests for policy exceptions. Measure tool-call policy violations and unsafe-action proposals, not only refusal wording. Add canaries—fake secrets or forbidden record IDs—that must never appear in output.</p>
+<p>Build red-team cases: direct override attempts, encoded instructions, document metadata tricks, cross-tenant data requests, tool-argument injection, and social-engineering requests for policy exceptions. Measure tool-call policy violations and unsafe-action proposals, not only refusal wording. Add canaries: fake secrets or forbidden record IDs that must never appear in output.</p>
 <p>Prompt hardening is defense in depth. The strongest prompt cannot compensate for an MCP tool with excessive privileges.</p>
 </article>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>2-intermediate/individual/09-prompt-engineering-depth/dspy-primer.md</span></p>
 <h1>DSPy Primer: Optimize Programs, Not Magic Prompts</h1>
 <p>DSPy is a framework style for expressing LLM work as modules with declared input/output signatures and optimizing demonstrations or instructions against a metric. The important idea is transferable even if you do not adopt the library: treat prompts as compiled components with tests, not handwritten incantations.</p>
-<p>A Belle Realty extractor signature might accept <code>clause_type</code> and <code>evidence_chunks</code> and return <code>normalized_value</code>, <code>quote</code>, <code>page</code>, <code>confidence</code>, and <code>status</code>. Its metric checks exact value, citation support, valid schema, and abstention. You can then compare prompt variants, few-shot examples, model choices, and retrieval settings reproducibly. Optimization must use a development set; keep a locked set to detect overfitting.</p>
+<p>A Harbor Point Operations extractor signature might accept <code>clause_type</code> and <code>evidence_chunks</code> and return <code>normalized_value</code>, <code>quote</code>, <code>page</code>, <code>confidence</code>, and <code>status</code>. Its metric checks exact value, citation support, valid schema, and abstention. You can then compare prompt variants, few-shot examples, model choices, and retrieval settings reproducibly. Optimization must use a development set; keep a locked set to detect overfitting.</p>
 <p>Do not optimize a vague “quality” score. Metrics shape behavior. If you reward only exact extraction, the system may guess rather than abstain. Add penalties for unsupported values, wrong-lease citations, and false confidence. If human review matters, include its rate and correction rate in the objective.</p>
 <p>DSPy is not a shortcut around data. It amplifies whatever your eval tells it to optimize. Start with a hand-built baseline and clear signature. Use it when manual prompt iteration has become unrepeatable, not before you understand the task.</p>
 <p>Before adding complexity, run this design through a small representative eval and inspect the trace with the operator who will own failures. Make the boundary, escalation, and rollback visible in the product. That discipline will expose more useful work than another round of prompt cleverness.</p>
@@ -77,23 +77,23 @@
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>2-intermediate/individual/09-prompt-engineering-depth/prompting-techniques.md</span></p>
 <h1>Prompting techniques: what actually moves the needle</h1>
 <p>Most "prompt engineering" content online is folklore. This document is the opposite: a small set of prompting techniques that measurably change model behavior, each paired with an eval you can run to see the effect for yourself.</p>
-<p>The rule for this document — and for how you should think about prompting in production — is:</p>
+<p>The rule for this document, and for how you should think about prompting in production, is:</p>
 <blockquote>
 <p><strong>A prompting technique that you cannot measure is a superstition.</strong></p>
 </blockquote>
 <p>If adding "you are a world-class expert" to your prompt doesn't change your eval score, it doesn't do anything. It just makes you feel better.</p>
 <h2>The techniques (ranked by ROI)</h2>
 <ol>
-<li><strong>Structured output enforcement</strong> — highest ROI, boring, essential</li>
-<li><strong>Few-shot with worked examples</strong> — very high ROI, especially for stable output shapes</li>
-<li><strong>Chain-of-thought (for hard reasoning)</strong> — high ROI on math/logic; can hurt on classification</li>
-<li><strong>Role and persona (targeted)</strong> — moderate ROI, easy to misuse</li>
-<li><strong>Discipline/domain prefixes</strong> — moderate ROI, best combined with few-shot</li>
-<li><strong>Quality-forcing (critique-then-improve)</strong> — moderate ROI, doubles cost</li>
-<li><strong>Adversarial self-check</strong> — moderate ROI on safety-critical work</li>
-<li><strong>Meta-cognitive uncertainty gating</strong> — low-moderate ROI, high value on HITL</li>
-<li><strong>Output-shape scaffolds</strong> — moderate ROI, overlaps with #1</li>
-<li><strong>"Power words" (neuro-symbolic, etc.)</strong> — low ROI in isolation, sometimes real inside a system</li>
+<li><strong>Structured output enforcement</strong>: highest ROI, boring, essential</li>
+<li><strong>Few-shot with worked examples</strong>: very high ROI, especially for stable output shapes</li>
+<li><strong>Chain-of-thought (for hard reasoning)</strong>: high ROI on math/logic; can hurt on classification</li>
+<li><strong>Role and persona (targeted)</strong>: moderate ROI, easy to misuse</li>
+<li><strong>Discipline/domain prefixes</strong>: moderate ROI, best combined with few-shot</li>
+<li><strong>Quality-forcing (critique-then-improve)</strong>: moderate ROI, doubles cost</li>
+<li><strong>Adversarial self-check</strong>: moderate ROI on safety-critical work</li>
+<li><strong>Meta-cognitive uncertainty gating</strong>: low-moderate ROI, high value on HITL</li>
+<li><strong>Output-shape scaffolds</strong>: moderate ROI, overlaps with #1</li>
+<li><strong>"Power words" (neuro-symbolic, etc.)</strong>: low ROI in isolation, sometimes real inside a system</li>
 </ol>
 <p>Everything below the fold has an eval. Run it against your own model + task before you commit to it in a prompt.</p>
 <h2>1. Structured output enforcement</h2>
@@ -240,7 +240,7 @@ Typical result: B's high-confidence findings are meaningfully more reliable.
 </code></pre>
 <p><strong>Best use:</strong> Safety-critical outputs. Legal review. Diligence conclusions. Anywhere overconfidence is worse than uncertainty.</p>
 <h2>8. Meta-cognitive uncertainty gating</h2>
-<p><strong>What it is:</strong> Tell the model: "If your confidence is below 0.6, don't answer — ask a clarifying question instead."</p>
+<p><strong>What it is:</strong> Tell the model: "If your confidence is below 0.6, don't answer. Ask a clarifying question instead."</p>
 <p><strong>Why it works:</strong> Combined with HITL, this shifts the model from "always answer" mode to "answer or escalate" mode. Enormously valuable for real deployments where a wrong answer is costlier than a missing answer.</p>
 <p><strong>Eval:</strong></p>
 <pre><code>Task: 100 tickets, 30 of which are actually ambiguous (missing key info).
@@ -268,18 +268,18 @@ Typical: A is wrong on 40-70% of ambiguous tickets. B asks the right question on
 **Confidence:** [0.0-1.0]
 </code></pre>
 <p><strong>Why it works:</strong> Downstream regex/parsing becomes reliable. Reviewers can scan quickly. Model can't ramble.</p>
-<p><strong>Eval:</strong> Same as structured output enforcement — measure parse rate and reviewer speed. Prefer #1 (JSON schema) when you can. Use #9 when the output is client-facing and you want it to read as prose.</p>
-<h2>10. "Power words" — where the hype meets the reality</h2>
-<p>The internet has a persistent claim that specific phrases — "neuro-symbolic reasoning," "activate expert mode," "think like a genius" — unlock hidden capabilities. Some of this is real. Most of it is not.</p>
+<p><strong>Eval:</strong> Same as structured output enforcement: measure parse rate and reviewer speed. Prefer #1 (JSON schema) when you can. Use #9 when the output is client-facing and you want it to read as prose.</p>
+<h2>10. "Power words": where the hype meets the reality</h2>
+<p>The internet has a persistent claim that specific phrases such as "neuro-symbolic reasoning," "activate expert mode," or "think like a genius" open up hidden capabilities. Some of this is real. Most of it is not.</p>
 <p><strong>What's real:</strong>
 - <strong>Naming a specific technique</strong> the model has seen in training data can invoke that technique. E.g., "Use tree-of-thoughts reasoning" or "Apply the ReAct pattern" or "Do a chain-of-thought analysis" all do something because those are named methodologies with training-data footprints. "Neuro-symbolic reasoning" <em>is</em> a real ML technique (rules + neural), and asking the model to combine explicit rules with pattern reasoning can help on the right tasks.
 - <strong>Domain-specific vocabulary</strong> primes the model toward that domain's conventions (see #5).
 - <strong>Explicit uncertainty framing</strong> measurably improves calibration (see #7, #8).</p>
 <p><strong>What's not real (or is real for the wrong reason):</strong>
-- "You are a world-class expert" — trained-on so heavily it's approximately noise.
-- "Take a deep breath" — was real for one specific model on one specific benchmark. Not general.
-- "This is important, do it perfectly" — mostly a wash.
-- Any single "magic word" that's supposed to unlock capability without changing the task shape.</p>
+- "You are a world-class expert": trained-on so heavily it's approximately noise.
+- "Take a deep breath": this was real for one specific model on one specific benchmark. Not general.
+- "This is important, do it perfectly": mostly a wash.
+- Any single "magic word" that's supposed to switch on capability without changing the task shape.</p>
 <p><strong>The right test:</strong> If a "power word" doesn't move your eval score, it doesn't work FOR YOU on THIS task with THIS model. Don't cargo-cult it into your production prompts.</p>
 <p>For a deep, evolving reference on power-word combinations and the NEURO family, <a href="https://github.com/OrangeOnyx/"><code>neuro-power-stack</code></a> (the user-scoped skill in this workspace) catalogs and evaluates them. That's the right home for the deep dive. This doc's job is to keep you grounded: <strong>techniques not incantations</strong>.</p>
 <h2>Combining techniques</h2>
@@ -293,7 +293,7 @@ Typical: A is wrong on 40-70% of ambiguous tickets. B asks the right question on
 </code></pre>
 <p>Every one of those additions should be justified by an eval delta. If your suite passes without one, drop it.</p>
 <h2>Eval infrastructure</h2>
-<p>If you don't have an eval suite for your prompts, you don't have prompt engineering — you have prompt vibes. See <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/07-evaluation"><code>../07-evaluation</code></a> in this program.</p>
+<p>If you don't have an eval suite for your prompts, you don't have prompt engineering. You have prompt vibes. See <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/07-evaluation"><code>../07-evaluation</code></a> in this program.</p>
 <p>Minimum viable eval:
 1. 20-100 real inputs
 2. A ground-truth answer or a rubric
@@ -302,10 +302,10 @@ Typical: A is wrong on 40-70% of ambiguous tickets. B asks the right question on
 <p>With that in place, every prompting technique above becomes a hypothesis you can test in 5-10 minutes. Without it, you're a person on the internet trading power words.</p>
 <h2>Reading list</h2>
 <ul>
-<li>Anthropic's <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview">prompt engineering docs</a> — vendor guidance, opinionated but honest</li>
-<li><a href="https://arxiv.org/abs/2201.11903">Chain-of-Thought Prompting Elicits Reasoning in LLMs</a> — the original CoT paper</li>
+<li>Anthropic's <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview">prompt engineering docs</a>: vendor guidance, opinionated but honest</li>
+<li><a href="https://arxiv.org/abs/2201.11903">Chain-of-Thought Prompting Elicits Reasoning in LLMs</a>: the original CoT paper</li>
 <li><a href="https://arxiv.org/abs/2210.03629">ReAct: Synergizing Reasoning and Acting</a></li>
-<li><a href="https://arxiv.org/abs/2212.08073">Constitutional AI</a> — where the self-critique idea comes from</li>
+<li><a href="https://arxiv.org/abs/2212.08073">Constitutional AI</a>: where the self-critique idea comes from</li>
 <li>Related in this program: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/07-evaluation"><code>../07-evaluation</code></a>, <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/08-cost-engineering"><code>../08-cost-engineering</code></a></li>
 <li>Deep dive on power-word combinations: your <code>neuro-power-stack</code> user skill</li>
 </ul>

@@ -49,11 +49,11 @@
 <p>The goal is not a grand internal platform. It is a paved road that makes the safe option the easy option: typed schemas, tenant-scoped tools, versioned prompts, auditable retrieval, and reversible rollouts.</p>
 <h2>In this module</h2>
 <ul>
-<li><a href="2-company-01-platform-engineering.html">llm-gateway-buildout.md</a> — routing, quotas, model fallback</li>
-<li><a href="2-company-01-platform-engineering.html">observability-stack.md</a> — traces, evals, cost telemetry</li>
-<li><a href="2-company-01-platform-engineering.html">secrets-and-config.md</a> — where keys and prompts actually live</li>
-<li><a href="2-company-01-platform-engineering.html">oncall-runbook.md</a> — SEV-1 to SEV-4 playbook when things break</li>
-<li><a href="2-company-01-platform-engineering.html">sso-and-access.md</a> — who can use, deploy, and stop each agent</li>
+<li><a href="2-company-01-platform-engineering.html">llm-gateway-buildout.md</a>: routing, quotas, model fallback</li>
+<li><a href="2-company-01-platform-engineering.html">observability-stack.md</a>: traces, evals, cost telemetry</li>
+<li><a href="2-company-01-platform-engineering.html">secrets-and-config.md</a>: where keys and prompts actually live</li>
+<li><a href="2-company-01-platform-engineering.html">oncall-runbook.md</a>: SEV-1 to SEV-4 playbook when things break</li>
+<li><a href="2-company-01-platform-engineering.html">sso-and-access.md</a>: who can use, deploy, and stop each agent</li>
 </ul>
 <h2>Operating standard</h2>
 <p>Make this practice operational, not aspirational. Assign one directly responsible owner and name the decision they can make without another meeting. Put the key measure, threshold, and review cadence in the owning team's regular operating rhythm. A change to model, prompt, data scope, retrieval index, tool permission, or policy should be recorded with its expected impact and a rollback path. Preserve enough trace information to explain an individual bad outcome without exposing more customer or internal data than necessary. Review a small sample of real runs with the people doing the work; dashboards reveal trends, but operators reveal missing context. When the rule is violated, capture the incident, contain impact, add an eval or control, and update this document if the standard itself was unclear. The point is repeatable judgment under real workload, not a one-time compliance exercise.</p>
@@ -77,11 +77,11 @@
 </article>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>2-intermediate/company/01-platform-engineering/oncall-runbook.md</span></p>
 <h1>On-call runbook: when the AI stack breaks</h1>
-<p><strong>Read this if:</strong> You are on call and an agent, RAG pipeline, or LLM gateway is misbehaving. You need the shortest path to "safe" — not a full incident write-up.</p>
+<p><strong>Read this if:</strong> You are on call and an agent, RAG pipeline, or LLM gateway is misbehaving. You need the shortest path to "safe", not a full incident write-up.</p>
 <p><strong>Stand-alone.</strong> You don't need the rest of this program to use it.</p>
 <h2>Severity, in one paragraph</h2>
 <ul>
-<li><strong>SEV-1</strong>: The agent is actively doing harm right now — sending wrong emails, leaking data, spending money. <strong>Kill it. Then read the rest of this doc.</strong></li>
+<li><strong>SEV-1</strong>: The agent is actively doing harm right now, such as sending wrong emails, leaking data, or spending money. <strong>Kill it. Then read the rest of this doc.</strong></li>
 <li><strong>SEV-2</strong>: The agent is producing bad output but not acting on it (drafts a human is reviewing). Contain, do not necessarily kill.</li>
 <li><strong>SEV-3</strong>: Cost, latency, or eval regression. Fix during business hours.</li>
 <li><strong>SEV-4</strong>: A single user complaint. File a ticket. Do not page anyone.</li>
@@ -101,7 +101,7 @@
 <p>The agent is drafting, not acting. You have time.</p>
 <ol>
 <li><strong>Flip auto-send to false</strong> on every tool the agent has, if it isn't already.</li>
-<li><strong>Increase the sampling rate</strong> on the human review — every draft gets reviewed, not one in ten.</li>
+<li><strong>Increase the sampling rate</strong> on the human review: every draft gets reviewed, not one in ten.</li>
 <li><strong>Enable verbose logging</strong> so you can see what changed.</li>
 <li><strong>Do not roll back yet.</strong> You don't know what to roll back to. Diagnose first.</li>
 </ol>
@@ -109,10 +109,10 @@
 <p>Work through these in order. Stop at the first one that explains the symptom.</p>
 <ol>
 <li><strong>Did anything deploy in the last 24 hours?</strong> Model, prompt, retrieval index, tool permissions, config. Check the change log. Rollback beats debug.</li>
-<li><strong>Is the underlying model behaving?</strong> Hit the model directly (no agent, no RAG) with a known-good prompt. If the raw model is bad, you have an upstream problem — check provider status page.</li>
+<li><strong>Is the underlying model behaving?</strong> Hit the model directly (no agent, no RAG) with a known-good prompt. If the raw model is bad, you have an upstream problem: check provider status page.</li>
 <li><strong>Is retrieval returning garbage?</strong> Log the top-K chunks for a failing query. If the chunks are irrelevant, the index is stale, poisoned, or the embedding model changed. See <a href="2-company-03-rag-at-scale.html">../03-rag-at-scale/refresh-orchestration.md</a>.</li>
 <li><strong>Did the tool interface change?</strong> External APIs the agent calls sometimes silently change response shape. Check the tool call logs for HTTP 200 with unexpected payload shape.</li>
-<li><strong>Is a specific user or tenant triggering it?</strong> Filter traces by user_id. If it's one tenant, you have a data problem in their scope — see <a href="2-company-03-rag-at-scale.html">../03-rag-at-scale/multi-tenant-rag.md</a>.</li>
+<li><strong>Is a specific user or tenant triggering it?</strong> Filter traces by user_id. If it's one tenant, you have a data problem in their scope: see <a href="2-company-03-rag-at-scale.html">../03-rag-at-scale/multi-tenant-rag.md</a>.</li>
 <li><strong>Is it prompt injection?</strong> If the failing inputs contain instructions targeting the agent ("ignore previous instructions", "forget your rules"), you're being attacked. Escalate to security.</li>
 <li><strong>Cost spike?</strong> If the symptom is bill, not behavior, check for infinite tool-use loops. See <a href="2-company-06-cost-management.html">../06-cost-management/spend-alerting.md</a>.</li>
 </ol>
@@ -134,7 +134,7 @@
 <h2>The 24-hour post-incident checklist</h2>
 <ul>
 <li>[ ] Timeline written (what happened, when, in UTC)</li>
-<li>[ ] Root cause identified (not the trigger — the underlying reason a trigger caused this)</li>
+<li>[ ] Root cause identified (not the trigger, but the underlying reason a trigger caused this)</li>
 <li>[ ] Eval case added that would have caught it before ship</li>
 <li>[ ] Kill-switch verified still works after the fix</li>
 <li>[ ] Approval category re-checked (did we have this in the wrong category?)</li>
@@ -149,10 +149,10 @@
 </ul>
 <h2>Related</h2>
 <ul>
-<li><a href="2-company-02-agent-governance.html">../02-agent-governance/kill-switch-playbook.md</a> — where the kill switch actually is</li>
-<li><a href="2-company-02-agent-governance.html">../02-agent-governance/approval-flows.md</a> — the categories you are enforcing</li>
-<li><a href="2-company-01-platform-engineering.html">observability-stack.md</a> — the traces you need for step 4 above</li>
-<li><a href="2-company-01-platform-engineering.html">sso-and-access.md</a> — how to revoke access at the source in step 1 of SEV-1</li>
+<li><a href="2-company-02-agent-governance.html">../02-agent-governance/kill-switch-playbook.md</a>: where the kill switch actually is</li>
+<li><a href="2-company-02-agent-governance.html">../02-agent-governance/approval-flows.md</a>: the categories you are enforcing</li>
+<li><a href="2-company-01-platform-engineering.html">observability-stack.md</a>: the traces you need for step 4 above</li>
+<li><a href="2-company-01-platform-engineering.html">sso-and-access.md</a>: how to revoke access at the source in step 1 of SEV-1</li>
 </ul>
 </article>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>2-intermediate/company/01-platform-engineering/secrets-and-config.md</span></p>
@@ -170,9 +170,9 @@
 <p><strong>Stand-alone.</strong> No prerequisites in this program.</p>
 <h2>The three access questions every AI system has to answer</h2>
 <ol>
-<li><strong>Who can use it?</strong> (Runtime access — sending prompts, calling tools)</li>
-<li><strong>Who can change it?</strong> (Build access — modifying prompts, tools, retrieval indexes, model choice)</li>
-<li><strong>Who can stop it?</strong> (Kill switch access — pausing, disabling, or retiring the agent)</li>
+<li><strong>Who can use it?</strong> (Runtime access: sending prompts, calling tools)</li>
+<li><strong>Who can change it?</strong> (Build access: modifying prompts, tools, retrieval indexes, model choice)</li>
+<li><strong>Who can stop it?</strong> (Kill switch access: pausing, disabling, or retiring the agent)</li>
 </ol>
 <p>If those three groups are the same group, you have a governance problem. If any of them is "everyone," you have a bigger one.</p>
 <h2>The minimum bar for any production agent</h2>
@@ -197,7 +197,7 @@
 <tbody>
 <tr>
 <td><code>ai-users-&lt;agent-name&gt;</code></td>
-<td>Runtime access — send prompts, receive drafts</td>
+<td>Runtime access: send prompts, receive drafts</td>
 <td>End users of that specific agent</td>
 </tr>
 <tr>
@@ -207,7 +207,7 @@
 </tr>
 <tr>
 <td><code>ai-owners-&lt;agent-name&gt;</code></td>
-<td>Build access — deploy, change config</td>
+<td>Build access: deploy, change config</td>
 <td>The named owner and their delegates</td>
 </tr>
 <tr>
@@ -230,7 +230,7 @@
 <li>[ ] <strong>SCIM provisioning</strong> so deprovisioning happens without a support ticket</li>
 <li>[ ] <strong>Audit log export</strong> so you can see who accessed what, when</li>
 <li>[ ] <strong>IP allowlist</strong> for API tokens (defense in depth)</li>
-<li>[ ] <strong>Least-privilege service accounts</strong> — no personal accounts running production</li>
+<li>[ ] <strong>Least-privilege service accounts</strong>: no personal accounts running production</li>
 <li>[ ] <strong>Session timeout</strong> appropriate to the sensitivity (short for anything that acts, longer for read-only)</li>
 <li>[ ] <strong>MFA required</strong> for the underlying identity provider (SSO is only as strong as the IDP)</li>
 </ul>
@@ -243,7 +243,7 @@
 <li><strong>Short-lived where possible.</strong> OAuth client credentials with 1-hour token expiry beats a static bearer token.</li>
 <li><strong>Scoped, not root.</strong> The agent's key can access exactly the tools it needs, nothing else.</li>
 <li><strong>Stored in a secrets manager.</strong> Never in git, never in <code>.env</code> files committed to shared drives, never in Slack.</li>
-<li><strong>Rotated on a schedule</strong> — quarterly minimum, immediately on any incident, immediately on team departure.</li>
+<li><strong>Rotated on a schedule</strong>: quarterly minimum, immediately on any incident, immediately on team departure.</li>
 </ol>
 <p>If you have keys older than a year and haven't rotated because "it might break something," you already know it will break at the worst possible time. Rotate now during business hours.</p>
 <h2>Multi-tenant SaaS twist</h2>
@@ -276,10 +276,10 @@
 <p>If any of those takes more than five minutes, you have work to do.</p>
 <h2>Related</h2>
 <ul>
-<li><a href="2-company-01-platform-engineering.html">oncall-runbook.md</a> — the incident view, where access is either an enabler or the bug</li>
-<li><a href="2-company-01-platform-engineering.html">secrets-and-config.md</a> — the mechanics for where keys actually live</li>
-<li><a href="2-company-02-agent-governance.html">../02-agent-governance/kill-switch-playbook.md</a> — how the kill works once you have access to trigger it</li>
-<li><a href="2-company-02-agent-governance.html">../02-agent-governance/agent-lifecycle.md</a> — when accounts get provisioned and deprovisioned across an agent's life</li>
+<li><a href="2-company-01-platform-engineering.html">oncall-runbook.md</a>: the incident view, where access is either an enabler or the bug</li>
+<li><a href="2-company-01-platform-engineering.html">secrets-and-config.md</a>: the mechanics for where keys actually live</li>
+<li><a href="2-company-02-agent-governance.html">../02-agent-governance/kill-switch-playbook.md</a>: how the kill works once you have access to trigger it</li>
+<li><a href="2-company-02-agent-governance.html">../02-agent-governance/agent-lifecycle.md</a>: when accounts get provisioned and deprovisioned across an agent's life</li>
 </ul>
 </article>
 

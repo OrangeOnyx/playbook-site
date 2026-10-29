@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>06 — RAG Knowledge Base | The AI Playbook Curriculum Reader</title>
-<meta name="description" content="1 Starter · Company Track: 06 — RAG Knowledge Base. Compiled verbatim from The AI Playbook Curriculum repository.">
+<title>06: RAG Knowledge Base | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="1 Starter · Company Track: 06: RAG Knowledge Base. Compiled verbatim from The AI Playbook Curriculum repository.">
 <meta name="theme-color" content="#F4EFE2">
 <script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
 <link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/1-company-06-rag-knowledge-base.html">
@@ -38,18 +38,18 @@
   </div>
 </nav>
 <main id="main" tabindex="-1">
-  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 06 — RAG Knowledge Base</span>
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 06: RAG Knowledge Base</span>
 
-<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · COMPANY TRACK</span><h1 style="margin:.1rem 0 0">06 — RAG Knowledge Base</h1></div></div>
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · COMPANY TRACK</span><h1 style="margin:.1rem 0 0">06: RAG Knowledge Base</h1></div></div>
 <p class="rnote">This page compiles 4 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/1-starter/company/06-rag-knowledge-base">this folder on GitHub</a>.</p>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/06-rag-knowledge-base/README.md</span></p>
-<h1>06 — RAG Knowledge Base</h1>
+<h1>06: RAG Knowledge Base</h1>
 <p>The retrieval layer. Where department copilots get their grounded facts.</p>
 <h2>Files</h2>
 <ul>
-<li><code>knowledge-base-structure.md</code> — folder taxonomy, document standards, refresh rules</li>
-<li><code>chunking-strategy.md</code> — how to split documents before embedding</li>
-<li><code>permissions-model.md</code> — how to enforce source-system ACLs through retrieval</li>
+<li><code>knowledge-base-structure.md</code>: folder taxonomy, document standards, refresh rules</li>
+<li><code>chunking-strategy.md</code>: how to split documents before embedding</li>
+<li><code>permissions-model.md</code>: how to enforce source-system ACLs through retrieval</li>
 </ul>
 <h2>Non-negotiables</h2>
 <ol>
@@ -114,15 +114,15 @@
 <p>Store multiple representations of each chunk:
 - Raw text (as-is)
 - Cleaned text (whitespace normalized)
-- Summary (LLM-generated 1-line summary — searched with a different embedding)
+- Summary (LLM-generated 1-line summary, searched with a different embedding)
 - Entities extracted (for filter-based retrieval)</p>
 <p>Retrieve using summary embeddings, return raw text.</p>
 <h2>Verification</h2>
 <p>For any RAG deployment, verify chunking with:</p>
 <ol>
-<li><strong>Random inspection</strong> — sample 20 chunks. Are they self-contained? Do they include enough context?</li>
-<li><strong>Reconstruction test</strong> — retrieve the top 5 chunks for a real question. Does the LLM produce a correct answer?</li>
-<li><strong>Ground-truth eval</strong> — for known answers, does the retrieval find the right chunk in top-5?</li>
+<li><strong>Random inspection</strong>: sample 20 chunks. Are they self-contained? Do they include enough context?</li>
+<li><strong>Reconstruction test</strong>: retrieve the top 5 chunks for a real question. Does the LLM produce a correct answer?</li>
+<li><strong>Ground-truth eval</strong>: for known answers, does the retrieval find the right chunk in top-5?</li>
 </ol>
 <p>If retrieval@5 is below 80%, chunking or embedding needs work.</p>
 </article>
@@ -214,11 +214,11 @@ version: X.Y
 <p>Write documents so they chunk well for RAG:</p>
 <ul>
 <li><strong>H2 sections</strong> break at natural knowledge units</li>
-<li><strong>One idea per section</strong> — don't cover multiple topics in one section</li>
-<li><strong>Self-contained sections</strong> — a section should stand alone when retrieved out of context</li>
-<li><strong>Explicit terminology</strong> — spell out acronyms first use per section</li>
+<li><strong>One idea per section.</strong> Don't cover multiple topics in one section</li>
+<li><strong>Self-contained sections.</strong> A section should stand alone when retrieved out of context</li>
+<li><strong>Explicit terminology.</strong> Spell out acronyms first use per section</li>
 <li><strong>Concrete examples</strong> included where relevant</li>
-<li><strong>No inline "see above" or "as mentioned"</strong> — those break when the chunk is retrieved standalone</li>
+<li><strong>No inline "see above" or "as mentioned".</strong> Those break when the chunk is retrieved standalone</li>
 </ul>
 <h2>Metadata for filtering</h2>
 <p>Every chunk carries metadata for filtered retrieval:</p>
@@ -249,7 +249,7 @@ version: X.Y
 </ul>
 <h2>Refresh rules</h2>
 <ul>
-<li>Every doc has <code>next_review</code> — after that date, either re-approve or archive</li>
+<li>Every doc has <code>next_review</code>. After that date, either re-approve or archive</li>
 <li>Doc owner gets a monthly digest of docs coming due</li>
 <li>Any change to a policy triggers a KB update within 5 business days</li>
 <li>Retired docs move to <code>99-archived/</code> with a redirect stub in the original location if links exist</li>
@@ -262,21 +262,21 @@ version: X.Y
 <p><strong>The RAG system enforces the same permissions as the source documents.</strong></p>
 <p>If a user can't see the source doc in Google Drive / Confluence / SharePoint, they can't see it via RAG either.</p>
 <h2>Implementation patterns</h2>
-<h3>Pattern 1 — Permissioned namespaces (best for scale)</h3>
+<h3>Pattern 1: Permissioned namespaces (best for scale)</h3>
 <ul>
 <li>Each user or role has a namespace of chunks they're authorized for</li>
 <li>Query only searches the user's namespaces</li>
 <li>Requires syncing permissions from source system to vector DB at ingest time</li>
 <li>Requires re-sync when permissions change (nightly or event-driven)</li>
 </ul>
-<h3>Pattern 2 — Post-retrieval filtering</h3>
+<h3>Pattern 2: Post-retrieval filtering</h3>
 <ul>
 <li>All chunks are indexed together</li>
 <li>After retrieval, filter out chunks the user isn't authorized for</li>
 <li>Simpler but leaks information via retrieval score signals if not careful</li>
 <li>Not recommended for high-sensitivity environments</li>
 </ul>
-<h3>Pattern 3 — Query-time authorization</h3>
+<h3>Pattern 3: Query-time authorization</h3>
 <ul>
 <li>Attach user identity to every query</li>
 <li>Vector DB filters by ACL metadata during retrieval</li>
@@ -296,7 +296,7 @@ version: X.Y
 </code></pre>
 <p>Rules:
 - Union of role membership and explicit user grants
-- Never OR-across roles for confidential — require the specific role
+- Never OR-across roles for confidential. Require the specific role
 - Denial by default</p>
 <h2>Source-system sync</h2>
 <p>For each connected source (Drive, Notion, SharePoint, Confluence, GitHub):</p>
@@ -310,7 +310,7 @@ version: X.Y
 <p>Every query includes:
 - Authenticated user identity (via SSO)
 - Their role(s) at query time (fresh, not cached)
-- Any context restrictions (e.g., "this session is for external customer response — restrict to public and internal only")</p>
+- Any context restrictions (e.g., "this session is for external customer response. Restrict to public and internal only")</p>
 <h2>Auditing</h2>
 <p>Log for every retrieval:
 - Timestamp
@@ -332,8 +332,8 @@ version: X.Y
 </article>
 
   <div class="pnav">
-    <a href="1-company-05-department-copilots.html">← 05 — Department Copilots</a>
-    <a href="1-company-07-agents-mcp.html">07 — Agents & MCP →</a>
+    <a href="1-company-05-department-copilots.html">← 05: Department Copilots</a>
+    <a href="1-company-07-agents-mcp.html">07: Agents & MCP →</a>
   </div>
 </main>
 <footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>

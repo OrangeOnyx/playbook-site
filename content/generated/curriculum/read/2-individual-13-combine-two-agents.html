@@ -48,7 +48,7 @@
 <p><strong>Bonus module.</strong> Prerequisites: you've completed <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/02-build-first-agent">module 02 (lease-abstractor)</a> and <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/04-build-third-agent">module 04 (diligence-agent)</a>.</p>
 </blockquote>
 <p>Building one agent is a demo. Composing two is a system. This module walks through a real composition: use <code>lease-abstractor</code> to turn a folder of raw lease documents into structured JSON abstractions, then feed those abstractions into <code>diligence-agent</code> to answer portfolio-level diligence questions.</p>
-<p>This is what a professional AI workflow looks like — small, single-purpose agents chained by structured data, not by conversation.</p>
+<p>This is what a professional AI workflow looks like: small, single-purpose agents chained by structured data, not by conversation.</p>
 <h2>The scenario</h2>
 <p>You're evaluating a portfolio of 5 commercial retail leases for an acquisition. Each lease is a 20-40 page DOCX. You want to answer:</p>
 <ol>
@@ -69,7 +69,7 @@
     F --&gt; G[Portfolio diligence report]
     P[lease-portfolio.yaml playbook] --&gt; F
 </code></pre>
-<p>Every arrow between agents is a <strong>structured JSON handoff</strong> — never a natural-language summary. That's the design principle. When one agent's output is another agent's input, use a schema.</p>
+<p>Every arrow between agents is a <strong>structured JSON handoff</strong>, never a natural-language summary. That's the design principle. When one agent's output is another agent's input, use a schema.</p>
 <h2>Step 1: Batch-abstract the portfolio</h2>
 <p>Fork or clone <code>lease-abstractor</code>. Add a script that walks a folder, runs each DOCX through the abstractor, and writes each result to <code>abstractions/&lt;filename&gt;.json</code>.</p>
 <pre><code class="language-bash"># In your lease-abstractor clone:
@@ -190,8 +190,8 @@ make run-diligence PLAYBOOK=lease-portfolio OUTPUT=./reports/portfolio-2026-08.h
 </ul>
 <h2>Related</h2>
 <ul>
-<li><a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/02-build-first-agent">Original module 02 — lease-abstractor</a></li>
-<li><a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/04-build-third-agent">Original module 04 — diligence-agent</a></li>
+<li><a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/02-build-first-agent">Original module 02, lease-abstractor</a></li>
+<li><a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/2-intermediate/individual/04-build-third-agent">Original module 04, diligence-agent</a></li>
 <li><a href="2-repos.html">Repos overview</a></li>
 </ul>
 </article>

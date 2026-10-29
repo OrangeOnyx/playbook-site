@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>08 — Observability & Evals | The AI Playbook Curriculum Reader</title>
-<meta name="description" content="1 Starter · Company Track: 08 — Observability & Evals. Compiled verbatim from The AI Playbook Curriculum repository.">
+<title>08: Observability & Evals | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="1 Starter · Company Track: 08: Observability & Evals. Compiled verbatim from The AI Playbook Curriculum repository.">
 <meta name="theme-color" content="#F4EFE2">
 <script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
 <link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/1-company-08-observability-evals.html">
@@ -38,18 +38,18 @@
   </div>
 </nav>
 <main id="main" tabindex="-1">
-  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 08 — Observability & Evals</span>
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 08: Observability & Evals</span>
 
-<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · COMPANY TRACK</span><h1 style="margin:.1rem 0 0">08 — Observability & Evals</h1></div></div>
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · COMPANY TRACK</span><h1 style="margin:.1rem 0 0">08: Observability & Evals</h1></div></div>
 <p class="rnote">This page compiles 4 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/1-starter/company/08-observability-evals">this folder on GitHub</a>.</p>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/08-observability-evals/README.md</span></p>
-<h1>08 — Observability &amp; Evals</h1>
+<h1>08: Observability &amp; Evals</h1>
 <p>You can't manage what you can't measure. Every LLM call is logged, every workflow has evals.</p>
 <h2>Files</h2>
 <ul>
-<li><code>logging-and-redaction.md</code> — what to log, what to redact, where it goes, who can see it</li>
-<li><code>eval-framework.md</code> — how the company scores its AI workflows</li>
-<li><code>model-bake-off-protocol.md</code> — quarterly protocol to test whether to switch models</li>
+<li><code>logging-and-redaction.md</code>: what to log, what to redact, where it goes, who can see it</li>
+<li><code>eval-framework.md</code>: how the company scores its AI workflows</li>
+<li><code>model-bake-off-protocol.md</code>: quarterly protocol to test whether to switch models</li>
 </ul>
 <h2>Non-negotiables</h2>
 <ol>
@@ -66,14 +66,14 @@
 <h2>What we eval</h2>
 <p>For every deployed AI workflow, we track:</p>
 <ol>
-<li><strong>Correctness</strong> — does it produce the right output?</li>
-<li><strong>Format compliance</strong> — does it match the expected output shape?</li>
-<li><strong>Voice / brand</strong> — does it sound like us?</li>
-<li><strong>Safety</strong> — does it violate policy or reveal sensitive data?</li>
-<li><strong>Cost</strong> — dollars per resolved item</li>
-<li><strong>Latency</strong> — user-perceived speed</li>
-<li><strong>Adoption</strong> — % of eligible users using it</li>
-<li><strong>ROI</strong> — measured value against measured cost</li>
+<li><strong>Correctness</strong>: does it produce the right output?</li>
+<li><strong>Format compliance</strong>: does it match the expected output shape?</li>
+<li><strong>Voice / brand</strong>: does it sound like us?</li>
+<li><strong>Safety</strong>: does it violate policy or reveal sensitive data?</li>
+<li><strong>Cost</strong>: dollars per resolved item</li>
+<li><strong>Latency</strong>: user-perceived speed</li>
+<li><strong>Adoption</strong>: % of eligible users using it</li>
+<li><strong>ROI</strong>: measured value against measured cost</li>
 </ol>
 <h2>Eval cadence</h2>
 <table>
@@ -104,9 +104,9 @@
 </table>
 <h2>Ownership</h2>
 <ul>
-<li><strong>Workflow owner</strong> — the department lead that uses it. Owns the eval set content.</li>
-<li><strong>AI Champion</strong> — technical partner that maintains the eval runner.</li>
-<li><strong>Steering Committee</strong> — reviews quarterly aggregate; approves model changes.</li>
+<li><strong>Workflow owner.</strong> The department lead that uses it. Owns the eval set content.</li>
+<li><strong>AI Champion.</strong> Technical partner that maintains the eval runner.</li>
+<li><strong>Steering Committee.</strong> Reviews quarterly aggregate; approves model changes.</li>
 </ul>
 <h2>Eval set structure</h2>
 <p>Per workflow:</p>
@@ -123,10 +123,10 @@
 </code></pre>
 <h2>Minimum eval set</h2>
 <p>Per workflow, minimum:
-- <strong>10 core cases</strong> — cover the workflow's main scenarios
-- <strong>5 edge cases</strong> — inputs that reveal drift
-- <strong>5 adversarial cases</strong> — prompt injection, boundary inputs, permission tests
-- <strong>5 regression cases</strong> — historical failures now fixed</p>
+- <strong>10 core cases.</strong> Cover the workflow's main scenarios
+- <strong>5 edge cases.</strong> Inputs that reveal drift
+- <strong>5 adversarial cases.</strong> Prompt injection, boundary inputs, permission tests
+- <strong>5 regression cases.</strong> Historical failures now fixed</p>
 <p>Total: 25 cases minimum. Some workflows have 200+.</p>
 <h2>Rubric mapping</h2>
 <p>Every case scored on 0-3 across dimensions:</p>
@@ -163,12 +163,12 @@
 3. Compare per-dimension deltas
 4. Ship only if: zero safety regressions, no Priority-1 correctness regressions, aggregate delta ≥ 0</p>
 <h2>Metric definitions</h2>
-<p><strong>Correctness</strong> — output matches ground truth (exact for structured, judged for open-ended)
-<strong>Aggregate score</strong> — mean 0-3 across dimensions, safety-fail excluded
-<strong>Pass rate</strong> — % of cases where aggregate score ≥ 80% of max
-<strong>Cost per resolved item</strong> — total tokens × price + amortized platform cost / resolved items
-<strong>Adoption rate</strong> — % of eligible users making ≥ 1 call per week
-<strong>Deflection rate</strong> — % of tasks completed without human hand-off (for agentic workflows)</p>
+<p><strong>Correctness:</strong> output matches ground truth (exact for structured, judged for open-ended)
+<strong>Aggregate score:</strong> mean 0-3 across dimensions, safety-fail excluded
+<strong>Pass rate:</strong> % of cases where aggregate score ≥ 80% of max
+<strong>Cost per resolved item:</strong> total tokens × price + amortized platform cost / resolved items
+<strong>Adoption rate:</strong> % of eligible users making ≥ 1 call per week
+<strong>Deflection rate:</strong> % of tasks completed without human hand-off (for agentic workflows)</p>
 <h2>Publishing eval results</h2>
 <p>Every workflow has a public (within-company) dashboard:</p>
 <ul>
@@ -288,9 +288,9 @@
 <h2>Why</h2>
 <p>Providers release new models constantly. A model that was best last quarter may not be this quarter. A quarterly bake-off keeps you honest.</p>
 <h2>The protocol</h2>
-<h3>Step 1 — Pick workflows to bake off</h3>
+<h3>Step 1: Pick workflows to bake off</h3>
 <p>Pick the top 3 workflows by cost or by strategic importance. Not every workflow needs a quarterly bake-off.</p>
-<h3>Step 2 — Identify candidate models</h3>
+<h3>Step 2: Identify candidate models</h3>
 <p>For each workflow:
 - <strong>Baseline:</strong> current production model
 - <strong>Candidates:</strong> 2–4 alternatives (usually 1 same-provider newer + 1 competitor + 1 open-weight cheaper option)</p>
@@ -299,16 +299,16 @@
 - Candidate 1: Claude Sonnet 4.5 (newer version)
 - Candidate 2: GPT-5 (competitor)
 - Candidate 3: Llama 4 70B on Groq (open-weight cheap)</p>
-<h3>Step 3 — Freeze the eval set</h3>
+<h3>Step 3: Freeze the eval set</h3>
 <p>Use the workflow's current eval set. Do not add cases mid-bakeoff.</p>
-<h3>Step 4 — Run each candidate</h3>
+<h3>Step 4: Run each candidate</h3>
 <ul>
 <li>Same system prompt</li>
 <li>Same eval inputs</li>
 <li>Fresh, not cached</li>
 <li>Multiple runs to average out variance (3 runs minimum)</li>
 </ul>
-<h3>Step 5 — Score everything</h3>
+<h3>Step 5: Score everything</h3>
 <p>For each candidate:</p>
 <table>
 <thead>
@@ -365,7 +365,7 @@
 </tr>
 </tbody>
 </table>
-<h3>Step 6 — Decide</h3>
+<h3>Step 6: Decide</h3>
 <p>Ship the candidate if:
 - Zero safety regressions
 - No Priority-1 correctness regressions
@@ -373,21 +373,21 @@
 - Cost within budget
 - Latency within SLO</p>
 <p>Reasonable trade-offs:
-- Small quality bump for material cost savings — often yes
-- Material quality bump for equal cost — yes
-- Large cost cut for small quality drop — case by case (only for low-stakes workflows)</p>
+- Small quality bump for material cost savings: often yes
+- Material quality bump for equal cost: yes
+- Large cost cut for small quality drop: case by case (only for low-stakes workflows)</p>
 <p>Do NOT switch if:
 - Any safety fail
 - Voice degrades on brand-critical workflows
 - Latency spike breaks user experience</p>
-<h3>Step 7 — Roll out safely</h3>
+<h3>Step 7: Roll out safely</h3>
 <ul>
 <li>Canary: 5% of traffic for 3 days</li>
 <li>If clean, expand to 50% for a week</li>
 <li>If clean, full rollout</li>
 <li>Keep baseline available for rollback for 30 days</li>
 </ul>
-<h3>Step 8 — Document</h3>
+<h3>Step 8: Document</h3>
 <p>Publish a bake-off report to Steering Committee:
 - Workflows evaluated
 - Candidates
@@ -409,17 +409,17 @@ publish(report, to=&quot;steering-committee-slack&quot;)
 </code></pre>
 <h2>Anti-patterns</h2>
 <ul>
-<li>Baking off with a tiny eval set (&lt; 25 cases) — noisy signal</li>
-<li>Baking off only on benchmark data — not your real workflow</li>
-<li>Judging with the same model family that's being tested — biased</li>
-<li>Ignoring cost or latency — they're real user impact</li>
-<li>Making the decision by vibes — write it down</li>
+<li>Baking off with a tiny eval set (&lt; 25 cases): noisy signal</li>
+<li>Baking off only on benchmark data: not your real workflow</li>
+<li>Judging with the same model family that's being tested: biased</li>
+<li>Ignoring cost or latency: they're real user impact</li>
+<li>Making the decision by vibes: write it down</li>
 </ul>
 </article>
 
   <div class="pnav">
-    <a href="1-company-07-agents-mcp.html">← 07 — Agents & MCP</a>
-    <a href="1-company-09-training.html">09 — Training →</a>
+    <a href="1-company-07-agents-mcp.html">← 07: Agents & MCP</a>
+    <a href="1-company-09-training.html">09: Training →</a>
   </div>
 </main>
 <footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>

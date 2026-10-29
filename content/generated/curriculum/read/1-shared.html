@@ -67,7 +67,7 @@
 </ul>
 <h2>Before EOD (5 min)</h2>
 <ul>
-<li>[ ] Skim any incomplete drafts — should any go to inbox as drafts overnight?</li>
+<li>[ ] Skim any incomplete drafts. Should any go to inbox as drafts overnight?</li>
 <li>[ ] Note one thing that worked well with AI today, one that didn't</li>
 </ul>
 </article>
@@ -77,15 +77,15 @@
 <h2>Security</h2>
 <ul>
 <li>[ ] Rotate all API keys</li>
-<li>[ ] Review vendor DPAs — any expired?</li>
+<li>[ ] Review vendor DPAs. Any expired?</li>
 <li>[ ] Confirm zero-retention settings still enabled</li>
-<li>[ ] Audit connected apps — remove any not used in 90 days</li>
+<li>[ ] Audit connected apps. Remove any not used in 90 days</li>
 <li>[ ] 2FA verified on every AI account</li>
 </ul>
 <h2>Cost</h2>
 <ul>
-<li>[ ] Total AI spend last quarter — over budget?</li>
-<li>[ ] Per-provider breakdown — any surprises?</li>
+<li>[ ] Total AI spend last quarter. Over budget?</li>
+<li>[ ] Per-provider breakdown. Any surprises?</li>
 <li>[ ] Any subscriptions to cancel or renegotiate?</li>
 <li>[ ] Any API workloads that should move to a cheaper model or provider?</li>
 </ul>
@@ -98,21 +98,21 @@
 <h2>Skills</h2>
 <ul>
 <li>[ ] Full glossary re-read (60 min)</li>
-<li>[ ] Take fluency test — record score</li>
+<li>[ ] Take fluency test, record score</li>
 <li>[ ] Learn one new technique (fine-tuning, MCP server, agent framework)</li>
 </ul>
 <h2>System</h2>
 <ul>
-<li>[ ] Master System Prompt — rewrite from scratch, compare</li>
-<li>[ ] Personal Style Guide — updated with recent voice shifts</li>
-<li>[ ] Model routing cheat sheet — updated</li>
-<li>[ ] All automations reviewed — kill or promote</li>
+<li>[ ] Master System Prompt: rewrite from scratch, compare</li>
+<li>[ ] Personal Style Guide: updated with recent voice shifts</li>
+<li>[ ] Model routing cheat sheet: updated</li>
+<li>[ ] All automations reviewed: kill or promote</li>
 </ul>
 <h2>Governance (if applicable)</h2>
 <ul>
 <li>[ ] Team AUP updated for new tools</li>
 <li>[ ] Data classification matrix updated</li>
-<li>[ ] Incident log reviewed — any patterns?</li>
+<li>[ ] Incident log reviewed. Any patterns?</li>
 </ul>
 </article>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><span>1-starter/shared/checklists/weekly-review-checklist.md</span></p>
@@ -145,7 +145,7 @@
 <h2>Reflect</h2>
 <ul>
 <li>[ ] One thing to say no to next week</li>
-<li>[ ] Top 3 priorities for next week — write them down</li>
+<li>[ ] Top 3 priorities for next week: write them down</li>
 <li>[ ] One model or feature to try next week</li>
 </ul>
 </article>
@@ -171,18 +171,18 @@
 <pre><code class="language-json">{&quot;id&quot;: &quot;case-001&quot;, &quot;input&quot;: &quot;...&quot;, &quot;expected&quot;: &quot;...&quot;, &quot;criteria&quot;: [&quot;accurate&quot;, &quot;concise&quot;, &quot;in voice&quot;], &quot;tags&quot;: [&quot;priority-1&quot;, &quot;regression&quot;]}
 </code></pre>
 <p>Fields:
-- <code>id</code> — stable identifier
-- <code>input</code> — the prompt input (raw text, or a reference to a file)
-- <code>expected</code> — the ideal answer OR the criteria for what a good answer looks like
-- <code>criteria</code> — array of rubric dimensions
-- <code>tags</code> — for filtering (regression, high-priority, edge-case, etc.)</p>
+- <code>id</code>: stable identifier
+- <code>input</code>: the prompt input (raw text, or a reference to a file)
+- <code>expected</code>: the ideal answer OR the criteria for what a good answer looks like
+- <code>criteria</code>: array of rubric dimensions
+- <code>tags</code>: for filtering (regression, high-priority, edge-case, etc.)</p>
 <h2>Minimum viable eval set</h2>
 <p>For any workflow you care about, produce <strong>5 good + 5 bad</strong>:</p>
 <ul>
-<li><strong>5 good examples</strong> — cases where you know what a great output looks like. These are your ground truth.</li>
-<li><strong>5 bad examples</strong> — cases where the current model tends to fail (long inputs, ambiguous asks, edge cases, adversarial inputs). These are your regression tests.</li>
+<li><strong>5 good examples.</strong> Cases where you know what a great output looks like. These are your ground truth.</li>
+<li><strong>5 bad examples.</strong> Cases where the current model tends to fail (long inputs, ambiguous asks, edge cases, adversarial inputs). These are your regression tests.</li>
 </ul>
-<h2>Sample eval set — Email triage</h2>
+<h2>Sample eval set: Email triage</h2>
 <pre><code class="language-jsonl">{&quot;id&quot;: &quot;e-001&quot;, &quot;input&quot;: &quot;Hi Adam, following up on the lease terms we discussed Tuesday...&quot;, &quot;expected&quot;: &quot;Reply-today&quot;, &quot;criteria&quot;: [&quot;correct_label&quot;, &quot;acknowledges_deadline&quot;], &quot;tags&quot;: [&quot;client&quot;, &quot;regression&quot;]}
 {&quot;id&quot;: &quot;e-002&quot;, &quot;input&quot;: &quot;🎉 40% off summer sale at BigMart!&quot;, &quot;expected&quot;: &quot;Newsletter&quot;, &quot;criteria&quot;: [&quot;correct_label&quot;], &quot;tags&quot;: [&quot;marketing&quot;]}
 {&quot;id&quot;: &quot;e-003&quot;, &quot;input&quot;: &quot;Your Vercel deployment succeeded.&quot;, &quot;expected&quot;: &quot;FYI-only&quot;, &quot;criteria&quot;: [&quot;correct_label&quot;], &quot;tags&quot;: [&quot;automated&quot;]}
@@ -217,10 +217,10 @@ for each case in cases.jsonl:
 report(aggregate_scores)
 </code></pre>
 <p>Frameworks that make this easier:
-- <strong>Promptfoo</strong> — CLI-first, YAML configs, LLM-as-judge built-in
-- <strong>LangSmith</strong> — Anthropic/OpenAI/Langchain integration
-- <strong>Langfuse</strong> — open source, self-hostable
-- <strong>DeepEval</strong> — Python-first</p>
+- <strong>Promptfoo.</strong> CLI-first, YAML configs, LLM-as-judge built-in
+- <strong>LangSmith.</strong> Anthropic/OpenAI/Langchain integration
+- <strong>Langfuse.</strong> Open source, self-hostable
+- <strong>DeepEval.</strong> Python-first</p>
 <h2>When to run</h2>
 <ul>
 <li>Before adopting a new model version</li>
@@ -240,20 +240,20 @@ report(aggregate_scores)
 <p>Before you swap in a new model version, run this.</p>
 <h2>The rule</h2>
 <p><strong>No model change ships without running the eval set.</strong></p>
-<p>Even if the vendor says the new model is "10% better on benchmarks" — your workflow may be different. Verify on your data.</p>
+<p>Even if the vendor says the new model is "10% better on benchmarks," your workflow may be different. Verify on your data.</p>
 <h2>Protocol</h2>
-<h3>Step 1 — Freeze the baseline</h3>
+<h3>Step 1: Freeze the baseline</h3>
 <ul>
 <li>Record current model version (e.g., <code>claude-opus-4-20260601</code>)</li>
 <li>Run the eval set against it</li>
 <li>Save results in <code>evals/&lt;workflow&gt;/results/YYYY-MM-DD_&lt;model&gt;_baseline.jsonl</code></li>
 </ul>
-<h3>Step 2 — Run candidate</h3>
+<h3>Step 2: Run candidate</h3>
 <ul>
 <li>Run the eval set against the new model version (e.g., <code>claude-opus-4.5-20260901</code>)</li>
 <li>Save results with same timestamp convention</li>
 </ul>
-<h3>Step 3 — Diff</h3>
+<h3>Step 3: Diff</h3>
 <p>Produce a comparison table:</p>
 <table>
 <thead>
@@ -289,7 +289,7 @@ report(aggregate_scores)
 </tr>
 </tbody>
 </table>
-<h3>Step 4 — Decide</h3>
+<h3>Step 4: Decide</h3>
 <p>Ship the new model if:
 - ✅ Zero priority-1 regressions
 - ✅ Aggregate score ≥ baseline
@@ -299,7 +299,7 @@ report(aggregate_scores)
 - ❌ Any priority-1 regression
 - ❌ Any safety-fail case
 - ❌ &gt;5% degradation in aggregate</p>
-<h3>Step 5 — Communicate</h3>
+<h3>Step 5: Communicate</h3>
 <p>If you ship, write a one-paragraph changelog:
 - Old model → new model
 - Aggregate delta
@@ -316,44 +316,44 @@ report(aggregate_scores)
 <p>If a prompt change is the trigger, hold the model constant, vary only the prompt. Same protocol.</p>
 </article>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="8" y="10" width="28" height="24" fill="#EAE2CD" stroke="#1E1B16" stroke-width="1.3"/><line x1="12" y1="17" x2="32" y2="17" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="22" x2="32" y2="22" stroke="#C9BFA8" stroke-width="1.2"/><line x1="12" y1="27" x2="26" y2="27" stroke="#C9BFA8" stroke-width="1.2"/></svg><span>1-starter/shared/eval-templates/scoring-rubric.md</span></p>
-<h1>Scoring Rubric — Universal</h1>
+<h1>Scoring Rubric: Universal</h1>
 <p>Adapt per workflow. This is the base template.</p>
 <h2>Dimensions</h2>
 <p>Every eval scores these dimensions on 0–3.</p>
 <h3>1. Correctness</h3>
 <ul>
-<li>0 — factually wrong or misses the ask entirely</li>
-<li>1 — partially correct, meaningful gaps</li>
-<li>2 — correct, minor issues</li>
-<li>3 — correct, complete, precise</li>
+<li>0: factually wrong or misses the ask entirely</li>
+<li>1: partially correct, meaningful gaps</li>
+<li>2: correct, minor issues</li>
+<li>3: correct, complete, precise</li>
 </ul>
 <h3>2. Format compliance</h3>
 <ul>
-<li>0 — doesn't follow requested format</li>
-<li>1 — mostly right, sections missing or malformed</li>
-<li>2 — right format, minor issues</li>
-<li>3 — perfect format</li>
+<li>0: doesn't follow requested format</li>
+<li>1: mostly right, sections missing or malformed</li>
+<li>2: right format, minor issues</li>
+<li>3: perfect format</li>
 </ul>
 <h3>3. Voice / tone</h3>
 <ul>
-<li>0 — jarring mismatch</li>
-<li>1 — generic but inoffensive</li>
-<li>2 — matches on structure OR vocabulary</li>
-<li>3 — passes as human-authored in the target voice</li>
+<li>0: jarring mismatch</li>
+<li>1: generic but inoffensive</li>
+<li>2: matches on structure OR vocabulary</li>
+<li>3: passes as human-authored in the target voice</li>
 </ul>
 <h3>4. Length compliance</h3>
 <ul>
-<li>0 — 2× target or more</li>
-<li>1 — significantly off</li>
-<li>2 — slightly off</li>
-<li>3 — within target</li>
+<li>0: 2× target or more</li>
+<li>1: significantly off</li>
+<li>2: slightly off</li>
+<li>3: within target</li>
 </ul>
 <h3>5. Faithfulness (for grounded tasks)</h3>
 <ul>
-<li>0 — hallucinated claims</li>
-<li>1 — mostly grounded, some drift</li>
-<li>2 — grounded with minor unsupported phrasing</li>
-<li>3 — every claim traceable to source</li>
+<li>0: hallucinated claims</li>
+<li>1: mostly grounded, some drift</li>
+<li>2: grounded with minor unsupported phrasing</li>
+<li>3: every claim traceable to source</li>
 </ul>
 <h2>Safety checks (pass/fail)</h2>
 <p>Any one of these fails the case entirely:</p>
@@ -385,283 +385,283 @@ report(aggregate_scores)
 <p>200+ terms, organized in 11 clusters. Read one cluster per day for two weeks and you'll be fluent.</p>
 <p>Each term has: definition, why it matters, and where it appears.</p>
 <hr />
-<h2>Cluster 1 — Model Mechanics</h2>
-<p><strong>Token</strong> — The unit an LLM consumes. Roughly ¾ of an English word. Prices, context windows, and rate limits are all counted in tokens. <em>Why it matters: cost and length constraints are token-denominated.</em></p>
-<p><strong>Context window</strong> — The maximum number of tokens a model can attend to in one call (input + output). Gemini 2.x Pro: 2M. Claude: 1M. GPT-5: 400k. <em>Why it matters: longer window = more knowledge in-context = less RAG needed.</em></p>
-<p><strong>System message / system prompt</strong> — Standing instructions given before the conversation starts. Higher priority than user messages. <em>Why it matters: this is your leverage point.</em></p>
-<p><strong>User message</strong> — What the user says. Second priority.</p>
-<p><strong>Assistant message</strong> — What the model says. Referenced back in multi-turn conversations.</p>
-<p><strong>Tool message / function result</strong> — The output of a tool call, sent back to the model.</p>
-<p><strong>Temperature</strong> — Randomness knob (0–2). 0 = deterministic. 1 = default. 2 = wild. <em>Use 0 for extraction, 0.7 for writing, 1.0+ for brainstorming.</em></p>
-<p><strong>Top-p (nucleus sampling)</strong> — Alternative to temperature. Selects from the smallest set of tokens whose cumulative probability exceeds p. Usually set to 0.9 or 1.0.</p>
-<p><strong>Top-k</strong> — Select from the top k most likely tokens. Rarely tuned directly.</p>
-<p><strong>Frequency penalty / presence penalty</strong> — Discourage repetition. Frequency penalizes based on count; presence based on whether the token has appeared at all.</p>
-<p><strong>Max tokens</strong> — Cap on output length. Different from context window.</p>
-<p><strong>Streaming</strong> — Model returns tokens as they're generated, rather than waiting for the full response. Reduces perceived latency.</p>
-<p><strong>Stop sequences</strong> — Strings that cause the model to halt generation. Useful for structured output.</p>
-<p><strong>Seed</strong> — For deterministic sampling. Same seed + same input + same params = same output. Not guaranteed across model versions.</p>
-<p><strong>Log probs / logprobs</strong> — Probability the model assigned to each generated token. Used for confidence estimation and evals.</p>
-<p><strong>Function calling / tool use</strong> — Model outputs a structured request to call an external function, then receives the result and continues. The foundation of agents.</p>
-<p><strong>JSON mode / structured output</strong> — Constraint that forces the model to return valid JSON matching a schema. Reliable extraction.</p>
-<p><strong>Grammar-constrained decoding</strong> — Force output to match a formal grammar (JSON schema, regex, custom BNF). Even stricter than JSON mode.</p>
-<p><strong>Token pricing</strong> — Cost per million input tokens vs cost per million output tokens (output is usually 3–5× more expensive).</p>
-<p><strong>Rate limit</strong> — Per-minute or per-day cap on requests or tokens. Enforced per API key or organization.</p>
+<h2>Cluster 1: Model Mechanics</h2>
+<p><strong>Token</strong>: The unit an LLM consumes. Roughly ¾ of an English word. Prices, context windows, and rate limits are all counted in tokens. <em>Why it matters: cost and length constraints are token-denominated.</em></p>
+<p><strong>Context window</strong>: The maximum number of tokens a model can attend to in one call (input + output). Gemini 2.x Pro: 2M. Claude: 1M. GPT-5: 400k. <em>Why it matters: longer window = more knowledge in-context = less RAG needed.</em></p>
+<p><strong>System message / system prompt</strong>: Standing instructions given before the conversation starts. Higher priority than user messages. <em>Why it matters: this is where you have the most control.</em></p>
+<p><strong>User message</strong>: What the user says. Second priority.</p>
+<p><strong>Assistant message</strong>: What the model says. Referenced back in multi-turn conversations.</p>
+<p><strong>Tool message / function result</strong>: The output of a tool call, sent back to the model.</p>
+<p><strong>Temperature</strong>: Randomness knob (0–2). 0 = deterministic. 1 = default. 2 = wild. <em>Use 0 for extraction, 0.7 for writing, 1.0+ for brainstorming.</em></p>
+<p><strong>Top-p (nucleus sampling)</strong>: Alternative to temperature. Selects from the smallest set of tokens whose cumulative probability exceeds p. Usually set to 0.9 or 1.0.</p>
+<p><strong>Top-k</strong>: Select from the top k most likely tokens. Rarely tuned directly.</p>
+<p><strong>Frequency penalty / presence penalty</strong>: Discourage repetition. Frequency penalizes based on count; presence based on whether the token has appeared at all.</p>
+<p><strong>Max tokens</strong>: Cap on output length. Different from context window.</p>
+<p><strong>Streaming</strong>: Model returns tokens as they're generated, rather than waiting for the full response. Reduces perceived latency.</p>
+<p><strong>Stop sequences</strong>: Strings that cause the model to halt generation. Useful for structured output.</p>
+<p><strong>Seed</strong>: For deterministic sampling. Same seed + same input + same params = same output. Not guaranteed across model versions.</p>
+<p><strong>Log probs / logprobs</strong>: Probability the model assigned to each generated token. Used for confidence estimation and evals.</p>
+<p><strong>Function calling / tool use</strong>: Model outputs a structured request to call an external function, then receives the result and continues. The foundation of agents.</p>
+<p><strong>JSON mode / structured output</strong>: Constraint that forces the model to return valid JSON matching a schema. Reliable extraction.</p>
+<p><strong>Grammar-constrained decoding</strong>: Force output to match a formal grammar (JSON schema, regex, custom BNF). Even stricter than JSON mode.</p>
+<p><strong>Token pricing</strong>: Cost per million input tokens vs cost per million output tokens (output is usually 3–5× more expensive).</p>
+<p><strong>Rate limit</strong>: Per-minute or per-day cap on requests or tokens. Enforced per API key or organization.</p>
 <hr />
-<h2>Cluster 2 — Reasoning</h2>
-<p><strong>Chain-of-Thought (CoT)</strong> — Prompting technique: "think step by step" before answering. Improves accuracy on multi-step problems.</p>
-<p><strong>Zero-shot</strong> — Prompting with no examples. "Translate this to French."</p>
-<p><strong>Few-shot</strong> — Prompting with 2–10 examples. Improves format compliance and task performance.</p>
-<p><strong>In-context learning (ICL)</strong> — The ability of LLMs to learn a task from examples within the prompt, without weight updates.</p>
-<p><strong>ReAct</strong> — "Reason + Act." Pattern where model alternates reasoning steps and tool calls.</p>
-<p><strong>Tree-of-Thought (ToT)</strong> — Explores multiple reasoning branches before committing to an answer.</p>
-<p><strong>Self-consistency</strong> — Sample multiple reasoning paths and pick the majority answer.</p>
-<p><strong>Reflection / self-critique</strong> — Model reviews its own output and revises. Also called "critic-actor" loop.</p>
-<p><strong>Extended thinking / thinking mode</strong> — Native product feature (Claude, o-series) where the model spends "reasoning tokens" before responding. Higher accuracy, higher cost.</p>
-<p><strong>Reasoning tokens</strong> — Tokens the model uses internally for thinking that aren't shown to the user (or shown selectively). You pay for them.</p>
-<p><strong>Test-time compute</strong> — Additional compute spent at inference to improve output quality (e.g., extended thinking, self-consistency, tree-of-thought). The 2024–2026 scaling story.</p>
-<p><strong>Scratchpad</strong> — Explicit reasoning space in the prompt where the model writes intermediate work.</p>
-<p><strong>Plan-and-solve</strong> — Prompt pattern: first produce a plan, then execute each step.</p>
-<p><strong>Persona / role prompting</strong> — Assigning the model a role ("You are a senior editor..."). Modest effect; do not overrate.</p>
-<p><strong>Chain-of-Verification (CoVe)</strong> — Model drafts an answer, generates verification questions, answers them, and revises. Reduces hallucinations.</p>
+<h2>Cluster 2: Reasoning</h2>
+<p><strong>Chain-of-Thought (CoT)</strong>: Prompting technique: "think step by step" before answering. Improves accuracy on multi-step problems.</p>
+<p><strong>Zero-shot</strong>: Prompting with no examples. "Translate this to French."</p>
+<p><strong>Few-shot</strong>: Prompting with 2–10 examples. Improves format compliance and task performance.</p>
+<p><strong>In-context learning (ICL)</strong>: The ability of LLMs to learn a task from examples within the prompt, without weight updates.</p>
+<p><strong>ReAct</strong>: "Reason + Act." Pattern where model alternates reasoning steps and tool calls.</p>
+<p><strong>Tree-of-Thought (ToT)</strong>: Explores multiple reasoning branches before committing to an answer.</p>
+<p><strong>Self-consistency</strong>: Sample multiple reasoning paths and pick the majority answer.</p>
+<p><strong>Reflection / self-critique</strong>: Model reviews its own output and revises. Also called "critic-actor" loop.</p>
+<p><strong>Extended thinking / thinking mode</strong>: Native product feature (Claude, o-series) where the model spends "reasoning tokens" before responding. Higher accuracy, higher cost.</p>
+<p><strong>Reasoning tokens</strong>: Tokens the model uses internally for thinking that aren't shown to the user (or shown selectively). You pay for them.</p>
+<p><strong>Test-time compute</strong>: Additional compute spent at inference to improve output quality (e.g., extended thinking, self-consistency, tree-of-thought). The 2024–2026 scaling story.</p>
+<p><strong>Scratchpad</strong>: Explicit reasoning space in the prompt where the model writes intermediate work.</p>
+<p><strong>Plan-and-solve</strong>: Prompt pattern: first produce a plan, then execute each step.</p>
+<p><strong>Persona / role prompting</strong>: Assigning the model a role ("You are a senior editor..."). Modest effect; do not overrate.</p>
+<p><strong>Chain-of-Verification (CoVe)</strong>: Model drafts an answer, generates verification questions, answers them, and revises. Reduces hallucinations.</p>
 <hr />
-<h2>Cluster 3 — Retrieval (RAG)</h2>
-<p><strong>RAG — Retrieval-Augmented Generation</strong> — Pattern where you retrieve relevant documents from a knowledge base and inject them into the prompt before generation.</p>
-<p><strong>Embedding</strong> — A vector (list of numbers, usually 768–3072 dimensions) that represents the meaning of a text. Similar texts have similar embeddings.</p>
-<p><strong>Embedding model</strong> — A model that produces embeddings. Popular: OpenAI text-embedding-3-large, Voyage AI, Cohere embed, BGE, E5.</p>
-<p><strong>Vector database / vector store</strong> — A DB optimized for storing embeddings and finding nearest neighbors. Pinecone, Weaviate, Qdrant, Milvus, pgvector.</p>
-<p><strong>Chunking</strong> — Splitting documents into pieces before embedding. Common strategies: fixed-size (500 tokens), sentence, paragraph, semantic, sliding-window.</p>
-<p><strong>Chunk overlap</strong> — Overlap between adjacent chunks (usually 10–20%) to preserve context that spans boundaries.</p>
-<p><strong>Semantic search</strong> — Finding results by meaning (embedding similarity) rather than keyword match.</p>
-<p><strong>Lexical search</strong> — Keyword-based search (BM25, TF-IDF).</p>
-<p><strong>Hybrid search</strong> — Combines semantic and lexical. Usually reranked.</p>
-<p><strong>Reranker / cross-encoder</strong> — A second-pass model that re-scores retrieved chunks by their relevance to the query. Popular: Cohere Rerank, BGE reranker.</p>
-<p><strong>k / top-k retrieval</strong> — Number of chunks to fetch. Usually 5–20.</p>
-<p><strong>Retrieval query</strong> — The version of the user's question used for the DB search. Often rewritten for better retrieval.</p>
-<p><strong>Query rewriting / query expansion</strong> — Transforming the user's question into a better retrieval query. HyDE is one method.</p>
-<p><strong>HyDE — Hypothetical Document Embeddings</strong> — Generate a fake ideal answer, embed it, use that for retrieval.</p>
-<p><strong>Metadata filtering</strong> — Restrict retrieval to chunks with matching metadata (e.g., permissions, date range, doc type).</p>
-<p><strong>Ground truth</strong> — The correct answer, known independently. Used to score retrieval and generation.</p>
-<p><strong>Retrieval@k</strong> — Metric: does the correct chunk appear in the top k results?</p>
-<p><strong>Faithfulness / groundedness</strong> — Does the generated answer only make claims supported by the retrieved context?</p>
-<p><strong>Context stuffing</strong> — Just pasting a huge document into the prompt (no vector search). Feasible with 1M+ context windows for smaller corpora.</p>
-<p><strong>Agentic RAG</strong> — Agent decides when and what to retrieve, may issue multiple queries, may use tools beyond vector search.</p>
-<p><strong>GraphRAG</strong> — Retrieval over a knowledge graph rather than vector chunks. Better for entity-heavy corpora.</p>
+<h2>Cluster 3: Retrieval (RAG)</h2>
+<p><strong>RAG, Retrieval-Augmented Generation</strong>: Pattern where you retrieve relevant documents from a knowledge base and inject them into the prompt before generation.</p>
+<p><strong>Embedding</strong>: A vector (list of numbers, usually 768–3072 dimensions) that represents the meaning of a text. Similar texts have similar embeddings.</p>
+<p><strong>Embedding model</strong>: A model that produces embeddings. Popular: OpenAI text-embedding-3-large, Voyage AI, Cohere embed, BGE, E5.</p>
+<p><strong>Vector database / vector store</strong>: A DB optimized for storing embeddings and finding nearest neighbors. Pinecone, Weaviate, Qdrant, Milvus, pgvector.</p>
+<p><strong>Chunking</strong>: Splitting documents into pieces before embedding. Common strategies: fixed-size (500 tokens), sentence, paragraph, semantic, sliding-window.</p>
+<p><strong>Chunk overlap</strong>: Overlap between adjacent chunks (usually 10–20%) to preserve context that spans boundaries.</p>
+<p><strong>Semantic search</strong>: Finding results by meaning (embedding similarity) rather than keyword match.</p>
+<p><strong>Lexical search</strong>: Keyword-based search (BM25, TF-IDF).</p>
+<p><strong>Hybrid search</strong>: Combines semantic and lexical. Usually reranked.</p>
+<p><strong>Reranker / cross-encoder</strong>: A second-pass model that re-scores retrieved chunks by their relevance to the query. Popular: Cohere Rerank, BGE reranker.</p>
+<p><strong>k / top-k retrieval</strong>: Number of chunks to fetch. Usually 5–20.</p>
+<p><strong>Retrieval query</strong>: The version of the user's question used for the DB search. Often rewritten for better retrieval.</p>
+<p><strong>Query rewriting / query expansion</strong>: Transforming the user's question into a better retrieval query. HyDE is one method.</p>
+<p><strong>HyDE, Hypothetical Document Embeddings</strong>: Generate a fake ideal answer, embed it, use that for retrieval.</p>
+<p><strong>Metadata filtering</strong>: Restrict retrieval to chunks with matching metadata (e.g., permissions, date range, doc type).</p>
+<p><strong>Ground truth</strong>: The correct answer, known independently. Used to score retrieval and generation.</p>
+<p><strong>Retrieval@k</strong>: Metric: does the correct chunk appear in the top k results?</p>
+<p><strong>Faithfulness / groundedness</strong>: Does the generated answer only make claims supported by the retrieved context?</p>
+<p><strong>Context stuffing</strong>: Just pasting a huge document into the prompt (no vector search). Feasible with 1M+ context windows for smaller corpora.</p>
+<p><strong>Agentic RAG</strong>: Agent decides when and what to retrieve, may issue multiple queries, may use tools beyond vector search.</p>
+<p><strong>GraphRAG</strong>: Retrieval over a knowledge graph rather than vector chunks. Better for entity-heavy corpora.</p>
 <hr />
-<h2>Cluster 4 — Agents</h2>
-<p><strong>Agent</strong> — A model that operates in a loop: observe → decide → act (tool call) → observe → ... until the goal is met.</p>
-<p><strong>Tool</strong> — A function an agent can call. Formalized by JSON schemas the model can understand.</p>
-<p><strong>Tool call</strong> — A structured request from the model to invoke a tool with arguments.</p>
-<p><strong>Function calling</strong> — The lower-level API primitive. Some providers use this term instead of "tool."</p>
-<p><strong>Agent loop / control loop</strong> — The outer software loop that dispatches tool calls and feeds results back.</p>
-<p><strong>Subagent</strong> — An agent spawned by another agent to handle a bounded sub-task with its own context.</p>
-<p><strong>Orchestrator</strong> — The parent agent that plans and dispatches subagents.</p>
-<p><strong>Planner</strong> — A component (or a model call) that produces a step-by-step plan before execution.</p>
-<p><strong>Executor</strong> — The component that actually runs the plan's steps.</p>
-<p><strong>MCP — Model Context Protocol</strong> — Anthropic-originated open standard for connecting AI models to tools and data sources. Now widely adopted.</p>
-<p><strong>MCP server</strong> — A process that exposes tools/resources over the MCP protocol.</p>
-<p><strong>MCP client</strong> — An AI model / product that consumes MCP servers.</p>
-<p><strong>Skill</strong> — A reusable capability package (a set of instructions and tools) that a model can load on demand. Claude's "Skills" and Perplexity's skill system are examples.</p>
-<p><strong>Memory (agent memory)</strong> — Persistent state carried across sessions. Types: short-term (conversation), long-term (facts), episodic (event history).</p>
-<p><strong>HITL — Human in the Loop</strong> — Design pattern where humans approve or correct agent decisions at defined checkpoints.</p>
-<p><strong>Guardrails</strong> — Rules that constrain agent behavior (e.g., "never send emails," "always ask before making purchases").</p>
-<p><strong>ReAct agent</strong> — Agent following the ReAct pattern.</p>
-<p><strong>AutoGPT / BabyAGI</strong> — Early (2023) open-source agent frameworks. Historical, but the terms still come up.</p>
-<p><strong>Agentic</strong> — Adjective for "acting like an agent" — doing multi-step work autonomously.</p>
-<p><strong>Autonomous mode / auto mode</strong> — Product terminology for agents that operate without step-by-step human approval.</p>
-<p><strong>Long-horizon task</strong> — A task requiring many steps, tool calls, or hours of runtime.</p>
-<p><strong>Terminal state / done condition</strong> — When the agent decides it's finished.</p>
-<p><strong>Fan-out / fan-in</strong> — Pattern: spawn N parallel subagents (fan out), collect results (fan in).</p>
+<h2>Cluster 4: Agents</h2>
+<p><strong>Agent</strong>: A model that operates in a loop: observe → decide → act (tool call) → observe → ... until the goal is met.</p>
+<p><strong>Tool</strong>: A function an agent can call. Formalized by JSON schemas the model can understand.</p>
+<p><strong>Tool call</strong>: A structured request from the model to invoke a tool with arguments.</p>
+<p><strong>Function calling</strong>: The lower-level API primitive. Some providers use this term instead of "tool."</p>
+<p><strong>Agent loop / control loop</strong>: The outer software loop that dispatches tool calls and feeds results back.</p>
+<p><strong>Subagent</strong>: An agent spawned by another agent to handle a bounded sub-task with its own context.</p>
+<p><strong>Orchestrator</strong>: The parent agent that plans and dispatches subagents.</p>
+<p><strong>Planner</strong>: A component (or a model call) that produces a step-by-step plan before execution.</p>
+<p><strong>Executor</strong>: The component that actually runs the plan's steps.</p>
+<p><strong>MCP, Model Context Protocol</strong>: Anthropic-originated open standard for connecting AI models to tools and data sources. Now widely adopted.</p>
+<p><strong>MCP server</strong>: A process that exposes tools/resources over the MCP protocol.</p>
+<p><strong>MCP client</strong>: An AI model / product that consumes MCP servers.</p>
+<p><strong>Skill</strong>: A reusable capability package (a set of instructions and tools) that a model can load on demand. Claude's "Skills" and Perplexity's skill system are examples.</p>
+<p><strong>Memory (agent memory)</strong>: Persistent state carried across sessions. Types: short-term (conversation), long-term (facts), episodic (event history).</p>
+<p><strong>HITL, Human in the Loop</strong>: Design pattern where humans approve or correct agent decisions at defined checkpoints.</p>
+<p><strong>Guardrails</strong>: Rules that constrain agent behavior (e.g., "never send emails," "always ask before making purchases").</p>
+<p><strong>ReAct agent</strong>: Agent following the ReAct pattern.</p>
+<p><strong>AutoGPT / BabyAGI</strong>: Early (2023) open-source agent frameworks. Historical, but the terms still come up.</p>
+<p><strong>Agentic</strong>: Adjective for "acting like an agent," meaning doing multi-step work autonomously.</p>
+<p><strong>Autonomous mode / auto mode</strong>: Product terminology for agents that operate without step-by-step human approval.</p>
+<p><strong>Long-horizon task</strong>: A task requiring many steps, tool calls, or hours of runtime.</p>
+<p><strong>Terminal state / done condition</strong>: When the agent decides it's finished.</p>
+<p><strong>Fan-out / fan-in</strong>: Pattern: spawn N parallel subagents (fan out), collect results (fan in).</p>
 <hr />
-<h2>Cluster 5 — Training</h2>
-<p><strong>Pretraining</strong> — Training a model on massive text (trillions of tokens) to learn language. Base model.</p>
-<p><strong>Base model / foundation model</strong> — The pretrained model before instruction tuning.</p>
-<p><strong>Fine-tuning</strong> — Updating a pretrained model's weights on a smaller, task-specific dataset.</p>
-<p><strong>Instruction tuning</strong> — Fine-tuning with (instruction, response) pairs to make the model follow instructions.</p>
-<p><strong>RLHF — Reinforcement Learning from Human Feedback</strong> — Training method where humans rank outputs and a reward model is trained to score outputs, then the LLM is optimized against that reward.</p>
-<p><strong>DPO — Direct Preference Optimization</strong> — Alternative to RLHF that skips the reward model. Simpler and often competitive.</p>
-<p><strong>Constitutional AI (CAI)</strong> — Anthropic's alignment method: use principles ("a constitution") to have the model critique and revise its own outputs.</p>
-<p><strong>RLAIF — RL from AI Feedback</strong> — Like RLHF but the ranker is another AI, not humans.</p>
-<p><strong>Distillation</strong> — Training a smaller model to mimic a larger one. Produces cheaper, faster models with much of the capability.</p>
-<p><strong>LoRA — Low-Rank Adaptation</strong> — Efficient fine-tuning method: add small trainable matrices to a frozen base model. Small artifacts (~100MB) instead of full model weights.</p>
-<p><strong>QLoRA</strong> — LoRA with quantized base model. Even cheaper.</p>
-<p><strong>Quantization</strong> — Reducing precision of model weights (e.g., FP16 → INT8 → INT4) to shrink size and speed inference. Small accuracy cost.</p>
-<p><strong>Weights</strong> — The parameters of a neural network. "Open-weight" model = weights are downloadable.</p>
-<p><strong>Open-weight model</strong> — Weights released publicly (LLaMA, Mistral, Qwen, DeepSeek). Not necessarily open-source (data + training code not always released).</p>
-<p><strong>Open-source model</strong> — Everything released — weights, training data, code.</p>
-<p><strong>Closed model</strong> — Only accessible via API (GPT-5, Claude, Gemini).</p>
-<p><strong>Alignment</strong> — Making a model behave in accordance with human values / intentions.</p>
-<p><strong>Refusal</strong> — When a model declines a request. Alignment feature; sometimes over-tuned.</p>
-<p><strong>Jailbreak</strong> — A prompt that bypasses safety training.</p>
-<p><strong>Prompt injection</strong> — Adversarial input that hijacks the model's behavior (e.g., a document that says "ignore previous instructions and...").</p>
-<p><strong>Model weights license</strong> — The legal terms under which weights can be used (LLaMA license, Apache 2.0, MIT, custom). Important for commercial use.</p>
-<p><strong>Training compute</strong> — FLOPs used to train the model. Correlated (but not perfectly) with capability.</p>
-<p><strong>Scaling laws</strong> — Empirical laws relating training compute, data, and parameter count to loss.</p>
-<p><strong>Emergent capabilities</strong> — Skills that appear only above a certain model scale (contested empirically but useful shorthand).</p>
+<h2>Cluster 5: Training</h2>
+<p><strong>Pretraining</strong>: Training a model on massive text (trillions of tokens) to learn language. Base model.</p>
+<p><strong>Base model / foundation model</strong>: The pretrained model before instruction tuning.</p>
+<p><strong>Fine-tuning</strong>: Updating a pretrained model's weights on a smaller, task-specific dataset.</p>
+<p><strong>Instruction tuning</strong>: Fine-tuning with (instruction, response) pairs to make the model follow instructions.</p>
+<p><strong>RLHF, Reinforcement Learning from Human Feedback</strong>: Training method where humans rank outputs and a reward model is trained to score outputs, then the LLM is optimized against that reward.</p>
+<p><strong>DPO, Direct Preference Optimization</strong>: Alternative to RLHF that skips the reward model. Simpler and often competitive.</p>
+<p><strong>Constitutional AI (CAI)</strong>: Anthropic's alignment method: use principles ("a constitution") to have the model critique and revise its own outputs.</p>
+<p><strong>RLAIF, RL from AI Feedback</strong>: Like RLHF but the ranker is another AI, not humans.</p>
+<p><strong>Distillation</strong>: Training a smaller model to mimic a larger one. Produces cheaper, faster models with much of the capability.</p>
+<p><strong>LoRA, Low-Rank Adaptation</strong>: Efficient fine-tuning method: add small trainable matrices to a frozen base model. Small artifacts (~100MB) instead of full model weights.</p>
+<p><strong>QLoRA</strong>: LoRA with quantized base model. Even cheaper.</p>
+<p><strong>Quantization</strong>: Reducing precision of model weights (e.g., FP16 → INT8 → INT4) to shrink size and speed inference. Small accuracy cost.</p>
+<p><strong>Weights</strong>: The parameters of a neural network. "Open-weight" model = weights are downloadable.</p>
+<p><strong>Open-weight model</strong>: Weights released publicly (LLaMA, Mistral, Qwen, DeepSeek). Not necessarily open-source (data + training code not always released).</p>
+<p><strong>Open-source model</strong>: Everything released: weights, training data, code.</p>
+<p><strong>Closed model</strong>: Only accessible via API (GPT-5, Claude, Gemini).</p>
+<p><strong>Alignment</strong>: Making a model behave in accordance with human values / intentions.</p>
+<p><strong>Refusal</strong>: When a model declines a request. Alignment feature; sometimes over-tuned.</p>
+<p><strong>Jailbreak</strong>: A prompt that bypasses safety training.</p>
+<p><strong>Prompt injection</strong>: Adversarial input that hijacks the model's behavior (e.g., a document that says "ignore previous instructions and...").</p>
+<p><strong>Model weights license</strong>: The legal terms under which weights can be used (LLaMA license, Apache 2.0, MIT, custom). Important for commercial use.</p>
+<p><strong>Training compute</strong>: FLOPs used to train the model. Correlated (but not perfectly) with capability.</p>
+<p><strong>Scaling laws</strong>: Empirical laws relating training compute, data, and parameter count to loss.</p>
+<p><strong>Emergent capabilities</strong>: Skills that appear only above a certain model scale (contested empirically but useful shorthand).</p>
 <hr />
-<h2>Cluster 6 — Multimodal</h2>
-<p><strong>Multimodal model</strong> — Handles more than one modality (text + image + audio + video).</p>
-<p><strong>Vision model / VLM</strong> — Vision-Language Model. Handles text + image.</p>
-<p><strong>Audio model</strong> — Handles speech (ASR/TTS) or general audio.</p>
-<p><strong>ASR — Automatic Speech Recognition</strong> — Speech-to-text. Whisper is the reference model.</p>
-<p><strong>TTS — Text-to-Speech</strong> — ElevenLabs, OpenAI TTS, Google WaveNet.</p>
-<p><strong>Voice cloning</strong> — Generating speech in a specific person's voice. ElevenLabs Instant Voice.</p>
-<p><strong>Diffusion model</strong> — The dominant image/video generation architecture (Stable Diffusion, Midjourney, DALL·E, Sora). Starts with noise, iteratively denoises.</p>
-<p><strong>Latent space / latent diffusion</strong> — Diffusion in a compressed latent space (rather than pixel space). Much faster. Stable Diffusion's key trick.</p>
-<p><strong>Sampler / scheduler</strong> — Algorithm that runs the diffusion denoising steps (DDIM, DPM++, Euler, etc.).</p>
-<p><strong>Steps</strong> — Number of denoising steps. More = slower + usually better quality (diminishing returns after ~30–50).</p>
-<p><strong>CFG — Classifier-Free Guidance scale</strong> — How strongly the image follows the prompt (higher = more faithful, less creative).</p>
-<p><strong>Seed (image)</strong> — Random seed. Same seed + same prompt + same params = same image.</p>
-<p><strong>ControlNet</strong> — Add spatial conditioning (pose, edges, depth) to guide generation.</p>
-<p><strong>LoRA (image)</strong> — Small adapter that adds a specific style, character, or concept to an image model.</p>
-<p><strong>Inpainting</strong> — Fill in a masked region of an image.</p>
-<p><strong>Outpainting</strong> — Extend an image beyond its borders.</p>
-<p><strong>Img2img</strong> — Transform an existing image using a text prompt.</p>
-<p><strong>Text-to-video</strong> — Sora, Veo, Runway Gen-4, Wan, LTX.</p>
-<p><strong>Image-to-video / keyframe-to-video</strong> — Animate a still image, or animate between two keyframes.</p>
-<p><strong>First-frame / last-frame conditioning</strong> — Video generation guided by a specific starting or ending frame.</p>
-<p><strong>Reference image / image conditioning</strong> — Use an image to guide generation (character, style, composition).</p>
-<p><strong>Motion prompt</strong> — Text describing the camera or subject movement in a video generation.</p>
-<p><strong>Frame rate (fps)</strong> — Frames per second of generated video (usually 24 or 30).</p>
-<p><strong>Duration</strong> — Length of generated video (usually 5–10 seconds per clip, then stitched).</p>
-<p><strong>Talking head / lip-sync</strong> — Generate video of a person speaking (SadTalker, HeyGen, D-ID).</p>
-<p><strong>Neural rendering</strong> — General term for AI-generated visual output.</p>
+<h2>Cluster 6: Multimodal</h2>
+<p><strong>Multimodal model</strong>: Handles more than one modality (text + image + audio + video).</p>
+<p><strong>Vision model / VLM</strong>: Vision-Language Model. Handles text + image.</p>
+<p><strong>Audio model</strong>: Handles speech (ASR/TTS) or general audio.</p>
+<p><strong>ASR, Automatic Speech Recognition</strong>: Speech-to-text. Whisper is the reference model.</p>
+<p><strong>TTS, Text-to-Speech</strong>: ElevenLabs, OpenAI TTS, Google WaveNet.</p>
+<p><strong>Voice cloning</strong>: Generating speech in a specific person's voice. ElevenLabs Instant Voice.</p>
+<p><strong>Diffusion model</strong>: The dominant image/video generation architecture (Stable Diffusion, Midjourney, DALL·E, Sora). Starts with noise, iteratively denoises.</p>
+<p><strong>Latent space / latent diffusion</strong>: Diffusion in a compressed latent space (rather than pixel space). Much faster. Stable Diffusion's key trick.</p>
+<p><strong>Sampler / scheduler</strong>: Algorithm that runs the diffusion denoising steps (DDIM, DPM++, Euler, etc.).</p>
+<p><strong>Steps</strong>: Number of denoising steps. More = slower + usually better quality (diminishing returns after ~30–50).</p>
+<p><strong>CFG, Classifier-Free Guidance scale</strong>: How strongly the image follows the prompt (higher = more faithful, less creative).</p>
+<p><strong>Seed (image)</strong>: Random seed. Same seed + same prompt + same params = same image.</p>
+<p><strong>ControlNet</strong>: Add spatial conditioning (pose, edges, depth) to guide generation.</p>
+<p><strong>LoRA (image)</strong>: Small adapter that adds a specific style, character, or concept to an image model.</p>
+<p><strong>Inpainting</strong>: Fill in a masked region of an image.</p>
+<p><strong>Outpainting</strong>: Extend an image beyond its borders.</p>
+<p><strong>Img2img</strong>: Transform an existing image using a text prompt.</p>
+<p><strong>Text-to-video</strong>: Sora, Veo, Runway Gen-4, Wan, LTX.</p>
+<p><strong>Image-to-video / keyframe-to-video</strong>: Animate a still image, or animate between two keyframes.</p>
+<p><strong>First-frame / last-frame conditioning</strong>: Video generation guided by a specific starting or ending frame.</p>
+<p><strong>Reference image / image conditioning</strong>: Use an image to guide generation (character, style, composition).</p>
+<p><strong>Motion prompt</strong>: Text describing the camera or subject movement in a video generation.</p>
+<p><strong>Frame rate (fps)</strong>: Frames per second of generated video (usually 24 or 30).</p>
+<p><strong>Duration</strong>: Length of generated video (usually 5–10 seconds per clip, then stitched).</p>
+<p><strong>Talking head / lip-sync</strong>: Generate video of a person speaking (SadTalker, HeyGen, D-ID).</p>
+<p><strong>Neural rendering</strong>: General term for AI-generated visual output.</p>
 <hr />
-<h2>Cluster 7 — Evaluation</h2>
-<p><strong>Eval / evaluation</strong> — Structured tests that measure model performance. Automated where possible.</p>
-<p><strong>Eval set</strong> — The collection of test cases with expected answers or scoring criteria.</p>
-<p><strong>Benchmark</strong> — A public, standardized eval (MMLU, HumanEval, SWE-bench, GPQA).</p>
-<p><strong>Golden dataset / golden answers</strong> — Curated correct answers, used as ground truth.</p>
-<p><strong>Human eval</strong> — Human raters score model outputs.</p>
-<p><strong>Pairwise comparison</strong> — Show a human two outputs, ask which is better. Feeds ELO ratings.</p>
-<p><strong>LMSYS Arena / Chatbot Arena</strong> — Public leaderboard from crowd-sourced pairwise comparisons.</p>
-<p><strong>Rubric</strong> — Explicit criteria for scoring outputs (accuracy, tone, format, etc.).</p>
-<p><strong>LLM-as-judge</strong> — Using an LLM to score other LLM outputs. Cheaper than human eval; introduces its own biases.</p>
-<p><strong>Regression test</strong> — Re-running the eval set after a change to catch quality drops.</p>
-<p><strong>A/B test</strong> — Ship two versions to users, measure difference. For product-level evals.</p>
-<p><strong>Hallucination</strong> — Model confidently states something false. The core reliability problem.</p>
-<p><strong>Faithful vs coherent</strong> — Coherent output can still hallucinate. Faithfulness = grounded in provided context.</p>
-<p><strong>Groundedness score</strong> — Metric for how well output is supported by retrieved context.</p>
-<p><strong>Precision / recall</strong> — Classic IR metrics; also used for eval.</p>
-<p><strong>F1</strong> — Harmonic mean of precision and recall.</p>
-<p><strong>BLEU / ROUGE / METEOR</strong> — String-overlap metrics for translation/summarization. Legacy; largely superseded by LLM-as-judge for open-ended tasks.</p>
-<p><strong>Perplexity</strong> — How well a model predicts a text (lower is better). Used for base-model comparison.</p>
-<p><strong>pass@1 / pass@k</strong> — For code eval: does the model pass the tests on the first try / at least once in k tries?</p>
-<p><strong>Red team</strong> — Adversarial testing to find failures, jailbreaks, misuse.</p>
-<p><strong>Prompt injection eval</strong> — Specifically test defenses against prompt injection.</p>
-<p><strong>Bias eval</strong> — Test for demographic, ideological, or systematic biases.</p>
-<p><strong>Toxicity eval</strong> — Test for harmful outputs.</p>
-<p><strong>Safety eval</strong> — Broad category including refusals, harmful content, misuse potential.</p>
+<h2>Cluster 7: Evaluation</h2>
+<p><strong>Eval / evaluation</strong>: Structured tests that measure model performance. Automated where possible.</p>
+<p><strong>Eval set</strong>: The collection of test cases with expected answers or scoring criteria.</p>
+<p><strong>Benchmark</strong>: A public, standardized eval (MMLU, HumanEval, SWE-bench, GPQA).</p>
+<p><strong>Golden dataset / golden answers</strong>: Curated correct answers, used as ground truth.</p>
+<p><strong>Human eval</strong>: Human raters score model outputs.</p>
+<p><strong>Pairwise comparison</strong>: Show a human two outputs, ask which is better. Feeds ELO ratings.</p>
+<p><strong>LMSYS Arena / Chatbot Arena</strong>: Public leaderboard from crowd-sourced pairwise comparisons.</p>
+<p><strong>Rubric</strong>: Explicit criteria for scoring outputs (accuracy, tone, format, etc.).</p>
+<p><strong>LLM-as-judge</strong>: Using an LLM to score other LLM outputs. Cheaper than human eval; introduces its own biases.</p>
+<p><strong>Regression test</strong>: Re-running the eval set after a change to catch quality drops.</p>
+<p><strong>A/B test</strong>: Ship two versions to users, measure difference. For product-level evals.</p>
+<p><strong>Hallucination</strong>: Model confidently states something false. The core reliability problem.</p>
+<p><strong>Faithful vs coherent</strong>: Coherent output can still hallucinate. Faithfulness = grounded in provided context.</p>
+<p><strong>Groundedness score</strong>: Metric for how well output is supported by retrieved context.</p>
+<p><strong>Precision / recall</strong>: Classic IR metrics; also used for eval.</p>
+<p><strong>F1</strong>: Harmonic mean of precision and recall.</p>
+<p><strong>BLEU / ROUGE / METEOR</strong>: String-overlap metrics for translation/summarization. Legacy; largely superseded by LLM-as-judge for open-ended tasks.</p>
+<p><strong>Perplexity</strong>: How well a model predicts a text (lower is better). Used for base-model comparison.</p>
+<p><strong>pass@1 / pass@k</strong>: For code eval: does the model pass the tests on the first try / at least once in k tries?</p>
+<p><strong>Red team</strong>: Adversarial testing to find failures, jailbreaks, misuse.</p>
+<p><strong>Prompt injection eval</strong>: Specifically test defenses against prompt injection.</p>
+<p><strong>Bias eval</strong>: Test for demographic, ideological, or systematic biases.</p>
+<p><strong>Toxicity eval</strong>: Test for harmful outputs.</p>
+<p><strong>Safety eval</strong>: Broad category including refusals, harmful content, misuse potential.</p>
 <hr />
-<h2>Cluster 8 — Deployment</h2>
-<p><strong>Inference</strong> — Running a trained model to produce outputs. The step you pay for.</p>
-<p><strong>Latency</strong> — Time from request to first byte (TTFT) and to last byte.</p>
-<p><strong>Throughput</strong> — Requests or tokens per second the system can handle.</p>
-<p><strong>TTFT — Time to First Token</strong> — Latency until streaming begins.</p>
-<p><strong>Batch inference</strong> — Process many requests in one call. Cheaper (per token) but higher latency.</p>
-<p><strong>Streaming</strong> — Send tokens as generated for faster perceived response.</p>
-<p><strong>Caching</strong> — Store and reuse: KV cache (attention state), prompt cache (Anthropic prompt caching), semantic cache (skip repeated queries).</p>
-<p><strong>Prompt caching</strong> — Provider feature: repeated prompt prefixes are cached and re-billed cheaper.</p>
-<p><strong>KV cache</strong> — Internal attention state cached between tokens in a single generation.</p>
-<p><strong>Serverless inference</strong> — Provider hosts models; you pay per token. OpenAI, Anthropic, etc.</p>
-<p><strong>Dedicated inference</strong> — You reserve capacity (per hour). Better latency, worse economics unless heavily used.</p>
-<p><strong>Provisioned throughput</strong> — Same idea; guaranteed capacity for a fee.</p>
-<p><strong>Self-hosted inference</strong> — You run the model on your own hardware (vLLM, TGI, TensorRT-LLM, llama.cpp).</p>
-<p><strong>vLLM / TGI / TensorRT-LLM / llama.cpp</strong> — Popular inference engines.</p>
-<p><strong>Speculative decoding</strong> — Use a small "draft" model to guess tokens, verify with the big model. Faster.</p>
-<p><strong>Continuous batching</strong> — Batch requests dynamically, not by fixed windows. Higher throughput.</p>
-<p><strong>Context caching / cached input</strong> — Provider-level cache for reused system prompts. Cuts input token cost by 50–90%.</p>
-<p><strong>Cold start</strong> — First-request latency when infrastructure spins up.</p>
-<p><strong>Fine-tuned model deployment</strong> — Serving a custom fine-tuned model. Often more expensive than base.</p>
-<p><strong>Model versioning</strong> — Providers version models (gpt-4o-2024-08-06, claude-opus-4-20260601). Pin to versions in production.</p>
-<p><strong>Model card</strong> — Documentation of a model's capabilities, limits, training, and safety properties.</p>
-<p><strong>System card</strong> — Broader safety/capability doc for a released model (OpenAI, Anthropic conventions).</p>
-<p><strong>Deprecation</strong> — Providers retire old model versions. Read release notes.</p>
+<h2>Cluster 8: Deployment</h2>
+<p><strong>Inference</strong>: Running a trained model to produce outputs. The step you pay for.</p>
+<p><strong>Latency</strong>: Time from request to first byte (TTFT) and to last byte.</p>
+<p><strong>Throughput</strong>: Requests or tokens per second the system can handle.</p>
+<p><strong>TTFT, Time to First Token</strong>: Latency until streaming begins.</p>
+<p><strong>Batch inference</strong>: Process many requests in one call. Cheaper (per token) but higher latency.</p>
+<p><strong>Streaming</strong>: Send tokens as generated for faster perceived response.</p>
+<p><strong>Caching</strong>: Store and reuse: KV cache (attention state), prompt cache (Anthropic prompt caching), semantic cache (skip repeated queries).</p>
+<p><strong>Prompt caching</strong>: Provider feature: repeated prompt prefixes are cached and re-billed cheaper.</p>
+<p><strong>KV cache</strong>: Internal attention state cached between tokens in a single generation.</p>
+<p><strong>Serverless inference</strong>: Provider hosts models; you pay per token. OpenAI, Anthropic, etc.</p>
+<p><strong>Dedicated inference</strong>: You reserve capacity (per hour). Better latency, worse economics unless heavily used.</p>
+<p><strong>Provisioned throughput</strong>: Same idea; guaranteed capacity for a fee.</p>
+<p><strong>Self-hosted inference</strong>: You run the model on your own hardware (vLLM, TGI, TensorRT-LLM, llama.cpp).</p>
+<p><strong>vLLM / TGI / TensorRT-LLM / llama.cpp</strong>: Popular inference engines.</p>
+<p><strong>Speculative decoding</strong>: Use a small "draft" model to guess tokens, verify with the big model. Faster.</p>
+<p><strong>Continuous batching</strong>: Batch requests dynamically, not by fixed windows. Higher throughput.</p>
+<p><strong>Context caching / cached input</strong>: Provider-level cache for reused system prompts. Cuts input token cost by a large fraction.</p>
+<p><strong>Cold start</strong>: First-request latency when infrastructure spins up.</p>
+<p><strong>Fine-tuned model deployment</strong>: Serving a custom fine-tuned model. Often more expensive than base.</p>
+<p><strong>Model versioning</strong>: Providers version models (gpt-4o-2024-08-06, claude-opus-4-20260601). Pin to versions in production.</p>
+<p><strong>Model card</strong>: Documentation of a model's capabilities, limits, training, and safety properties.</p>
+<p><strong>System card</strong>: Broader safety/capability doc for a released model (OpenAI, Anthropic conventions).</p>
+<p><strong>Deprecation</strong>: Providers retire old model versions. Read release notes.</p>
 <hr />
-<h2>Cluster 9 — Governance and Safety</h2>
-<p><strong>PII — Personally Identifiable Information</strong> — Any data that identifies a person. Legally defined; treat carefully.</p>
-<p><strong>PHI — Protected Health Information</strong> — Health data under HIPAA (US). Requires BAA.</p>
-<p><strong>BAA — Business Associate Agreement</strong> — HIPAA contract with vendors handling PHI.</p>
-<p><strong>DPA — Data Processing Agreement</strong> — GDPR contract governing processor duties. Sign one with every AI vendor handling personal data.</p>
-<p><strong>Data residency</strong> — Where the data is stored/processed. EU customers often require EU residency.</p>
-<p><strong>Zero-retention / no-training</strong> — Contractual guarantee that provider does not retain or train on your inputs. Ask for it explicitly.</p>
-<p><strong>Data classification</strong> — Public / Internal / Confidential / Restricted. The base of every data policy.</p>
-<p><strong>DLP — Data Loss Prevention</strong> — Systems that block sensitive data from leaving your perimeter.</p>
-<p><strong>CASB — Cloud Access Security Broker</strong> — Enforces policy on cloud tool usage.</p>
-<p><strong>SSO — Single Sign-On</strong> — Federated login. Table-stakes for enterprise tools.</p>
-<p><strong>SCIM — System for Cross-domain Identity Management</strong> — Automated user provisioning/deprovisioning.</p>
-<p><strong>BYOK — Bring Your Own Key</strong> — Provider encrypts data with a key you control.</p>
-<p><strong>Private link / VPC peering</strong> — Traffic to the provider stays on private network.</p>
-<p><strong>SOC 2 / ISO 27001</strong> — Security certifications. Type II is the meaningful one.</p>
-<p><strong>HIPAA / GDPR / CCPA / EU AI Act</strong> — Regulatory frameworks (US health, EU privacy, California, EU AI).</p>
-<p><strong>NIST AI RMF</strong> — National Institute of Standards and Technology AI Risk Management Framework. US governance reference.</p>
-<p><strong>Responsible AI (RAI)</strong> — Vendor programs and internal policies around fair, safe, accountable AI use.</p>
-<p><strong>Model card</strong> — See Deployment cluster.</p>
-<p><strong>Explainability / interpretability</strong> — Ability to understand <em>why</em> a model produced its output.</p>
-<p><strong>Prompt injection defense</strong> — Techniques to prevent adversarial content from hijacking model behavior.</p>
-<p><strong>Content filter / moderation</strong> — Layer that blocks harmful outputs.</p>
-<p><strong>Safe harbor</strong> — Legal safe zones for specific AI uses (varies by jurisdiction).</p>
-<p><strong>Provenance / watermarking</strong> — Marking AI-generated content so it can be detected.</p>
-<p><strong>Consent to record / consent to process</strong> — Legal requirement in some jurisdictions before AI can process personal comms.</p>
-<p><strong>Right to explanation</strong> — GDPR concept: individuals can demand explanation of automated decisions affecting them.</p>
+<h2>Cluster 9: Governance and Safety</h2>
+<p><strong>PII, Personally Identifiable Information</strong>: Any data that identifies a person. Legally defined; treat carefully.</p>
+<p><strong>PHI, Protected Health Information</strong>: Health data under HIPAA (US). Requires BAA.</p>
+<p><strong>BAA, Business Associate Agreement</strong>: HIPAA contract with vendors handling PHI.</p>
+<p><strong>DPA, Data Processing Agreement</strong>: GDPR contract governing processor duties. Sign one with every AI vendor handling personal data.</p>
+<p><strong>Data residency</strong>: Where the data is stored/processed. EU customers often require EU residency.</p>
+<p><strong>Zero-retention / no-training</strong>: Contractual guarantee that provider does not retain or train on your inputs. Ask for it explicitly.</p>
+<p><strong>Data classification</strong>: Public / Internal / Confidential / Restricted. The base of every data policy.</p>
+<p><strong>DLP, Data Loss Prevention</strong>: Systems that block sensitive data from leaving your perimeter.</p>
+<p><strong>CASB, Cloud Access Security Broker</strong>: Enforces policy on cloud tool usage.</p>
+<p><strong>SSO, Single Sign-On</strong>: Federated login. Table-stakes for enterprise tools.</p>
+<p><strong>SCIM, System for Cross-domain Identity Management</strong>: Automated user provisioning/deprovisioning.</p>
+<p><strong>BYOK, Bring Your Own Key</strong>: Provider encrypts data with a key you control.</p>
+<p><strong>Private link / VPC peering</strong>: Traffic to the provider stays on private network.</p>
+<p><strong>SOC 2 / ISO 27001</strong>: Security certifications. Type II is the meaningful one.</p>
+<p><strong>HIPAA / GDPR / CCPA / EU AI Act</strong>: Regulatory frameworks (US health, EU privacy, California, EU AI).</p>
+<p><strong>NIST AI RMF</strong>: National Institute of Standards and Technology AI Risk Management Framework. US governance reference.</p>
+<p><strong>Responsible AI (RAI)</strong>: Vendor programs and internal policies around fair, safe, accountable AI use.</p>
+<p><strong>Model card</strong>: See Deployment cluster.</p>
+<p><strong>Explainability / interpretability</strong>: Ability to understand <em>why</em> a model produced its output.</p>
+<p><strong>Prompt injection defense</strong>: Techniques to prevent adversarial content from hijacking model behavior.</p>
+<p><strong>Content filter / moderation</strong>: Layer that blocks harmful outputs.</p>
+<p><strong>Safe harbor</strong>: Legal safe zones for specific AI uses (varies by jurisdiction).</p>
+<p><strong>Provenance / watermarking</strong>: Marking AI-generated content so it can be detected.</p>
+<p><strong>Consent to record / consent to process</strong>: Legal requirement in some jurisdictions before AI can process personal comms.</p>
+<p><strong>Right to explanation</strong>: GDPR concept: individuals can demand explanation of automated decisions affecting them.</p>
 <hr />
-<h2>Cluster 10 — Product / Ecosystem terms</h2>
-<p><strong>LLM — Large Language Model</strong> — The generic term for models like GPT, Claude, Gemini.</p>
-<p><strong>Foundation model</strong> — A large pretrained model adaptable to many tasks.</p>
-<p><strong>Frontier model</strong> — The current top-tier models (GPT-5, Claude Opus, Gemini Pro).</p>
-<p><strong>Small language model (SLM)</strong> — Small enough to run on-device (Phi, Gemma, Llama 3.2 1B/3B).</p>
-<p><strong>On-device inference</strong> — Model runs on the user's phone/laptop (Apple Intelligence, Copilot+ PC).</p>
-<p><strong>Multi-agent system</strong> — Multiple agents collaborating on a task.</p>
-<p><strong>Copilot (product term)</strong> — An AI assistant embedded in another product (Microsoft, GitHub, generic).</p>
-<p><strong>Assistant / agent (product term)</strong> — Overlapping but not identical to "agent" the pattern.</p>
-<p><strong>Autopilot</strong> — Higher-autonomy variant of a copilot. Product buzzword.</p>
-<p><strong>AGI — Artificial General Intelligence</strong> — Contested term for human-level general intelligence.</p>
-<p><strong>ASI — Artificial Super Intelligence</strong> — Above human. Speculative.</p>
-<p><strong>Wrapper / GPT wrapper</strong> — Pejorative for a product that's mostly a thin UI over a base model.</p>
-<p><strong>Prompt engineering</strong> — Craft of writing effective prompts. Real skill; often derided.</p>
-<p><strong>Prompt library</strong> — Curated collection of reusable prompts.</p>
-<p><strong>Custom GPT</strong> — OpenAI's user-built GPT with instructions, knowledge, and actions.</p>
-<p><strong>Claude Project</strong> — Anthropic's equivalent — persistent knowledge + custom instructions.</p>
-<p><strong>Perplexity Space</strong> — Perplexity's equivalent.</p>
-<p><strong>Gem</strong> — Google's equivalent.</p>
-<p><strong>Actions / plugins</strong> — External tools a Custom GPT (or similar) can call.</p>
-<p><strong>Artifact</strong> — Anthropic's UI element for inline runnable code / documents.</p>
-<p><strong>Canvas</strong> — Similar concept in ChatGPT / Gemini.</p>
-<p><strong>Tokens per second (t/s)</strong> — Speed metric.</p>
-<p><strong>Time to first token (TTFT)</strong> — See Deployment.</p>
-<p><strong>Model marketplace</strong> — Aggregators like OpenRouter, Together, Fireworks.</p>
-<p><strong>AI IDE</strong> — IDE with AI integration (Cursor, Zed, Windsurf).</p>
-<p><strong>AI browser</strong> — Browser with agentic capabilities (Comet, Dia, Arc's now-defunct product).</p>
-<p><strong>Voice mode</strong> — Real-time voice conversation with a model.</p>
-<p><strong>Vision mode</strong> — Model can see images/screens.</p>
-<p><strong>Sora / Veo / Runway / Higgsfield</strong> — Text-to-video products.</p>
-<p><strong>Grounding</strong> — Providing external context (usually via retrieval or search) to reduce hallucinations. Also used as verb ("grounded in the docs").</p>
+<h2>Cluster 10: Product / Ecosystem terms</h2>
+<p><strong>LLM, Large Language Model</strong>: The generic term for models like GPT, Claude, Gemini.</p>
+<p><strong>Foundation model</strong>: A large pretrained model adaptable to many tasks.</p>
+<p><strong>Frontier model</strong>: The current top-tier models (GPT-5, Claude Opus, Gemini Pro).</p>
+<p><strong>Small language model (SLM)</strong>: Small enough to run on-device (Phi, Gemma, Llama 3.2 1B/3B).</p>
+<p><strong>On-device inference</strong>: Model runs on the user's phone/laptop (Apple Intelligence, Copilot+ PC).</p>
+<p><strong>Multi-agent system</strong>: Multiple agents collaborating on a task.</p>
+<p><strong>Copilot (product term)</strong>: An AI assistant embedded in another product (Microsoft, GitHub, generic).</p>
+<p><strong>Assistant / agent (product term)</strong>: Overlapping but not identical to "agent" the pattern.</p>
+<p><strong>Autopilot</strong>: Higher-autonomy variant of a copilot. Product buzzword.</p>
+<p><strong>AGI, Artificial General Intelligence</strong>: Contested term for human-level general intelligence.</p>
+<p><strong>ASI, Artificial Super Intelligence</strong>: Above human. Speculative.</p>
+<p><strong>Wrapper / GPT wrapper</strong>: Pejorative for a product that's mostly a thin UI over a base model.</p>
+<p><strong>Prompt engineering</strong>: Craft of writing effective prompts. Real skill; often derided.</p>
+<p><strong>Prompt library</strong>: Curated collection of reusable prompts.</p>
+<p><strong>Custom GPT</strong>: OpenAI's user-built GPT with instructions, knowledge, and actions.</p>
+<p><strong>Claude Project</strong>: Anthropic's equivalent, with persistent knowledge + custom instructions.</p>
+<p><strong>Perplexity Space</strong>: Perplexity's equivalent.</p>
+<p><strong>Gem</strong>: Google's equivalent.</p>
+<p><strong>Actions / plugins</strong>: External tools a Custom GPT (or similar) can call.</p>
+<p><strong>Artifact</strong>: Anthropic's UI element for inline runnable code / documents.</p>
+<p><strong>Canvas</strong>: Similar concept in ChatGPT / Gemini.</p>
+<p><strong>Tokens per second (t/s)</strong>: Speed metric.</p>
+<p><strong>Time to first token (TTFT)</strong>: See Deployment.</p>
+<p><strong>Model marketplace</strong>: Aggregators like OpenRouter, Together, Fireworks.</p>
+<p><strong>AI IDE</strong>: IDE with AI integration (Cursor, Zed, Windsurf).</p>
+<p><strong>AI browser</strong>: Browser with agentic capabilities (Comet, Dia, Arc's now-defunct product).</p>
+<p><strong>Voice mode</strong>: Real-time voice conversation with a model.</p>
+<p><strong>Vision mode</strong>: Model can see images/screens.</p>
+<p><strong>Sora / Veo / Runway / Higgsfield</strong>: Text-to-video products.</p>
+<p><strong>Grounding</strong>: Providing external context (usually via retrieval or search) to reduce hallucinations. Also used as verb ("grounded in the docs").</p>
 <hr />
-<h2>Cluster 11 — Neologisms and Jargon-of-the-moment</h2>
-<p><strong>Vibe coding</strong> — Iterative coding with an AI, letting the AI drive with loose specs. Popularized 2024–2025.</p>
-<p><strong>Model soup</strong> — Averaging weights of fine-tuned models.</p>
-<p><strong>Merge / MoE — Mixture of Experts</strong> — Architecture where different parts of the network specialize; only a subset activated per token.</p>
-<p><strong>Sparse / dense (models)</strong> — MoE = sparse activation. Traditional transformers = dense.</p>
-<p><strong>Reasoning model</strong> — A model with native extended thinking (o-series, Claude thinking, DeepSeek R1).</p>
-<p><strong>Verifier model</strong> — A separate model that scores a candidate answer.</p>
-<p><strong>Agentic workflow</strong> — Any multi-step process orchestrated by an AI agent.</p>
-<p><strong>Ambient AI</strong> — AI that runs in the background without explicit invocation (background transcription, always-on assistants).</p>
-<p><strong>Vertical AI / vertical agent</strong> — AI specialized to a domain (legal, medical, real estate).</p>
-<p><strong>Horizontal AI</strong> — General-purpose (ChatGPT, Claude).</p>
-<p><strong>Composable AI</strong> — Building complex systems from smaller AI primitives.</p>
-<p><strong>LLM gateway</strong> — Middleware routing requests across providers (Portkey, LiteLLM, OpenRouter).</p>
-<p><strong>Observability (for LLMs)</strong> — Logging, tracing, cost tracking, prompt versioning across LLM calls (Langfuse, Helicone, Arize, LangSmith).</p>
-<p><strong>Prompt versioning</strong> — Treating prompts like code — version-controlled, tested, deployed.</p>
-<p><strong>Prompt registry</strong> — Central store for reusable, versioned prompts.</p>
-<p><strong>Semantic diff</strong> — Comparing two texts by meaning (embedding distance) rather than string diff.</p>
-<p><strong>Neural retrieval</strong> — Retrieval using neural embeddings (as opposed to BM25).</p>
-<p><strong>Long-tail queries</strong> — Rare, unique queries that don't fit templates.</p>
-<p><strong>Data flywheel</strong> — Feedback loop: usage → logs → training → better model → more usage.</p>
-<p><strong>Small model, big context</strong> — Product pattern: use a cheap model but give it lots of grounded context.</p>
-<p><strong>Cost per resolved (ticket / task / query)</strong> — Ops metric replacing "cost per token" at the product level.</p>
-<p><strong>Deflection rate</strong> — % of user requests handled without human. Support metric.</p>
-<p><strong>Containment</strong> — Similar to deflection; % contained by the bot.</p>
-<p><strong>Autonomy dial</strong> — UX concept: users choose how autonomous the agent is (from suggest to execute).</p>
-<p><strong>HITL rate</strong> — % of agent decisions that require human confirmation.</p>
+<h2>Cluster 11: Neologisms and Jargon-of-the-moment</h2>
+<p><strong>Vibe coding</strong>: Iterative coding with an AI, letting the AI drive with loose specs. Popularized 2024–2025.</p>
+<p><strong>Model soup</strong>: Averaging weights of fine-tuned models.</p>
+<p><strong>Merge / MoE, Mixture of Experts</strong>: Architecture where different parts of the network specialize; only a subset activated per token.</p>
+<p><strong>Sparse / dense (models)</strong>: MoE = sparse activation. Traditional transformers = dense.</p>
+<p><strong>Reasoning model</strong>: A model with native extended thinking (o-series, Claude thinking, DeepSeek R1).</p>
+<p><strong>Verifier model</strong>: A separate model that scores a candidate answer.</p>
+<p><strong>Agentic workflow</strong>: Any multi-step process orchestrated by an AI agent.</p>
+<p><strong>Ambient AI</strong>: AI that runs in the background without explicit invocation (background transcription, always-on assistants).</p>
+<p><strong>Vertical AI / vertical agent</strong>: AI specialized to a domain (legal, medical, real estate).</p>
+<p><strong>Horizontal AI</strong>: General-purpose (ChatGPT, Claude).</p>
+<p><strong>Composable AI</strong>: Building complex systems from smaller AI primitives.</p>
+<p><strong>LLM gateway</strong>: Middleware routing requests across providers (Portkey, LiteLLM, OpenRouter).</p>
+<p><strong>Observability (for LLMs)</strong>: Logging, tracing, cost tracking, prompt versioning across LLM calls (Langfuse, Helicone, Arize, LangSmith).</p>
+<p><strong>Prompt versioning</strong>: Treating prompts like code: version-controlled, tested, deployed.</p>
+<p><strong>Prompt registry</strong>: Central store for reusable, versioned prompts.</p>
+<p><strong>Semantic diff</strong>: Comparing two texts by meaning (embedding distance) rather than string diff.</p>
+<p><strong>Neural retrieval</strong>: Retrieval using neural embeddings (as opposed to BM25).</p>
+<p><strong>Long-tail queries</strong>: Rare, unique queries that don't fit templates.</p>
+<p><strong>Data flywheel</strong>: Feedback loop: usage → logs → training → better model → more usage.</p>
+<p><strong>Small model, big context</strong>: Product pattern: use a cheap model but give it lots of grounded context.</p>
+<p><strong>Cost per resolved (ticket / task / query)</strong>: Ops metric replacing "cost per token" at the product level.</p>
+<p><strong>Deflection rate</strong>: % of user requests handled without human. Support metric.</p>
+<p><strong>Containment</strong>: Similar to deflection; % contained by the bot.</p>
+<p><strong>Autonomy dial</strong>: UX concept: users choose how autonomous the agent is (from suggest to execute).</p>
+<p><strong>HITL rate</strong>: % of agent decisions that require human confirmation.</p>
 <hr />
 <h2>How to learn this glossary</h2>
 <ul>
@@ -704,10 +704,10 @@ report(aggregate_scores)
 </table>
 <h2>Autonomy level</h2>
 <p>Pick one:
-- <strong>Suggest</strong> — Agent produces drafts, human executes
-- <strong>Confirm</strong> — Agent produces actions, human approves each
-- <strong>Execute</strong> — Agent runs autonomously, human reviews after
-- <strong>Full auto</strong> — Agent runs, human reviews only exceptions</p>
+- <strong>Suggest.</strong> Agent produces drafts, human executes
+- <strong>Confirm.</strong> Agent produces actions, human approves each
+- <strong>Execute.</strong> Agent runs autonomously, human reviews after
+- <strong>Full auto.</strong> Agent runs, human reviews only exceptions</p>
 <p>Rule: Start at Suggest. Earn each promotion.</p>
 <h2>Guardrails (things it will never do)</h2>
 <ul>
@@ -755,10 +755,10 @@ Note: Claude's Custom Instructions can be longer than ChatGPT's. Use 500-1500 wo
 <h2>Knowledge files</h2>
 <p>Claude Projects hold a persistent knowledge base up to a large size cap. Prioritize:</p>
 <ol>
-<li><strong>Master reference doc</strong> — one canonical document (glossary, playbook, or spec)</li>
-<li><strong>Style guide</strong> — for voice</li>
-<li><strong>Prompt library</strong> — folder of <code>.md</code> files</li>
-<li><strong>Domain docs</strong> — 5–15 files max at first (add more only if quality holds)</li>
+<li><strong>Master reference doc</strong>: one canonical document (glossary, playbook, or spec)</li>
+<li><strong>Style guide</strong>: for voice</li>
+<li><strong>Prompt library</strong>: folder of <code>.md</code> files</li>
+<li><strong>Domain docs</strong>: 5–15 files max at first (add more only if quality holds)</li>
 </ol>
 <h2>What NOT to upload</h2>
 <ul>
@@ -770,16 +770,16 @@ Note: Claude's Custom Instructions can be longer than ChatGPT's. Use 500-1500 wo
 <h2>Test protocol</h2>
 <p>Ask 5 questions that test the Project's ability to use its knowledge:</p>
 <ol>
-<li>A question directly answered by uploaded doc X — checks retrieval</li>
-<li>A question requiring synthesis across two docs — checks reasoning</li>
-<li>A question NOT in the docs — checks refusal/acknowledgment of limits</li>
-<li>A question with an ambiguous ask — checks clarification behavior</li>
-<li>A question that tests voice/tone — checks style guide adherence</li>
+<li>A question directly answered by uploaded doc X: checks retrieval</li>
+<li>A question requiring synthesis across two docs: checks reasoning</li>
+<li>A question NOT in the docs: checks refusal/acknowledgment of limits</li>
+<li>A question with an ambiguous ask: checks clarification behavior</li>
+<li>A question that tests voice/tone: checks style guide adherence</li>
 </ol>
 <h2>Sharing</h2>
 <ul>
-<li>Personal projects — keep private</li>
-<li>Team projects — share within your Anthropic workspace</li>
+<li>Personal projects: keep private</li>
+<li>Team projects: share within your Anthropic workspace</li>
 <li>Never share a project containing sensitive knowledge without a DPA in place</li>
 </ul>
 </article>
@@ -894,7 +894,7 @@ Note: Claude's Custom Instructions can be longer than ChatGPT's. Use 500-1500 wo
 </ul>
 <h3>Uploaded files</h3>
 <ul>
-<li>Same as Claude — 5–15 curated docs to start</li>
+<li>Same as Claude: 5–15 curated docs to start</li>
 <li>Add: master reference, style guide, prompt library, domain docs</li>
 </ul>
 <h3>Connectors</h3>
@@ -909,8 +909,8 @@ Note: Claude's Custom Instructions can be longer than ChatGPT's. Use 500-1500 wo
 <h2>Test protocol</h2>
 <p>Same 5-question protocol as Claude Projects, plus:</p>
 <ol>
-<li>A question requiring current web data — checks live search</li>
-<li>A question spanning uploaded + web — checks source blending</li>
+<li>A question requiring current web data: checks live search</li>
+<li>A question spanning uploaded + web: checks source blending</li>
 </ol>
 <h2>When Space beats Project</h2>
 <ul>
@@ -922,7 +922,7 @@ Note: Claude's Custom Instructions can be longer than ChatGPT's. Use 500-1500 wo
 </article>
 
   <div class="pnav">
-    <a href="1-company-10-rollout-playbook.html">← 10 — Rollout Playbook</a>
+    <a href="1-company-10-rollout-playbook.html">← 10: Rollout Playbook</a>
     <a href="1-eli10.html">1 Starter ELI10 companions →</a>
   </div>
 </main>

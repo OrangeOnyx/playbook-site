@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>04 — Prompt Library | The AI Playbook Curriculum Reader</title>
-<meta name="description" content="1 Starter · Individual Track: 04 — Prompt Library. Compiled verbatim from The AI Playbook Curriculum repository.">
+<title>04: Prompt Library | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="1 Starter · Individual Track: 04: Prompt Library. Compiled verbatim from The AI Playbook Curriculum repository.">
 <meta name="theme-color" content="#F4EFE2">
 <script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
 <link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/1-individual-04-prompt-library.html">
@@ -38,21 +38,21 @@
   </div>
 </nav>
 <main id="main" tabindex="-1">
-  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 04 — Prompt Library</span>
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 04: Prompt Library</span>
 
-<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">04 — Prompt Library</h1></div></div>
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · INDIVIDUAL TRACK</span><h1 style="margin:.1rem 0 0">04: Prompt Library</h1></div></div>
 <p class="rnote">This page compiles 22 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/1-starter/individual/04-prompt-library">this folder on GitHub</a>.</p>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/04-prompt-library/README.md</span></p>
-<h1>04 — Prompt Library</h1>
+<h1>04: Prompt Library</h1>
 <p>Twenty reusable prompts. Each one is a proven pattern for a common task.</p>
 <h2>How prompts are organized here</h2>
 <p>Each prompt is its own file: <code>NN-slug.md</code>. The file contains:
-1. <strong>Purpose</strong> — one sentence
-2. <strong>When to use</strong> — trigger conditions
-3. <strong>The prompt</strong> — copy-paste-ready
-4. <strong>Variables</strong> — what to fill in
-5. <strong>Model recommendation</strong> — which model handles this best
-6. <strong>Example</strong> — one filled-in example</p>
+1. <strong>Purpose</strong>: one sentence
+2. <strong>When to use</strong>: trigger conditions
+3. <strong>The prompt</strong>: copy-paste-ready
+4. <strong>Variables</strong>: what to fill in
+5. <strong>Model recommendation</strong>: which model handles this best
+6. <strong>Example</strong>: one filled-in example</p>
 <h2>The 20 starters</h2>
 <table>
 <thead>
@@ -182,7 +182,7 @@
 <p><strong>Purpose:</strong> Draft a reply to an email in my voice, matching the tone and length of the incoming message.</p>
 <p><strong>When to use:</strong> You've received an email and need a response drafted before you hit reply.</p>
 <p><strong>Category:</strong> Communication</p>
-<p><strong>Model recommendation:</strong> Claude Sonnet — best at matching voice and tone from examples.</p>
+<p><strong>Model recommendation:</strong> Claude Sonnet, best at matching voice and tone from examples.</p>
 <hr />
 <h2>The prompt</h2>
 <pre><code>Draft a reply to the email below.
@@ -205,8 +205,8 @@ Return the draft in a code block, then a two-line note on what tone I picked and
 </code></pre>
 <h2>Variables</h2>
 <ul>
-<li><code>{EMAIL_BODY}</code> — the full incoming email</li>
-<li><code>{CONTEXT}</code> — anything the model needs to know (relationship, prior thread, deadline)</li>
+<li><code>{EMAIL_BODY}</code>: the full incoming email</li>
+<li><code>{CONTEXT}</code>: anything the model needs to know (relationship, prior thread, deadline)</li>
 </ul>
 <h2>Example use case</h2>
 <p>Client asked: 'Can you push our lease signing to next Friday?'</p>
@@ -218,7 +218,7 @@ Return the draft in a code block, then a two-line note on what tone I picked and
 <p><strong>Purpose:</strong> Turn a meeting transcript or notes into a summary with decisions, action items, and open questions.</p>
 <p><strong>When to use:</strong> You have a transcript, Otter recording, or messy meeting notes to convert into a shareable summary.</p>
 <p><strong>Category:</strong> Communication</p>
-<p><strong>Model recommendation:</strong> Claude Opus or GPT-5 — best at extracting structure from long transcripts.</p>
+<p><strong>Model recommendation:</strong> Claude Opus or GPT-5, best at extracting structure from long transcripts.</p>
 <hr />
 <h2>The prompt</h2>
 <pre><code>Summarize the meeting below.
@@ -249,7 +249,7 @@ Rules:
 </code></pre>
 <h2>Variables</h2>
 <ul>
-<li><code>{TRANSCRIPT}</code> — the raw meeting text</li>
+<li><code>{TRANSCRIPT}</code>: the raw meeting text</li>
 </ul>
 <h2>Example use case</h2>
 <p>Paste a Fireflies transcript.</p>
@@ -259,9 +259,9 @@ Rules:
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/04-prompt-library/03-decision-memo.md</span></p>
 <h1>Decision Memo</h1>
 <p><strong>Purpose:</strong> Produce a short decision memo with the recommendation up front, then supporting logic.</p>
-<p><strong>When to use:</strong> You need to write up a decision for a stakeholder — a peer, boss, or client.</p>
+<p><strong>When to use:</strong> You need to write up a decision for a stakeholder: a peer, boss, or client.</p>
 <p><strong>Category:</strong> Communication</p>
-<p><strong>Model recommendation:</strong> Claude Sonnet — cleanest at inverted-pyramid structure.</p>
+<p><strong>Model recommendation:</strong> Claude Sonnet, cleanest at inverted-pyramid structure.</p>
 <hr />
 <h2>The prompt</h2>
 <pre><code>Write a decision memo on the following.
@@ -308,7 +308,7 @@ Length target: 250–400 words total.
 <p><strong>Purpose:</strong> Rewrite a rough Slack draft into a clean, punchy message.</p>
 <p><strong>When to use:</strong> You've typed a Slack message but it feels too long, too formal, or too passive.</p>
 <p><strong>Category:</strong> Communication</p>
-<p><strong>Model recommendation:</strong> Any model — this is fast and cheap. Use Groq or Haiku.</p>
+<p><strong>Model recommendation:</strong> Any model. This is fast and cheap. Use Groq or Haiku.</p>
 <hr />
 <h2>The prompt</h2>
 <pre><code>Polish this Slack message. Preserve the meaning exactly.
@@ -329,8 +329,8 @@ Return only the polished message. No commentary.
 </code></pre>
 <h2>Variables</h2>
 <ul>
-<li><code>{DRAFT}</code> — your rough draft</li>
-<li><code>{CHANNEL_TONE}</code> — casual / professional / exec</li>
+<li><code>{DRAFT}</code>: your rough draft</li>
+<li><code>{CHANNEL_TONE}</code>: casual / professional / exec</li>
 </ul>
 <h2>Example use case</h2>
 <p>Casual DM about missing a deadline.</p>
@@ -342,7 +342,7 @@ Return only the polished message. No commentary.
 <p><strong>Purpose:</strong> Convert your week's work into a 5-line update for an executive.</p>
 <p><strong>When to use:</strong> Weekly, when your boss or a stakeholder asks 'what's the status?'</p>
 <p><strong>Category:</strong> Communication</p>
-<p><strong>Model recommendation:</strong> GPT-5 — best at compression.</p>
+<p><strong>Model recommendation:</strong> GPT-5, best at compression.</p>
 <hr />
 <h2>The prompt</h2>
 <pre><code>Turn my week's work into an executive update.
@@ -365,7 +365,7 @@ Rules:
 </code></pre>
 <h2>Variables</h2>
 <ul>
-<li><code>{RAW_LOG}</code> — dump of the week's work</li>
+<li><code>{RAW_LOG}</code>: dump of the week's work</li>
 </ul>
 <h2>Example use case</h2>
 <p>A Friday brain-dump.</p>
@@ -374,10 +374,10 @@ Rules:
 </article>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/04-prompt-library/06-research-brief.md</span></p>
 <h1>Research Brief Generator</h1>
-<p><strong>Purpose:</strong> Produce a research brief on a topic — background, key facts, sources, open questions.</p>
+<p><strong>Purpose:</strong> Produce a research brief on a topic: background, key facts, sources, open questions.</p>
 <p><strong>When to use:</strong> You need a fast primer on an unfamiliar topic before a meeting or decision.</p>
 <p><strong>Category:</strong> Research</p>
-<p><strong>Model recommendation:</strong> Perplexity Sonar Pro — search-grounded. Or Perplexity Computer with research subagent for depth.</p>
+<p><strong>Model recommendation:</strong> Perplexity Sonar Pro, search-grounded. Or Perplexity Computer with research subagent for depth.</p>
 <hr />
 <h2>The prompt</h2>
 <pre><code>Produce a research brief on: {TOPIC}
@@ -523,7 +523,7 @@ Any of my active projects this connects to.
 <p><strong>Purpose:</strong> Verify each factual claim in a document against public sources.</p>
 <p><strong>When to use:</strong> Before publishing anything with numbers, dates, or attributed statements.</p>
 <p><strong>Category:</strong> Research</p>
-<p><strong>Model recommendation:</strong> Perplexity — search-grounded, best for verification.</p>
+<p><strong>Model recommendation:</strong> Perplexity, search-grounded and best for verification.</p>
 <hr />
 <h2>The prompt</h2>
 <pre><code>Fact-check the document below. For every factual claim, verify against public sources.
@@ -568,7 +568,7 @@ Bulleted fixes, most critical first.
 </article>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/04-prompt-library/10-code-reviewer.md</span></p>
 <h1>Code Reviewer</h1>
-<p><strong>Purpose:</strong> Review code like a senior engineer — correctness, security, readability, and idiomatic style.</p>
+<p><strong>Purpose:</strong> Review code like a senior engineer: correctness, security, readability, and idiomatic style.</p>
 <p><strong>When to use:</strong> Before opening a PR, or when reviewing a teammate's PR.</p>
 <p><strong>Category:</strong> Engineering</p>
 <p><strong>Model recommendation:</strong> Claude Opus or GPT-5. For long files, Claude's larger context wins.</p>
@@ -620,7 +620,7 @@ Rules:
 <p><strong>Purpose:</strong> Given a stack trace or symptom, propose the top three hypotheses ranked by likelihood.</p>
 <p><strong>When to use:</strong> When something's broken and you don't yet have a hypothesis.</p>
 <p><strong>Category:</strong> Engineering</p>
-<p><strong>Model recommendation:</strong> Claude Opus — best at reasoning over unfamiliar code.</p>
+<p><strong>Model recommendation:</strong> Claude Opus, best at reasoning over unfamiliar code.</p>
 <hr />
 <h2>The prompt</h2>
 <pre><code>Diagnose this bug.
@@ -664,7 +664,7 @@ Relevant code:
 <p><strong>Purpose:</strong> Read source code and produce clean developer documentation.</p>
 <p><strong>When to use:</strong> When someone asks 'how does X work' and there are no docs.</p>
 <p><strong>Category:</strong> Engineering</p>
-<p><strong>Model recommendation:</strong> Claude Sonnet — long context handles multi-file reads.</p>
+<p><strong>Model recommendation:</strong> Claude Sonnet. Long context handles multi-file reads.</p>
 <hr />
 <h2>The prompt</h2>
 <pre><code>Read the code and produce documentation.
@@ -706,7 +706,7 @@ Rules:
 <li><code>{CODE}</code>, <code>{AUDIENCE}</code></li>
 </ul>
 <h2>Example use case</h2>
-<p>The Belle Realty lease-assembly module.</p>
+<p>The Harbor Point Operations lease-assembly module.</p>
 <h2>Expected output shape</h2>
 <p>Six sections + runnable example.</p>
 </article>
@@ -715,7 +715,7 @@ Rules:
 <p><strong>Purpose:</strong> Generate a comprehensive test plan for a function or feature.</p>
 <p><strong>When to use:</strong> Before writing tests, or when reviewing test coverage.</p>
 <p><strong>Category:</strong> Engineering</p>
-<p><strong>Model recommendation:</strong> Claude Sonnet — deliberate about edge cases.</p>
+<p><strong>Model recommendation:</strong> Claude Sonnet, deliberate about edge cases.</p>
 <hr />
 <h2>The prompt</h2>
 <pre><code>Generate a test plan for:
@@ -760,7 +760,7 @@ Rules:
 <p><strong>Purpose:</strong> Write a SQL query for a given question, targeting a specific schema.</p>
 <p><strong>When to use:</strong> You have a schema and a business question and need SQL.</p>
 <p><strong>Category:</strong> Engineering</p>
-<p><strong>Model recommendation:</strong> GPT-5 or Claude — both strong at SQL if given the schema.</p>
+<p><strong>Model recommendation:</strong> GPT-5 or Claude, both strong at SQL if given the schema.</p>
 <hr />
 <h2>The prompt</h2>
 <pre><code>Write a SQL query.
@@ -797,10 +797,10 @@ Schema:
 </article>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/04-prompt-library/15-prompt-improver.md</span></p>
 <h1>Prompt Improver</h1>
-<p><strong>Purpose:</strong> Rewrite a prompt to be more effective — clearer, more constrained, better output structure.</p>
+<p><strong>Purpose:</strong> Rewrite a prompt to be more effective: clearer, more constrained, better output structure.</p>
 <p><strong>When to use:</strong> When a prompt you're using isn't producing what you want.</p>
 <p><strong>Category:</strong> Meta</p>
-<p><strong>Model recommendation:</strong> Claude Opus — best at prompt engineering reasoning.</p>
+<p><strong>Model recommendation:</strong> Claude Opus, best at prompt engineering reasoning.</p>
 <hr />
 <h2>The prompt</h2>
 <pre><code>Improve this prompt.
@@ -981,7 +981,7 @@ Format:
 <li><code>{DOCUMENT}</code>, <code>{FIELD_LIST}</code></li>
 </ul>
 <h2>Example use case</h2>
-<p>Lease extraction for Belle Realty.</p>
+<p>Lease extraction for Harbor Point Operations.</p>
 <h2>Expected output shape</h2>
 <p>JSON with value, source, confidence per field.</p>
 </article>
@@ -990,7 +990,7 @@ Format:
 <p><strong>Purpose:</strong> Turn a week's calendar, notes, and Slack activity into a personal weekly review.</p>
 <p><strong>When to use:</strong> Every Friday, to close the week.</p>
 <p><strong>Category:</strong> Personal ops</p>
-<p><strong>Model recommendation:</strong> Perplexity Computer or Claude Projects — needs to read multiple sources.</p>
+<p><strong>Model recommendation:</strong> Perplexity Computer or Claude Projects. Needs to read multiple sources.</p>
 <hr />
 <h2>The prompt</h2>
 <pre><code>Generate my weekly review.
@@ -1043,7 +1043,7 @@ Rules:
 <p><strong>Purpose:</strong> Log a decision with the reasoning at the moment you make it, for later review.</p>
 <p><strong>When to use:</strong> Every time you make a decision that's larger than trivial but smaller than a memo.</p>
 <p><strong>Category:</strong> Personal ops</p>
-<p><strong>Model recommendation:</strong> Any model — this is short.</p>
+<p><strong>Model recommendation:</strong> Any model. This is short.</p>
 <hr />
 <h2>The prompt</h2>
 <pre><code>Log this decision in my decision journal.
@@ -1090,18 +1090,18 @@ Rules:
 <p>Five sections, under 200 words.</p>
 </article>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="33" x2="22" y2="24" stroke="#C9BFA8" stroke-width="1.2"/><circle cx="22" cy="19" r="5" fill="#A44E12"/></svg><span>1-starter/individual/04-prompt-library/_TEMPLATE.md</span></p>
-<h1>NN — Prompt Title</h1>
+<h1>NN: Prompt Title</h1>
 <p><strong>Purpose:</strong> One-sentence description of what this prompt produces.</p>
-<p><strong>When to use:</strong> Trigger conditions — the situation where you should reach for this prompt.</p>
-<p><strong>Model recommendation:</strong> [ChatGPT / Claude / Perplexity / Gemini] — [why]</p>
+<p><strong>When to use:</strong> Trigger conditions, the situation where you should reach for this prompt.</p>
+<p><strong>Model recommendation:</strong> [ChatGPT / Claude / Perplexity / Gemini], [why]</p>
 <hr />
 <h2>The prompt</h2>
 <pre><code>[Paste the full prompt text here, with {VARIABLES} in braces]
 </code></pre>
 <h2>Variables</h2>
 <ul>
-<li><code>{VAR_1}</code> — description</li>
-<li><code>{VAR_2}</code> — description</li>
+<li><code>{VAR_1}</code>: description</li>
+<li><code>{VAR_2}</code>: description</li>
 </ul>
 <h2>Example</h2>
 <p><strong>Filled-in prompt:</strong></p>
@@ -1117,8 +1117,8 @@ Rules:
 </article>
 
   <div class="pnav">
-    <a href="1-individual-03-system-prompts.html">← 03 — System Prompts</a>
-    <a href="1-individual-05-model-routing.html">05 — Model Routing →</a>
+    <a href="1-individual-03-system-prompts.html">← 03: System Prompts</a>
+    <a href="1-individual-05-model-routing.html">05: Model Routing →</a>
   </div>
 </main>
 <footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>

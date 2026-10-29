@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>01 — Governance | The AI Playbook Curriculum Reader</title>
-<meta name="description" content="1 Starter · Company Track: 01 — Governance. Compiled verbatim from The AI Playbook Curriculum repository.">
+<title>01: Governance | The AI Playbook Curriculum Reader</title>
+<meta name="description" content="1 Starter · Company Track: 01: Governance. Compiled verbatim from The AI Playbook Curriculum repository.">
 <meta name="theme-color" content="#F4EFE2">
 <script>(function(){var d=document.documentElement;try{if(localStorage.getItem('gw-theme')==='night')d.setAttribute('data-theme','night')}catch(e){}window.gwTheme=function(){var n=d.getAttribute('data-theme')==='night';if(n){d.removeAttribute('data-theme')}else{d.setAttribute('data-theme','night')}try{localStorage.setItem('gw-theme',n?'day':'night')}catch(e){}s()};function s(){var n=d.getAttribute('data-theme')==='night';document.querySelectorAll('.modeswitch').forEach(function(b){b.textContent=n?'DAY':'NIGHT';b.setAttribute('aria-pressed',n?'true':'false')});var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',n?'#1B1813':'#F4EFE2')}window.addEventListener('DOMContentLoaded',s)})()</script>
 <link rel="canonical" href="https://playbook.adamabdalla.com/curriculum/read/1-company-01-governance.html">
@@ -38,22 +38,22 @@
   </div>
 </nav>
 <main id="main" tabindex="-1">
-  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 01 — Governance</span>
+  <span class="crumb"><a href="/curriculum/">The Curriculum</a> / <a href="index.html">Reader</a> / 01: Governance</span>
 
-<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · COMPANY TRACK</span><h1 style="margin:.1rem 0 0">01 — Governance</h1></div></div>
+<div class="gopen"><svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><div><span class="kicker" style="margin-bottom:.15rem">1 STARTER · COMPANY TRACK</span><h1 style="margin:.1rem 0 0">01: Governance</h1></div></div>
 <p class="rnote">This page compiles 7 files from the repository, verbatim, in reading order. The living version: <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum/tree/master/1-starter/company/01-governance">this folder on GitHub</a>.</p>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/01-governance/README.md</span></p>
-<h1>01 — Governance</h1>
+<h1>01: Governance</h1>
 <p><strong>Governance before tools. Always.</strong></p>
 <p>A company with an AUP but no AI beats a company with AI but no AUP. Every incident in the past three years has come from an unstructured deployment.</p>
 <h2>Files in this folder</h2>
 <ol>
-<li><code>acceptable-use-policy.md</code> — the one-page AUP employees actually read</li>
-<li><code>data-classification-matrix.md</code> — which data class goes to which tool</li>
-<li><code>vendor-dpa-checklist.md</code> — DPAs to sign with each vendor</li>
-<li><code>incident-response-addendum.md</code> — what to do when PII leaks</li>
-<li><code>steering-committee-charter.md</code> — who sits on it, what they decide</li>
-<li><code>zero-retention-configuration.md</code> — how to enable no-training on every provider</li>
+<li><code>acceptable-use-policy.md</code>: the one-page AUP employees actually read</li>
+<li><code>data-classification-matrix.md</code>: which data class goes to which tool</li>
+<li><code>vendor-dpa-checklist.md</code>: DPAs to sign with each vendor</li>
+<li><code>incident-response-addendum.md</code>: what to do when PII leaks</li>
+<li><code>steering-committee-charter.md</code>: who sits on it, what they decide</li>
+<li><code>zero-retention-configuration.md</code>: how to enable no-training on every provider</li>
 </ol>
 <h2>The sequence</h2>
 <p>Do these in strict order. Skipping = incident.</p>
@@ -86,20 +86,20 @@
 <h2>Scope</h2>
 <p>Applies to:
 - All employees, contractors, and interns
-- All AI tools — consumer, enterprise, API, open-source, embedded features
-- All company data — whether accessed at work, at home, or on personal devices</p>
+- All AI tools: consumer, enterprise, API, open-source, embedded features
+- All company data, whether accessed at work, at home, or on personal devices</p>
 <h2>The four rules</h2>
-<h3>Rule 1 — Only approved tools for work</h3>
+<h3>Rule 1: Only approved tools for work</h3>
 <p>The approved tool list is at <code>company/02-accounts-procurement/platform-account-order.md</code>. Anything else requires Steering Committee approval before use with company data.</p>
-<h3>Rule 2 — Data classification, then tool</h3>
+<h3>Rule 2: Data classification, then tool</h3>
 <p>Every piece of company data has a classification: <strong>Public</strong>, <strong>Internal</strong>, <strong>Confidential</strong>, <strong>Restricted</strong>. Match the classification to the tool tier per <code>data-classification-matrix.md</code>. When in doubt, treat as more sensitive, not less.</p>
-<h3>Rule 3 — You are responsible for AI output</h3>
+<h3>Rule 3: You are responsible for AI output</h3>
 <ul>
 <li>AI is a tool; you are the author.</li>
 <li>Review every AI-generated output before it is sent, published, or committed.</li>
 <li>You are accountable for accuracy, tone, and legal compliance of anything you approve.</li>
 </ul>
-<h3>Rule 4 — Report incidents immediately</h3>
+<h3>Rule 4: Report incidents immediately</h3>
 <p>If you paste sensitive data into an unapproved tool, receive suspicious output, or suspect a prompt injection, notify [SECURITY EMAIL] within 24 hours. No blame for reporting; blame for not reporting.</p>
 <h2>Explicit permissions</h2>
 <p>Employees <strong>may</strong>:
@@ -286,7 +286,7 @@ Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</
 <tr>
 <td>Source code with credentials</td>
 <td>Restricted</td>
-<td>Never — scrub first</td>
+<td>Never: scrub first</td>
 </tr>
 <tr>
 <td>SSN, DOB, tax ID</td>
@@ -301,7 +301,7 @@ Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</
 <tr>
 <td>Medical / health data</td>
 <td>Restricted</td>
-<td>HIPAA — BAA required</td>
+<td>HIPAA: BAA required</td>
 </tr>
 <tr>
 <td>Legal-privileged</td>
@@ -347,7 +347,7 @@ Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</
 <p>The Steering Committee reviews this matrix quarterly. Additions to the "restricted" list require CISO approval.</p>
 </article>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/01-governance/incident-response-addendum.md</span></p>
-<h1>Incident Response Addendum — AI</h1>
+<h1>Incident Response Addendum: AI</h1>
 <p>This addendum extends the company's existing IR plan for AI-specific incidents.</p>
 <h2>Incident classes</h2>
 <table>
@@ -360,44 +360,44 @@ Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</
 </thead>
 <tbody>
 <tr>
-<td><strong>A1 — Data exposure</strong></td>
+<td><strong>A1: Data exposure</strong></td>
 <td>Sensitive data pasted into unapproved tool</td>
 <td>Client PII into ChatGPT free tier</td>
 </tr>
 <tr>
-<td><strong>A2 — Model output leak</strong></td>
+<td><strong>A2: Model output leak</strong></td>
 <td>AI output published containing sensitive data</td>
 <td>Hallucinated PII appears in customer email</td>
 </tr>
 <tr>
-<td><strong>A3 — Prompt injection</strong></td>
+<td><strong>A3: Prompt injection</strong></td>
 <td>Adversarial input hijacked an AI agent</td>
 <td>Malicious doc caused agent to exfiltrate</td>
 </tr>
 <tr>
-<td><strong>A4 — Agent action error</strong></td>
+<td><strong>A4: Agent action error</strong></td>
 <td>AI took a wrong action (sent, deleted, purchased)</td>
 <td>Agent sent draft as final</td>
 </tr>
 <tr>
-<td><strong>A5 — Model misuse</strong></td>
+<td><strong>A5: Model misuse</strong></td>
 <td>Employee used AI to violate policy</td>
 <td>Deceptive AI-generated content sent externally</td>
 </tr>
 <tr>
-<td><strong>A6 — Vendor incident</strong></td>
+<td><strong>A6: Vendor incident</strong></td>
 <td>Vendor breach affecting our data</td>
 <td>Provider notifies us of security event</td>
 </tr>
 <tr>
-<td><strong>A7 — Bias / harm</strong></td>
+<td><strong>A7: Bias / harm</strong></td>
 <td>AI output caused discriminatory or harmful outcome</td>
 <td>Screening tool produced biased scores</td>
 </tr>
 </tbody>
 </table>
 <h2>Response by class</h2>
-<h3>A1 — Data exposure</h3>
+<h3>A1: Data exposure</h3>
 <ol>
 <li>Reporter contacts Security via [SECURITY EMAIL] within 24 hours</li>
 <li>Security confirms: what data, what tool, when, who else has access</li>
@@ -406,14 +406,14 @@ Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</
 <li>Affected parties notified per legal guidance</li>
 <li>Employee coaching (not punitive on first report)</li>
 </ol>
-<h3>A2 — Model output leak</h3>
+<h3>A2: Model output leak</h3>
 <ol>
 <li>Recall or retract the leaked output where possible</li>
 <li>Investigate: was it a hallucination, or actual data in the model context?</li>
 <li>If context-sourced, treat as A1</li>
 <li>If hallucinated, note as a quality issue; add to eval set</li>
 </ol>
-<h3>A3 — Prompt injection</h3>
+<h3>A3: Prompt injection</h3>
 <ol>
 <li>Isolate the affected agent immediately (kill switch)</li>
 <li>Determine blast radius: what tools did the agent have access to?</li>
@@ -422,7 +422,7 @@ Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</
 <li>Root cause: what input carried the injection? How did it evade defenses?</li>
 <li>Publish an incident report to the Steering Committee within 5 business days</li>
 </ol>
-<h3>A4 — Agent action error</h3>
+<h3>A4: Agent action error</h3>
 <ol>
 <li>Stop the agent</li>
 <li>Undo the action if reversible (recall email, restore deleted data)</li>
@@ -430,20 +430,20 @@ Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</
 <li>Investigate the decision path</li>
 <li>Add a HITL checkpoint or guardrail before re-enabling</li>
 </ol>
-<h3>A5 — Model misuse</h3>
+<h3>A5: Model misuse</h3>
 <ol>
 <li>Preserve evidence</li>
 <li>Follow HR/legal escalation</li>
 <li>Steering Committee reviews for policy gap</li>
 </ol>
-<h3>A6 — Vendor incident</h3>
+<h3>A6: Vendor incident</h3>
 <ol>
 <li>Acknowledge vendor notification</li>
 <li>Assess: is our data affected? What data?</li>
 <li>Legal reviews vendor's breach report against contract commitments</li>
 <li>Follow through on any downstream customer notifications required</li>
 </ol>
-<h3>A7 — Bias / harm</h3>
+<h3>A7: Bias / harm</h3>
 <ol>
 <li>Suspend the affected workflow</li>
 <li>Convene bias review (Steering Committee + Legal + Ethics if applicable)</li>
@@ -468,15 +468,15 @@ Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</
 </ol>
 <h2>Post-incident</h2>
 <p>Every material incident produces:
-- <strong>Incident report</strong> — timeline, root cause, blast radius, remediation
+- <strong>Incident report.</strong> Timeline, root cause, blast radius, remediation
 - <strong>AUP update</strong> if a policy gap contributed
-- <strong>Eval set update</strong> — the incident scenario added as a regression test
-- <strong>Training update</strong> — the case incorporated into next quarterly refresh</p>
+- <strong>Eval set update.</strong> The incident scenario added as a regression test
+- <strong>Training update.</strong> The case incorporated into next quarterly refresh</p>
 <h2>Reporter protection</h2>
 <p>Reporters are protected from retaliation. First-time honest reports do not trigger discipline. Cover-ups do.</p>
 </article>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/01-governance/steering-committee-charter.md</span></p>
-<h1>AI Steering Committee — Charter</h1>
+<h1>AI Steering Committee: Charter</h1>
 <h2>Purpose</h2>
 <p>The AI Steering Committee sets policy, approves tools, oversees rollout, reviews incidents, and steers investment for AI at [COMPANY].</p>
 <p>It is a governance body, not a build team. Build teams execute; the Committee decides scope, guardrails, and priorities.</p>
@@ -516,12 +516,12 @@ Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</
 <td>Identity, integrations, cost, deployment</td>
 </tr>
 <tr>
-<td><strong>AI Champion — Engineering</strong></td>
+<td><strong>AI Champion, Engineering</strong></td>
 <td>Senior engineer trusted with agent builds</td>
 <td>Technical practicality</td>
 </tr>
 <tr>
-<td><strong>AI Champion — Business</strong></td>
+<td><strong>AI Champion, Business</strong></td>
 <td>Rotating seat from a business team (Sales, Support, Ops, etc.)</td>
 <td>Business context, user voice</td>
 </tr>
@@ -540,10 +540,10 @@ Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</
 <p>Size cap: 8 voting members. Rotating seats change every 6 months.</p>
 <h2>Cadence</h2>
 <ul>
-<li><strong>Weekly</strong> — 30-min triage of new requests during initial rollout (first 90 days)</li>
-<li><strong>Bi-weekly</strong> — 60-min working session</li>
-<li><strong>Monthly</strong> — 60-min executive review</li>
-<li><strong>Quarterly</strong> — 2-hour full review + tool bake-off + policy refresh</li>
+<li><strong>Weekly.</strong> 30-min triage of new requests during initial rollout (first 90 days)</li>
+<li><strong>Bi-weekly.</strong> 60-min working session</li>
+<li><strong>Monthly.</strong> 60-min executive review</li>
+<li><strong>Quarterly.</strong> 2-hour full review + tool bake-off + policy refresh</li>
 </ul>
 <h2>Decision types</h2>
 <table>
@@ -620,12 +620,12 @@ Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</
 <ul>
 <li>Formed at kickoff of AI program</li>
 <li>Full charter (this doc) reviewed annually</li>
-<li>Committee itself is reviewed by Executive Sponsor annually — dissolved if AI becomes fully embedded across departments (steady-state governance moves to existing functions)</li>
+<li>Committee itself is reviewed by Executive Sponsor annually. It is dissolved if AI becomes fully embedded across departments (steady-state governance moves to existing functions)</li>
 </ul>
 <h2>Escalation from Committee</h2>
 <ul>
-<li>To Executive Sponsor — anything requiring exec approval, budget beyond charter cap</li>
-<li>To Board — material regulatory risk, or AI use with strategic implications</li>
+<li>To Executive Sponsor: anything requiring exec approval, budget beyond charter cap</li>
+<li>To Board: material regulatory risk, or AI use with strategic implications</li>
 </ul>
 </article>
 <article class="doc"><p class="fcrumb"><svg width="16" height="16" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 38 H38" stroke="#1E1B16" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="22" r="4" fill="#A44E12"/><circle cx="22" cy="16" r="5" fill="#A44E12"/><circle cx="32" cy="22" r="4" fill="#A44E12"/></svg><span>1-starter/company/01-governance/vendor-dpa-checklist.md</span></p>
@@ -633,18 +633,18 @@ Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</
 <p>A <strong>Data Processing Agreement (DPA)</strong> must be signed with every AI vendor that processes company data. Do this before rollout, not after.</p>
 <h2>What to require in every AI DPA</h2>
 <ul>
-<li>[ ] <strong>Zero-retention clause</strong> — vendor will not retain inputs beyond the request lifetime, or will retain only for a defined short period (e.g., 30 days for abuse prevention) and only in encrypted form</li>
-<li>[ ] <strong>No-training clause</strong> — vendor will not train models on our inputs or outputs</li>
-<li>[ ] <strong>Sub-processor list</strong> — vendor identifies all sub-processors and notifies of changes</li>
-<li>[ ] <strong>Data location</strong> — where processing occurs; EU customers require EU residency options</li>
-<li>[ ] <strong>Breach notification</strong> — vendor notifies within 72 hours of a security incident</li>
-<li>[ ] <strong>Audit rights</strong> — right to request evidence of controls (SOC 2 Type II report at minimum)</li>
-<li>[ ] <strong>Deletion on termination</strong> — vendor deletes all data within defined period after contract ends</li>
-<li>[ ] <strong>Data portability</strong> — right to export data before termination</li>
-<li>[ ] <strong>Liability caps</strong> — appropriate to volume and sensitivity of data</li>
-<li>[ ] <strong>BAA addendum</strong> — if PHI is involved (HIPAA)</li>
-<li>[ ] <strong>DPA appendix compliant with GDPR</strong> — if EU personal data</li>
-<li>[ ] <strong>Standard Contractual Clauses (SCCs)</strong> — for cross-border EU-US transfers</li>
+<li>[ ] <strong>Zero-retention clause:</strong> vendor will not retain inputs beyond the request lifetime, or will retain only for a defined short period (e.g., 30 days for abuse prevention) and only in encrypted form</li>
+<li>[ ] <strong>No-training clause:</strong> vendor will not train models on our inputs or outputs</li>
+<li>[ ] <strong>Sub-processor list:</strong> vendor identifies all sub-processors and notifies of changes</li>
+<li>[ ] <strong>Data location:</strong> where processing occurs; EU customers require EU residency options</li>
+<li>[ ] <strong>Breach notification:</strong> vendor notifies within 72 hours of a security incident</li>
+<li>[ ] <strong>Audit rights:</strong> right to request evidence of controls (SOC 2 Type II report at minimum)</li>
+<li>[ ] <strong>Deletion on termination:</strong> vendor deletes all data within defined period after contract ends</li>
+<li>[ ] <strong>Data portability:</strong> right to export data before termination</li>
+<li>[ ] <strong>Liability caps:</strong> appropriate to volume and sensitivity of data</li>
+<li>[ ] <strong>BAA addendum:</strong> if PHI is involved (HIPAA)</li>
+<li>[ ] <strong>DPA appendix compliant with GDPR:</strong> if EU personal data</li>
+<li>[ ] <strong>Standard Contractual Clauses (SCCs):</strong> for cross-border EU-US transfers</li>
 </ul>
 <h2>Provider-specific notes</h2>
 <h3>OpenAI (Enterprise / Team)</h3>
@@ -680,7 +680,7 @@ Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</
 </ul>
 <h3>xAI / Grok</h3>
 <ul>
-<li>Read current terms carefully — training defaults have changed multiple times</li>
+<li>Read current terms carefully: training defaults have changed multiple times</li>
 <li>Confirm no-training in writing</li>
 </ul>
 <h3>Groq / OpenRouter / Together / Fireworks</h3>
@@ -813,7 +813,7 @@ Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</
 <h3>Google AI Studio / Vertex AI (paid tier)</h3>
 <ul>
 <li>Vertex AI paid tier: no training on your data</li>
-<li>AI Studio free tier: data may be used to improve models — DO NOT use for company data on free tier</li>
+<li>AI Studio free tier: data may be used to improve models. DO NOT use for company data on free tier</li>
 <li>Verify: Vertex AI console → project settings</li>
 <li>Contract: Google Cloud DPA</li>
 </ul>
@@ -841,18 +841,18 @@ Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</
 </ul>
 <h3>Perplexity API</h3>
 <ul>
-<li>Configure per contract — request zero-retention explicitly</li>
+<li>Configure per contract. Request zero-retention explicitly</li>
 </ul>
 <h2>xAI Grok</h2>
 <ul>
-<li>Read current terms — default has changed multiple times</li>
+<li>Read current terms: default has changed multiple times</li>
 <li>If used: only for Public data unless zero-retention is contractually confirmed</li>
 <li>Verify quarterly</li>
 </ul>
 <h2>Groq / Together / Fireworks / OpenRouter</h2>
 <ul>
 <li>These providers route to open-weight models</li>
-<li>Read each provider's data policy — most claim no training, but certifications vary</li>
+<li>Read each provider's data policy: most claim no training, but certifications vary</li>
 <li>Suitable for Public / Internal data by default; Confidential only with contract review</li>
 </ul>
 <h2>Local / self-hosted (Ollama, vLLM, TensorRT-LLM)</h2>
@@ -879,7 +879,7 @@ Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</
 
   <div class="pnav">
     <a href="1-individual-09-rituals.html">← Rituals</a>
-    <a href="1-company-02-accounts-procurement.html">02 — Accounts & Procurement →</a>
+    <a href="1-company-02-accounts-procurement.html">02: Accounts & Procurement →</a>
   </div>
 </main>
 <footer class="site"><div class="passiton">Pass it on: <button class="btn btn-ghost pbtn" onclick="navigator.clipboard.writeText(location.href);this.textContent='Copied'">Copy link</button> <a href="mailto:?subject=The%20AI%20Playbook&amp;body=A free, ungated AI readiness system for owners and operators: https://playbook.adamabdalla.com">Send to a fellow owner</a> · <a href="https://github.com/OrangeOnyx/ai-playbook-curriculum">Curriculum on GitHub</a></div>
